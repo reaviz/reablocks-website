@@ -27,7 +27,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [10, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [13, 0]),
     springConfig,
   );
   const opacity = useSpring(
@@ -39,13 +39,13 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-490, 800]),
+    useTransform(scrollYProgress, [0, 0.2], [-500, 650]),
     springConfig,
   );
   return (
     <div className={className} ref={ref}>
       {children}
-      <div className="flex h-[300vh] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
+      <div className="flex h-[3000px] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
         <motion.div
           style={{
             rotateX,
