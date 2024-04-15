@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { TracingBeams } from "@/components/ui/tracing-beams";
 import { Count } from "@/components/utils/Count/Count";
@@ -16,74 +17,75 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main
-      className={`relative flex min-h-screen w-screen flex-col items-center justify-between bg-gradient-to-b from-[#11111F] from-50% to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
+      className={`flex min-h-screen w-full flex-col items-center bg-gradient-to-b from-[#11111F] from-50% to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
     >
-      <TracingBeams className="hidden md:block">
-        <header
-          className={`animate-header-slide-down-fade sticky top-0 flex w-full justify-center backdrop-blur-sm transition duration-200 ease-in-out `}
+      <motion.header
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        className={`fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-[16%] backdrop-blur-md`}
+      >
+        <nav
+          className="flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
+          aria-label="Global"
         >
-          <nav
-            className="border-accent relative flex w-full max-w-[1440px] items-center justify-center  px-2 py-6 sm:px-2"
-            aria-label="Global"
-          >
-            <div className="absolute left-4 flex-1 md:left-24">
-              <a href="#">
-                <span className="sr-only">Your Company</span>
-                <Image src="/logo.svg" alt="logo" width={122} height={24} />
-              </a>
-            </div>
-            <div className="absolute right-4 flex md:hidden">
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-content-secondary"
+          <div className="absolute left-4 flex-1 md:left-24">
+            <a href="#">
+              <span className="sr-only">Your Company</span>
+              <Image src="/logo.svg" alt="logo" width={122} height={24} />
+            </a>
+          </div>
+          <div className="absolute right-4 flex md:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-content-secondary"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
               >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary"
-              >
-                Docs
-              </a>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary"
-              >
-                Blocks
-              </a>
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary"
-              >
-                Support
-              </a>
-            </div>
-          </nav>
-        </header>
-        <hr className="absolute left-0 w-screen border border-[#9091A0] border-opacity-[16%]" />
-        <section className={`container mt-12 flex-1 px-4 md:px-24`}>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-content-secondary"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-content-secondary"
+            >
+              Docs
+            </a>
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-content-secondary"
+            >
+              Blocks
+            </a>
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-content-secondary"
+            >
+              Support
+            </a>
+          </div>
+        </nav>
+      </motion.header>
+      <TracingBeams className="hidden md:block">
+        <section className={`container mt-32 flex-1 px-4 md:px-24`}>
           <div className="flex flex-col items-center gap-4 py-12 md:flex-row">
             <div className="relative flex flex-1 flex-col gap-4">
               <div className="absolute -top-10 flex w-fit items-center gap-2 rounded-full border border-[#0D4ED2] bg-[#041028] px-3 py-1">
