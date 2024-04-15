@@ -22,7 +22,7 @@ export default function Home() {
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className={`fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-[16%] backdrop-blur-md`}
+        className={`fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-[16%] bg-[#11111F] md:bg-transparent md:backdrop-blur-md`}
       >
         <nav
           className="relative flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
