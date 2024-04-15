@@ -25,7 +25,7 @@ export default function Home() {
         className={`fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-[16%] backdrop-blur-md`}
       >
         <nav
-          className="flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
+          className="relative flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
           aria-label="Global"
         >
           <div className="absolute left-4 flex-1 md:left-24">
