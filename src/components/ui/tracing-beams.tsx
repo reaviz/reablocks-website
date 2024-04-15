@@ -28,14 +28,14 @@ export const TracingBeams = ({
   }, []);
 
   const y1_left = useSpring(
-    useTransform(scrollYProgress, [0, 0.6], [50, svgHeight]),
+    useTransform(scrollYProgress, [0, 0.75], [50, svgHeight]),
     {
       stiffness: 500,
       damping: 90,
     },
   );
   const y2_left = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [50, svgHeight - 200]),
+    useTransform(scrollYProgress, [0, 0.95], [50, svgHeight - 200]),
     {
       stiffness: 500,
       damping: 90,
@@ -43,7 +43,7 @@ export const TracingBeams = ({
   );
 
   return (
-    <div className="flex flex-1 overflow-hidden">
+    <div className="flex flex-1 overflow-visible">
       <motion.div
         ref={ref}
         className={cn("relative flex-1", containerClassName)}
