@@ -1,7 +1,9 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Image from "next/image";
+
 import { TracingBeams } from "@/components/ui/tracing-beams";
+import { Count } from "@/components/utils/Count/Count";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -120,19 +122,42 @@ export default function Home() {
         <section className="flex w-full justify-center px-0 py-4 md:px-24 md:py-10">
           <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 md:grid-cols-4 md:grid-rows-1">
             <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-              <span className="text-3xl font-bold">200+</span>
+              <Count
+                className="min-h-9 text-3xl font-bold"
+                from={120}
+                to={200}
+                suffix={"+"}
+              />
               <h3 className="text-sm">Blocks</h3>
             </div>
             <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-              <span className="text-3xl font-bold">200+</span>
+              <Count
+                className="min-h-9 text-3xl font-bold"
+                from={120}
+                to={200}
+                suffix={"+"}
+              />
+
               <h3 className="text-sm">Blocks</h3>
             </div>
             <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-              <span className="text-3xl font-bold">200+</span>
+              <Count
+                className="min-h-9 text-3xl font-bold"
+                from={120}
+                to={200}
+                suffix={"+"}
+              />
+
               <h3 className="text-sm">Blocks</h3>
             </div>
             <div className="flex flex-1 flex-col items-center gap-4 px-12">
-              <span className="text-3xl font-bold">200+</span>
+              <Count
+                className="min-h-9 text-3xl font-bold"
+                from={120}
+                to={200}
+                suffix={"+"}
+              />
+
               <h3 className="text-sm">Blocks</h3>
             </div>
           </div>
