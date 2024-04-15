@@ -1,2 +1,3 @@
-# reablocks-website
-🚧 Website for Reablocks
+# reablocks website
+
+Website for [reablocks.dev](https://reablocks.dev).
