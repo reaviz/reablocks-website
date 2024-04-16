@@ -54,7 +54,11 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
             opacity,
           }}
         >
-          <motion.div className="mb-20 flex justify-center space-x-20 space-x-reverse px-24">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mb-20 flex justify-center space-x-20 space-x-reverse px-24"
+          >
             <Image
               draggable={false}
               src={src}

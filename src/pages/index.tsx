@@ -40,16 +40,20 @@ export const Hero = ({ className }: { className?: string }) => {
           </div>
           <div className="flex flex-1 flex-col gap-4">
             <p className="text-xs text-content-secondary md:text-base">
-              Explore 5900+ blocks, unique widgets, and others with a
+              Explore 65+ blocks, unique widgets, and others with a
               lightning-fast for React based on Tailwind.
             </p>
             <div className="flex gap-4">
-              <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button md:w-fit">
-                Get Started
-              </button>
-              <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button hover:bg-primary-hover md:w-fit">
-                Demo
-              </button>
+              <Link href="https://reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
+                <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit">
+                  Get Started
+                </button>
+              </Link>
+              <Link href="https://reablocks.dev/?path=/docs/docs-intro--docs">
+                <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
+                  Demo
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -120,7 +124,13 @@ export default function Home() {
           <div className="absolute left-4 flex-1 md:left-24">
             <a href="#">
               <span className="sr-only">Your Company</span>
-              <Image src="/logo.svg" alt="logo" width={122} height={24} />
+              <Image
+                draggable={false}
+                src="/logo.svg"
+                alt="logo"
+                width={122}
+                height={24}
+              />
             </a>
           </div>
           <div className="absolute right-4 flex md:hidden">
@@ -146,30 +156,30 @@ export default function Home() {
             </button>
           </div>
           <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
-            <a
+            <Link
               href="#"
               className="text-sm font-semibold leading-6 text-content-secondary"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="https://reablocks.dev/?path=/docs/docs-intro--docs"
               className="text-sm font-semibold leading-6 text-content-secondary"
             >
               Docs
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="https://reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
               className="text-sm font-semibold leading-6 text-content-secondary"
             >
               Blocks
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="mailto:austin@goodcode.us"
               className="text-sm font-semibold leading-6 text-content-secondary"
             >
               Support
-            </a>
+            </Link>
           </div>
         </nav>
       </motion.header>
@@ -268,7 +278,10 @@ export default function Home() {
                   theme across all your components, ensuring a consistent look
                   and feel.
                 </p>
-                <Link className="text-xs text-secondary md:text-sm" href="/">
+                <Link
+                  href="https://reablocks.dev/?path=/docs/docs-intro--docs"
+                  className="text-xs text-secondary md:text-sm"
+                >
                   Learn more
                 </Link>
               </div>
@@ -303,7 +316,10 @@ export default function Home() {
                   globally. This is useful for creating different versions of
                   the same component.
                 </p>
-                <Link className="text-xs text-secondary md:text-sm" href="/">
+                <Link
+                  href="https://reablocks.dev/?path=/docs/docs-intro--docs"
+                  className="text-xs text-secondary md:text-sm"
+                >
                   Learn more
                 </Link>
               </div>
@@ -322,7 +338,15 @@ export default function Home() {
         </section>
         <footer className="container px-4 py-6 text-sm text-content-secondary md:px-24">
           <div className="flex items-center justify-between gap-2">
-            <Image src="/logo.svg" alt="logo" width={122} height={24} />
+            <Link href="#">
+              <Image
+                draggable={false}
+                src="/logo.svg"
+                alt="logo"
+                width={122}
+                height={24}
+              />
+            </Link>
             <span className="hidden md:block">
               Maintained by{" "}
               <Link
