@@ -40,8 +40,8 @@ export const Hero = ({ className }: { className?: string }) => {
           </div>
           <div className="flex flex-1 flex-col gap-4">
             <p className="text-xs text-content-secondary md:text-base">
-              Explore 65+ blocks, unique widgets, and others with a
-              lightning-fast for React based on Tailwind.
+              Beautifully designed, highly customizable, Open Source React
+              components based on Tailwind and Framer Motion.
             </p>
             <div className="flex gap-4">
               <Link href="https://reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
@@ -64,32 +64,28 @@ export const Hero = ({ className }: { className?: string }) => {
           <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
             <Count
               className="min-h-9 text-3xl font-bold"
-              from={120}
-              to={200}
+              from={10}
+              to={50}
+              suffix={"+"}
+            />
+
+            <h3 className="text-sm">Components</h3>
+          </div>
+          <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+            <Count
+              className="min-h-9 text-3xl font-bold"
+              from={0}
+              to={8}
               suffix={"+"}
             />
             <h3 className="text-sm">Blocks</h3>
           </div>
           <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-            <Count
-              className="min-h-9 text-3xl font-bold"
-              from={120}
-              to={200}
-              suffix={"+"}
-            />
+            <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
 
-            <h3 className="text-sm">Blocks</h3>
+            <h3 className="text-sm">Utilties</h3>
           </div>
-          <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-            <Count
-              className="min-h-9 text-3xl font-bold"
-              from={120}
-              to={200}
-              suffix={"+"}
-            />
 
-            <h3 className="text-sm">Blocks</h3>
-          </div>
           <div className="flex flex-1 flex-col items-center gap-4 px-12">
             <Count
               className="min-h-9 text-3xl font-bold"
@@ -98,7 +94,7 @@ export const Hero = ({ className }: { className?: string }) => {
               suffix={"+"}
             />
 
-            <h3 className="text-sm">Blocks</h3>
+            <h3 className="text-sm">Stories</h3>
           </div>
         </div>
       </section>
