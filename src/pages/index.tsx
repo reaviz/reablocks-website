@@ -109,7 +109,7 @@ export const Header = ({ className }: { className?: string }) => {
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen w-full flex-col items-center bg-gradient-to-b from-[#11111F] from-50% to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
+      className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
     >
       <motion.header
         initial={{ opacity: 0, y: -50 }}
