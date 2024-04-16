@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Divider } from "@/components/ui/divider";
@@ -16,6 +17,7 @@ import GithubIcon from "@/icons/github.svg";
 import LinkedinIcon from "@/icons/linkedin.svg";
 import SparklesIcon from "@/icons/sparkles.svg";
 import Sparkles2Icon from "@/icons/sparkles2.svg";
+import { cn } from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -107,6 +109,20 @@ export const Hero = ({ className }: { className?: string }) => (
 );
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolledCheck = window.scrollY > 80;
+      setIsScrolled(isScrolledCheck);
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -126,7 +142,10 @@ export default function Home() {
         <motion.header
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-[16%] bg-[#11111F] md:bg-transparent md:backdrop-blur-md`}
+          className={cn(
+            `fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-15 bg-[#11111F] transition-[backdrop-filter] md:bg-transparent`,
+            isScrolled && "md:backdrop-blur-md",
+          )}
         >
           <nav
             className="relative flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
