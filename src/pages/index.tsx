@@ -271,7 +271,7 @@ export default function Home() {
               </Badge>
               <h3 className="text-content max-w-[639px] text-center text-4xl font-bold !leading-[150%] md:text-6xl md:!leading-[120%]">
                 Production ready{" "}
-                <span className="text-secondary">Open-Source</span> blocks
+                <span className="text-secondary">Open-Source</span> components
               </h3>
             </div>
             <div className="mb-4 md:mb-20">
@@ -361,7 +361,7 @@ export default function Home() {
                 />
               </Link>
               <span className="hidden md:block">
-                Maintained by{" "}
+                Made with ❤️ by{" "}
                 <Link
                   className="text-secondary underline"
                   href="https://goodcode.us"
@@ -371,8 +371,8 @@ export default function Home() {
               </span>
               <div className="flex gap-4">
                 <Link
-                  aria-label="GoodCode's GitHub profile"
-                  href="https://github.com/goodcodeus"
+                  aria-label="GoodCode's reaviz chart library"
+                  href="https://reaviz.io/?path=/docs/docs-intro--docs"
                 >
                   <GithubIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
                 </Link>
@@ -392,7 +392,7 @@ export default function Home() {
             </div>
             <div className="block self-center pb-4 pt-10 text-center md:hidden">
               <span>
-                Maintained by{" "}
+                Made with ❤️ by{" "}
                 <Link
                   className="text-secondary underline"
                   href="https://goodcode.us"
