@@ -24,6 +24,9 @@ const config: Config = {
           DEFAULT: "#105EFF",
           hover: "#4C86FF",
         },
+        secondary: {
+          DEFAULT: "#87AEFF",
+        },
         content: {
           primary: "#F2F3F7",
           secondary: "#C6CBD9",

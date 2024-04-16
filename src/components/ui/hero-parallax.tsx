@@ -45,7 +45,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
   return (
     <div className={className} ref={ref}>
       {children}
-      <div className="flex h-[1700px] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
+      <div className="flex h-[1650px] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
         <motion.div
           style={{
             rotateX,
@@ -55,7 +55,13 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
           }}
         >
           <motion.div className="mb-20 flex justify-center space-x-20 space-x-reverse px-24">
-            <Image src={src} height={height} width={width} alt="hero image" />
+            <Image
+              draggable={false}
+              src={src}
+              height={height}
+              width={width}
+              alt="hero image"
+            />
           </motion.div>
         </motion.div>
       </div>
