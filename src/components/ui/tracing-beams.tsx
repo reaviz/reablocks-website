@@ -83,10 +83,9 @@ export const TracingBeams = ({
                 y1={y1_left} // set y1 for gradient
                 y2={y2_left} // set y2 for gradient
               >
-                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                <stop stopColor="#18CCFC"></stop>
-                <stop offset="0.325" stopColor="#6344F5"></stop>
-                <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
+                <stop stopColor="#87AEFF" stopOpacity="0"></stop>
+                <stop stopColor="#87AEFF"></stop>
+                <stop offset="1" stopColor="#87AEFF" stopOpacity="0"></stop>
               </motion.linearGradient>
             </defs>
           </svg>
@@ -133,10 +132,9 @@ export const TracingBeams = ({
                 // y1={y1_right} // set y1 for gradient
                 // y2={y2_right} // set y2 for gradient
               >
-                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                <stop stopColor="#18CCFC"></stop>
-                <stop offset="0.325" stopColor="#6344F5"></stop>
-                <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
+                <stop stopColor="#87AEFF" stopOpacity="0"></stop>
+                <stop stopColor="#87AEFF"></stop>
+                <stop offset="1" stopColor="#87AEFF" stopOpacity="0"></stop>
               </motion.linearGradient>
             </defs>
           </svg>
