@@ -27,7 +27,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
   const springConfig = { stiffness: 1000, damping: 100, bounce: 10 };
 
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [13, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [18, 0]),
     springConfig,
   );
   const opacity = useSpring(
@@ -39,7 +39,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.3], [-500, 650]),
+    useTransform(scrollYProgress, [0, 0.3], [-480, 650]),
     springConfig,
   );
   return (
