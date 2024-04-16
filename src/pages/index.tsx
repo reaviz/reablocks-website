@@ -39,7 +39,7 @@ export const Hero = ({ className }: { className?: string }) => (
             <a href="https://npm.im/reablocks" target="_blank">
               <img
                 alt="Reablocks npm tag"
-                src="https://img.shields.io/npm/v/reablocks.svg"
+                src="https://img.shields.io/npm/v/reablocks?style=social"
               />
             </a>
           </div>
