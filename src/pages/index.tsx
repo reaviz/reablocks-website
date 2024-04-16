@@ -11,6 +11,7 @@ import { AnimateIn } from "@/components/utils/Count/AnimateIn";
 import { Count } from "@/components/utils/Count/Count";
 import SparklesIcon from "@/icons/sparkles.svg";
 import Sparkles2Icon from "@/icons/sparkles2.svg";
+import { Badge } from "@/components/ui/badge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +27,10 @@ export const Header = ({ className }: { className?: string }) => {
       <section className={`container mt-32 flex-1 px-4 md:px-24`}>
         <div className="relative z-10 flex flex-col items-center gap-4 py-12 md:flex-row">
           <div className="relative flex flex-1 flex-col gap-4">
-            <div className="absolute -top-10 flex w-fit items-center gap-2 rounded-full border border-[#0D4ED2] bg-[#041028] px-3 py-1 text-content-primary">
+            <Badge className="absolute -top-10 ">
               <Sparkles2Icon className="h-4 w-4 text-content-primary" />
               <span className="text-xs">Reablocks 1.0</span>
-            </div>
+            </Badge>
             <h1 className="text-[40px] font-bold text-content-primary md:text-6xl">
               Blocks you never knew you needed.
             </h1>
@@ -240,10 +241,10 @@ export default function Home() {
         </section>
         <section className="container mt-20 px-4 md:px-24">
           <div className="mb-4 flex flex-col items-center gap-4 md:mb-20">
-            <div className="flex w-fit items-center gap-2 self-center justify-self-center rounded-full border border-[#0D4ED2] bg-[#041028] px-3 py-1">
+            <Badge>
               <Sparkles2Icon className="h-4 w-4" />
               <span className="text-xs">Open Source</span>
-            </div>
+            </Badge>
             <h3 className="text-content max-w-[639px] text-center text-4xl font-bold !leading-[150%] md:text-6xl md:!leading-[120%]">
               Production ready{" "}
               <span className="text-secondary">Open-Source</span> blocks
