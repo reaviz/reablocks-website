@@ -16,7 +16,6 @@ import DribbbleIcon from "@/icons/dribbble.svg";
 import GithubIcon from "@/icons/github.svg";
 import LinkedinIcon from "@/icons/linkedin.svg";
 import SparklesIcon from "@/icons/sparkles.svg";
-import Sparkles2Icon from "@/icons/sparkles2.svg";
 import { cn } from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -36,10 +35,14 @@ export const Hero = ({ className }: { className?: string }) => (
     <section className={`container mt-32 flex-1 px-4 md:px-24`}>
       <div className="relative z-10 flex flex-col items-center gap-4 py-12 md:flex-row">
         <div className="relative flex flex-1 flex-col gap-4">
-          <Badge className="absolute -top-10 ">
-            <Sparkles2Icon className="h-4 w-4 text-content-primary" />
-            <span className="text-xs">Reablocks 1.0</span>
-          </Badge>
+          <div className="absolute -top-10">
+            <a href="https://npm.im/reablocks" target="_blank">
+              <img
+                alt="Reablocks npm tag"
+                src="https://img.shields.io/npm/v/reablocks.svg"
+              />
+            </a>
+          </div>
           <h1 className="text-[40px] font-bold text-content-primary md:text-6xl">
             Blocks you never knew you needed.
           </h1>
@@ -57,7 +60,7 @@ export const Hero = ({ className }: { className?: string }) => (
             </Link>
             <Link href="https://reablocks.dev/?path=/docs/docs-intro--docs">
               <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
-                Demo
+                Demos →
               </button>
             </Link>
           </div>
@@ -284,10 +287,13 @@ export default function Home() {
           </section>
           <section className="container mt-20 px-4 md:px-24">
             <div className="mb-4 flex flex-col items-center gap-4 md:mb-20">
-              <Badge>
-                <Sparkles2Icon className="h-4 w-4" />
-                <span className="text-xs">Open Source</span>
-              </Badge>
+              <a href="https://github.com/reaviz/reablocks" target="_blank">
+                <img
+                  alt="GitHub stars"
+                  src="https://img.shields.io/github/stars/reaviz/reablocks?style=social"
+                />
+              </a>
+
               <h3 className="text-content max-w-[639px] text-center text-4xl font-bold !leading-[150%] md:text-6xl md:!leading-[120%]">
                 Production ready{" "}
                 <span className="text-secondary">Open-Source</span> components
