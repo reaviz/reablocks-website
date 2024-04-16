@@ -397,8 +397,8 @@ export default function Home() {
               </span>
               <div className="flex gap-4">
                 <Link
-                  aria-label="GoodCode's reaviz chart library"
-                  href="https://reaviz.io/?path=/docs/docs-intro--docs"
+                  aria-label="GoodCode's GitHub profile"
+                  href="https://github.com/reaviz"
                 >
                   <GithubIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
                 </Link>
