@@ -4,14 +4,17 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Badge } from "@/components/ui/badge";
 import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
 import { AnimateIn } from "@/components/utils/Count/AnimateIn";
 import { Count } from "@/components/utils/Count/Count";
+import DribbbleIcon from "@/icons/dribbble.svg";
+import GithubIcon from "@/icons/github.svg";
+import LinkedinIcon from "@/icons/linkedin.svg";
 import SparklesIcon from "@/icons/sparkles.svg";
 import Sparkles2Icon from "@/icons/sparkles2.svg";
-import { Badge } from "@/components/ui/badge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +24,7 @@ export const metadata: Metadata = {
     "50+ Components for ReactJS based on TailwindCSS and Framer Motion",
 };
 
-export const Header = ({ className }: { className?: string }) => {
+export const Hero = ({ className }: { className?: string }) => {
   return (
     <div className={className}>
       <section className={`container mt-32 flex-1 px-4 md:px-24`}>
@@ -177,9 +180,9 @@ export default function Home() {
           height={952}
           width={1200}
         >
-          <Header className="z-50" />
+          <Hero className="z-50" />
         </HeroParallax>
-        <Header className="block md:hidden" />
+        <Hero className="block md:hidden" />
         <div className="mt-20 flex flex-col items-center gap-4 px-2 md:hidden">
           <AnimateIn>
             <Image
@@ -257,7 +260,7 @@ export default function Home() {
                 <h6 className="font-bold">
                   Integrate Reablocks theme in your application
                 </h6>
-                <p className="text-sm text-content-secondary">
+                <p className="text-xs text-content-secondary md:text-sm">
                   To get started with Reablocks, you first need to incorporate
                   the 
                   <span className="text-[#80E2F8]">ThemeProvider</span> into the
@@ -265,7 +268,7 @@ export default function Home() {
                   theme across all your components, ensuring a consistent look
                   and feel.
                 </p>
-                <Link className="text-sm text-secondary" href="/">
+                <Link className="text-xs text-secondary md:text-sm" href="/">
                   Learn more
                 </Link>
               </div>
@@ -288,19 +291,19 @@ export default function Home() {
                 <h6 className="font-bold">
                   Create custom reusable component themes
                 </h6>
-                <p className="text-sm text-content-secondary">
+                <p className=" text-xs text-content-secondary md:text-sm">
                   Use the{" "}
                   <span className="text-[#80E2F8]">extendComponent</span>{" "}
                   utility function to create your own custom component theme.
                 </p>
-                <p className="text-sm text-content-secondary">
+                <p className="text-xs text-content-secondary md:text-sm">
                   You can pass this theme directly to any component using the{" "}
                   <span className="text-[#80E2F8]">theme</span> prop. This will
                   override the theme for that instance of the component, but not
                   globally. This is useful for creating different versions of
                   the same component.
                 </p>
-                <Link className="text-sm text-secondary" href="/">
+                <Link className="text-xs text-secondary md:text-sm" href="/">
                   Learn more
                 </Link>
               </div>
@@ -317,7 +320,42 @@ export default function Home() {
             <Divider className="absolute left-0 hidden md:block" />
           </div>
         </section>
-        <footer></footer>
+        <footer className="container px-4 py-6 text-sm text-content-secondary md:px-24">
+          <div className="flex items-center justify-between gap-2">
+            <Image src="/logo.svg" alt="logo" width={122} height={24} />
+            <span className="hidden md:block">
+              Maintained by{" "}
+              <Link
+                className="text-secondary underline"
+                href="https://goodcode.us"
+              >
+                GoodCode
+              </Link>
+            </span>
+            <div className="flex gap-4">
+              <Link href="https://github.com/goodcodeus">
+                <GithubIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+              </Link>
+              <Link href="https://www.linkedin.com/company/goodcodeus/">
+                <LinkedinIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+              </Link>
+              <Link href="https://dribbble.com/goodcode">
+                <DribbbleIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+              </Link>
+            </div>
+          </div>
+          <div className="block self-center pb-4 pt-10 text-center md:hidden">
+            <span>
+              Maintained by{" "}
+              <Link
+                className="text-secondary underline"
+                href="https://goodcode.us"
+              >
+                GoodCode
+              </Link>
+            </span>
+          </div>
+        </footer>
       </TracingBeams>
     </main>
   );
