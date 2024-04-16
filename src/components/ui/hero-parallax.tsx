@@ -24,7 +24,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const springConfig = { stiffness: 1000, damping: 100, bounce: 10 };
 
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 0.2], [13, 0]),
