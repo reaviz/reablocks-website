@@ -39,13 +39,13 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-500, 650]),
+    useTransform(scrollYProgress, [0, 0.3], [-500, 650]),
     springConfig,
   );
   return (
     <div className={className} ref={ref}>
       {children}
-      <div className="flex h-[3000px] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
+      <div className="flex h-[1700px] w-full flex-col antialiased [perspective:1000px] [transform-style:preserve-3d]">
         <motion.div
           style={{
             rotateX,

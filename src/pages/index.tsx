@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import { ReactNode, useRef } from "react";
 
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
@@ -102,6 +103,22 @@ export const Header = ({ className }: { className?: string }) => {
   );
 };
 
+const AnimateIn = ({ children }: { children: ReactNode }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-200px", once: true });
+
+  return (
+    <div ref={ref}>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <main
@@ -182,7 +199,56 @@ export default function Home() {
           <Header className="z-50" />
         </HeroParallax>
         <Header className="block md:hidden" />
-        <section className="h-[500px] w-full" />
+        <div className="mt-20 flex flex-col items-center gap-4 px-2 md:hidden">
+          <AnimateIn>
+            <Image
+              src="/sign-up-block.png"
+              alt="sign up block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+          <AnimateIn>
+            <Image
+              src="/change-your-plan-block.png"
+              alt="change your plan block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+          <AnimateIn>
+            <Image
+              src="/forgot-password-block.png"
+              alt="forgot password block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+          <AnimateIn>
+            <Image
+              src="/2fa-block.png"
+              alt="2f block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+          <AnimateIn>
+            <Image
+              src="/reset-password-block.png"
+              alt="reset password block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+          <AnimateIn>
+            <Image
+              src="/log-in-block.png"
+              alt="log in block"
+              height={490}
+              width={353}
+            />
+          </AnimateIn>
+        </div>
         <section className="h-[500px] w-full" />
         <section className="h-[500px] w-full" />
       </TracingBeams>
