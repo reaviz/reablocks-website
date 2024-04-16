@@ -31,7 +31,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
     springConfig,
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.5, 1]),
+    useTransform(scrollYProgress, [0, 0.2], [0.3, 1]),
     springConfig,
   );
   const rotateZ = useSpring(
