@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useState } from "react";
 
 export type HeroParallaxProps = {
   src: string;
@@ -18,6 +18,8 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
   children,
   className,
 }) => {
+  const [isImageLoaded, setImageIsLoaded] = useState<boolean>(false);
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -56,7 +58,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
         >
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: isImageLoaded ? 1 : 0 }}
             className="mb-20 flex justify-center space-x-20 space-x-reverse px-24"
           >
             <Image
@@ -64,6 +66,9 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
               src={src}
               height={height}
               width={width}
+              onLoadingComplete={() => {
+                setImageIsLoaded(true);
+              }}
               alt="hero image"
             />
           </motion.div>
