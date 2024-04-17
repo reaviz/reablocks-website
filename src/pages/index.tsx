@@ -36,7 +36,13 @@ export const Hero = ({ className }: { className?: string }) => (
     <section className={`container mt-32 flex-1 px-4 md:px-24`}>
       <div className="relative z-10 flex flex-col items-center gap-4 py-12 md:flex-row">
         <div className="relative flex flex-1 flex-col gap-4">
-          <div className="absolute -top-10">
+          <div className="absolute -top-10 flex gap-2">
+            <a href="https://github.com/reaviz/reablocks" target="_blank">
+              <img
+                alt="GitHub stars"
+                src="https://img.shields.io/github/stars/reaviz/reablocks?style=social"
+              />
+            </a>
             <a href="https://npm.im/reablocks" target="_blank">
               <img
                 alt="Reablocks npm tag"
@@ -223,7 +229,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
               >
                 <Link
-                  href="https://storybook.reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
+                  href="https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs"
                   className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
                 >
                   Blocks
