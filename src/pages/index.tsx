@@ -350,8 +350,9 @@ $ npx tailwindcss init`}
                 <div className="flex flex-1 flex-col gap-2 p-3">
                   <span className="font-bold">Creating a custom theme</span>
                   <p className=" text-xs text-content-secondary md:text-sm">
-                    Extend the default theme to fit your application's unique
-                    design language by using{" "}
+                    {
+                      "Extend the default theme to fit your application's unique design language by using "
+                    }
                     <span className="text-[#80E2F8]">extendTheme</span>.
                   </p>
                   <p className=" text-xs text-content-secondary md:text-sm">
