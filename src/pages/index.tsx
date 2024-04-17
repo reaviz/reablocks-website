@@ -100,7 +100,7 @@ export const Hero = ({ className }: { className?: string }) => (
         <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
           <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
 
-          <h2 className="text-sm">Utilties</h2>
+          <h2 className="text-sm">Utilities</h2>
         </div>
 
         <div className="flex flex-1 flex-col items-center gap-4 px-12">
