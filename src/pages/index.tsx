@@ -44,11 +44,18 @@ export const Hero = ({ className }: { className?: string }) => (
               />
             </a>
           </div>
-          <h1 className="text-[40px] font-bold text-content-primary md:text-6xl">
+          <motion.h1
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-[40px] font-bold text-content-primary md:text-6xl">
             Components you never knew you needed.
-          </h1>
+          </motion.h1>
         </div>
-        <div className="flex flex-1 flex-col gap-4">
+        <motion.div
+          className="flex flex-1 flex-col gap-4"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 }}}
+        >
           <p className="text-xs text-content-secondary md:text-base">
             Beautifully designed, highly customizable, Open Source React
             components based on Tailwind and Framer Motion.
@@ -65,7 +72,7 @@ export const Hero = ({ className }: { className?: string }) => (
               </button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
     <Divider className="absolute left-0 hidden md:block" />
@@ -144,9 +151,7 @@ export default function Home() {
         className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
       >
         <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#00000020] to-transparent" />
-        <motion.header
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+        <header
           className={cn(
             `fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-15 bg-[#11111F] transition-[backdrop-filter] md:bg-transparent`,
             isScrolled && "md:backdrop-blur-md",
@@ -191,33 +196,53 @@ export default function Home() {
               </button>
             </div>
             <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
-              <Link
-                href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+              <motion.span
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
               >
-                Home
-              </Link>
-              <Link
-                href="https://reablocks.dev/?path=/docs/docs-intro--docs"
-                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                <Link
+                  href="#"
+                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                >
+                  Home
+                </Link>
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.2 }}}
               >
-                Docs
-              </Link>
-              <Link
-                href="https://reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
-                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                <Link
+                  href="https://reablocks.dev/?path=/docs/docs-intro--docs"
+                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                >
+                  Docs
+                </Link>
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
               >
-                Blocks
-              </Link>
-              <Link
-                href="mailto:austin@goodcode.us"
-                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                <Link
+                  href="https://reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
+                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                >
+                  Blocks
+                </Link>
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0, transition: { delay: 0.4 } }}
               >
-                Support
-              </Link>
+                <Link
+                  href="mailto:austin@goodcode.us"
+                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+                >
+                  Support
+                </Link>
+              </motion.span>
             </div>
           </nav>
-        </motion.header>
+        </header>
         <TracingBeams className="hidden md:block">
           <HeroParallax
             className="hidden md:block"
