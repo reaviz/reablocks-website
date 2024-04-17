@@ -193,25 +193,25 @@ export default function Home() {
             <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
               <Link
                 href="#"
-                className="text-sm font-semibold leading-6 text-content-secondary"
+                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
               >
                 Home
               </Link>
               <Link
                 href="https://reablocks.dev/?path=/docs/docs-intro--docs"
-                className="text-sm font-semibold leading-6 text-content-secondary"
+                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
               >
                 Docs
               </Link>
               <Link
                 href="https://reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
-                className="text-sm font-semibold leading-6 text-content-secondary"
+                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
               >
                 Blocks
               </Link>
               <Link
                 href="mailto:austin@goodcode.us"
-                className="text-sm font-semibold leading-6 text-content-secondary"
+                className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
               >
                 Support
               </Link>
