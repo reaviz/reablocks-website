@@ -362,7 +362,7 @@ export default function Home() {
                     maxWidth: "90vw",
                   }}
                 >
-                  {`$ npm install reablocks
+                  {`$ npm install reablocks -S
 $ npm install -D tailwindcss postcss autoprefixer
 $ npx tailwindcss init`}
                 </SyntaxHighlighter>
