@@ -5,8 +5,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-import { Badge } from "@/components/ui/badge";
 import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
@@ -287,51 +288,59 @@ export default function Home() {
             </div>
           </section>
           <section className="container mt-20 px-4 md:px-24">
-            <div className="mb-4 flex flex-col items-center gap-4 md:mb-20">
+            <div className="mb-4 flex flex-col items-start gap-4 md:mb-20 md:max-w-[50%]">
               <a href="https://github.com/reaviz/reablocks" target="_blank">
                 <img
                   alt="GitHub stars"
                   src="https://img.shields.io/github/stars/reaviz/reablocks?style=social"
                 />
               </a>
-
-              <h3 className="text-content max-w-[639px] text-center text-4xl font-bold !leading-[150%] md:text-6xl md:!leading-[120%]">
-                Production ready{" "}
+              <h3 className="text-content text-4xl font-bold !leading-[150%] md:text-6xl md:!leading-[120%]">
+                Enterprise ready{" "}
                 <span className="text-secondary">Open-Source</span> components
               </h3>
+              <p className="mt-4 text-sm text-content-secondary md:text-base">
+                Our collection of enterprise-grade, open-source components
+                provide the building blocks you need to create beautifully
+                designed, scalable, high-performance applications.
+              </p>
             </div>
-            <div className="mb-4 md:mb-20">
+            <span className="text-2xl font-bold">Getting Started 🚀</span>
+            <div className="mb-4 mt-4 md:mb-20">
               <Divider className="absolute left-0 hidden md:block" />
               <div className="flex flex-col gap-2 md:flex-row">
                 <div className="flex flex-1 flex-col gap-2 p-3">
-                  <span className="font-bold">
-                    Integrate Reablocks theme in your application
-                  </span>
+                  <span className="font-bold">Installing Reablocks</span>
                   <p className="text-xs text-content-secondary md:text-sm">
-                    To get started with Reablocks, you first need to incorporate
-                    the 
-                    <span className="text-[#80E2F8]">ThemeProvider</span> into
-                    the root of your application. This provider applies the
-                    selected theme across all your components, ensuring a
-                    consistent look and feel.
+                    Install Reablocks & Tailwind into your React project to get
+                    started.
+                  </p>
+                  <p className="text-xs text-content-secondary md:text-sm">
+                    Setup your Tailwind config file with our default color
+                    tokens using the link below.
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://reablocks.dev/?path=/docs/docs-intro--docs"
-                    className="text-xs text-secondary md:text-sm"
+                    href="https://reablocks.dev/?path=/docs/docs-getting-started-setup--docs#setup"
+                    className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
                   </Link>
                 </div>
-                <div className="flex-1 rounded-md border border-[#262631] bg-[#16161e] p-1">
-                  <Image
-                    src="/code-block-1.png"
-                    alt="code block 1"
-                    width={1000}
-                    height={1000}
-                    draggable={false}
-                  />
-                </div>
+                <SyntaxHighlighter
+                  language="jsx"
+                  style={vscDarkPlus}
+                  customStyle={{
+                    margin: 0,
+                    flex: "1 1 0%",
+                    backgroundColor: "#16161e",
+                    maxWidth: "90vw",
+                  }}
+                >
+                  {`$ npm install reablocks
+$ npm install -D tailwindcss postcss autoprefixer
+$ npx tailwindcss init`}
+                </SyntaxHighlighter>
               </div>
               <Divider className="absolute left-0 hidden md:block" />
             </div>
@@ -339,38 +348,100 @@ export default function Home() {
               <Divider className="absolute left-0 hidden md:block" />
               <div className="flex flex-col gap-2 md:flex-row">
                 <div className="flex flex-1 flex-col gap-2 p-3">
-                  <span className="font-bold">
-                    Create custom reusable component themes
-                  </span>
+                  <span className="font-bold">Creating a custom theme</span>
                   <p className=" text-xs text-content-secondary md:text-sm">
-                    Use the{" "}
-                    <span className="text-[#80E2F8]">extendComponent</span>{" "}
-                    utility function to create your own custom component theme.
+                    Extend the default theme to fit your application's unique
+                    design language by using{" "}
+                    <span className="text-[#80E2F8]">extendTheme</span>.
                   </p>
-                  <p className="text-xs text-content-secondary md:text-sm">
-                    You can pass this theme directly to any component using the{" "}
-                    <span className="text-[#80E2F8]">theme</span> prop. This
-                    will override the theme for that instance of the component,
-                    but not globally. This is useful for creating different
-                    versions of the same component.
+                  <p className=" text-xs text-content-secondary md:text-sm">
+                    Reablocks provides the ability to customize the style of
+                    each individual component using Tailwind, giving you the
+                    ease and flexibility to match any design.
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://reablocks.dev/?path=/docs/docs-intro--docs"
-                    className="text-xs text-secondary md:text-sm"
+                    href="https://reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
                   </Link>
                 </div>
-                <div className="flex-1 rounded-md border border-[#262631] bg-[#16161e] p-1">
-                  <Image
-                    src="/code-block-2.png"
-                    alt="code block 2"
-                    width={1000}
-                    height={1000}
-                    draggable={false}
-                  />
+                <SyntaxHighlighter
+                  language="jsx"
+                  style={vscDarkPlus}
+                  customStyle={{
+                    margin: 0,
+                    flex: "1 1 0%",
+                    backgroundColor: "#16161e",
+                    maxWidth: "90vw",
+                  }}
+                >
+                  {`import { theme, extendTheme, PartialReablocksTheme } from 'reablocks';
+
+const partialTheme: PartialReablocksTheme = {
+  components: {
+    button: {
+      base: 'bg-lime-600 text-gray-300',
+      variants: {
+        filled: 'bg-lime-600 hover:bg-lime-700',
+        outline: 'bg-transparent border-lime-600 border',
+        text: 'bg-transparent border-0'
+      },
+      sizes: {
+        small: 'p-2',
+        medium: 'p-3',
+        large: 'p-4'
+      }
+    }
+  }
+};
+  
+export const customTheme = extendTheme(theme, partialTheme)`}
+                </SyntaxHighlighter>
+              </div>
+              <Divider className="absolute left-0 hidden md:block" />
+            </div>
+            <div className="mb-4 mt-4 md:mb-20">
+              <Divider className="absolute left-0 hidden md:block" />
+              <div className="flex flex-col gap-2 md:flex-row">
+                <div className="flex flex-1 flex-col gap-2 p-3">
+                  <span className="font-bold">
+                    Adding your theme to your application
+                  </span>
+                  <p className="text-xs text-content-secondary md:text-sm">
+                    Wrap your application with{" "}
+                    <span className="text-[#80E2F8]">ThemeProvider</span> and
+                    pass in your new custom theme. This provider applies styling
+                    to all your components, ensuring a consistent look and feel.
+                  </p>
+                  <Link
+                    aria-label="Learn more about Reablocks"
+                    href="https://reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    className="w-fit text-xs text-secondary md:text-sm"
+                  >
+                    Learn more
+                  </Link>
                 </div>
+                <SyntaxHighlighter
+                  language="jsx"
+                  style={vscDarkPlus}
+                  customStyle={{
+                    margin: 0,
+                    flex: "1 1 0%",
+                    backgroundColor: "#16161e",
+                    maxWidth: "90vw",
+                  }}
+                >
+                  {`import { ThemeProvider } from 'reablocks'
+import { customTheme } from './theme'
+                  
+export const App = () => {
+  <ThemeProvider theme={theme}>
+    <YourComponents />
+  </ThemeProvider>
+};`}
+                </SyntaxHighlighter>
               </div>
               <Divider className="absolute left-0 hidden md:block" />
             </div>
