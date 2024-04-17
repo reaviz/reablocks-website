@@ -61,12 +61,12 @@ export const Hero = ({ className }: { className?: string }) => (
             components based on Tailwind and Framer Motion.
           </p>
           <div className="flex gap-4">
-            <Link href="https://reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
+            <Link href="https://storybook.reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
               <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit">
                 Get Started
               </button>
             </Link>
-            <Link href="https://reablocks.dev/?path=/docs/docs-intro--docs">
+            <Link href="https://storybook.reablocks.dev/?path=/docs/docs-intro--docs">
               <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
                 Demos →
               </button>
@@ -346,7 +346,7 @@ export default function Home() {
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://reablocks.dev/?path=/docs/docs-getting-started-setup--docs#setup"
+                    href="https://storybook.reablocks.dev/?path=/docs/docs-getting-started-setup--docs#setup"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
@@ -387,7 +387,7 @@ $ npx tailwindcss init`}
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    href="https://storybook.reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
@@ -443,7 +443,7 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    href="https://storybook.reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
