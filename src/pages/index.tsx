@@ -83,70 +83,68 @@ export const Hero = ({ className }: { className?: string }) => (
         </motion.div>
       </div>
     </section>
-    <div className="absolute bottom-0 left-0 right-0 z-50">
-      <Divider className="absolute left-0 right-0 hidden md:block" />
-      <section className="relative z-10 flex w-full justify-center px-0 py-4 md:px-24 md:py-10">
-        <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 md:grid-cols-4 md:grid-rows-1">
-          <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-            <Count
-              className="min-h-9 text-3xl font-bold"
-              from={10}
-              to={50}
-              suffix={"+"}
-            />
-            <motion.h2
-              className="text-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              Components
-            </motion.h2>
-          </div>
-          <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-            <Count
-              className="min-h-9 text-3xl font-bold"
-              from={0}
-              to={14}
-              suffix={"+"}
-            />
-            <motion.h2
-              className="text-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              Blocks
-            </motion.h2>
-          </div>
-          <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-            <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
-            <motion.h2
-              className="text-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              Utilities
-            </motion.h2>
-          </div>
-
-          <div className="flex flex-1 flex-col items-center gap-4 px-12">
-            <Count
-              className="min-h-9 text-3xl font-bold"
-              from={120}
-              to={200}
-              suffix={"+"}
-            />
-            <motion.h2
-              className="text-sm"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              Stories
-            </motion.h2>
-          </div>
+    <Divider className="absolute left-0 hidden md:block" />
+    <section className="relative z-10 flex w-full justify-center px-0 py-4 md:px-24 md:py-10">
+      <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 md:grid-cols-4 md:grid-rows-1">
+        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+          <Count
+            className="min-h-9 text-3xl font-bold"
+            from={10}
+            to={50}
+            suffix={"+"}
+          />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Components
+          </motion.h2>
         </div>
-      </section>
-      <Divider className="absolute bottom-0 left-0 right-0 hidden md:block" />
-    </div>
+        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+          <Count
+            className="min-h-9 text-3xl font-bold"
+            from={0}
+            to={14}
+            suffix={"+"}
+          />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Blocks
+          </motion.h2>
+        </div>
+        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+          <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Utilities
+          </motion.h2>
+        </div>
+
+        <div className="flex flex-1 flex-col items-center gap-4 px-12">
+          <Count
+            className="min-h-9 text-3xl font-bold"
+            from={120}
+            to={200}
+            suffix={"+"}
+          />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Stories
+          </motion.h2>
+        </div>
+      </div>
+    </section>
+    <Divider className="absolute left-0 hidden md:block" />
   </div>
 );
 
@@ -435,9 +433,8 @@ export const App = () => {
                 <Link
                   className="text-secondary underline"
                   href="https://goodcode.us"
-                  target="_blank"
                 >
-                  Good Code
+                  GoodCode
                 </Link>
               </span>
               <div className="flex gap-4">
