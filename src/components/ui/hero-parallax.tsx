@@ -66,9 +66,7 @@ export const HeroParallax: FC<HeroParallaxProps> = ({
               src={src}
               height={height}
               width={width}
-              onLoadingComplete={() => {
-                setImageIsLoaded(true);
-              }}
+              onLoadingComplete={() => setImageIsLoaded(true)}
               alt="hero image"
             />
           </motion.div>

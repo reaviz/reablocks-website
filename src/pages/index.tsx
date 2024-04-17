@@ -212,7 +212,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.2 }}}
               >
                 <Link
-                  href="https://reablocks.dev/?path=/docs/docs-intro--docs"
+                  href="https://storybook.reablocks.dev/?path=/docs/docs-intro--docs"
                   className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
                 >
                   Docs
@@ -223,7 +223,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
               >
                 <Link
-                  href="https://reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
+                  href="https://storybook.reablocks.dev/?path=/docs/blocks-foundation-introduction--docs"
                   className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
                 >
                   Blocks
@@ -234,7 +234,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, transition: { delay: 0.4 } }}
               >
                 <Link
-                  href="mailto:austin@goodcode.us"
+                  href="https://storybook.reablocks.dev/?path=/docs/docs-support--docs"
                   className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
                 >
                   Support
