@@ -92,7 +92,7 @@ export const Hero = ({ className }: { className?: string }) => (
           <Count
             className="min-h-9 text-3xl font-bold"
             from={0}
-            to={8}
+            to={14}
             suffix={"+"}
           />
           <h2 className="text-sm">Blocks</h2>
