@@ -45,7 +45,7 @@ export const Hero = ({ className }: { className?: string }) => (
             </a>
           </div>
           <h1 className="text-[40px] font-bold text-content-primary md:text-6xl">
-            Blocks you never knew you needed.
+            Components you never knew you needed.
           </h1>
         </div>
         <div className="flex flex-1 flex-col gap-4">
@@ -158,7 +158,7 @@ export default function Home() {
           >
             <div className="absolute left-4 flex-1 md:left-24">
               <a href="#">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">reablocks</span>
                 <Image
                   draggable={false}
                   src="/logo.svg"
