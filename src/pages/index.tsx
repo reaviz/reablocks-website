@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
+import { Nav } from "@/components/layout/nav";
 import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
@@ -61,7 +62,7 @@ export const Hero = ({ className }: { className?: string }) => (
         <motion.div
           className="flex flex-1 flex-col gap-4"
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 }}}
+          animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
         >
           <p className="text-xs text-content-secondary md:text-base">
             Beautifully designed, highly customizable, Open Source React
@@ -69,7 +70,7 @@ export const Hero = ({ className }: { className?: string }) => (
           </p>
           <div className="flex gap-4">
             <Link href="https://storybook.reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
-              <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit bg-black">
+              <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-black bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit">
                 Get Started
               </button>
             </Link>
@@ -82,8 +83,7 @@ export const Hero = ({ className }: { className?: string }) => (
         </motion.div>
       </div>
     </section>
-    <div className="absolute bottom-0 left-0 right-0 z-50">
-    <Divider className="absolute left-0 right-0 hidden md:block" />
+    <Divider className="absolute left-0 hidden md:block" />
     <section className="relative z-10 flex w-full justify-center px-0 py-4 md:px-24 md:py-10">
       <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 md:grid-cols-4 md:grid-rows-1">
         <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
@@ -144,8 +144,7 @@ export const Hero = ({ className }: { className?: string }) => (
         </div>
       </div>
     </section>
-    <Divider className="absolute left-0 right-0 bottom-0 hidden md:block" />
-    </div>
+    <Divider className="absolute left-0 hidden md:block" />
   </div>
 );
 
@@ -187,92 +186,7 @@ export default function Home() {
             isScrolled && "md:backdrop-blur-md",
           )}
         >
-          <nav
-            className="relative flex w-full max-w-[1440px] items-center justify-center px-2 py-6 sm:px-2"
-            aria-label="Global"
-          >
-            <div className="absolute left-4 flex-1 md:left-24">
-              <a href="#">
-                <span className="sr-only">reablocks</span>
-                <Image
-                  draggable={false}
-                  src="/logo.svg"
-                  alt="logo"
-                  width={122}
-                  height={24}
-                />
-              </a>
-            </div>
-            <div className="absolute right-4 flex md:hidden">
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-content-secondary"
-              >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div className="hidden md:flex md:gap-x-4 lg:gap-x-12">
-              <motion.span
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
-              >
-                <Link
-                  href="https://github.com/reaviz/reablocks"
-                  target="_blank"
-                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
-                >
-                  Github
-                </Link>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.2 }}}
-              >
-                <Link
-                  href="https://storybook.reablocks.dev/?path=/docs/docs-intro--docs"
-                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
-                >
-                  Docs
-                </Link>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
-              >
-                <Link
-                  href="https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs"
-                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
-                >
-                  Blocks
-                </Link>
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0, transition: { delay: 0.4 } }}
-              >
-                <Link
-                  href="https://storybook.reablocks.dev/?path=/docs/docs-support--docs"
-                  className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
-                >
-                  Support
-                </Link>
-              </motion.span>
-            </div>
-          </nav>
+          <Nav />
         </header>
         <TracingBeams className="hidden md:block">
           <HeroParallax
@@ -519,9 +433,8 @@ export const App = () => {
                 <Link
                   className="text-secondary underline"
                   href="https://goodcode.us"
-                  target="_blank"
                 >
-                  Good Code
+                  GoodCode
                 </Link>
               </span>
               <div className="flex gap-4">
