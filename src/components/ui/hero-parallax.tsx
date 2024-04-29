@@ -1,6 +1,12 @@
 "use client";
 import { useViewportDimensions } from "@/hooks/useViewportDimensions";
-import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
+import {
+  MotionValue,
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
@@ -29,19 +35,36 @@ export const HeroParallax = ({ products, children }: HeroParallaxProps) => {
     offset: [isMobile ? "-5% start" : "-10% start", "end start"],
   });
 
-  const translateX = useTransform(scrollYProgress, [0, 1], [500, 1500]);
-  const translateXReverse = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [-500, -1500],
+  const springConfig = {
+    bounce: 0.1,
+    damping: 100,
+    stiffness: 1000,
+    duration: 0.1,
+  };
+
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [500, 1500]),
+    springConfig,
   );
-  const rotateX = useTransform(scrollYProgress, [0, 0.5], [15, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.2, 1]);
-  const rotateZ = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
-  const translateY = useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    [isMobile ? -800 : -650, 250],
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-500, -1500]),
+    springConfig,
+  );
+  const rotateX = useSpring(
+    useTransform(scrollYProgress, [0, 0.5], [15, 0]),
+    springConfig,
+  );
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    springConfig,
+  );
+  const rotateZ = useSpring(
+    useTransform(scrollYProgress, [0, 0.3], [20, 0]),
+    springConfig,
+  );
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.4], [isMobile ? -800 : -650, 250]),
+    springConfig,
   );
 
   return (
