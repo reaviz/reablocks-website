@@ -12,7 +12,6 @@ import { Nav } from "@/components/layout/nav";
 import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
-import { AnimateIn } from "@/components/utils/Count/AnimateIn";
 import { Count } from "@/components/utils/Count/Count";
 import DribbbleIcon from "@/icons/dribbble.svg";
 import GithubIcon from "@/icons/github.svg";
@@ -190,64 +189,111 @@ export default function Home() {
         </header>
         <TracingBeams className="hidden md:block">
           <HeroParallax
-            className="hidden md:block"
-            src={"/hero-desktop.png"}
-            height={952}
-            width={1200}
+            products={[
+              {
+                title: "Buttons",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-button--variants",
+                thumbnail: "/buttons.png",
+              },
+              {
+                title: "Avatars",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-avatar--default",
+                thumbnail: "/avatars.png",
+              },
+              {
+                title: "Notification",
+                link: "https://storybook.reablocks.dev/?path=/story/components-layers-notification--title",
+                thumbnail: "/notification.png",
+              },
+              {
+                title: "Fields",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-input--basic",
+                thumbnail: "/fields.png",
+              },
+              {
+                title: "Tabs",
+                link: "https://storybook.reablocks.dev/?path=/story/components-layout-tabs--simple",
+                thumbnail: "/tabs.png",
+              },
+              {
+                title: "Checkboxes",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-checkbox--simple",
+                thumbnail: "/checkboxes.png",
+              },
+              {
+                title: "Buttons",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-button--variants",
+                thumbnail: "/buttons.png",
+              },
+              {
+                title: "Avatars",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-avatar--default",
+                thumbnail: "/avatars.png",
+              },
+              {
+                title: "Notification",
+                link: "https://storybook.reablocks.dev/?path=/story/components-layers-notification--title",
+                thumbnail: "/notification.png",
+              },
+              {
+                title: "Fields",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-input--basic",
+                thumbnail: "/fields.png",
+              },
+              {
+                title: "Tags",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--colors",
+                thumbnail: "/tags.png",
+              },
+              {
+                title: "Toggle",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-toggle--simple",
+                thumbnail: "/toggle.png",
+              },
+              {
+                title: "Range",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-range--single",
+                thumbnail: "/range.png",
+              },
+              {
+                title: "Radio buttons",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-radio--simple",
+                thumbnail: "/radio-buttons.png",
+              },
+              {
+                title: "Menu",
+                link: "https://storybook.reablocks.dev/?path=/story/components-layers-menu--unstyled",
+                thumbnail: "/menu.png",
+              },
+              {
+                title: "Badges",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--custom-theme",
+                thumbnail: "/badges.png",
+              },
+              {
+                title: "Tags",
+                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--colors",
+                thumbnail: "/tags.png",
+              },
+              {
+                title: "Toggle",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-toggle--simple",
+                thumbnail: "/toggle.png",
+              },
+              {
+                title: "Range",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-range--single",
+                thumbnail: "/range.png",
+              },
+              {
+                title: "Radio buttons",
+                link: "https://storybook.reablocks.dev/?path=/story/components-form-radio--simple",
+                thumbnail: "/radio-buttons.png",
+              },
+            ]}
           >
-            <Hero className="z-50" />
+            <Hero />
           </HeroParallax>
-          <Hero className="block md:hidden" />
-          <div className="mt-20 flex flex-col items-center gap-4 px-2 md:hidden">
-            <AnimateIn>
-              <Image
-                src="/sign-up-block.png"
-                alt="sign up block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-            <AnimateIn>
-              <Image
-                src="/change-your-plan-block.png"
-                alt="change your plan block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-            <AnimateIn>
-              <Image
-                src="/forgot-password-block.png"
-                alt="forgot password block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-            <AnimateIn>
-              <Image
-                src="/2fa-block.png"
-                alt="2f block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-            <AnimateIn>
-              <Image
-                src="/reset-password-block.png"
-                alt="reset password block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-            <AnimateIn>
-              <Image
-                src="/log-in-block.png"
-                alt="log in block"
-                height={490}
-                width={353}
-              />
-            </AnimateIn>
-          </div>
           <section className="container mt-20 px-4 md:px-24">
             <div className="flex w-full items-center gap-2">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent to-secondary" />
