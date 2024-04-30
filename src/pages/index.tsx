@@ -13,10 +13,10 @@ import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
 import { Count } from "@/components/utils/Count/Count";
-import DribbbleIcon from "@/icons/dribbble.svg";
-import GithubIcon from "@/icons/github.svg";
-import LinkedinIcon from "@/icons/linkedin.svg";
-import SparklesIcon from "@/icons/sparkles.svg";
+import DribbbleIcon from "@/icons/Dribbble";
+import GithubIcon from "@/icons/Github";
+import LinkedinIcon from "@/icons/LinkedIn";
+import SparklesIcon from "@/icons/Sparkles";
 import { cn } from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -37,12 +37,6 @@ export const Hero = ({ className }: { className?: string }) => (
       <div className="relative z-10 flex flex-col items-center gap-4 py-12 md:flex-row">
         <div className="relative flex flex-1 flex-col gap-4">
           <div className="absolute -top-10 flex gap-2">
-            <a href="https://github.com/reaviz/reablocks" target="_blank">
-              <img
-                alt="GitHub stars"
-                src="https://img.shields.io/github/stars/reaviz/reablocks?style=social"
-              />
-            </a>
             <a href="https://npm.im/reablocks" target="_blank">
               <img
                 alt="Reablocks npm tag"
