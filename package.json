@@ -6,15 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.28",
-    "next": "14.2.1",
+    "next": "^14",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
-    "reablocks": "^7.4.9",
+    "reablocks": "^7.5.5",
     "react": "^18",
     "react-dom": "^18",
     "react-syntax-highlighter": "^15.5.0",
@@ -22,7 +24,16 @@
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
+    "@storybook/addon-essentials": "7.6.3",
+    "@storybook/addon-interactions": "7.6.3",
+    "@storybook/addon-links": "7.6.3",
+    "@storybook/blocks": "7.6.3",
+    "@storybook/components": "7.6.3",
+    "@storybook/nextjs": "7.6.3",
+    "@storybook/react": "7.6.3",
+    "@storybook/test": "7.6.3",
+    "storybook": "7.6.3",
+    "@storybook/theming": "7.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
