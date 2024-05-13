@@ -24,6 +24,14 @@ export const PropsTable = ({ name }) => {
               </td>
               <td style={{ padding: '5px 0' }}>
                 {data.props[prop].description}
+                {data.props[prop].tsType && (
+                  <>
+                    <br />
+                    <code>
+                      {data.props[prop].tsType.raw ?? data.props[prop].tsType.name}
+                    </code>
+                  </>
+                )}
               </td>
               <td style={{ padding: '5px 0' }}>
                 <code>
