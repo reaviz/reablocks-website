@@ -49,7 +49,7 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, scale: 1 }}
             className="text-[40px] font-bold text-content-primary md:text-6xl"
           >
-            Components you never knew you needed.
+            Stop coding from scratch. Build faster. Launch sooner.
           </motion.h1>
         </div>
         <motion.div
