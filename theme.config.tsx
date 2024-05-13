@@ -24,7 +24,7 @@ const config: DocsThemeConfig = {
   footer: {
     text: (
       <span>
-        Apache {new Date().getFullYear()} ©{' '}
+        Apache-2.0 {new Date().getFullYear()} ©{' '}
         <a href="https://goodcode.us" target="_blank">
           Good Code
         </a>
