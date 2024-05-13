@@ -29,3 +29,30 @@ body {
     text-wrap: balance;
   }
 }
+
+.sbdocs {
+  background: transparent !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+.nextra-content p,
+.nextra-content li {
+  color: white !important;
+}
+
+.sbdocs-content {
+  max-width: 100% !important;
+}
+
+.sbdocs-content > div > .nx-flex {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.nextra-toc ul,
+.nextra-menu-desktop,
+.nextra-menu-desktop ul {
+  padding-left: auto !important;
+  list-style: none !important;
+}
