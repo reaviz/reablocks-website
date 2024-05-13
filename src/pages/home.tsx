@@ -340,10 +340,11 @@ export default function Home() {
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >
@@ -381,10 +382,11 @@ $ npx tailwindcss init`}
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >
@@ -437,10 +439,11 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >

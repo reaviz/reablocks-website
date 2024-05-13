@@ -66,6 +66,15 @@ body {
   color: #029CFD !important;
 }
 
+.rb-code-block {
+  margin-top: 1px;
+  background: transparent;
+}
+
+.rb-code-block code  {
+  display: block !important;
+}
+
 .sbdocs-preview {
   border-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)94%/.1) !important;
 }
