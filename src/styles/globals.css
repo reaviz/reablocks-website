@@ -37,7 +37,8 @@ body {
 }
 
 .nextra-content p,
-.nextra-content li {
+.nextra-content li,
+.nextra-toc p {
   color: white !important;
 }
 
@@ -59,4 +60,8 @@ body {
 
 .docblock-code-toggle--disabled {
   display: none !important;
+}
+
+.rb-code {
+  color: #029CFD !important;
 }

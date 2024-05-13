@@ -1,3 +1,5 @@
+import { Pre, Code } from 'nextra/components'
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   logo: (
@@ -7,6 +9,11 @@ export default {
       src="https://github.com/reaviz/reablocks/raw/master/docs/assets/logo.png"
     />
   ),
+  components: {
+    code: props => <Code {...props} className={`${props.className} rb-code`} />,
+    // Handle storybook overrides
+    pre: props => <Pre {...props} className={`${props.className} prismjs`} />,
+  },
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
