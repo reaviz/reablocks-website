@@ -1,8 +1,9 @@
 import { Pre, Code } from 'nextra/components'
 import { useRouter } from 'next/router';
+import { DocsThemeConfig } from 'nextra-theme-docs'
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const config: DocsThemeConfig = {
   logo: (
     <img
       style={{ width: 150 }}
@@ -52,3 +53,5 @@ export default {
     }
   },
 };
+
+export default config;
