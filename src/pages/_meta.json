@@ -1,5 +1,6 @@
 {
   "index": {
+    "display": "hidden",
     "theme": {
       "layout": "raw",
       "sidebar": false,
@@ -14,6 +15,7 @@
   "getting-started": "Getting Started",
   "theme": "Theme",
   "components": "Components",
+  "blocks": "Blocks",
   "advanced": "Advanced",
   "recipes": "Recipes",
   "support": "Support"

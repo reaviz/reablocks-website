@@ -13,15 +13,15 @@ const navLinks = [
   },
   {
     label: "Docs",
-    href: "https://storybook.reablocks.dev/?path=/docs/docs-intro--docs",
+    href: "/docs",
   },
   {
     label: "Blocks",
-    href: "https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs",
+    href: "/blocks",
   },
   {
     label: "Support",
-    href: "https://storybook.reablocks.dev/?path=/docs/docs-support--docs",
+    href: "/support",
   },
 ];
 
