@@ -1,4 +1,15 @@
 {
+  "index": {
+    "theme": {
+      "layout": "raw",
+      "sidebar": false,
+      "pagination": false,
+      "footer": false,
+      "navbar": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  },
   "docs": "Introduction",
   "getting-started": "Getting Started",
   "theme": "Theme",
