@@ -1,21 +1,31 @@
-import { Canvas } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
 import * as DateSizeStories from 'reablocks/stories/DataSize.story.js';
 
 # Data Size
 The Data Size component is designed to display data sizes in a human-readable format. 
 Leveraging the [human-format](https://www.npmjs.com/package/human-format) library, it simplifies the representation of byte values into more understandable formats such as bytes (B), kilobytes (KiB), megabytes (MiB), and so forth, up to yottabytes (YiB).
 
+<Meta of={DateSizeStories} />
+
 ## Examples
+
 ### Basic Usage
 You can directly use the `DataSize` component to render data sizes. 
 Here's a basic example demonstrating how various byte values are converted into human-readable formats:
 
-<Canvas of={DateSizeStories.Empty} />
+<Canvas of={DateSizeStories.Simple} />
 
 ### Handling Null/Undefined Values
 The component allows for a customizable placeholder string to be displayed when the input value is `null` or `undefined`, 
 enhancing the flexibility in various use cases:
 
+<Canvas of={DateSizeStories.Empty} />
+
+## API
+The `DataSize` component and the `formatSize` function come with several configurable options:
+
+### Component API
+TODO
 
 ### Function API
 For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
@@ -28,9 +38,6 @@ function formatSomething(size: FormatSizeTypes) {
   return formatSize(size);
 }
 ```
-
-## API
-The `DataSize` component and the `formatSize` function come with several configurable options:
 
 ## Design and Usability Tips
 

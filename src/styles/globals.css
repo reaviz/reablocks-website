@@ -56,3 +56,7 @@ body {
   padding-left: auto !important;
   list-style: none !important;
 }
+
+.docblock-code-toggle--disabled {
+  display: none !important;
+}
