@@ -1,4 +1,5 @@
 import { Pre, Code } from 'nextra/components'
+import { useRouter } from 'next/router';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -36,5 +37,18 @@ export default {
   project: {
     link: 'https://github.com/reaviz/reablocks'
   },
-  docsRepositoryBase: 'https://github.com/reaviz/reablocks/tree/master/docs'
+  docsRepositoryBase: 'https://github.com/reaviz/reablocks/tree/master/docs',
+  useNextSeoProps: () => {
+    const { asPath } = useRouter();
+
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s \u2013 reablocks',
+      };
+    } else {
+      return {
+        titleTemplate: 'reablocks \u2013 Enterprise React Components',
+      };
+    }
+  },
 };

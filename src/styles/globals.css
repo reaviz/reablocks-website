@@ -65,3 +65,7 @@ body {
 .rb-code {
   color: #029CFD !important;
 }
+
+.sbdocs-preview {
+  border-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)94%/.1) !important;
+}
