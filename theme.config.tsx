@@ -1,6 +1,6 @@
-import { Pre, Code } from 'nextra/components'
-import { useRouter } from 'next/router';
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { Pre, Code } from "nextra/components";
+import { useRouter } from "next/router";
+import { DocsThemeConfig } from "nextra-theme-docs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const config: DocsThemeConfig = {
@@ -42,13 +42,15 @@ const config: DocsThemeConfig = {
   useNextSeoProps: () => {
     const { asPath } = useRouter();
 
-    if (asPath !== '/') {
+    if (asPath !== "/") {
       return {
-        titleTemplate: '%s \u2013 reablocks',
+        titleTemplate: "%s \u2013 reablocks",
       };
     } else {
       return {
-        titleTemplate: 'reablocks \u2013 Enterprise React Components',
+        titleTemplate: "reablocks \u2013 Enterprise React Components",
+        description:
+          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
       };
     }
   },
