@@ -12,9 +12,9 @@ const config: DocsThemeConfig = {
     />
   ),
   components: {
-    code: props => <Code {...props} className={`${props.className} rb-code`} />,
+    code: (props: any) => <Code {...props} className={`${props.className} rb-code`} />,
     // Handle storybook overrides
-    pre: props => <Pre {...props} className={`${props.className} prismjs`} />,
+    pre: (props: any) => <Pre {...props} className={`${props.className} prismjs`} />,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
