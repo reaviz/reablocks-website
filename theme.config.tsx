@@ -55,6 +55,8 @@ const config: DocsThemeConfig = {
     if (asPath !== "/") {
       return {
         titleTemplate: "%s \u2013 Reablocks",
+        description:
+          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
       };
     } else {
       return {
