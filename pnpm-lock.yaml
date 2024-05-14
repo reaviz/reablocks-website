@@ -24,7 +24,7 @@ importers:
         specifier: ^2.13.4
         version: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(nextra@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks:
-        specifier: 7.6.1
+        specifier: latest
         version: 7.6.1(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18
