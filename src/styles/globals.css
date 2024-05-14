@@ -16,7 +16,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #020214 !important;
+  background-color: #11101F !important;
 }
 
 .nextra-nav-container {
@@ -24,7 +24,7 @@ body {
 }
 
 .nextra-nav-container > nav {
-  background-color: #020214 !important;
+  background-color: #11101F !important;
 }
 
 .nextra-nav-container-blur {
