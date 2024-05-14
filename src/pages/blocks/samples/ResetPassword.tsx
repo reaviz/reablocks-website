@@ -1,38 +1,63 @@
-import { Block } from 'reablocks';
-import { Button } from 'reablocks';
-import { Card } from 'reablocks';
-import { Input } from 'reablocks';
-import { Stack } from 'reablocks';
-import { motion } from 'framer-motion';
-import { useForm, Controller } from 'react-hook-form';
-
-import logo from 'reablocks';
+import { Block } from "reablocks";
+import { Button } from "reablocks";
+import { Card } from "reablocks";
+import { Input } from "reablocks";
+import { Stack } from "reablocks";
+import { motion } from "framer-motion";
+import { useForm, Controller } from "react-hook-form";
 
 export const ResetPassword = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="flex flex-col justify-center grow sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
+      className="flex grow flex-col justify-center sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
       <Card
-        className="w-full h-full grow p-12"
+        className="h-full w-full grow p-12"
         contentClassName="w-full h-full grow flex flex-col"
       >
         <Stack justifyContent="spaceBetween">
-          <img src={logo} alt="Logo" className="h-11" />
-          <a href="#" className="text-lg text-primary font-semibold">
+          <svg
+            className="h-11 w-fit"
+            width="260"
+            height="341"
+            viewBox="0 0 260 341"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M260 341L184.393 212.394C223.901 194.37 250.261 155.399 250.261 113.017C250.261 81.84 239.039 55.0472 217.083 33.1257C195.127 11.2043 168.301 0 136.585 0H0V62.8413H136.585C161.95 62.8413 182.932 85.25 182.932 113.017C182.932 140.784 161.95 163.68 136.585 163.68H81.0277V163.734H0V341H67.329V222.624H118.546L187.314 341H260Z"
+              fill="url(#paint0_linear_1_129)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_1_129"
+                x1="294.975"
+                y1="233.607"
+                x2="-46.0838"
+                y2="159.958"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#1352FF" />
+                <stop offset="0.354721" stop-color="#009BFF" />
+                <stop offset="0.62382" stop-color="#105EFF" />
+                <stop offset="1" stop-color="#090E43" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <a href="#" className="text-lg font-semibold text-primary">
             Create an account
           </a>
         </Stack>
-        <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
-          <div className="p-3 border border-panel-secondary-content rounded mb-3">
+        <div className="mb-14 flex w-full grow flex-col items-center justify-center pt-2 text-center">
+          <div className="border-panel-secondary-content mb-3 rounded border p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -43,14 +68,14 @@ export const ResetPassword = () => {
               <path d="M7.33333 11.9999H8.66667V10.6666H7.33333V11.9999ZM8 1.33325C4.32 1.33325 1.33333 4.31992 1.33333 7.99992C1.33333 11.6799 4.32 14.6666 8 14.6666C11.68 14.6666 14.6667 11.6799 14.6667 7.99992C14.6667 4.31992 11.68 1.33325 8 1.33325ZM8 13.3333C5.06 13.3333 2.66667 10.9399 2.66667 7.99992C2.66667 5.05992 5.06 2.66659 8 2.66659C10.94 2.66659 13.3333 5.05992 13.3333 7.99992C13.3333 10.9399 10.94 13.3333 8 13.3333ZM8 3.99992C6.52667 3.99992 5.33333 5.19325 5.33333 6.66658H6.66667C6.66667 5.93325 7.26667 5.33325 8 5.33325C8.73333 5.33325 9.33333 5.93325 9.33333 6.66658C9.33333 7.99992 7.33333 7.83325 7.33333 9.99992H8.66667C8.66667 8.49992 10.6667 8.33325 10.6667 6.66658C10.6667 5.19325 9.47333 3.99992 8 3.99992Z" />
             </svg>
           </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <h4 className="mb-0 font-sans text-2xl font-bold">Reset Password?</h4>
+          <span className="text-panel-secondary-content font-sans text-base">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
           <form
-            onSubmit={handleSubmit(values => console.log('values', values))}
-            className="w-full text-left mt-7"
+            onSubmit={handleSubmit((values) => console.log("values", values))}
+            className="mt-7 w-full text-left"
           >
             <Block labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
@@ -84,7 +109,7 @@ export const ResetPassword = () => {
               type="submit"
               variant="filled"
               color="primary"
-              className="my-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover my-7 flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg transition-colors focus:outline-none"
               disabled={isSubmitting}
               fullWidth
             >
@@ -97,7 +122,7 @@ export const ResetPassword = () => {
               >
                 <path d="M8 2.66675V0.666748L5.33333 3.33341L8 6.00008V4.00008C10.2067 4.00008 12 5.79342 12 8.00008C12 8.67342 11.8333 9.31342 11.5333 9.86675L12.5067 10.8401C13.0267 10.0201 13.3333 9.04675 13.3333 8.00008C13.3333 5.05341 10.9467 2.66675 8 2.66675ZM8 12.0001C5.79333 12.0001 4 10.2067 4 8.00008C4 7.32675 4.16667 6.68675 4.46667 6.13341L3.49333 5.16008C2.97333 5.98008 2.66667 6.95341 2.66667 8.00008C2.66667 10.9467 5.05333 13.3334 8 13.3334V15.3334L10.6667 12.6667L8 10.0001V12.0001Z" />
               </svg>
-              {isSubmitting ? 'Resetting...' : 'Reset Password'}
+              {isSubmitting ? "Resetting..." : "Reset Password"}
             </Button>
             <Stack
               className="w-full text-primary"
@@ -123,10 +148,10 @@ export const ResetPassword = () => {
           </form>
         </div>
         <Stack justifyContent="center">
-          <div className="h-[4px] w-[60px] bg-primary rounded" />
-          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
-          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
-          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
+          <div className="h-[4px] w-[60px] rounded bg-primary" />
+          <div className="bg-surface-disabled h-[4px] w-[60px] rounded" />
+          <div className="bg-surface-disabled h-[4px] w-[60px] rounded" />
+          <div className="bg-surface-disabled h-[4px] w-[60px] rounded" />
         </Stack>
       </Card>
     </motion.div>
