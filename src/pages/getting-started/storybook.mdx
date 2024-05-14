@@ -4,11 +4,12 @@ This guide will walk you through setting up Storybook with Reablocks, including 
 
 ### Prerequisites
 - Ensure Storybook is already set up in your project.
-- Install Reablocks in your project (if you haven't already) using npm or yarn.
+- Install Reablocks in your project (if you haven't already) using npm.
 
-### Create or Update the preview.jsx File
+### Create or Update the `preview.jsx` File
 The `preview.jsx` file in your `.storybook` directory allows you to customize how stories are rendered in Storybook.
 If you don't have this file yet, you'll need to create it to incorporate the `ThemeProvider`.
+
 - Navigate to Your `.storybook` Folder.
 - Create or Edit `preview.jsx`.
 
@@ -19,13 +20,16 @@ Below is an example showcasing how we typically structure this file:
 
 - **Import Required Modules:**
 Start by importing the necessary modules, including the `DocsContainer` from Storybook's addon-docs, the `ThemeProvider` from Reablocks, and your theme file.
+
 ```jsx
 import { DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider } from 'reablocks';
 import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
 ```
+
 - **Set Up Decorators:**
 Decorators are utilized to wrap stories for global style or functionality application. Here, we use the `ThemeProvider` to ensure that your design tokens are applied to every story.
+
 ```jsx
 export const decorators = [
   Story => (
@@ -35,6 +39,7 @@ export const decorators = [
   )
 ];
 ```
+
 - **Configure Global Parameters:**
 Define global parameters to adjust the Storybook environment according to your needs. This configuration includes setting the layout, customizing the documentation container to include the `ThemeProvider`, and hiding the no-controls warning.
 
@@ -63,6 +68,7 @@ Putting it all together, your `.storybook/preview.jsx` file will look something 
 import { DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider } from 'reablocks';
 import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
+
 export const decorators = [
   Story => (
     <ThemeProvider value={theme}>
@@ -70,6 +76,7 @@ export const decorators = [
     </ThemeProvider>
   )
 ];
+
 export const parameters = {
   layout: 'centered',
   docs: {
