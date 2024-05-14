@@ -5,7 +5,7 @@ export const PropsTable = ({ name }) => {
   const keys = Object.keys(data?.props ?? {});
 
   return (
-    <table style={{ width: '100%', fontSize: 14 }}>
+    <table style={{ width: '100%', fontSize: 14, marginTop: 20 }}>
       <thead>
         <tr>
           <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>Prop</th>
@@ -16,11 +16,13 @@ export const PropsTable = ({ name }) => {
       <tbody>
         {keys.map(prop => (
           <tr key={prop} >
-            <td style={{ padding: '5px 0' }}>
-              <code>{prop}</code>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
+              <strong>
+                <code>{prop}</code>
+              </strong>
               {data.props[prop].required && <i> *</i>}
             </td>
-            <td style={{ padding: '5px 0' }}>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
               {data.props[prop].description}
               {data.props[prop].tsType && (
                 <>
@@ -31,7 +33,7 @@ export const PropsTable = ({ name }) => {
                 </>
               )}
             </td>
-            <td style={{ padding: '5px 0' }}>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
               <code>
                 {data.props[prop].defaultValue && data.props[prop].defaultValue.value}
               </code>
