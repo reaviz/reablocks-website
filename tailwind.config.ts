@@ -27,6 +27,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/reablocks/**/*.{js,jsx,ts,tsx}",
+    "./theme.config.tsx",
   ],
   theme: {
     container: {
