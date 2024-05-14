@@ -13,5 +13,10 @@
     "theme": {
       "layout": "full"
     }
+  },
+  "team": {
+    "theme": {
+      "layout": "full"
+    }
   }
 }
