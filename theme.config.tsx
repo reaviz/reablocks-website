@@ -44,11 +44,11 @@ const config: DocsThemeConfig = {
 
     if (asPath !== "/") {
       return {
-        titleTemplate: "%s \u2013 reablocks",
+        titleTemplate: "%s \u2013 Reablocks",
       };
     } else {
       return {
-        titleTemplate: "reablocks \u2013 Enterprise React Components",
+        titleTemplate: "Reablocks \u2013 Open Source ReactJS Component Library",
         description:
           "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
       };

@@ -98,7 +98,7 @@ export const Hero = ({ className }: { className?: string }) => (
           <Count
             className="min-h-9 text-3xl font-bold"
             from={0}
-            to={21}
+            to={35}
             suffix={"+"}
           />
           <motion.h2
@@ -107,16 +107,6 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, y: 0 }}
           >
             Blocks
-          </motion.h2>
-        </div>
-        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-          <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
-          <motion.h2
-            className="text-sm"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            Utilities
           </motion.h2>
         </div>
 
@@ -133,6 +123,17 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, y: 0 }}
           >
             Stories
+          </motion.h2>
+        </div>
+
+        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+          <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Utilities
           </motion.h2>
         </div>
       </div>

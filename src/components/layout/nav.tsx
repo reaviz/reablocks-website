@@ -20,6 +20,10 @@ const navLinks = [
     href: "/blocks",
   },
   {
+    label: "Storybook",
+    href: "https://storybook.reablocks.dev",
+  },
+  {
     label: "Support",
     href: "/support",
   },
