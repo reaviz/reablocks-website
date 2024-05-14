@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Unstyled } from '@storybook/blocks';
+import { ThemeProvider, theme } from 'reablocks';
 
 import { ExternalDocs } from '@storybook/blocks';
 import * as reactAnnotations from '@storybook/react/dist/entry-preview.mjs';
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ExternalDocs projectAnnotationsList={[reactAnnotations, previewAnnotations]}>
       <Unstyled>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Unstyled>
     </ExternalDocs>
   );
