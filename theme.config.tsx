@@ -1,6 +1,7 @@
 import { Pre, Code } from "nextra/components";
 import { useRouter } from "next/router";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Link from 'next/link';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const config: DocsThemeConfig = {
@@ -12,9 +13,14 @@ const config: DocsThemeConfig = {
     />
   ),
   components: {
-    code: (props: any) => <Code {...props} className={`${props.className} rb-code`} />,
     // Handle storybook overrides
-    pre: (props: any) => <Pre {...props} className={`${props.className} prismjs`} />,
+    code: (props: any) => (
+      <Code {...props} className={`${props.className} rb-code`} />
+    ),
+    // Handle storybook overrides
+    pre: (props: any) => (
+      <Pre {...props} className={`${props.className} prismjs`} />
+    ),
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
@@ -22,14 +28,18 @@ const config: DocsThemeConfig = {
   // hide the button
   darkMode: false,
   footer: {
-    text: (
-      <span>
-        Apache-2.0 {new Date().getFullYear()} ©{' '}
-        <a href="https://goodcode.us" target="_blank">
-          Good Code
-        </a>
-        .
-      </span>
+    component: (
+      <footer className="block self-center pb-4 pt-10 text-center">
+        <span>
+          Made with ❤️ by{" "}
+          <Link
+            className="text-secondary underline"
+            href="https://goodcode.us"
+          >
+            Good Code
+          </Link>
+        </span>
+      </footer>
     )
   },
   feedback: {
@@ -44,11 +54,11 @@ const config: DocsThemeConfig = {
 
     if (asPath !== "/") {
       return {
-        titleTemplate: "%s \u2013 reablocks",
+        titleTemplate: "%s \u2013 Reablocks",
       };
     } else {
       return {
-        titleTemplate: "reablocks \u2013 Enterprise React Components",
+        titleTemplate: "Reablocks \u2013 Open Source ReactJS Component Library",
         description:
           "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
       };
