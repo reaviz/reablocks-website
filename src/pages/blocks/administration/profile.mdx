@@ -1,11 +1,28 @@
-import { Stack } from "reablocks";
-import { Input } from "reablocks";
-import { Button } from "reablocks";
-import { Avatar } from "reablocks";
+import { Tabs, TabPanel, TabList, Tab } from 'reablocks';
+import { Profile } from '../samples/Profile';
+
+# Profile
+
+The profile blocks serve a crucial function in applications, providing interfaces for displaying and editing user information. These blocks can enhance user engagement by allowing users to personalize their interaction with the application.
+
+<Tabs>
+    <TabList>
+      <Tab className="light:text-white">
+        Demo
+      </Tab>
+      <Tab className="light:text-white">
+        Code
+      </Tab>
+    </TabList>
+    <TabPanel>
+      <div className="flex flex-col border justify-center items-center border-gray-700 light:bg-white light:text-black">
+        <Profile />
+      </div>
+    </TabPanel>
+    <TabPanel>
+```tsx
+import { Stack, Input, Button, Avatar, Card, Divider, Radio } from "reablocks";
 import { motion } from "framer-motion";
-import { Card } from "reablocks";
-import { Divider } from "reablocks";
-import { Radio } from "reablocks";
 
 export const Profile = () => (
   <motion.div
@@ -90,7 +107,7 @@ export const Profile = () => (
         </Stack>
         <Stack justifyContent="end">
           <div className="flex h-full items-center rounded p-2 ">
-            <Avatar className="h-10 w-10" name="Austin M" size={40} />
+            <Avatar className="h-10 w-10" name="Austin M" size="xl" />
           </div>
           <div className="w-full rounded border border-dotted border-blue-500 p-2 text-center text-sm opacity-75">
             <svg
@@ -155,3 +172,7 @@ export const Profile = () => (
     </Card>
   </motion.div>
 );
+
+```
+  </TabPanel>
+</Tabs>
