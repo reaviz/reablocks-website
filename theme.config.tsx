@@ -25,8 +25,6 @@ const config: DocsThemeConfig = {
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
-  // hide the button
-  darkMode: false,
   footer: {
     component: (
       <footer className="block self-center pb-4 pt-10 text-center">
