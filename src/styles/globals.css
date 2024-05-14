@@ -4,7 +4,6 @@
 
 /* Import pre generated styles for default reablocks theme  */
 @import 'node_modules/reablocks/dist/index.css';
-/* @import './index.css'; */
 
 :root {
   --foreground-rgb: 0, 0, 0;
