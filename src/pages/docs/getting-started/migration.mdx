@@ -1,3 +1,5 @@
+import {Steps} from 'nextra/components'
+
 ## Migrating from 6.x to 7.x
 In 7.x, we've introduced new supporting palettes for things like: panel, surface and backgrounds. This
 allows us to define a more consistent and flexible color system for our components.
@@ -23,7 +25,8 @@ allows us to define a more consistent and flexible color system for our componen
 
 We've also introduced a new color system that allows us to define a more consistent and flexible color system for our components.
 The color palettes for Dark and Light themes are now defined using `tw-colors` plugin as a result DarkTheme & LightTheme was merged in theme.
-### Step 1: Update import to use theme from reablocks instead of `darkTheme` and `lightTheme`
+<Steps>
+### Update import to use theme from reablocks instead of `darkTheme` and `lightTheme`
 
 ```tsx
 - import { darkTheme, lightTheme } from 'reablocks';
@@ -77,7 +80,7 @@ const config: Config = {
 };
 ```
 
-### Step 2: Update color tokens
+### Update color tokens
 
 ```tsx
 // Previously tokens structure
@@ -126,6 +129,8 @@ colors: {
 }
 ```
 
+</Steps>
+
 ## Migrating from 5.x to 6.x
 We're excited to announce that version 6.x of our Storybook library introduces a groundbreaking approach to theming with Tailwind CSS.
 This upgrade allows you to leverage the full capabilities of Tailwind CSS, offering a more flexible and powerful way to style your components.
@@ -133,13 +138,13 @@ As part of this transition, we're moving away from the previous CSS variables me
 
 ### Getting Started with the Migration
 To ensure a seamless transition to version 6.x, please follow the steps outlined below.
+<Steps>
 
-### Step 1: Install Tailwind CSS
+### Install Tailwind CSS
 Begin by installing Tailwind CSS in your project:
-#### **1.** Install Tailwind CSS:
 Refer to the Tailwind CSS [Getting Started](/getting-started/setup) guide for installation instructions.
 
-### Step 2: Integrate Tailwind CSS Variables
+### Integrate Tailwind CSS Variables
 Next, incorporate Tailwind CSS Variables into your project as a development dependency:
 #### **1.** Install the Tailwind CSS Variables package:
 ```shell copy
@@ -159,7 +164,7 @@ module.exports = {
 }
 ```
 
-### Step 3: Migrate Legacy Theme Variables
+### Migrate Legacy Theme Variables
 Adapt your existing theme variables for compatibility with the new system:
 #### **1.** Rename your old theme file to `legacyTheme.ts`.
 
@@ -246,7 +251,7 @@ import TWConfig from './config';
 + export const Colors = () => <ColorBlocks colors={TWConfig.colors} />;
 ```
 
-### Step 4: Establish a New Theme
+### Establish a New Theme
 Define and integrate your new theme, optionally extending it with legacy variables:
 
 #### **1.** Create a `theme.ts` file and outline your new theme structure:
@@ -271,7 +276,7 @@ import { projectNameTheme } from './path_to_theme/theme.ts';
 + <ThemeProvider theme={projectNameTheme}>
 ```
 
-### Step 5: Update Components to the New Theming Approach
+### Update Components to the New Theming Approach
 Finally, adapt your components to utilize the new theme, leveraging Tailwind and the extended theme variables:
 ```js
 import { extendTheme, legacyThemeVars, PartialReablocksTheme } from 'reablocks';
@@ -285,6 +290,7 @@ const theme: PartialReablocksTheme = {
 
 export const projectNameTheme = extendTheme(legacyThemeVars, theme);
 ```
+</Steps>
 
 ## Seamless Transition & Support
 
