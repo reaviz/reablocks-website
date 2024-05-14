@@ -1,34 +1,32 @@
-import { useState } from 'react';
-import { Block } from 'reablocks';
-import { Button } from 'reablocks';
-import { Card } from 'reablocks';
-import { cn } from 'reablocks';
-import { Divider } from 'reablocks';
-import { Input } from 'reablocks';
-import { Radio, radioTheme } from 'reablocks';
-import { Select, SelectOption } from 'reablocks';
-import { Stack } from 'reablocks';
-import { motion } from 'framer-motion';
-import { useForm, Controller } from 'react-hook-form';
-
-import logo from 'reablocks';
+import { useState } from "react";
+import { Block } from "reablocks";
+import { Button } from "reablocks";
+import { Card } from "reablocks";
+import { cn } from "reablocks";
+import { Divider } from "reablocks";
+import { Input } from "reablocks";
+import { Radio, radioTheme } from "reablocks";
+import { Select, SelectOption } from "reablocks";
+import { Stack } from "reablocks";
+import { motion } from "framer-motion";
+import { useForm, Controller } from "react-hook-form";
 
 const RadioTheme = {
   ...radioTheme,
-  base: 'box-border leading-3',
+  base: "box-border leading-3",
   radio: {
     ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-none focus-visible:border-primary-hover',
-    checked: 'border-primary'
-  }
+    base: "will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-none focus-visible:border-primary-hover",
+    checked: "border-primary",
+  },
 };
 
 export const RegisterFull = () => {
-  const [selection, setSelection] = useState('');
+  const [selection, setSelection] = useState("");
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -38,24 +36,9 @@ export const RegisterFull = () => {
       className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[11000px]"
     >
       <Card className="w-full p-12">
-        <div className="flex flex-col pt-2 mb-5">
-          <div>
-            <img src={logo} alt="Logo" className="h-11 mb-2" />
-          </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">
-            Welcome to Reablocks
-          </h4>
-          <p className="text-base text-panel-secondary-content font-sans">
-            Excited to have you onboard! Start by creating your account to gain
-            access to our platform. Simply provide your email, choose a
-            password, and include any necessary information about your company
-            to join our community and explore all we have to offer.
-          </p>
-          <Divider variant="secondary" className="mt-4" />
-        </div>
         <form
           className="text-sm"
-          onSubmit={handleSubmit(values => console.log('values', values))}
+          onSubmit={handleSubmit((values) => console.log("values", values))}
         >
           <div className="grid grid-cols-2 gap-4">
             <Block label="First Name">
@@ -136,23 +119,23 @@ export const RegisterFull = () => {
               />
             </Block>
           </div>
-          <h6 className="text-lg font-bold mb-4">Select a package</h6>
+          <h6 className="mb-4 text-lg font-bold">Select a package</h6>
           <div className="grid grid-cols-3 gap-4">
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                "dark:bg-vulcan dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 p-5 transition-colors hover:cursor-pointer",
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'starter'
-                }
+                  "light:bg-athens-gray light:hover:border-primary border-primary dark:bg-black dark:hover:bg-black":
+                    selection === "starter",
+                },
               )}
-              onClick={() => setSelection('starter')}
+              onClick={() => setSelection("starter")}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-lg font-bold">Starter</h6>
                 <Radio
                   size="small"
-                  checked={selection === 'starter'}
+                  checked={selection === "starter"}
                   theme={RadioTheme}
                 />
               </Stack>
@@ -199,24 +182,24 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">Free</h6>
+                <h6 className="mt-2.5 text-lg font-bold">Free</h6>
               </Stack>
             </Card>
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                "dark:bg-vulcan dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 p-5 transition-colors hover:cursor-pointer",
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'premium'
-                }
+                  "light:bg-athens-gray light:hover:border-primary border-primary dark:bg-black dark:hover:bg-black":
+                    selection === "premium",
+                },
               )}
-              onClick={() => setSelection('premium')}
+              onClick={() => setSelection("premium")}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-lg font-bold">Premium</h6>
                 <Radio
                   size="small"
-                  checked={selection === 'premium'}
+                  checked={selection === "premium"}
                   theme={RadioTheme}
                 />
               </Stack>
@@ -263,24 +246,24 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">$1000/Month</h6>
+                <h6 className="mt-2.5 text-lg font-bold">$1000/Month</h6>
               </Stack>
             </Card>
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                "dark:bg-vulcan dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 p-5 transition-colors hover:cursor-pointer",
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'enterprise'
-                }
+                  "light:bg-athens-gray light:hover:border-primary border-primary dark:bg-black dark:hover:bg-black":
+                    selection === "enterprise",
+                },
               )}
-              onClick={() => setSelection('enterprise')}
+              onClick={() => setSelection("enterprise")}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-lg font-bold">Enterprise</h6>
                 <Radio
                   size="small"
-                  checked={selection === 'enterprise'}
+                  checked={selection === "enterprise"}
                   theme={RadioTheme}
                 />
               </Stack>
@@ -327,17 +310,17 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">Email for Price</h6>
+                <h6 className="mt-2.5 text-lg font-bold">Email for Price</h6>
               </Stack>
             </Card>
           </div>
           <Divider variant="secondary" className="mt-4" />
           <Stack justifyContent="spaceBetween">
-            <div className="text-panel-secondary-content text-sm flex items-center justify-center gap-2">
+            <div className="text-panel-secondary-content flex items-center justify-center gap-2 text-sm">
               Already have an account?
               <a
                 href="#"
-                className="text-primary hover:text-primary-hover text-lg"
+                className="text-lg text-primary hover:text-primary-hover"
               >
                 Sign in
               </a>
@@ -347,10 +330,10 @@ export const RegisterFull = () => {
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover mb-2 mt-5 flex items-center gap-2 self-stretch px-4 py-2 !text-lg transition-colors focus:outline-none"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Creating...' : 'Create Account →'}
+                {isSubmitting ? "Creating..." : "Create Account →"}
               </Button>
             </div>
           </Stack>
