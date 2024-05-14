@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import pre generated styles for default reablocks theme  */
+@import 'node_modules/reablocks/dist/index.css';
+/* @import './index.css'; */
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -77,4 +81,8 @@ body {
 
 .sbdocs-preview {
   border-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)94%/.1) !important;
+}
+
+pre.highlighter code {
+  display: block;
 }

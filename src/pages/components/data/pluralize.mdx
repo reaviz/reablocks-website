@@ -1,3 +1,9 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as PluralizeStories from 'reablocks/stories/Pluralize.story.js';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={PluralizeStories} />
+
 # Pluralize
 The Pluralize component dynamically renders words in their singular or plural form depending on the provided item count. 
 It supports customization for singular, plural, and zero-item states, making it ideal for UIs that need to display varying amounts of items or data points.
@@ -6,13 +12,15 @@ It supports customization for singular, plural, and zero-item states, making it 
 #### Singular and Plural Forms
 In this basic example, we show how to render a word in both its singular and plural forms based on the count. 
 The component automatically appends an "s" to the singular form for the plural representation if the plural form is not explicitly provided:
+<Canvas sourceState="shown" of={PluralizeStories.Simple}/>
 
 #### Custom Text for Zero Values
 You can specify custom text to display when the count is zero, providing a more descriptive or friendly message.
-
+<Canvas sourceState="shown" of={PluralizeStories.ZeroCount}/>
 
 ## API
 The Pluralize component's functionality is controlled through several properties:
+<PropsTable name="Pluralize" />
 
 ## Design and Usability Tips
 

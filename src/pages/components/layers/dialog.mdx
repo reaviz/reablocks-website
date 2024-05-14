@@ -1,0 +1,27 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as DialogStories from 'reablocks/stories/Dialog.story.js';
+import { dialogTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={DialogStories} />
+
+# Dialog
+The Dialog component serves as a pop-up or modal window that overlays the main content,
+allowing the display of important messages, forms, or user interactions while grabbing user's focus.
+
+## Example
+### Basic Dialog
+<Canvas sourceState="shown" of={DialogStories.Simple} />
+### Dialog with Footer and Custom header
+<Canvas of={DialogStories.Footer} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={dialogTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+<PropsTable name="Dialog" />

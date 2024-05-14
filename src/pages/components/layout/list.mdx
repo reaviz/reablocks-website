@@ -1,0 +1,23 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ListItemStories from 'reablocks/stories/List.story.js';
+import { listTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={ListItemStories} />
+
+# List
+Simple list and list item component.
+
+## Example
+<Canvas sourceState="shown" of={ListItemStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={listTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+<PropsTable name="ListItem" />

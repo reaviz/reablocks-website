@@ -1,0 +1,34 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as TabsStories from 'reablocks/stories/Tabs.story.js';
+import { tabsTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={TabsStories} />
+
+# Tabs
+The tabs component is a simple way to organize content into different sections.
+
+## Example
+<Canvas sourceState="shown" of={TabsStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={tabsTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+
+### Tabs
+<PropsTable name="Tabs" />
+
+### TabList
+<PropsTable of="TabList" />
+
+### Tab
+<PropsTable of="Tab" />
+
+### TabPanel
+<PropsTable of="TabPanel" />

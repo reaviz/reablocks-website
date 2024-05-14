@@ -1,14 +1,23 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as InfinityListStories from 'reablocks/stories/InfinityList.story.js';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={InfinityListStories} />
+
 # Infinity List
 The Infinity List component is designed to manage large datasets by progressively displaying a subset of items, 
 enhancing performance and user experience. 
 This component is especially useful in scenarios where loading the entire dataset at once is feasible, 
 but displaying it all at once may overwhelm the user or the UI.
+<Canvas sourceState="shown" of={InfinityListStories.Simple} />
 
 ### Basic Usage (Component Approach)
 The basic implementation uses the `InfinityList` component directly. 
 This approach is straightforward, allowing you to map over your dataset and render each item within the `InfinityList` component:
 
 ### Advanced Usage (Hook API)
+<Canvas sourceState="shown" of={InfinityListStories.Hook}/>
 
 
 ## API
+<PropsTable name="InfinityList" />

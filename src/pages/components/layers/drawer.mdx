@@ -1,0 +1,29 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as DrawerStories from 'reablocks/stories/Drawer.story.js';
+import { drawerTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={DrawerStories} />
+
+# Drawer
+The Drawer component provides a hidden or off-canvas panel that can slide in or out from the edge of the screen,
+offering additional navigation or content without obstructing the main interface. One common use case is when user
+is analysing a list of entries from a table and they quickly wants to see details for some entries.
+
+## Example
+### Basic example
+<Canvas sourceState="shown" of={DrawerStories.Simple} />
+### Drawer as bottom sheet
+<Canvas of={DrawerStories.BottomSheet} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={drawerTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+
+## API
+<PropsTable name="Drawer" />

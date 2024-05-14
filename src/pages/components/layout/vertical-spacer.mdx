@@ -1,0 +1,23 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as VerticalSpacerStories from 'reablocks/stories/VerticalSpacer.story.js';
+import { verticalSpacerTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={VerticalSpacerStories} />
+
+# Vertical Spacer
+Simple component to add vertical spacing between elements.
+
+## Example
+<Canvas sourceState="shown" of={VerticalSpacerStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={verticalSpacerTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+<PropsTable name="VerticalSpacer" />

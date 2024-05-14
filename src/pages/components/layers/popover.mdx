@@ -1,0 +1,23 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as PopoverStories from 'reablocks/stories/Popover.story.js';
+import { popoverTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={PopoverStories} />
+
+# Popover
+The Popover component displays addtional contextual information, content, or options when user perform an action on the UI element tied to it.
+
+## Example
+<Canvas sourceState="shown" of={PopoverStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={popoverTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+<PropsTable name="Popover" />

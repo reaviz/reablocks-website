@@ -1,0 +1,65 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as PageTitleStories from 'reablocks/stories/PageTitle.story.js';
+import * as PrimaryHeadingStories from 'reablocks/stories/PrimaryHeading.story.js';
+import * as SecondaryHeadingStories from 'reablocks/stories/SecondaryHeading.story.js';
+import * as TextStories from 'reablocks/stories/Text.story.js';
+import * as SubStories from 'reablocks/stories/Sub.story.js';
+import { typographyTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={PageTitleStories} />
+<Meta of={PrimaryHeadingStories} />
+<Meta of={SecondaryHeadingStories} />
+<Meta of={TextStories} />
+<Meta of={SubStories} />
+
+# Typography
+Component for styling text and headings. It contains a set
+of components for different heading sizes and text styles.
+
+- `PageTitle` - The page title component is used for the main title of a page.
+- `PrimaryHeading` - The primary heading component is used for the main heading of a section.
+- `SecondaryHeading` - The secondary heading component is used for the secondary heading of a section.
+- `Sub` - The sub component is used for a sub heading of a section.
+- `Text` - The text component is used for normal text.
+
+## Examples
+
+### PageTitle
+<Canvas sourceState="shown" of={PageTitleStories.Simple}/>
+
+### PrimaryHeading
+<Canvas sourceState="shown" of={PrimaryHeadingStories.Simple}/>
+
+### SecondaryHeading
+<Canvas sourceState="shown" of={SecondaryHeadingStories.Simple}/>
+
+### Text
+<Canvas sourceState="shown" of={TextStories.Simple}/>
+
+### Sub
+<Canvas sourceState="shown" of={SubStories.Simple}/>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={typographyTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+### PageTitle
+<PropsTable name="PageTitle" />
+
+### PrimaryHeading
+<PropsTable name="PrimaryHeading" />
+
+### SecondaryHeading
+<PropsTable name="SecondaryHeading" />
+
+### Sub
+<PropsTable name="Sub" />
+
+### Text
+<PropsTable name="Text" />
