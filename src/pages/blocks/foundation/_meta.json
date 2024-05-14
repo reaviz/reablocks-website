@@ -1,0 +1,17 @@
+{
+  "empty-state": {
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "not-found": {
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "support": {
+    "theme": {
+      "layout": "full"
+    }
+  }
+}
