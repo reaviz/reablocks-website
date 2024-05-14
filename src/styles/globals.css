@@ -16,7 +16,25 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #020214;
+  background-color: #020214 !important;
+}
+
+.nextra-nav-container {
+  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
+}
+
+.nextra-nav-container > nav {
+  background-color: #020214 !important;
+}
+
+.nextra-nav-container-blur {
+  display: none;
+}
+
+.nextra-toc > div > div {
+  background: none !important;
+  box-shadow: none !important;
+  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
 }
 
 @layer utilities {

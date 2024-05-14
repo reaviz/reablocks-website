@@ -1,6 +1,7 @@
 import { Pre, Code } from "nextra/components";
 import { useRouter } from "next/router";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Link from 'next/link';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const config: DocsThemeConfig = {
@@ -27,14 +28,18 @@ const config: DocsThemeConfig = {
   // hide the button
   darkMode: false,
   footer: {
-    text: (
-      <span>
-        Apache-2.0 {new Date().getFullYear()} ©{' '}
-        <a href="https://goodcode.us" target="_blank">
-          Good Code
-        </a>
-        .
-      </span>
+    component: (
+      <footer className="block self-center pb-4 pt-10 text-center">
+        <span>
+          Made with ❤️ by{" "}
+          <Link
+            className="text-secondary underline"
+            href="https://goodcode.us"
+          >
+            Good Code
+          </Link>
+        </span>
+      </footer>
     )
   },
   feedback: {
