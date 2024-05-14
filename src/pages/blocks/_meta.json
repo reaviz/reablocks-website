@@ -1,0 +1,10 @@
+{
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "authentication": "Authentication",
+  "foundation": "Foundation"
+}

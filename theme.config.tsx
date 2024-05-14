@@ -22,9 +22,6 @@ const config: DocsThemeConfig = {
       <Pre {...props} className={`${props.className} prismjs`} />
     ),
   },
-  sidebar: {
-    defaultMenuCollapseLevel: 1,
-  },
   footer: {
     component: (
       <footer className="block self-center pb-4 pt-10 text-center">

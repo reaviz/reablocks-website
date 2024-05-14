@@ -11,29 +11,18 @@
       "breadcrumb": false
     }
   },
-  
   "docs": {
-    "title": "Introduction"
+    "title": "Docs",
+    "type": "page"
   },
-  "getting-started": "Getting Started",
-  "theme": "Themeing",
-  "advanced": "Advanced",
-  "recipes": "Recipes",
-  "components": "Components",
   "blocks": {
     "title": "Blocks",
-    "theme": {
-      "layout": "full"
-    }
+    "type": "page"
   },
-  "---": {
-    "type": "separator"
-  },
-  "changelog": {
-    "title": "Changelog",
-    "theme": {
-      "timestamp": false
-    }
-  },
-  "support": "Support"
+  "storybook": {
+    "title": "Storybook",
+    "type": "page",
+    "href": "https://storybook.reablocks.dev",
+    "newWindow": true
+  }
 }

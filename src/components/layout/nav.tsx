@@ -7,11 +7,6 @@ import { cn } from "@/utils/cn";
 
 const navLinks = [
   {
-    label: "GitHub",
-    href: "https://github.com/reaviz/reablocks",
-    target: "_blank",
-  },
-  {
     label: "Docs",
     href: "/docs",
   },
@@ -24,9 +19,10 @@ const navLinks = [
     href: "https://storybook.reablocks.dev",
   },
   {
-    label: "Support",
-    href: "/support",
-  },
+    label: "GitHub",
+    href: "https://github.com/reaviz/reablocks",
+    target: "_blank",
+  }
 ];
 
 export const Nav: FC = () => {
