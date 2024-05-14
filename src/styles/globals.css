@@ -75,10 +75,6 @@ body {
   list-style: none !important;
 }
 
-.docblock-code-toggle--disabled {
-  display: none !important;
-}
-
 .rb-code {
   color: #029CFD !important;
 }
