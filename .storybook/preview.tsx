@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { ThemeProvider, theme } from 'reablocks';
+import { ThemeProvider, theme } from "reablocks";
 
 const withProvider = (Story, context) => (
   <ThemeProvider theme={theme}>
@@ -8,10 +8,9 @@ const withProvider = (Story, context) => (
 );
 
 const preview: Preview = {
-  decorators: [
-    withProvider
-  ],
+  decorators: [withProvider],
   parameters: {
+    layout: "centered",
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
