@@ -50,11 +50,6 @@ const config: Config = {
           secondary: "#C6CBD9",
         },
       },
-      fontSize: {
-        sm: "0.75rem", // 12px
-        base: "0.875rem", // 14px
-        lg: "1rem", // 16px
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
