@@ -4,6 +4,21 @@ const {
 
 import type { Config } from "tailwindcss";
 
+const colorPallete = {
+  blue: {
+    100: "#E7EFFF",
+    200: "#C3D7FF",
+    300: "#87AEFF",
+    400: "#4C86FF",
+    500: "#105EFF",
+    600: "#0D4ED2",
+    700: "#0A3DA6",
+    800: "#082D79",
+    900: "#051C4C",
+    950: "#041028",
+  },
+};
+
 const config: Config = {
   darkMode: "class",
   prefix: "",
@@ -11,6 +26,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/reablocks/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     container: {
@@ -21,6 +37,7 @@ const config: Config = {
     },
     extend: {
       colors: {
+        ...colorPallete,
         primary: {
           DEFAULT: "#105EFF",
           hover: "#4C86FF",
