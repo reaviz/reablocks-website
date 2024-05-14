@@ -18,6 +18,9 @@
   "blocks": "Blocks",
   "advanced": "Advanced",
   "recipes": "Recipes",
+  "---": {
+    "type": "separator"
+  },
   "changelog": "Changelog",
   "support": "Support"
 }
