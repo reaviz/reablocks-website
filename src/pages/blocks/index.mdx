@@ -1,3 +1,5 @@
+import { Cards, Card } from 'nextra/components'
+
 import img from '../../icons/preview2.png';
 
 <div className="my-0 mx-auto text-white text-center flex flex-col">
@@ -14,16 +16,24 @@ a variety of these blocks to help you stich together your application faster.
 
 We offer the following blocks:
 
-- Foundation
-  - [Not Found](?path=/docs/blocks-foundation-not-found--docs)
-  - [Support](?path=/docs/blocks-foundation-support--docs)
-  - [Empty State](?path=/docs/blocks-foundation-empty-state--docs)
-- Authentication
-  - [Forgot Password](?path=/docs/blocks-authentication-forgot-password--docs)
-  - [Login](?path=/docs/blocks-authentication-login--docs)
-  - [Register](?path=/docs/blocks-authentication-register--docs)
-  - [MFA](?path=/docs/blocks-authentication-mfa--docs)
-- Administration
-  - [Profile](?path=/docs/blocks-administration-profile--docs)
-  - [Pricing](?path=/docs/blocks-administration-pricing--docs)
-  - [Billing](?path=/docs/blocks-administration-billing--docs)
+### Foundation
+<Cards>
+  <Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Card title="Support" href="/blocks/foundation/support" />
+  <Card title="Empty State" href="/blocks/foundation/empty-state" />
+</Cards>
+
+### Authentication
+<Cards>
+  <Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Card title="Login" href="/blocks/authentication/login" />
+  <Card title="Register" href="/blocks/authentication/register" />
+  <Card title="MFA" href="/blocks/authentication/mfa" />
+</Cards>
+
+### Administration
+<Cards>
+  <Card title="Profile" href="/blocks/administration/profile" />
+  <Card title="Pricing" href="/blocks/administration/pricing" />
+  <Card title="Billing" href="/blocks/administration/billing" />
+</Cards>
