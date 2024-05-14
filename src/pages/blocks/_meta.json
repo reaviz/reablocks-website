@@ -7,5 +7,6 @@
     }
   },
   "authentication": "Authentication",
-  "foundation": "Foundation"
+  "foundation": "Foundation",
+  "administration": "Administration"
 }
