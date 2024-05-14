@@ -11,16 +11,29 @@
       "breadcrumb": false
     }
   },
-  "docs": "Introduction",
+  
+  "docs": {
+    "title": "Introduction"
+  },
   "getting-started": "Getting Started",
-  "theme": "Theme",
-  "components": "Components",
-  "blocks": "Blocks",
+  "theme": "Themeing",
   "advanced": "Advanced",
   "recipes": "Recipes",
+  "components": "Components",
+  "blocks": {
+    "title": "Blocks",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "---": {
     "type": "separator"
   },
-  "changelog": "Changelog",
+  "changelog": {
+    "title": "Changelog",
+    "theme": {
+      "timestamp": false
+    }
+  },
   "support": "Support"
 }
