@@ -6,8 +6,12 @@ export default function Document() {
       <Head>
         <meta property="og:image" content="https://reablocks.dev/preview.png" />
         <meta
-          name="twitter:image"
-          content="https://reablocks.dev/preview.png"
+          property="og:title"
+          content="Reablocks - Open Source ReactJS Component Library"
+        />
+        <meta
+          property="og:description"
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
         />
       </Head>
       <body>
