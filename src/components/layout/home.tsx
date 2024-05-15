@@ -62,14 +62,9 @@ export const Hero = ({ className }: { className?: string }) => (
             components based on Tailwind and Framer Motion.
           </p>
           <div className="flex gap-4">
-            <Link href="/docs/getting-started/setup">
-              <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-black bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit">
-                Get Started
-              </button>
-            </Link>
-            <Link href="https://storybook.reablocks.dev/?path=/docs/docs-intro--docs">
+            <Link href="/docs">
               <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
-                Demos →
+              Get Started →
               </button>
             </Link>
           </div>
