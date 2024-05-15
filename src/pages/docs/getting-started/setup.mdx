@@ -24,6 +24,10 @@ Still in the terminal, initialize Tailwind CSS by running:
 npx tailwindcss init -p
 ```
 
+**Result:** This command creates a `tailwind.config.js` and a `postcss.config.js` file in your project root.
+
+Add the reablocks package from your node modules to the `content` array in your `tailwind.config.js` file:
+
 ```javascript copy
 module.exports = {
   content: [
@@ -36,7 +40,6 @@ module.exports = {
   plugins: [],
 };
 ```
-**Result:** This command creates a `tailwind.config.js` and a `postcss.config.js` file in your project root.
 
 ### 3. Configure Tailwind
 Configure default colors tokens (primary, secondary, success, etc) in your `tailwind.config.js` file:
@@ -216,7 +219,10 @@ const extraColors = {
 };
 
 const config: Config = {
-  // ...
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/reablocks/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -371,7 +377,7 @@ Once the installation is complete, start the Storybook development server:
 npm start
 ```
 
-**Result:** This command runs Storybook locally and opens it in your default web browser, typically at `http://localhost:6006.` You can now view your components, experiment with their properties, and see changes in real-time.
+**Result:** This command runs Storybook locally and opens it in your default web browser at `http://localhost:9009.` You can now view your components, experiment with their properties, and see changes in real-time.
 &nbsp;
 ### Building for Distribution with Rollup
 Our project uses Rollup for bundling and preparing the package for distribution. To build the project, simply run:
