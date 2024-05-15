@@ -1,7 +1,5 @@
 import { Tabs, TabPanel, TabList, Tab } from 'reablocks';
-import { NotFound } from '../samples/NotFound';
-import { DoesNotExist } from '../samples/DoesNotExist';
-import { LostPage } from '../samples/LostPage';
+import * as NotFoundStories from '../samples/NotFound.story';
 
 # Not Found
 
@@ -20,7 +18,7 @@ or when a user tries to access a page they do not have access to.
     </TabList>
     <TabPanel>
       <div className="flex flex-col border justify-center items-center border-gray-700 light:bg-white light:text-black">
-        <NotFound />
+        <NotFoundStories.NotFound />
       </div>
     </TabPanel>
     <TabPanel>
@@ -97,7 +95,7 @@ export const NotFound = () => (
   </TabList>
   <TabPanel>
     <div className="flex flex-col border justify-center items-center border-gray-700 light:bg-white light:text-black">
-      <DoesNotExist />
+      <NotFoundStories.DoesNotExist />
     </div>
   </TabPanel>
   <TabPanel>
@@ -350,7 +348,7 @@ export const DoesNotExist = () => (
   </TabList>
   <TabPanel>
     <div className="flex flex-col border justify-center items-center border-gray-700 light:bg-white light:text-black">
-      <LostPage />
+      <NotFoundStories.LostPage />
     </div>
   </TabPanel>
   <TabPanel>
