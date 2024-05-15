@@ -1,44 +1,44 @@
-import React from 'react';
-import { Button } from 'reablocks';
-import { Card } from 'reablocks';
-import { Chip } from 'reablocks';
-import { Divider } from 'reablocks';
-import { MotionGroup } from 'reablocks';
-import { MotionItem } from 'reablocks';
+import React from "react";
+import { Button } from "reablocks";
+import { Card } from "reablocks";
+import { Chip } from "reablocks";
+import { Divider } from "reablocks";
+import { MotionGroup } from "reablocks";
+import { MotionItem } from "reablocks";
 
-import gridPattern from 'reablocks';
+import gridPattern from "reablocks";
 
 export const LostPage = () => (
-  <div className="flex flex-row justify-center w-full min-h-[800px] relative dark:bg-black-pearl">
-    <div className="text-center w-full">
-      <img src={gridPattern} className="absolute top-0" />
-      <div className="flex flex-col gap-3 w-full h-full justify-center">
+  <div className="dark:bg-black-pearl relative flex min-h-[800px] w-full flex-row justify-center">
+    <div className="w-full text-center">
+      {/* <img src={gridPattern} className="absolute top-0" /> */}
+      <div className="flex h-full w-full flex-col justify-center gap-3">
         <div>
           <Chip
             color="primary"
-            className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100 gap-1"
+            className="dark:text-athens-gray light:text-charade light:bg-blue-100 gap-1 rounded-full px-3 dark:bg-blue-950"
           >
             404 Error
           </Chip>
         </div>
-        <div className="text-surface-content z-10 relative font-bold !text-5xl">
+        <div className="text-surface-content relative z-10 !text-5xl font-bold">
           We lost this page
         </div>
-        <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
+        <div className="dark:text-waterloo light:text-charade relative z-10 opacity-80">
           Let's find a better place for you to go.
         </div>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors font-semibold"
+          className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover relative z-10 mx-auto flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg font-semibold transition-colors focus:outline-none"
         >
           ← Back to Home
         </Button>
-        <MotionGroup className="mt-[200px] w-full grid grid-cols-3 px-10">
+        <MotionGroup className="mt-[200px] grid w-full grid-cols-3 px-10">
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
-              <div className="flex flex-col gap-6 items-start">
+            <Card className="dark:group-hover/item:border-charade light:group-hover/item:border-mystic relative border-transparent text-left transition-colors">
+              <div className="flex flex-col items-start gap-6">
                 <svg
-                  className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
+                  className="fill:secondary-hover transition-colors group-hover/item:fill-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -49,13 +49,13 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Documentation</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="dark:text-waterloo light:text-charade text-base">
                     Learn how to integrate our tools.
                   </span>
                 </div>
                 <a
                   href="#"
-                  className="text-primary hover:text-primary-hover font-bold inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-hover"
                 >
                   Start learning
                   <svg
@@ -70,17 +70,17 @@ export const LostPage = () => (
                 </a>
               </div>
               <Divider
-                className="absolute left-0 bottom-[0px] w-full opacity-0 group-hover/item:opacity-100 transition-opacity"
+                className="absolute bottom-[0px] left-0 w-full opacity-0 transition-opacity group-hover/item:opacity-100"
                 variant="secondary"
                 disableMargins
               />
             </Card>
           </MotionItem>
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
-              <div className="flex flex-col gap-6 items-start">
+            <Card className="dark:group-hover/item:border-charade light:group-hover/item:border-mystic relative border-transparent text-left transition-colors">
+              <div className="flex flex-col items-start gap-6">
                 <svg
-                  className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
+                  className="fill:secondary-hover transition-colors group-hover/item:fill-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -91,13 +91,13 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Guide</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="dark:text-waterloo light:text-charade text-base">
                     Easy-to-follow installation guides.
                   </span>
                 </div>
                 <a
                   href="#"
-                  className="text-primary hover:text-primary-hover font-bold inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-hover"
                 >
                   Start learning
                   <svg
@@ -112,17 +112,17 @@ export const LostPage = () => (
                 </a>
               </div>
               <Divider
-                className="absolute left-0 bottom-[0px] w-full opacity-0 group-hover/item:opacity-100 transition-opacity"
+                className="absolute bottom-[0px] left-0 w-full opacity-0 transition-opacity group-hover/item:opacity-100"
                 variant="secondary"
                 disableMargins
               />
             </Card>
           </MotionItem>
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
-              <div className="flex flex-col gap-6 items-start">
+            <Card className="dark:group-hover/item:border-charade light:group-hover/item:border-mystic relative border-transparent text-left transition-colors">
+              <div className="flex flex-col items-start gap-6">
                 <svg
-                  className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
+                  className="fill:secondary-hover transition-colors group-hover/item:fill-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
                   height="20"
@@ -133,13 +133,13 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Blog</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="dark:text-waterloo light:text-charade text-base">
                     Read our latest news.
                   </span>
                 </div>
                 <a
                   href="#"
-                  className="text-primary hover:text-primary-hover font-bold inline-flex items-center gap-2"
+                  className="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-hover"
                 >
                   View latest post
                   <svg
@@ -154,7 +154,7 @@ export const LostPage = () => (
                 </a>
               </div>
               <Divider
-                className="absolute left-0 bottom-[0px] w-full opacity-0 group-hover/item:opacity-100 transition-opacity"
+                className="absolute bottom-[0px] left-0 w-full opacity-0 transition-opacity group-hover/item:opacity-100"
                 variant="secondary"
                 disableMargins
               />

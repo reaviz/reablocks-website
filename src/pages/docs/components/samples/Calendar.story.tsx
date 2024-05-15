@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Card } from 'reablocks';
-import { Calendar } from 'reablocks';
-import { CalendarRange } from 'reablocks';
-import { add, addMonths, sub } from 'date-fns';
-import { Divider } from 'reablocks';
-import { Stack } from 'reablocks';
+import { useState } from "react";
+import { Card } from "reablocks";
+import { Calendar } from "reablocks";
+import { CalendarRange } from "reablocks";
+import { add, addMonths, sub } from "date-fns";
+import { Divider } from "reablocks";
+import { Stack } from "reablocks";
 
 export default {
-  title: 'Components/Form/Calendar',
-  component: Calendar
+  title: "Components/Form/Calendar",
+  component: Calendar,
 };
 
 export const Simple = () => {
@@ -16,10 +16,11 @@ export const Simple = () => {
 
   return (
     <Card>
+      {/* @ts-expect-error */}
       <Calendar value={date} onChange={(date: Date) => setDate(date)} />
       <Divider />
       <Stack inline={false} justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleDateString() ?? "No date selected"}
       </Stack>
     </Card>
   );
@@ -33,6 +34,7 @@ export const Disabled = () => {
       <Calendar
         value={date}
         disabled
+        // @ts-expect-error
         onChange={(date: Date) => setDate(date)}
       />
     </Card>
@@ -47,11 +49,12 @@ export const NoAnimation = () => {
       <Calendar
         value={date}
         animated={false}
+        // @ts-expect-error
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
       <Stack justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleDateString() ?? "No date selected"}
       </Stack>
     </Card>
   );
@@ -62,10 +65,11 @@ export const DefaultValue = () => {
 
   return (
     <Card>
+      {/* @ts-expect-error */}
       <Calendar value={date} onChange={(date: Date) => setDate(date)} />
       <Divider />
       <Stack justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleDateString() ?? "No date selected"}
       </Stack>
     </Card>
   );
@@ -83,11 +87,12 @@ export const MinMax = () => {
         value={date}
         min={prevMonth}
         max={nextMonth}
+        // @ts-expect-error
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
       <Stack justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleDateString() ?? "No date selected"}
       </Stack>
     </Card>
   );
@@ -100,12 +105,13 @@ export const WithLabels = () => {
     <Card>
       <Calendar
         value={date}
+        // @ts-expect-error
         onChange={(date: Date) => setDate(date)}
         showDayOfWeek
       />
       <Divider />
       <Stack justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleDateString() ?? "No date selected"}
       </Stack>
     </Card>
   );
@@ -118,7 +124,8 @@ export const Range = () => {
     <Card>
       <Calendar
         value={range}
-        onChange={val => setRange(val as [Date, Date | undefined])}
+        // @ts-expect-error
+        onChange={(val) => setRange(val as [Date, Date | undefined])}
         isRange
         showDayOfWeek
       />
@@ -126,7 +133,7 @@ export const Range = () => {
       <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
-          : 'No date selected'}
+          : "No date selected"}
       </Stack>
     </Card>
   );
@@ -139,14 +146,14 @@ export const Multiview = () => {
     <Card>
       <CalendarRange
         value={range}
-        onChange={val => setRange(val as [Date, Date])}
+        onChange={(val) => setRange(val as [Date, Date])}
         showDayOfWeek
       />
       <Divider />
       <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
-          : 'No date selected'}
+          : "No date selected"}
       </Stack>
     </Card>
   );
@@ -159,7 +166,7 @@ export const MultiviewPast = () => {
     <Card>
       <CalendarRange
         value={range}
-        onChange={val => setRange(val as [Date, Date])}
+        onChange={(val) => setRange(val as [Date, Date])}
         direction="past"
         showDayOfWeek
       />
@@ -167,7 +174,7 @@ export const MultiviewPast = () => {
       <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
-          : 'No date selected'}
+          : "No date selected"}
       </Stack>
     </Card>
   );

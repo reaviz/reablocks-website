@@ -186,7 +186,7 @@ export const LoginFull = () => {
         </div>
       </motion.div>
       <div className="relative h-full w-full overflow-hidden">
-        <img src={bg} className="absolute h-full" />
+        {/* <img src={bg} className="absolute h-full" /> */}
       </div>
     </Card>
   );

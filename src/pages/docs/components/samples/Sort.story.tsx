@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Sort } from 'reablocks';
-import { SortDirection } from 'reablocks';
+import React, { useState } from "react";
+import { Sort } from "reablocks";
+import { SortDirection } from "reablocks";
 
 export default {
-  title: 'Components/Data/Sort',
-  component: Sort
+  title: "Components/Data/Sort",
+  component: Sort,
 };
 
-const NeutralIcon = ({ className }) => (
+const NeutralIcon = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -25,7 +25,7 @@ const NeutralIcon = ({ className }) => (
   </svg>
 );
 
-const CustomIcon = ({ className }) => (
+const CustomIcon = ({ className = "" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -44,7 +44,7 @@ const CustomIcon = ({ className }) => (
 );
 
 export const Simple = () => {
-  const [dir, setDir] = useState<SortDirection>('asc');
+  const [dir, setDir] = useState<SortDirection>("asc");
   return (
     <Sort direction={dir} onSort={setDir}>
       Age
@@ -53,7 +53,7 @@ export const Simple = () => {
 };
 
 export const CustomIcons = () => {
-  const [dir, setDir] = useState<SortDirection>('asc');
+  const [dir, setDir] = useState<SortDirection>("asc");
   return (
     <Sort
       direction={dir}
@@ -67,7 +67,7 @@ export const CustomIcons = () => {
 };
 
 export const Disabled = () => {
-  const [dir, setDir] = useState<SortDirection>('asc');
+  const [dir, setDir] = useState<SortDirection>("asc");
   return (
     <Sort direction={dir} disabled onSort={setDir}>
       Age

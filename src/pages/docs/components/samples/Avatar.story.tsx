@@ -10,6 +10,7 @@ export default {
 const Template = args => <Avatar {...args} />;
 
 export const Default = Template.bind({});
+// @ts-expect-error
 Default.args = {
   name: 'John Doe',
   size: 50,
@@ -17,6 +18,7 @@ Default.args = {
 };
 
 export const Outline = Template.bind({});
+// @ts-expect-error
 Outline.args = {
   name: 'John Doe',
   size: 50,
@@ -25,6 +27,7 @@ Outline.args = {
 };
 
 export const RoundedWithImage = Template.bind({});
+// @ts-expect-error
 RoundedWithImage.args = {
   src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg',
   size: 50,
@@ -32,6 +35,7 @@ RoundedWithImage.args = {
 };
 
 export const LargeRounded = Template.bind({});
+// @ts-expect-error
 LargeRounded.args = {
   name: 'John Doe',
   size: 100,

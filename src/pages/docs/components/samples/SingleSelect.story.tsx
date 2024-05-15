@@ -1,26 +1,26 @@
-import { Fragment, useEffect, useState } from 'react';
-import { Select } from 'reablocks';
-import { SelectOption } from 'reablocks';
-import { SelectMenu } from 'reablocks';
-import { SelectInput, SelectInputChip } from 'reablocks';
+import { Fragment, useEffect, useState } from "react";
+import { Select } from "reablocks";
+import { SelectOption } from "reablocks";
+import { SelectMenu } from "reablocks";
+import { SelectInput, SelectInputChip } from "reablocks";
 
 export default {
-  title: 'Components/Form/Select/Single',
+  title: "Components/Form/Select/Single",
   component: Select,
   subcomponents: {
     SelectOption,
     SelectMenu,
     SelectInput,
-    SelectInputChip
-  }
+    SelectInputChip,
+  },
 };
 
 const options = [
-  { value: 'facebook', label: 'Facebook' },
-  { value: 'twitter', label: 'Twitter' },
-  { value: 'github', label: 'GitHub' },
-  { value: 'google', label: 'Google' },
-  { value: 'azure', label: 'Azure' }
+  { value: "facebook", label: "Facebook" },
+  { value: "twitter", label: "Twitter" },
+  { value: "github", label: "GitHub" },
+  { value: "google", label: "Google" },
+  { value: "azure", label: "Azure" },
 ];
 
 export const Basic = () => {
@@ -29,10 +29,10 @@ export const Basic = () => {
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => {
+        value={value || undefined}
+        onChange={(v) => {
           setValue(v);
-          console.log('onChange', v);
+          console.log("onChange", v);
         }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -49,15 +49,15 @@ export const Fonts = () => {
     <div
       style={{
         width: 300,
-        fontFamily: `"Electrolux Sans", system-ui, -apple-system,BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,Noto Color Emoji`
+        fontFamily: `"Electrolux Sans", system-ui, -apple-system,BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,Noto Color Emoji`,
       }}
     >
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => {
+        value={value || undefined}
+        onChange={(v) => {
           setValue(v);
-          console.log('onChange', v);
+          console.log("onChange", v);
         }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -76,19 +76,19 @@ export const NoOptions = () => (
 
 export const ManyOptions = () => {
   const [value, setValue] = useState<string | null>(null);
-  const options = [...Array(300).keys()];
+  const options = Array.from({ length: 300 }, (_, i) => i.toString());
 
   return (
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => {
+        value={value || undefined}
+        onChange={(v) => {
           setValue(v);
-          console.log('onChange', v);
+          console.log("onChange", v);
         }}
       >
-        {options.map(o => (
+        {options.map((o) => (
           <SelectOption key={o} value={`${o}`}>
             {`Option ${o}`}
           </SelectOption>
@@ -99,13 +99,13 @@ export const ManyOptions = () => {
 };
 
 export const DefaultValue = () => {
-  const [value, setValue] = useState<string | null>('facebook');
+  const [value, setValue] = useState<string | null>("facebook");
   return (
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
@@ -116,13 +116,13 @@ export const DefaultValue = () => {
 };
 
 export const InvalidValues = () => {
-  const [value, setValue] = useState<string | null>('gop');
+  const [value, setValue] = useState<string | null>("gop");
   return (
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
@@ -133,11 +133,11 @@ export const InvalidValues = () => {
 };
 
 export const OptionsArray = () => {
-  const [value, setValue] = useState<string | null>('github');
+  const [value, setValue] = useState<string | null>("github");
   return (
     <div style={{ width: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
-        {options.map(o => (
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
+        {options.map((o) => (
           <SelectOption key={o.value} value={o.value}>
             {o.label}
           </SelectOption>
@@ -148,10 +148,14 @@ export const OptionsArray = () => {
 };
 
 export const Autofocus = () => {
-  const [value, setValue] = useState<string | null>('facebook');
+  const [value, setValue] = useState<string | null>("facebook");
   return (
     <div style={{ width: 300 }}>
-      <Select autoFocus value={value} onChange={v => setValue(v)}>
+      <Select
+        autoFocus
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
+      >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
         <SelectOption value="twitch">twitch</SelectOption>
@@ -161,10 +165,10 @@ export const Autofocus = () => {
 };
 
 export const LongInputNames = () => {
-  const [value, setValue] = useState<string | null>('dod');
+  const [value, setValue] = useState<string | null>("dod");
   return (
     <div style={{ width: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
         </SelectOption>
@@ -180,10 +184,10 @@ export const LongInputNames = () => {
 };
 
 export const FluidWidth = () => {
-  const [value, setValue] = useState<string | null>('dod');
+  const [value, setValue] = useState<string | null>("dod");
   return (
     <div style={{ minWidth: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
         </SelectOption>
@@ -199,10 +203,10 @@ export const FluidWidth = () => {
 };
 
 export const Groups = () => {
-  const [value, setValue] = useState<string | null>('twitch');
+  const [value, setValue] = useState<string | null>("twitch");
   return (
     <div style={{ width: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
         <SelectOption value="facebook" group="Social Media">
           Facebook
         </SelectOption>
@@ -224,10 +228,10 @@ export const Groups = () => {
 };
 
 export const LongGroupNames = () => {
-  const [value, setValue] = useState<string | null>('twitch');
+  const [value, setValue] = useState<string | null>("twitch");
   return (
     <div style={{ width: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
         <SelectOption
           value="twitch"
           group="Palo Alto Interior Office with International Space"
@@ -264,10 +268,10 @@ export const LongGroupNames = () => {
 };
 
 export const MixedGroups = () => {
-  const [value, setValue] = useState<string | null>('twitch');
+  const [value, setValue] = useState<string | null>("twitch");
   return (
     <div style={{ width: 300 }}>
-      <Select value={value} onChange={v => setValue(v)}>
+      <Select value={value || undefined} onChange={(v) => setValue(v)}>
         <SelectOption value="twitch">Twitch</SelectOption>
         <SelectOption value="facebook" group="Social Media">
           facebook
@@ -305,18 +309,18 @@ export const RefreshIcon = () => (
 );
 
 export const Async = () => {
-  const [value, setValue] = useState<string | null>('github');
+  const [value, setValue] = useState<string | null>("github");
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null
+    null,
   );
 
   useEffect(() => {
     let timeout;
 
     async function getOptions() {
-      const next = await new Promise<any>(resolve => {
+      const next = await new Promise<any>((resolve) => {
         timeout = setTimeout(() => {
           resolve(options);
         }, 1500);
@@ -344,11 +348,11 @@ export const Async = () => {
         placeholder="Select an option..."
         refreshable={refreshable}
         loading={loading}
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
         onRefresh={() => setOpts(null)}
       >
-        {opts?.map(o => (
+        {opts?.map((o) => (
           <SelectOption key={o.value} value={o.value}>
             {o.label}
           </SelectOption>
@@ -359,18 +363,18 @@ export const Async = () => {
 };
 
 export const AsyncDefaultValue = () => {
-  const [value, setValue] = useState<string | null>('github');
+  const [value, setValue] = useState<string | null>("github");
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null
+    null,
   );
 
   useEffect(() => {
     let timeout;
 
     async function getOptions() {
-      const next = await new Promise<any>(resolve => {
+      const next = await new Promise<any>((resolve) => {
         timeout = setTimeout(() => {
           resolve([...options]);
         }, 1500);
@@ -398,11 +402,11 @@ export const AsyncDefaultValue = () => {
         placeholder="Select an option..."
         refreshable={refreshable}
         loading={loading}
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
         onRefresh={() => setOpts(null)}
       >
-        {opts?.map(o => (
+        {opts?.map((o) => (
           <SelectOption key={o.value} value={o.value}>
             {o.label}
           </SelectOption>
@@ -413,12 +417,12 @@ export const AsyncDefaultValue = () => {
 };
 
 export const CustomLabels = () => {
-  const [value, setValue] = useState<string | null>('facebook');
+  const [value, setValue] = useState<string | null>("facebook");
   return (
     <div style={{ width: 300 }}>
       <Select
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
         placeholder="Select a type..."
       >
         <SelectOption
@@ -448,12 +452,12 @@ export const CustomLabels = () => {
 };
 
 export const CustomLongLabels = () => {
-  const [value, setValue] = useState<string | null>('facebook');
+  const [value, setValue] = useState<string | null>("facebook");
   return (
     <div style={{ width: 300 }}>
       <Select
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
         placeholder="Select a type..."
       >
         <SelectOption
@@ -505,10 +509,14 @@ export const Disabled = () => (
 );
 
 export const Unfilterable = () => {
-  const [value, setValue] = useState<string | null>('facebook');
+  const [value, setValue] = useState<string | null>("facebook");
   return (
     <div style={{ width: 300 }}>
-      <Select filterable={false} value={value} onChange={v => setValue(v)}>
+      <Select
+        filterable={false}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
+      >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
         <SelectOption value="twitch">twitch</SelectOption>
@@ -519,17 +527,17 @@ export const Unfilterable = () => {
 
 export const Createable = () => {
   const [value, setValue] = useState<string | null>(null);
-  const [animals, setAnimals] = useState<string[]>(['chicken', 'cow', 'mouse']);
+  const [animals, setAnimals] = useState<string[]>(["chicken", "cow", "mouse"]);
   return (
     <div style={{ width: 300 }}>
       <Select
         createable
         placeholder="Add a category or pick existing one..."
-        value={value}
-        onChange={v => setValue(v)}
-        onOptionsChange={opts => setAnimals(opts.map(o => o.value))}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
+        onOptionsChange={(opts) => setAnimals(opts.map((o) => o.value))}
       >
-        {animals.map(o => (
+        {animals.map((o) => (
           <SelectOption key={o} value={o}>
             {o}
           </SelectOption>
@@ -545,8 +553,8 @@ export const TabToSelect = () => {
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => setValue(v)}
+        value={value || undefined}
+        onChange={(v) => setValue(v)}
         tabToSelect
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -563,10 +571,10 @@ export const DefaultFilter = () => {
     <div style={{ width: 300 }}>
       <Select
         placeholder="Select a category..."
-        value={value}
-        onChange={v => {
+        value={value || undefined}
+        onChange={(v) => {
           setValue(v);
-          console.log('onChange', v);
+          console.log("onChange", v);
         }}
         defaultFilterValue="twi"
       >
