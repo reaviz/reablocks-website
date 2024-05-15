@@ -36,8 +36,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.6.9
-        version: 7.6.9(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.6.10
+        version: 7.6.10(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18
         version: 18.2.0
@@ -6470,16 +6470,11 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  reablocks@7.6.9:
-    resolution: {integrity: sha512-7rv6QOe/scFItk0KNdYWl1ay4iIOmG5te9jMMaQb4iK/+oVSj0cf2h/bFA+gxqUE9rclJxkjZ56Bg0izY1iJZw==}
+  reablocks@7.6.10:
+    resolution: {integrity: sha512-GTBi6jv4gUngEVAFCsa/67Ty2vlNYFhtOYwFiZkS2g7+ek9TrgiGLQSMZG3Z2UykUkEB/4WEQFKa10s3WV5vDQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
-
-  react-18-input-autosize@3.0.0:
-    resolution: {integrity: sha512-7tsUc9PJWg6Vsp8qYuzlKKBf7hbCoTBdNfjYZSprEPbxf3meuhjklg9QPBe9rIyoR3uDAzmG7NpoJ1+kP5ns+w==}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
 
   react-colorful@5.6.1:
     resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
@@ -16021,7 +16016,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  reablocks@7.6.9(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.6.10(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
@@ -16041,7 +16036,6 @@ snapshots:
       pluralize: 8.0.0
       popper.js: 1.16.1
       react: 18.2.0
-      react-18-input-autosize: 3.0.0(react@18.2.0)
       react-dom: 18.2.0(react@18.2.0)
       react-fast-compare: 3.2.2
       react-highlight-words: 0.20.0(react@18.2.0)
@@ -16051,11 +16045,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
       - prop-types
-
-  react-18-input-autosize@3.0.0(react@18.2.0):
-    dependencies:
-      prop-types: 15.8.1
-      react: 18.2.0
 
   react-colorful@5.6.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
