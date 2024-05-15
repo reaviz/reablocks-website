@@ -17,6 +17,9 @@ importers:
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       framer-motion:
         specifier: ^11.0.28
         version: 11.1.9(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -30,8 +33,8 @@ importers:
         specifier: ^2.13.4
         version: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(nextra@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks:
-        specifier: ^7.6.6
-        version: 7.6.6(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.6.8
+        version: 7.6.8(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18
         version: 18.2.0
@@ -6455,8 +6458,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  reablocks@7.6.6:
-    resolution: {integrity: sha512-a1UCGRZwN4f6emvTwy10AdYlXQA5HTgaiEjK2rLRUFOpJrI16p2Z1pMapRFQ5sfCw9cxW+R2vrK5EB5fKc8MoA==}
+  reablocks@7.6.8:
+    resolution: {integrity: sha512-3CGTsapQBwP/Pae775pzCFEfjPTp8nslSr94yT5UYl8H41y7baCOrZ9FxBC1iYKhN2gBKtVegmHVRR1PUNDxcQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -15997,7 +16000,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  reablocks@7.6.6(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.6.8(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
