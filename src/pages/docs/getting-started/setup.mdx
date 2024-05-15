@@ -301,8 +301,21 @@ npm install reablocks --save
 ```
 
 ### 6. Initialize Theme Provider
-Wrap your application with the `ThemeProvider` component from `reablocks`. You
-can follow the steps [here](/docs/theme/getting-started) to get started with the theme provider.
+Wrap your application with the `ThemeProvider` component from `reablocks`. 
+
+```tsx copy
+import { ThemeProvider, theme } from 'reablocks';
+
+// NOTE: You can extend 'theme' with your own custom theme tokens.
+ 
+export const App = () => (
+  <ThemeProvider theme={theme}>
+    <YourComponents />
+  </ThemeProvider>
+);
+```
+
+You can learn more about the `ThemeProvider` [here](/docs/theme/getting-started).
 
 </Steps>
 
