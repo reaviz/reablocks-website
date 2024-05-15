@@ -21,24 +21,6 @@ export const App = () => (
 **Result:** In this example, the `darkTheme` from Reablocks is applied to your application.
 Simply wrap your component hierarchy with the `ThemeProvider`, and the theme is automatically applied.
 
-### Create a reusable component with a custom theme
-You can also pass theme={} directly to any component, which will override the theme for that component, but not its children.
-This is useful if you want to create a reusable component with a custom theme.
-
-```tsx
-import { tooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
-
-const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
-  base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
-});
-
-export const CustomTooltip = () => (
-  <Tooltip theme={customTheme} content="Hi there">Hover me</Tooltip>
-);
-```
-
-&nbsp;
-
 ### Extending the Reablocks Theme
 Reablocks allows you to extend its themes to customize according to your design requirements.
 You can modify existing styles or add new ones to fit your application's unique design language.
@@ -126,3 +108,21 @@ export default config;
 ```
 **Result:** In this configuration, we extend the default TailwindCSS theme to include custom colors for primary and secondary palettes.
 The `extend` property allows you to add to the existing design tokens without overriding them, ensuring you can update and maintain your theme easily.
+
+&nbsp;
+
+### Creating a reusable component with a custom theme
+You can also pass a theme directly to any component as a prop. This will override the theme for that component, but not its children.
+This is useful if you want to create a reusable component with a theme that differs from the global theme.
+
+```tsx
+import { tooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
+
+const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
+  base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
+});
+
+export const CustomTooltip = () => (
+  <Tooltip theme={customTheme} content="Hi there">Hover me</Tooltip>
+);
+```
