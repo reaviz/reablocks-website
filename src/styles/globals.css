@@ -38,6 +38,11 @@ body {
   border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
 }
 
+.nextra-sidebar-container > .nx-sticky {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

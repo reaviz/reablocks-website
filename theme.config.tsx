@@ -83,7 +83,7 @@ const config: DocsThemeConfig = {
   },
   footer: {
     component: (
-      <footer className="block self-center pb-4 pt-10 text-center">
+      <footer className="block self-center pb-5 pt-5 text-center" style={{ borderTop: 'solid 1px hsla(203, 50%, 30%, 0.15)' }}>
         <span>
           Made with ❤️ by{" "}
           <Link className="text-secondary underline" href="https://goodcode.us">
