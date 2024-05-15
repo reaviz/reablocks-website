@@ -1,26 +1,26 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Select } from "reablocks";
-import { SelectOption } from "reablocks";
-import { SelectMenu } from "reablocks";
-import { SelectInput, SelectInputChip } from "reablocks";
+import React, { Fragment, useEffect, useState } from 'react';
+import { Select } from 'reablocks';
+import { SelectOption } from 'reablocks';
+import { SelectMenu } from 'reablocks';
+import { SelectInput, SelectInputChip } from 'reablocks';
 
 export default {
-  title: "Components/Form/Select/Multi",
+  title: 'Components/Form/Select/Multi',
   component: Select,
   subcomponents: {
     SelectOption,
     SelectMenu,
     SelectInput,
-    SelectInputChip,
-  },
+    SelectInputChip
+  }
 };
 
 const options = [
-  { value: "facebook", label: "Facebook" },
-  { value: "twitter", label: "Twitter" },
-  { value: "github", label: "GitHub" },
-  { value: "google", label: "Google" },
-  { value: "azure", label: "Azure" },
+  { value: 'facebook', label: 'Facebook' },
+  { value: 'twitter', label: 'Twitter' },
+  { value: 'github', label: 'GitHub' },
+  { value: 'google', label: 'Google' },
+  { value: 'azure', label: 'Azure' }
 ];
 
 export const Basic = () => {
@@ -31,10 +31,10 @@ export const Basic = () => {
         multiple
         closeOnSelect={false}
         placeholder="Select a category..."
-        value={value || undefined}
-        onChange={(v) => {
+        value={value}
+        onChange={v => {
           setValue(v);
-          console.log("onChange", v);
+          console.log('onChange', v);
         }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -46,17 +46,17 @@ export const Basic = () => {
 };
 
 export const Disabled = () => {
-  const [value, setValue] = useState<string[] | null>(["facebook"]);
+  const [value, setValue] = useState<string[] | null>(['facebook']);
   return (
     <div style={{ width: 300 }}>
       <Select
         multiple
         disabled
         placeholder="Select a category..."
-        value={value || undefined}
-        onChange={(v) => {
+        value={value}
+        onChange={v => {
           setValue(v);
-          console.log("onChange", v);
+          console.log('onChange', v);
         }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -68,7 +68,7 @@ export const Disabled = () => {
 };
 
 export const DefaultValue = () => {
-  const [value, setValue] = useState<string[]>(["facebook", "twitter"]);
+  const [value, setValue] = useState<string[]>(['facebook', 'twitter']);
   return (
     <div style={{ width: 300 }}>
       <Select
@@ -76,9 +76,9 @@ export const DefaultValue = () => {
         closeOnSelect={false}
         placeholder="Select a category..."
         value={value}
-        onChange={(v) => {
+        onChange={v => {
           setValue(v);
-          console.log("onChange", v);
+          console.log('onChange', v);
         }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -90,14 +90,14 @@ export const DefaultValue = () => {
 };
 
 export const CustomLabels = () => {
-  const [value, setValue] = useState<string[] | null>(["facebook"]);
+  const [value, setValue] = useState<string[] | null>(['facebook']);
   return (
     <div style={{ width: 300 }}>
       <Select
-        value={value || undefined}
+        value={value}
         multiple
         placeholder="Select a type..."
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption
           value="facebook"
@@ -127,7 +127,7 @@ export const CustomLabels = () => {
 
 export const Createable = () => {
   const [value, setValue] = useState<string[]>([]);
-  const [animals, setAnimals] = useState<string[]>(["chicken", "cow", "mouse"]);
+  const [animals, setAnimals] = useState<string[]>(['chicken', 'cow', 'mouse']);
   return (
     <div style={{ width: 300 }}>
       <Select
@@ -135,14 +135,14 @@ export const Createable = () => {
         closeOnSelect={false}
         createable
         selectOnPaste
-        selectOnKeys={["Enter", "Space", "Comma"]}
+        selectOnKeys={['Enter', 'Space', 'Comma']}
         searchOptions={{ threshold: 0 }}
         placeholder="Add some categories or pick existing one..."
         value={value}
-        onChange={(v) => setValue(v)}
-        onOptionsChange={(opts) => setAnimals(opts.map((o) => o.value))}
+        onChange={v => setValue(v)}
+        onOptionsChange={opts => setAnimals(opts.map(o => o.value))}
       >
-        {animals.map((o) => (
+        {animals.map(o => (
           <SelectOption key={o} value={o}>
             {o}
           </SelectOption>
@@ -153,14 +153,14 @@ export const Createable = () => {
 };
 
 export const LongInputNames = () => {
-  const [value, setValue] = useState<string[]>(["dod"]);
+  const [value, setValue] = useState<string[]>(['dod']);
   return (
     <div style={{ width: 300 }}>
       <Select
         multiple
         closeOnSelect={false}
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
@@ -177,14 +177,14 @@ export const LongInputNames = () => {
 };
 
 export const MultipleValuesOverflow = () => {
-  const [value, setValue] = useState<string[]>(["dod", "dhs", "soc"]);
+  const [value, setValue] = useState<string[]>(['dod', 'dhs', 'soc']);
   return (
     <div style={{ width: 350 }}>
       <Select
         multiple
         closeOnSelect={false}
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
@@ -201,14 +201,14 @@ export const MultipleValuesOverflow = () => {
 };
 
 export const MultipleValuesFixed = () => {
-  const [value, setValue] = useState<string[]>(["dod", "dhs", "soc"]);
+  const [value, setValue] = useState<string[]>(['dod', 'dhs', 'soc']);
   return (
     <div style={{ width: 500 }}>
       <Select
         multiple
         closeOnSelect={false}
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
@@ -225,14 +225,14 @@ export const MultipleValuesFixed = () => {
 };
 
 export const FluidWidth = () => {
-  const [value, setValue] = useState<string[]>(["dod"]);
+  const [value, setValue] = useState<string[]>(['dod']);
   return (
     <div style={{ minWidth: 300 }}>
       <Select
         multiple
         closeOnSelect={false}
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="dod">
           Department of Defense Logistic and Infrastucture Agency
@@ -249,7 +249,7 @@ export const FluidWidth = () => {
 };
 
 export const Unfilterable = () => {
-  const [value, setValue] = useState<string[]>(["dod"]);
+  const [value, setValue] = useState<string[]>(['dod']);
   return (
     <div style={{ width: 300 }}>
       <Select
@@ -257,7 +257,7 @@ export const Unfilterable = () => {
         closeOnSelect={false}
         multiple
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
@@ -274,14 +274,14 @@ export const Error = () => (
 );
 
 export const InvalidValues = () => {
-  const [value, setValue] = useState<string[]>(["gop"]);
+  const [value, setValue] = useState<string[]>(['gop']);
   return (
     <div style={{ width: 300 }}>
       <Select
         closeOnSelect={false}
         multiple
         value={value}
-        onChange={(v) => setValue(v)}
+        onChange={v => setValue(v)}
         placeholder="Pick a tool..."
       >
         <SelectOption value="facebook">facebook</SelectOption>
@@ -303,13 +303,13 @@ export const CreateableNoOptions = () => {
         placeholder="Add some new categories..."
         value={value}
         menuDisabled
-        onOptionsChange={(opts) => setAnimals(opts.map((o) => o.value))}
-        onChange={(v) => {
+        onOptionsChange={opts => setAnimals(opts.map(o => o.value))}
+        onChange={v => {
           setValue(v);
-          console.log("onChange", v);
+          console.log('onChange', v);
         }}
       >
-        {animals.map((animal) => (
+        {animals.map(animal => (
           <SelectOption key={animal} value={animal}>
             {animal}
           </SelectOption>
@@ -320,18 +320,18 @@ export const CreateableNoOptions = () => {
 };
 
 export const Async = () => {
-  const [value, setValue] = useState<string | null>("github");
+  const [value, setValue] = useState<string | null>('github');
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null,
+    null
   );
 
   useEffect(() => {
     let timeout;
 
     async function getOptions() {
-      const next = await new Promise<any>((resolve) => {
+      const next = await new Promise<any>(resolve => {
         timeout = setTimeout(() => {
           resolve(options);
         }, 1500);
@@ -360,11 +360,11 @@ export const Async = () => {
         refreshable={refreshable}
         loading={loading}
         multiple
-        value={value || undefined}
-        onChange={(v) => setValue(v)}
+        value={value}
+        onChange={v => setValue(v)}
         onRefresh={() => setOpts(null)}
       >
-        {opts?.map((o) => (
+        {opts?.map(o => (
           <SelectOption key={o.value} value={o.value}>
             {o.label}
           </SelectOption>

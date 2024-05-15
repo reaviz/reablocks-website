@@ -1,16 +1,16 @@
-import { InfinityList } from "reablocks";
-import { useInfinityList } from "reablocks";
+import { InfinityList } from 'reablocks';
+import { useInfinityList } from 'reablocks';
 
 export default {
-  title: "Components/Data/InfinityList",
-  component: InfinityList,
+  title: 'Components/Data/InfinityList',
+  component: InfinityList
 };
 
-const items = Array.from(Array(50).keys());
+const items = [...Array(50).keys()];
 
 export const Simple = () => (
   <InfinityList>
-    {items.map((i) => (
+    {items.map(i => (
       <div key={i}>Item {i}</div>
     ))}
   </InfinityList>
@@ -21,7 +21,7 @@ export const Hook = () => {
 
   return (
     <div>
-      {data.map((i) => (
+      {data.map(i => (
         <div key={i}>Item {i}</div>
       ))}
       {hasMore && <button onClick={() => showNext()}>Show More</button>}

@@ -10,7 +10,6 @@
     "copy:blocks": "cpx \"node_modules/reablocks/dist/blocks/*.tsx\" \"src/pages/blocks/samples\" -C",
     "copy:stories": "cpx \"node_modules/reablocks/dist/stories/*.tsx\" \"src/pages/docs/components/samples\" -C",
     "lint": "next lint",
-    "postinstall": "pnpm run copy:blocks && pnpm run copy:stories",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -23,7 +22,7 @@
     "next": "^14",
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
-    "reablocks": "^7.6.8",
+    "reablocks": "^7.6.9",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",

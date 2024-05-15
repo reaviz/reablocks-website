@@ -1,15 +1,15 @@
-import React from "react";
-import { Avatar } from "reablocks";
-import { AvatarGroup } from "reablocks";
+import React from 'react';
+import { Avatar } from 'reablocks';
+import { AvatarGroup } from 'reablocks';
 
 export default {
-  title: "Components/Elements/Avatar Group",
-  component: AvatarGroup,
+  title: 'Components/Elements/Avatar Group',
+  component: AvatarGroup
 };
 
 export const Basic = () => (
   <AvatarGroup>
-    {Array.from(Array(32).keys()).map((idx) => {
+    {[...Array(32).keys()].map(idx => {
       if (idx % 3 === 0) {
         return (
           <Avatar

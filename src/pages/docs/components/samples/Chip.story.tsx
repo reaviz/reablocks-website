@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { Chip } from "reablocks";
-import { Stack } from "reablocks";
-import { ChipTheme, chipTheme } from "reablocks";
+import { useState } from 'react';
+import { Chip } from 'reablocks';
+import { Stack } from 'reablocks';
+import { ChipTheme, chipTheme } from 'reablocks';
 
 export default {
-  title: "Components/Elements/Chip",
-  component: Chip,
+  title: 'Components/Elements/Chip',
+  component: Chip
 };
 
 export const Colors = () => (
-  <div style={{ display: "flex", gap: 10 }}>
+  <div style={{ display: 'flex', gap: 10 }}>
     <Chip>Default</Chip>
     <Chip color="primary">Primary</Chip>
     <Chip color="secondary">Secondary</Chip>
@@ -21,7 +21,7 @@ export const Colors = () => (
 );
 
 export const Sizes = () => (
-  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
     <Chip size="small">Small</Chip>
     <Chip>Medium</Chip>
     <Chip size="large">Large</Chip>
@@ -29,10 +29,10 @@ export const Sizes = () => (
 );
 
 export const Adornment = () => (
-  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
     <Chip start={<DemoIcon />}>Icon</Chip>
     <Chip end={<DemoIcon />}>Icon</Chip>
-    <Chip start={"$"} end={<DemoIcon />}>
+    <Chip start={'$'} end={<DemoIcon />}>
       Icon
     </Chip>
   </div>
@@ -43,13 +43,13 @@ export const StartAdornment = () => <Chip start={<DemoIcon />}>Icon</Chip>;
 export const EndAdornment = () => <Chip end={<DemoIcon />}>Icon</Chip>;
 
 export const StartEndAdornment = () => (
-  <Chip start={"$"} end={<DemoIcon />}>
+  <Chip start={'$'} end={<DemoIcon />}>
     Icon
   </Chip>
 );
 
 export const Variants = () => (
-  <div style={{ display: "flex", gap: 10 }}>
+  <div style={{ display: 'flex', gap: 10 }}>
     <Chip variant="filled">Filled</Chip>
     <Chip variant="outline">Outline</Chip>
   </div>
@@ -113,39 +113,39 @@ export const CustomTheme = () => {
       secondary: {
         ...chipTheme.colors.secondary,
         variants: {
-          ...chipTheme?.colors?.secondary?.variants,
-          filled: `${chipTheme?.colors?.secondary?.variants?.filled} bg-panel-content text-panel`,
-        },
+          ...chipTheme.colors.secondary.variants,
+          filled: `${chipTheme?.colors?.secondary?.variants?.filled} bg-panel-content text-panel`
+        }
       },
       info: {
         ...chipTheme.colors.info,
         variants: {
-          ...chipTheme?.colors?.info?.variants,
-          filled: `${chipTheme?.colors?.info?.variants?.filled} text-panel-content bg-info/10 border-info`,
-        },
+          ...chipTheme.colors.info.variants,
+          filled: `${chipTheme?.colors?.info?.variants?.filled} text-panel-content bg-info/10 border-info`
+        }
       },
       error: {
         ...chipTheme.colors.error,
         variants: {
-          ...chipTheme?.colors?.error?.variants,
-          filled: `${chipTheme?.colors?.error?.variants?.filled} text-panel-content bg-error/10 border-error`,
-        },
+          ...chipTheme.colors.error.variants,
+          filled: `${chipTheme?.colors?.error?.variants?.filled} text-panel-content bg-error/10 border-error`
+        }
       },
       warning: {
         ...chipTheme.colors.warning,
         variants: {
-          ...chipTheme?.colors?.warning?.variants,
-          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-panel-content bg-warning/10 border-warning`,
-        },
+          ...chipTheme.colors.warning.variants,
+          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-panel-content bg-warning/10 border-warning`
+        }
       },
       success: {
         ...chipTheme.colors.success,
         variants: {
-          ...chipTheme?.colors?.success?.variants,
-          filled: `${chipTheme?.colors?.success?.variants?.filled} text-panel-content bg-success/10 border-success`,
-        },
-      },
-    },
+          ...chipTheme.colors.success.variants,
+          filled: `${chipTheme?.colors?.success?.variants?.filled} text-panel-content bg-success/10 border-success`
+        }
+      }
+    }
   };
 
   return (
