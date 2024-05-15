@@ -317,6 +317,31 @@ export const App = () => (
 
 You can learn more about the `ThemeProvider` [here](/docs/theme/getting-started).
 
+### 7. Setup Storybook
+Optionally: If you are using Storybook, you can setup the reablocks in Storybook by adding the 
+following code to `.storybook/preview.js`:
+
+```javascript copy
+import type { Preview } from "@storybook/react";
+import { ThemeProvider, theme } from "reablocks";
+
+export const decorators = [
+  Story => (
+    // NOTE: You can extend 'theme' with your own custom theme tokens.
+    <ThemeProvider value={theme}>
+      <Story />
+    </ThemeProvider>
+  )
+];
+
+const preview: Preview = {
+  // Your other configurations here too
+  decorators: [withProvider],
+};
+```
+
+You can learn more about the Storybook setup [here](docs/getting-started/storybook).
+
 </Steps>
 
 ## Example Repository
