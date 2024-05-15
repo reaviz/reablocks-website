@@ -1,10 +1,10 @@
 import { Canvas, Meta } from '@storybook/blocks';
-// import * as RangeStories from '../../../../stories/components/Range.story.tsx';
+import * as RangeStories from '../../../../stories/components/Range.story.tsx';
 import { rangeTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import ThemeRender from '@/components/ui/theme-render';
 
-{/* <Meta of={RangeStories} /> */}
+<Meta of={RangeStories} />
 
 # Range Slider
 The Range Slider component empowers users to select a single value or a range of values with ease, enhancing interactive data input within applications.
@@ -12,12 +12,12 @@ It's especially useful in scenarios requiring users to define parameters such as
 ## Examples
 ### Basic Usage
 This example illustrates how to implement a Range Slider for selecting a single value, providing a straightforward way for users to specify a precise figure within a defined limit:
-{/* <Canvas sourceState="shown" of={RangeStories.Single}/> */}
+<Canvas sourceState="shown" of={RangeStories.Single}/>
 
 ### Advanced Customization
 #### Range Selection
 Demonstrates a dual-handle Range Slider enabling users to select a range between two values, ideal for defining intervals such as price filters or age brackets:
-{/* <Canvas sourceState="shown" of={RangeStories.Double} /> */}
+<Canvas sourceState="shown" of={RangeStories.Double} />
 
 ## Theme Customization
 The Range Slider comes with a default theme that can be customized to fit the aesthetic of any application:
