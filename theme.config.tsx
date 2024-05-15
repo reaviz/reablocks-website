@@ -86,7 +86,7 @@ const config: DocsThemeConfig = {
       <footer className="block self-center pb-5 pt-5 text-center" style={{ borderTop: 'solid 1px hsla(203, 50%, 30%, 0.15)' }}>
         <span>
           Made with ❤️ by{" "}
-          <Link className="text-secondary underline" href="https://goodcode.us">
+          <Link className="text-secondary underline" href="https://goodcode.us?utm_source=reablocks">
             Good Code
           </Link>
         </span>
