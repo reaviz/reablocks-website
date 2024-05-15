@@ -1,0 +1,25 @@
+{
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "timestamp": false,
+      "layout": "full",
+      "pagination": false
+    }
+  },
+  "getting-started": "Getting Started",
+  "theme": "Themeing",
+  "components": "Components",
+  "advanced": "Advanced",
+  "recipes": "Recipes",
+  "---": {
+    "type": "separator"
+  },
+  "changelog": {
+    "title": "Changelog",
+    "theme": {
+      "timestamp": false
+    }
+  },
+  "support": "Support"
+}

@@ -1,0 +1,14 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ContextMenuStories from '../../../../stories/components/ContextMenu.story.tsx';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={ContextMenuStories} />
+
+# Context Menu
+The Context Menu component offers contextual options or actions that appear when a user right-clicks an element
+
+## Example
+<Canvas sourceState="shown" of={ContextMenuStories.Simple} />
+
+## API
+<PropsTable name="ContextMenu" />

@@ -1,0 +1,20 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as BackdropStories from '../../../../stories/components/Backdrop.story.tsx';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={BackdropStories} />
+
+# Backdrop
+
+---
+
+Backdrop is a component that overlays a certain viewport to
+prevent users from clicking the bottom layer and draw attention
+to the content. This component is typically used with a `Overlay` component.
+
+<Canvas of={BackdropStories.Simple} sourceState="shown"/>
+
+## API
+### [src/layers/Backdrop/Backdrop.tsx](https://github.com/reaviz/reablocks/blob/master/src/layers/Backdrop/Backdrop.tsx)
+
+<PropsTable name="Backdrop" />

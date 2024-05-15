@@ -1,0 +1,27 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as TreeStories from '../../../../stories/components/JsonTree.story.tsx';
+import { jsonTreeTheme } from 'reablocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+
+<Meta of={TreeStories} />
+
+# Json Tree
+Tree component designed for showing JSON data.
+
+## Example
+<Canvas sourceState="shown" of={TreeStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={jsonTreeTheme} />
+
+Learn more about how to customize in the [Theme documentation](/theme/getting-started).
+
+## API
+### Tree
+<PropsTable name="JsonTree" />
+
+### TreeNode
+<PropsTable name="JsonTreeNode" />

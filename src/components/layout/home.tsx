@@ -49,7 +49,7 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, scale: 1 }}
             className="text-[40px] font-bold text-content-primary md:text-6xl"
           >
-            Components you never knew you needed.
+            Stop coding from scratch. Build faster. Launch sooner.
           </motion.h1>
         </div>
         <motion.div
@@ -62,7 +62,7 @@ export const Hero = ({ className }: { className?: string }) => (
             components based on Tailwind and Framer Motion.
           </p>
           <div className="flex gap-4">
-            <Link href="https://storybook.reablocks.dev/?path=/docs/docs-getting-started-setup--docs">
+            <Link href="/docs/getting-started/setup">
               <button className="w-1/2 min-w-[125px] rounded-md border border-primary bg-black bg-transparent px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:border-primary-hover md:w-fit">
                 Get Started
               </button>
@@ -98,7 +98,7 @@ export const Hero = ({ className }: { className?: string }) => (
           <Count
             className="min-h-9 text-3xl font-bold"
             from={0}
-            to={21}
+            to={35}
             suffix={"+"}
           />
           <motion.h2
@@ -107,16 +107,6 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, y: 0 }}
           >
             Blocks
-          </motion.h2>
-        </div>
-        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
-          <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
-          <motion.h2
-            className="text-sm"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            Utilities
           </motion.h2>
         </div>
 
@@ -133,6 +123,17 @@ export const Hero = ({ className }: { className?: string }) => (
             animate={{ opacity: 1, y: 0 }}
           >
             Stories
+          </motion.h2>
+        </div>
+
+        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+          <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
+          <motion.h2
+            className="text-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Utilities
           </motion.h2>
         </div>
       </div>
@@ -340,10 +341,11 @@ export default function Home() {
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >
@@ -381,10 +383,11 @@ $ npx tailwindcss init`}
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >
@@ -437,10 +440,11 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                 <SyntaxHighlighter
                   language="jsx"
                   style={vscDarkPlus}
+                  className="rb-code-block"
                   customStyle={{
                     margin: 0,
                     flex: "1 1 0%",
-                    backgroundColor: "#16161e",
+                    backgroundColor: "transparent",
                     maxWidth: "90vw",
                   }}
                 >

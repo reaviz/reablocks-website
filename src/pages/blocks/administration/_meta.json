@@ -1,0 +1,22 @@
+{
+  "billing": {
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "pricing": {
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "profile": {
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "team": {
+    "theme": {
+      "layout": "full"
+    }
+  }
+}

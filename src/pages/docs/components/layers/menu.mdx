@@ -1,0 +1,18 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as MenuStories from '../../../../stories/components/Menu.story.tsx';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={MenuStories} />
+
+# Menu
+The Menu component offers a collection of actions that users can perform in a list format. The typical usecases are
+navigation menues, table row selection menu etc.
+
+## Examples
+### Basic example
+<Canvas sourceState="shown" of={MenuStories.Simple} />
+### Nested menu items
+<Canvas of={MenuStories.Nested} />
+
+## API
+<PropsTable name="Menu" />

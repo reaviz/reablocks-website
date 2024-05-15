@@ -1,0 +1,14 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CollapseStories from '../../../../stories/components/Collapse.story.tsx';
+import { PropsTable } from '@/components/ui/props-table';
+
+<Meta of={CollapseStories} />
+
+# Collapse
+Simple expand / collapse component with animations via framer-motion.
+
+## Example
+<Canvas sourceState="shown" of={CollapseStories.Simple}/>
+
+## API
+<PropsTable name="Collapse" />

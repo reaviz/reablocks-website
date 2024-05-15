@@ -1,0 +1,39 @@
+import { Cards, Card } from 'nextra/components'
+
+import img from '../../icons/preview2.png';
+
+<div className="my-0 mx-auto text-white text-center flex flex-col">
+  <img
+    className="mx-auto mb-8 mt-8"
+    src={img.src}
+  />
+  ---
+</div>
+
+Blocks are sets of pre-built components that create a feature. For example, a login
+block might have a variety of styling and form layouts for it. Reablocks comes with
+a variety of these blocks to help you stich together your application faster.
+We offer the following blocks out of the box:
+
+### Foundation
+<Cards>
+  <Card title="😱 Not Found" href="/blocks/foundation/not-found" />
+  <Card title="❌ Empty State" href="/blocks/foundation/empty-state" />
+  <Card title="🗣️ Contact" href="/blocks/foundation/contact" />
+</Cards>
+
+### Authentication
+<Cards>
+  <Card title="🔐 Login" href="/blocks/authentication/login" />
+  <Card title="🤷‍♂️ Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Card title="📝 Register" href="/blocks/authentication/register" />
+  <Card title="☎️ MFA" href="/blocks/authentication/mfa" />
+</Cards>
+
+### Administration
+<Cards>
+  <Card title="👦 Profile" href="/blocks/administration/profile" />
+  <Card title="💰 Pricing" href="/blocks/administration/pricing" />
+  <Card title="💸 Billing" href="/blocks/administration/billing" />
+  <Card title="👬 Team" href="/blocks/administration/team" />
+</Cards>

@@ -2,30 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* Import pre generated styles for default reablocks theme  */
+@import "node_modules/reablocks/dist/index.css";
+
+html.light {
+  --background: #ffffff;
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
-:root {
+html.dark {
+  --background: #11101f;
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb)) !important;
+  background-color: var(--background) !important;
+}
+
+.nextra-nav-container > nav {
+  background-color: var(--background) !important;
+}
+
+.nextra-nav-container {
+  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
+}
+
+.nextra-nav-container-blur {
+  display: none;
+}
+
+.docblock-code-toggle {
+  background: black !important;
+  color: white !important;
+}
+
+.nextra-toc > div > div {
+  background: none !important;
+  box-shadow: none !important;
+  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
+}
+
+.nextra-sidebar-container > .nx-sticky {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.sbdocs {
+  background: transparent !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+.nextra-content p,
+.nextra-content li,
+.nextra-toc p {
+  color: rgb(var(--foreground-rgb)) !important;
+}
+
+.sbdocs-content {
+  max-width: 100% !important;
+}
+
+.sbdocs-content > div > .nx-flex {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.nextra-toc ul,
+.nextra-menu-desktop,
+.nextra-menu-desktop ul {
+  padding-left: auto !important;
+  list-style: none !important;
+}
+
+.rb-code {
+  color: #029cfd !important;
+}
+
+.rb-code-block {
+  margin-top: 1px;
+  background: transparent;
+}
+
+.rb-code-block code {
+  display: block !important;
+}
+
+.sbdocs-preview {
+  border-color: hsl(
+    var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1
+  ) !important;
+}
+
+pre.highlighter code {
+  display: block;
 }

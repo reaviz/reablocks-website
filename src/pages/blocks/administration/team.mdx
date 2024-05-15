@@ -1,0 +1,17 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as TeamStories from '../../../stories/blocks/Team.story';
+
+<Meta of={TeamStories} />
+
+# Team
+
+The Team blocks provide a comprehensive view of team members and their roles within the organization. This block can be used manage team and assign roles and permissions.
+
+## Team General
+<Canvas of={TeamStories.TeamGeneral} />
+
+## Team Minimal
+<Canvas of={TeamStories.TeamMinimal} />
+
+## Team Roles
+<Canvas of={TeamStories.TeamRoles} />
