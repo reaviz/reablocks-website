@@ -13,6 +13,7 @@ import { Divider } from "@/components/ui/divider";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { TracingBeams } from "@/components/ui/tracing-beams";
 import { Count } from "@/components/utils/Count/Count";
+import { useViewportDimensions } from "@/hooks/useViewportDimensions";
 import DribbbleIcon from "@/icons/Dribbble";
 import GithubIcon from "@/icons/Github";
 import LinkedinIcon from "@/icons/LinkedIn";
@@ -139,6 +140,7 @@ export const Hero = ({ className }: { className?: string }) => (
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { width } = useViewportDimensions();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -179,6 +181,7 @@ export default function Home() {
         </header>
         <TracingBeams className="hidden md:block">
           <HeroParallax
+            className={width <= 1024 ? "pointer-events-none" : ""}
             products={[
               {
                 title: "Buttons",

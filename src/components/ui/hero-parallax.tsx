@@ -1,5 +1,6 @@
 "use client";
 import { useViewportDimensions } from "@/hooks/useViewportDimensions";
+import { cn } from "@/utils/cn";
 import {
   MotionValue,
   motion,
@@ -18,9 +19,14 @@ export type HeroParallaxProps = {
     thumbnail: string;
   }[];
   children: React.ReactNode;
+  className?: string;
 };
 
-export const HeroParallax = ({ products, children }: HeroParallaxProps) => {
+export const HeroParallax = ({
+  products,
+  children,
+  className,
+}: HeroParallaxProps) => {
   const { width } = useViewportDimensions();
 
   const firstRow = products.slice(0, 10);
@@ -70,7 +76,12 @@ export const HeroParallax = ({ products, children }: HeroParallaxProps) => {
   return (
     <div ref={ref}>
       {children}
-      <div className="flex h-[1200px] max-w-[100vw] flex-col self-auto pt-40 antialiased [perspective:1000px] [transform-style:preserve-3d] md:max-w-[1440px]">
+      <div
+        className={cn(
+          "flex h-[1200px] max-w-[100vw] flex-col self-auto pt-40 antialiased [perspective:1000px] [transform-style:preserve-3d] md:max-w-[1440px]",
+          className,
+        )}
+      >
         <motion.div
           style={{
             rotateX,
