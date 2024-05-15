@@ -64,7 +64,7 @@ export const Hero = ({ className }: { className?: string }) => (
           <div className="flex gap-4">
             <Link href="/docs">
               <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
-              Get Started →
+                Get Started →
               </button>
             </Link>
           </div>
@@ -182,102 +182,102 @@ export default function Home() {
             products={[
               {
                 title: "Buttons",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-button--variants",
+                link: "/docs/components/elements/button",
                 thumbnail: "/buttons.png",
               },
               {
                 title: "Avatars",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-avatar--default",
+                link: "/docs/components/elements/avatar",
                 thumbnail: "/avatars.png",
               },
               {
                 title: "Notification",
-                link: "https://storybook.reablocks.dev/?path=/story/components-layers-notification--title",
+                link: "/docs/components/layers/notification",
                 thumbnail: "/notification.png",
               },
               {
                 title: "Fields",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-input--basic",
+                link: "/docs/components/form/input",
                 thumbnail: "/fields.png",
               },
               {
                 title: "Tabs",
-                link: "https://storybook.reablocks.dev/?path=/story/components-layout-tabs--simple",
+                link: "/docs/components/layout/tabs",
                 thumbnail: "/tabs.png",
               },
               {
                 title: "Checkboxes",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-checkbox--simple",
+                link: "/docs/components/form/checkbox",
                 thumbnail: "/checkboxes.png",
               },
               {
                 title: "Buttons",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-button--variants",
+                link: "/docs/components/elements/button",
                 thumbnail: "/buttons.png",
               },
               {
                 title: "Avatars",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-avatar--default",
+                link: "/docs/components/elements/avatar",
                 thumbnail: "/avatars.png",
               },
               {
                 title: "Notification",
-                link: "https://storybook.reablocks.dev/?path=/story/components-layers-notification--title",
+                link: "/docs/components/layers/notification",
                 thumbnail: "/notification.png",
               },
               {
                 title: "Fields",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-input--basic",
+                link: "/docs/components/form/input",
                 thumbnail: "/fields.png",
               },
               {
                 title: "Tags",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--colors",
+                link: "/docs/components/elements/chip",
                 thumbnail: "/tags.png",
               },
               {
                 title: "Toggle",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-toggle--simple",
+                link: "/docs/components/form/toggle",
                 thumbnail: "/toggle.png",
               },
               {
                 title: "Range",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-range--single",
+                link: "/docs/components/elements/range",
                 thumbnail: "/range.png",
               },
               {
                 title: "Radio buttons",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-radio--simple",
+                link: "/docs/components/form/radio",
                 thumbnail: "/radio-buttons.png",
               },
               {
                 title: "Menu",
-                link: "https://storybook.reablocks.dev/?path=/story/components-layers-menu--unstyled",
+                link: "/docs/components/layers/menu",
                 thumbnail: "/menu.png",
               },
               {
                 title: "Badges",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--custom-theme",
+                link: "/docs/components/elements/chip",
                 thumbnail: "/badges.png",
               },
               {
                 title: "Tags",
-                link: "https://storybook.reablocks.dev/?path=/story/components-elements-chip--colors",
+                link: "/docs/components/elements/chip",
                 thumbnail: "/tags.png",
               },
               {
                 title: "Toggle",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-toggle--simple",
+                link: "/docs/components/form/toggle",
                 thumbnail: "/toggle.png",
               },
               {
                 title: "Range",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-range--single",
+                link: "/docs/components/elements/range",
                 thumbnail: "/range.png",
               },
               {
                 title: "Radio buttons",
-                link: "https://storybook.reablocks.dev/?path=/story/components-form-radio--simple",
+                link: "/docs/components/form/radio",
                 thumbnail: "/radio-buttons.png",
               },
             ]}
@@ -327,7 +327,7 @@ export default function Home() {
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://storybook.reablocks.dev/?path=/docs/docs-getting-started-setup--docs#setup"
+                    href="/docs/getting-started/setup"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
@@ -369,7 +369,7 @@ $ npx tailwindcss init`}
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://storybook.reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    href="/docs/getting-started/setup"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
@@ -426,7 +426,7 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
-                    href="https://storybook.reablocks.dev/?path=/docs/docs-theme-getting-started--docs"
+                    href="/docs/getting-started/setup"
                     className="w-fit text-xs text-secondary md:text-sm"
                   >
                     Learn more
