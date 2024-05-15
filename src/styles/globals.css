@@ -104,3 +104,8 @@ body {
 pre.highlighter code {
   display: block;
 }
+
+input {
+  --tw-ring-opacity: 0 !important;
+  --tw-ring-offset-shadow: none !important;
+}
