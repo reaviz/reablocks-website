@@ -3,7 +3,8 @@
     "title": "Introduction",
     "theme": {
       "timestamp": false,
-      "layout": "full"
+      "layout": "full",
+      "pagination": false
     }
   },
   "authentication": "Authentication",
