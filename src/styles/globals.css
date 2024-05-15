@@ -32,6 +32,11 @@ body {
   display: none;
 }
 
+.docblock-code-toggle {
+  background: black !important;
+  color: white !important;
+}
+
 .nextra-toc > div > div {
   background: none !important;
   box-shadow: none !important;
