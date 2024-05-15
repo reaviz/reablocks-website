@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "copy:blocks": "cpx \"node_modules/reablocks/dist/blocks/*.tsx\" \"src/pages/blocks/samples\" -C",
-    "copy:stories": "cpx \"node_modules/reablocks/dist/stories/*.tsx\" \"src/pages/docs/components/samples\" -C",
+    "copy:blocks": "cpx \"node_modules/reablocks/dist/blocks/*.tsx\" \"src/stories/blocks\" -C",
+    "copy:stories": "cpx \"node_modules/reablocks/dist/stories/*.tsx\" \"src/stories/components\" -C",
+    "postinstall": "pnpm run copy:blocks && pnpm run copy:stories",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

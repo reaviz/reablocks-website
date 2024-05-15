@@ -10,15 +10,8 @@ const withProvider = (Story, context) => (
 const preview: Preview = {
   decorators: [withProvider],
   parameters: {
-    layout: "centered",
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
+    layout: "centered"
+  }
 };
 
 export default preview;

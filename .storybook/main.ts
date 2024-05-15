@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   stories: [
-    '../node_modules/reablocks/dist/stories/*.stories.@(js|jsx|mjs|ts|tsx)'
+    './src/*.stories.@(js|jsx|mjs|ts|tsx)'
   ],
   addons: [
     '@storybook/addon-links',
