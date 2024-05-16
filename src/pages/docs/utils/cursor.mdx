@@ -1,0 +1,12 @@
+# Cursor
+
+---
+A small hook that sets the css body cursor according to
+a state. This is useful for dragging when
+cursors go outside the thing they are dragging.
+
+```jsx
+const [hovered, setHovered] = useState()
+
+useCursor(hovered, 'grabbing') // -> sets body to grabbing
+```

@@ -1,0 +1,12 @@
+# User Select
+
+---
+A small hook that sets the css body user select according to
+a state. This is useful for dragging when
+cursors go outside the thing they are dragging.
+
+```jsx
+const [hovered, setHovered] = useState()
+
+useUserSelect(hovered) // -> sets body to user-select: none
+```
