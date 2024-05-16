@@ -3,7 +3,7 @@ Below is the TypeScript API for the theme. You can
 use this to define your theme and pass it to the provider.
 
 ## Default theme
-Default theme for each component you could find [here](?path=/story/components-theme--components)
+Default theme for each component you could find [here](https://storybook.reablocks.dev/?path=/story/components-theme--components).
 
 ```ts
 export interface ReablocksTheme {
@@ -19,7 +19,6 @@ export interface ReablocksTheme {
     checkbox: CheckboxTheme;
     dateFormat: DateFormatTheme;
     dialog: DialogTheme;
-    dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
     dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
@@ -46,9 +45,11 @@ export interface ReablocksTheme {
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
     tree: TreeTheme;
+    jsonTree: JsonTreeTheme;
     popover: PopoverTheme;
     pager: PagerTheme;
     tabs: TabsTheme;
+    breadcrumbs: BreadcrumbsTheme;
   };
 }
 
@@ -112,11 +113,36 @@ interface ButtonTheme {
     text: string;
   };
   colors: {
-    primary?: string;
-    secondary?: string;
-    success?: string;
-    warning?: string;
-    error?: string;
+    default: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    primary: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    secondary: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    success: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    warning: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    error: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
   };
   sizes: {
     small: string;
@@ -141,6 +167,27 @@ interface BlockTheme {
   };
 }
 
+interface ThemeColor {
+  base?: string;
+  variants?: {
+    filled?: string;
+    outline?: string;
+  };
+  selectable?: {
+    base: string;
+    variants?: {
+      filled?: {
+        base?: string;
+        selected?: string;
+      };
+      outline?: {
+        base?: string;
+        selected?: string;
+      };
+    };
+  };
+}
+
 interface ChipTheme {
   base: string;
   adornment: {
@@ -156,16 +203,15 @@ interface ChipTheme {
   variants: {
     filled: string;
     outline: string;
-    text: string;
   };
   colors: {
-    default: { base?: string; selectable?: string; selected?: string };
-    primary?: { base?: string; selectable?: string; selected?: string };
-    secondary?: { base?: string; selectable?: string; selected?: string };
-    success?: { base?: string; selectable?: string; selected?: string };
-    warning?: { base?: string; selectable?: string; selected?: string };
-    error?: { base?: string; selectable?: string; selected?: string };
-    info?: { base?: string; selectable?: string; selected?: string };
+    default: ThemeColor;
+    primary?: ThemeColor;
+    secondary?: ThemeColor;
+    success?: ThemeColor;
+    warning?: ThemeColor;
+    error?: ThemeColor;
+    info?: ThemeColor;
   };
   sizes: {
     small: string;
@@ -181,6 +227,7 @@ interface ChipTheme {
       large: string;
     };
   };
+  disabled: string;
 }
 
 interface ContextMenuTheme {
@@ -192,7 +239,13 @@ interface CheckboxTheme {
   label: {
     base: string;
     clickable: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
   };
+  border: string;
   check: string;
   checkbox: string;
   disabled: string;
@@ -205,6 +258,18 @@ interface CheckboxTheme {
     hover: {
       strokeWidth: number;
       stroke: string;
+      fill: string;
+    };
+    pressed: {
+      scale: number;
+    };
+    checked: {
+      stroke: string;
+      fill: string;
+    };
+    unchecked: {
+      stroke: string;
+      fill: string;
     };
   };
 }
@@ -219,6 +284,11 @@ interface DialogTheme {
   inner: string;
   content: string;
   footer: string;
+  header: {
+    base: string;
+    text: string;
+    closeButton: string;
+  };
 }
 
 interface DialogHeaderTheme {
@@ -232,6 +302,10 @@ interface DividerTheme {
   orientation?: {
     vertical?: string;
     horizontal?: string;
+  };
+  variant?: {
+    primary?: string;
+    secondary?: string;
   };
   disableMargins?: string;
 }
@@ -325,28 +399,28 @@ interface SelectMenuTheme {
 }
 
 interface ListTheme {
-  base?: string;
-  header?: string;
-  listItem?: {
-    base?: string;
-    disabled?: string;
-    active?: string;
-    clickable?: string;
-    disablePadding?: string;
-    disableGutters?: string;
-    dense?: {
-      base?: string;
-      content?: string;
-      startAdornment?: string;
-      endAdornment?: string;
+  base: string;
+  header: string;
+  listItem: {
+    base: string;
+    disabled: string;
+    active: string;
+    clickable: string;
+    disablePadding: string;
+    disableGutters: string;
+    dense: {
+      base: string;
+      content: string;
+      startAdornment: string;
+      endAdornment: string;
     };
-    adornment?: {
-      base?: string;
-      start?: string;
-      end?: string;
-      svg?: string;
+    adornment: {
+      base: string;
+      start: string;
+      end: string;
+      svg: string;
     };
-    content?: string;
+    content: string;
   };
 }
 
@@ -366,26 +440,26 @@ interface SortTheme {
 }
 
 interface StackTheme {
-  base?: string;
-  dense?: string;
-  inline?: string;
-  direction?: {
-    row?: string;
-    column?: string;
-    rowReverse?: string;
-    columnReverse?: string;
+  base: string;
+  dense: string;
+  inline: string;
+  direction: {
+    row: string;
+    column: string;
+    rowReverse: string;
+    columnReverse: string;
   };
-  alignItems?: {
-    start?: string;
-    end?: string;
-    center?: string;
-    stretch?: string;
+  alignItems: {
+    start: string;
+    end: string;
+    center: string;
+    stretch: string;
   };
-  justifyContent?: {
-    start?: string;
-    end?: string;
-    center?: string;
-    spaceBetween?: string;
+  justifyContent: {
+    start: string;
+    end: string;
+    center: string;
+    spaceBetween: string;
   };
 }
 
@@ -403,14 +477,14 @@ interface KbdTheme {
 }
 
 interface VerticalSpacerTheme {
-  base?: string;
-  size?: {
-    xs?: string;
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-    xxl?: string;
+  base: string;
+  size: {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+    xxl: string;
   };
 }
 
@@ -420,14 +494,28 @@ interface NotificationTheme {
   notification: {
     base: string;
     variants: {
-      success: string;
-      error: string;
-      warning: string;
+      success: {
+        base: string;
+        icon?: string;
+      };
+      error: {
+        base: string;
+        icon?: string;
+      };
+      warning: {
+        base: string;
+        icon?: string;
+      };
+      info: {
+        base: string;
+        icon?: string;
+      };
     };
     header: string;
     content: string;
     body: string;
     closeContainer: string;
+    action: string;
     closeButton: string;
   };
 }
@@ -437,6 +525,7 @@ interface InputTheme {
   input: string;
   inline: string;
   disabled: string;
+  focused: string;
   fullWidth: string;
   error: string;
   sizes: {
@@ -453,7 +542,12 @@ interface InputTheme {
 
 interface CalendarTheme {
   base: string;
-  header: string;
+  header: {
+    base: string;
+    prev: string;
+    mid: string;
+    next: string;
+  };
   title: string;
   content: string;
   days: {
@@ -573,7 +667,10 @@ interface RadioTheme {
 interface RangeTheme {
   base: string;
   drag: string;
-  rangeHighlight: string;
+  rangeHighlight: {
+    base: string;
+    disabled: string;
+  };
   disabled: string;
   inputWrapper: {
     base: string;
@@ -658,12 +755,34 @@ interface TabsTheme {
   base: string;
   list: {
     base: string;
+    indicator: {
+      base: string;
+      size: {
+        small: string;
+        medium: string;
+        large: string;
+      };
+    };
+    divider: string;
+    variant: {
+      primary: {
+        divider: string;
+      };
+      secondary: {
+        divider: string;
+      };
+    };
     tab: {
       base: string;
+      button: string;
       selected: string;
       disabled: string;
+      size: {
+        small: string;
+        medium: string;
+        large: string;
+      };
     };
-    indicator: string;
   };
   panel: string;
 }
