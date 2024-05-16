@@ -1,15 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-import { Block } from 'reablocks';
-import { Button } from 'reablocks';
-import { Card } from 'reablocks';
-import { Divider, Stack } from 'reablocks';
-import { Input } from 'reablocks';
-import { useForm, Controller } from 'react-hook-form';
+import { Block } from "reablocks";
+import { Button } from "reablocks";
+import { Card } from "reablocks";
+import { Divider, Stack } from "reablocks";
+import { Input } from "reablocks";
+import { useForm, Controller } from "react-hook-form";
 
 export default {
-  title: 'Blocks/Authentication/MFA'
+  title: "Blocks/Authentication/MFA",
 };
 
 const LogoIcon = ({ className }) => (
@@ -49,13 +49,14 @@ const QRLightIcon = ({ className }) => (
     width="200"
     height="200"
     viewBox="0 0 200 200"
+    className={className}
     fill="none"
   >
     <g clip-path="url(#clip0_1447_18003)">
       <path d="M200 0H0V200H200V0Z" fill="white" />
       <mask
         id="mask0_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="13"
@@ -399,7 +400,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask1_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="13"
@@ -418,7 +419,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask2_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="25"
         y="25"
@@ -432,7 +433,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask3_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="145"
         y="13"
@@ -451,7 +452,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask4_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="157"
         y="25"
@@ -465,7 +466,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask5_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="145"
@@ -484,7 +485,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask6_1447_18003"
-        style={{ maskType: 'luminance' }}
+        style={{ maskType: "luminance" }}
         maskUnits="userSpaceOnUse"
         x="25"
         y="157"
@@ -965,7 +966,7 @@ export const Mfa = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -975,8 +976,8 @@ export const Mfa = () => {
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
       <Card className="w-full">
-        <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <div className="p-3 border border-panel-secondary-content rounded mb-3">
+        <div className="flex flex-col items-center justify-center pb-5 pt-2 text-center">
+          <div className="border-panel-secondary-content mb-3 rounded border p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -987,7 +988,7 @@ export const Mfa = () => {
               <path d="M3.49998 2C2.30665 2 1.33331 2.97333 1.33331 4.16667V7.83333C1.33331 9.02667 2.30665 10 3.49998 10H7.66665C7.81665 9.64 8.01324 9.30333 8.25323 9H3.49998C2.85665 9 2.33331 8.47667 2.33331 7.83333V4.16667C2.33331 3.52333 2.85665 3 3.49998 3H12.5C13.1433 3 13.6666 3.52333 13.6666 4.16667V7.82357C13.9966 7.99357 14.3035 8.20971 14.5768 8.45638C14.6335 8.25971 14.6666 8.05 14.6666 7.83333V4.16667C14.6666 2.97333 13.6933 2 12.5 2H3.49998ZM4.99998 5.33333C4.82317 5.33333 4.6536 5.40357 4.52858 5.5286C4.40355 5.65362 4.33331 5.82319 4.33331 6C4.33331 6.17681 4.40355 6.34638 4.52858 6.4714C4.6536 6.59643 4.82317 6.66667 4.99998 6.66667C5.17679 6.66667 5.34636 6.59643 5.47138 6.4714C5.59641 6.34638 5.66665 6.17681 5.66665 6C5.66665 5.82319 5.59641 5.65362 5.47138 5.5286C5.34636 5.40357 5.17679 5.33333 4.99998 5.33333ZM7.99998 5.33333C7.82317 5.33333 7.6536 5.40357 7.52858 5.5286C7.40355 5.65362 7.33331 5.82319 7.33331 6C7.33331 6.17681 7.40355 6.34638 7.52858 6.4714C7.6536 6.59643 7.82317 6.66667 7.99998 6.66667C8.17679 6.66667 8.34636 6.59643 8.47138 6.4714C8.59641 6.34638 8.66665 6.17681 8.66665 6C8.66665 5.82319 8.59641 5.65362 8.47138 5.5286C8.34636 5.40357 8.17679 5.33333 7.99998 5.33333ZM11 5.33333C10.8232 5.33333 10.6536 5.40357 10.5286 5.5286C10.4036 5.65362 10.3333 5.82319 10.3333 6C10.3333 6.17681 10.4036 6.34638 10.5286 6.4714C10.6536 6.59643 10.8232 6.66667 11 6.66667C11.1768 6.66667 11.3464 6.59643 11.4714 6.4714C11.5964 6.34638 11.6666 6.17681 11.6666 6C11.6666 5.82319 11.5964 5.65362 11.4714 5.5286C11.3464 5.40357 11.1768 5.33333 11 5.33333ZM11.6666 8C9.64165 8 7.99998 9.64167 7.99998 11.6667C7.99998 13.6917 9.64165 15.3333 11.6666 15.3333C13.6916 15.3333 15.3333 13.6917 15.3333 11.6667C15.3333 9.64167 13.6916 8 11.6666 8ZM11.6666 9.33333C12.308 9.33333 12.903 9.60163 13.3333 10.043V9.66667C13.3333 9.48267 13.4823 9.33333 13.6666 9.33333C13.851 9.33333 14 9.48267 14 9.66667V11C14 11.184 13.851 11.3333 13.6666 11.3333H12.3333C12.149 11.3333 12 11.184 12 11C12 10.816 12.149 10.6667 12.3333 10.6667H12.987C12.6786 10.2573 12.1963 10 11.6666 10C10.7476 10 9.99998 10.7477 9.99998 11.6667C9.99998 12.5857 10.7476 13.3333 11.6666 13.3333C12.37 13.3333 13.001 12.887 13.2363 12.2227C13.2976 12.049 13.4878 11.9579 13.6614 12.0195C13.8351 12.0812 13.9262 12.2713 13.8646 12.4447C13.5356 13.375 12.652 14 11.6666 14C10.3803 14 9.33331 12.9533 9.33331 11.6667C9.33331 10.38 10.3803 9.33333 11.6666 9.33333Z" />
             </svg>
           </div>
-          <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
+          <h1 className="mb-0 mt-2 font-sans text-2xl font-bold">
             One Time Password
           </h1>
           <div className="text-panel-secondary-content text-base">
@@ -996,19 +997,21 @@ export const Mfa = () => {
             process.
           </div>
         </div>
-        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          onSubmit={handleSubmit((values) => console.log("values", values))}
+        >
           <Block>
             <Controller
               name="pin"
               control={control}
               render={({ field: { value, ...rest } }) => (
                 <div className="grid grid-cols-4 gap-4">
-                  {['1', '6', '', ''].map((value, idx) => (
+                  {["1", "6", "", ""].map((value, idx) => (
                     <Input
                       {...rest}
                       disabled={isSubmitting}
                       value={value}
-                      className="text-center min-w-0"
+                      className="min-w-0 text-center"
                     />
                   ))}
                 </div>
@@ -1020,7 +1023,7 @@ export const Mfa = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover mt-7 flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg transition-colors focus:outline-none"
             disabled={isSubmitting}
           >
             <svg
@@ -1032,15 +1035,15 @@ export const Mfa = () => {
             >
               <path d="M8.00002 2.66669V0.666687L5.33335 3.33335L8.00002 6.00002V4.00002C10.2067 4.00002 12 5.79335 12 8.00002C12 8.67335 11.8334 9.31335 11.5334 9.86669L12.5067 10.84C13.0267 10.02 13.3334 9.04669 13.3334 8.00002C13.3334 5.05335 10.9467 2.66669 8.00002 2.66669ZM8.00002 12C5.79335 12 4.00002 10.2067 4.00002 8.00002C4.00002 7.32669 4.16669 6.68669 4.46669 6.13335L3.49335 5.16002C2.97335 5.98002 2.66669 6.95335 2.66669 8.00002C2.66669 10.9467 5.05335 13.3334 8.00002 13.3334V15.3334L10.6667 12.6667L8.00002 10V12Z" />
             </svg>
-            {isSubmitting ? 'Verifying...' : 'Verify'}
+            {isSubmitting ? "Verifying..." : "Verify"}
           </Button>
-          <div className="text-center text-panel-secondary-content text-sm mt-5">
+          <div className="text-panel-secondary-content mt-5 text-center text-sm">
             Are you facing any problems with receiving the code?
           </div>
-          <div className="mt-2.5 mb-5 text-panel-secondary-content text-sm flex items-center justify-center gap-5">
+          <div className="text-panel-secondary-content mb-5 mt-2.5 flex items-center justify-center gap-5 text-sm">
             <a
               href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 text-lg text-primary hover:text-primary-hover"
             >
               Resend Code
               <svg
@@ -1055,13 +1058,13 @@ export const Mfa = () => {
             </a>
           </div>
           <Divider variant="secondary" className="my-4" />
-          <div className="mt-5 text-panel-secondary-content text-sm flex items-center justify-center gap-5">
+          <div className="text-panel-secondary-content mt-5 flex items-center justify-center gap-5 text-sm">
             <span className="text-panel-secondary-content text-sm">
               Remember your password?
             </span>
             <a
               href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 text-lg text-primary hover:text-primary-hover"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1071,7 +1074,7 @@ export const Mfa = () => {
                 fill="currentColor"
               >
                 <path d="M13.8334 7.33335H5.72002L9.44669 3.60669L8.50002 2.66669L3.16669 8.00002L8.50002 13.3334L9.44002 12.3934L5.72002 8.66669H13.8334V7.33335Z" />
-              </svg>{' '}
+              </svg>{" "}
               Go Back
             </a>
           </div>
@@ -1085,7 +1088,7 @@ export const MfaLogin = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -1097,12 +1100,12 @@ export const MfaLogin = () => {
       <Card className="w-full p-[50px]">
         <Stack justifyContent="spaceBetween">
           <LogoIcon className="h-[30px]" />
-          <a href="#" className="text-lg text-primary font-semibold">
+          <a href="#" className="text-lg font-semibold text-primary">
             New to Reablocks?
           </a>
         </Stack>
-        <div className="flex flex-col items-center justify-center pb-5 mt-[190px] text-center">
-          <div className="p-3 bg-primary rounded mb-3">
+        <div className="mt-[190px] flex flex-col items-center justify-center pb-5 text-center">
+          <div className="mb-3 rounded bg-primary p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -1113,29 +1116,31 @@ export const MfaLogin = () => {
               <path d="M3.49998 2C2.30665 2 1.33331 2.97333 1.33331 4.16667V7.83333C1.33331 9.02667 2.30665 10 3.49998 10H7.66665C7.81665 9.64 8.01324 9.30333 8.25323 9H3.49998C2.85665 9 2.33331 8.47667 2.33331 7.83333V4.16667C2.33331 3.52333 2.85665 3 3.49998 3H12.5C13.1433 3 13.6666 3.52333 13.6666 4.16667V7.82357C13.9966 7.99357 14.3035 8.20971 14.5768 8.45638C14.6335 8.25971 14.6666 8.05 14.6666 7.83333V4.16667C14.6666 2.97333 13.6933 2 12.5 2H3.49998ZM4.99998 5.33333C4.82317 5.33333 4.6536 5.40357 4.52858 5.5286C4.40355 5.65362 4.33331 5.82319 4.33331 6C4.33331 6.17681 4.40355 6.34638 4.52858 6.4714C4.6536 6.59643 4.82317 6.66667 4.99998 6.66667C5.17679 6.66667 5.34636 6.59643 5.47138 6.4714C5.59641 6.34638 5.66665 6.17681 5.66665 6C5.66665 5.82319 5.59641 5.65362 5.47138 5.5286C5.34636 5.40357 5.17679 5.33333 4.99998 5.33333ZM7.99998 5.33333C7.82317 5.33333 7.6536 5.40357 7.52858 5.5286C7.40355 5.65362 7.33331 5.82319 7.33331 6C7.33331 6.17681 7.40355 6.34638 7.52858 6.4714C7.6536 6.59643 7.82317 6.66667 7.99998 6.66667C8.17679 6.66667 8.34636 6.59643 8.47138 6.4714C8.59641 6.34638 8.66665 6.17681 8.66665 6C8.66665 5.82319 8.59641 5.65362 8.47138 5.5286C8.34636 5.40357 8.17679 5.33333 7.99998 5.33333ZM11 5.33333C10.8232 5.33333 10.6536 5.40357 10.5286 5.5286C10.4036 5.65362 10.3333 5.82319 10.3333 6C10.3333 6.17681 10.4036 6.34638 10.5286 6.4714C10.6536 6.59643 10.8232 6.66667 11 6.66667C11.1768 6.66667 11.3464 6.59643 11.4714 6.4714C11.5964 6.34638 11.6666 6.17681 11.6666 6C11.6666 5.82319 11.5964 5.65362 11.4714 5.5286C11.3464 5.40357 11.1768 5.33333 11 5.33333ZM11.6666 8C9.64165 8 7.99998 9.64167 7.99998 11.6667C7.99998 13.6917 9.64165 15.3333 11.6666 15.3333C13.6916 15.3333 15.3333 13.6917 15.3333 11.6667C15.3333 9.64167 13.6916 8 11.6666 8ZM11.6666 9.33333C12.308 9.33333 12.903 9.60163 13.3333 10.043V9.66667C13.3333 9.48267 13.4823 9.33333 13.6666 9.33333C13.851 9.33333 14 9.48267 14 9.66667V11C14 11.184 13.851 11.3333 13.6666 11.3333H12.3333C12.149 11.3333 12 11.184 12 11C12 10.816 12.149 10.6667 12.3333 10.6667H12.987C12.6786 10.2573 12.1963 10 11.6666 10C10.7476 10 9.99998 10.7477 9.99998 11.6667C9.99998 12.5857 10.7476 13.3333 11.6666 13.3333C12.37 13.3333 13.001 12.887 13.2363 12.2227C13.2976 12.049 13.4878 11.9579 13.6614 12.0195C13.8351 12.0812 13.9262 12.2713 13.8646 12.4447C13.5356 13.375 12.652 14 11.6666 14C10.3803 14 9.33331 12.9533 9.33331 11.6667C9.33331 10.38 10.3803 9.33333 11.6666 9.33333Z" />
             </svg>
           </div>
-          <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
+          <h1 className="mb-0 mt-2 font-sans text-2xl font-bold">
             Enter your code
           </h1>
           <div className="text-panel-secondary-content text-base">
-            We sent a code to{' '}
+            We sent a code to{" "}
             <a href="#" className="text-primary">
               austin@goodcode.us
             </a>
           </div>
         </div>
-        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          onSubmit={handleSubmit((values) => console.log("values", values))}
+        >
           <Block>
             <Controller
               name="pin"
               control={control}
               render={({ field: { value, ...rest } }) => (
                 <div className="grid grid-cols-4 gap-4">
-                  {['1', '6', '', ''].map((value, idx) => (
+                  {["1", "6", "", ""].map((value, idx) => (
                     <Input
                       {...rest}
                       disabled={isSubmitting}
                       value={value}
-                      className="text-center min-w-0"
+                      className="min-w-0 text-center"
                     />
                   ))}
                 </div>
@@ -1143,12 +1148,12 @@ export const MfaLogin = () => {
             />
           </Block>
           <Stack justifyContent="spaceBetween" className="mb-[190px]">
-            <div className="text-center text-panel-secondary-content text-base">
+            <div className="text-panel-secondary-content text-center text-base">
               Didn't receive a email?
             </div>
             <a
               href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 text-lg text-primary hover:text-primary-hover"
             >
               Click to resend
               <svg
@@ -1167,7 +1172,7 @@ export const MfaLogin = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover mt-7 flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg transition-colors focus:outline-none"
             disabled={isSubmitting}
           >
             Continue
@@ -1191,7 +1196,7 @@ export const MfaAuthenticator = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -1201,34 +1206,36 @@ export const MfaAuthenticator = () => {
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
       <Card className="w-full p-[50px]">
-        <div className="flex flex-col pt-2 pb-5">
-          <h1 className="mb-0 text-2xl font-sans font-bold">
+        <div className="flex flex-col pb-5 pt-2">
+          <h1 className="mb-0 font-sans text-2xl font-bold">
             Set up your two-factor authentication.
           </h1>
           <div className="text-panel-secondary-content">
             Scan this code with your Google authenticator app to continue this
             process.
           </div>
-          <div className="self-center mt-4 mb-6">
+          <div className="mb-6 mt-4 self-center">
             <QRDarkIcon className="light:hidden" />
             <QRLightIcon className="dark:hidden" />
           </div>
         </div>
-        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          onSubmit={handleSubmit((values) => console.log("values", values))}
+        >
           <Block label="Verification code">
             <Controller
               name="pin"
               control={control}
               render={({ field: { value, ...rest } }) => (
-                <div className="grid grid-cols-7 items-center gap-4 mt-2">
-                  {['', '', '', '', '', ''].map((value, idx) => (
+                <div className="mt-2 grid grid-cols-7 items-center gap-4">
+                  {["", "", "", "", "", ""].map((value, idx) => (
                     <>
                       {idx === 3 && <Divider variant="secondary" />}
                       <Input
                         {...rest}
                         disabled={isSubmitting}
                         value={value}
-                        className="text-center min-w-0"
+                        className="min-w-0 text-center"
                       />
                     </>
                   ))}
@@ -1239,7 +1246,7 @@ export const MfaAuthenticator = () => {
           <div className="grid grid-cols-2 gap-4">
             <Button
               variant="outline"
-              className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg hover:border-secondary-hover focus:border-secondary-hover focus:outline-none transition-colors"
+              className="hover:border-secondary-hover focus:border-secondary-hover mt-7 flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg transition-colors focus:outline-none"
               disabled={isSubmitting}
               fullWidth
             >
@@ -1250,10 +1257,10 @@ export const MfaAuthenticator = () => {
               fullWidth
               variant="filled"
               color="primary"
-              className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover mt-7 flex items-center gap-2 self-stretch rounded-sm px-4 py-2 !text-lg transition-colors focus:outline-none"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Confirming...' : 'Confirm'}
+              {isSubmitting ? "Confirming..." : "Confirm"}
             </Button>
           </div>
         </form>
