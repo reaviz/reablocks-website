@@ -5,6 +5,27 @@ import Link from "next/link";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const config: DocsThemeConfig = {
+  head: (
+    <>
+      <meta property="og:image" content="https://reablocks.dev/preview.png" />
+      <meta
+        property="og:title"
+        content="Reablocks - Open Source ReactJS Component Library"
+      />
+      <meta
+        property="og:description"
+        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+      />
+      <meta
+        name="twitter:title"
+        content="Reablocks - Open Source ReactJS Component Library"
+      />
+      <meta
+        name="twitter:description"
+        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+      />
+    </>
+  ),
   logo: (
     <svg
       className="h-fit w-[150px] text-[var(--foreground-rgb)]"
@@ -82,14 +103,20 @@ const config: DocsThemeConfig = {
     ),
   },
   sidebar: {
-    defaultMenuCollapseLevel: 3
+    defaultMenuCollapseLevel: 3,
   },
   footer: {
     component: (
-      <footer className="block self-center pb-5 pt-5 text-center" style={{ borderTop: 'solid 1px hsla(203, 50%, 30%, 0.15)' }}>
+      <footer
+        className="block self-center pb-5 pt-5 text-center"
+        style={{ borderTop: "solid 1px hsla(203, 50%, 30%, 0.15)" }}
+      >
         <span>
           Made with ❤️ by{" "}
-          <Link className="text-secondary underline" href="https://goodcode.us?utm_source=reablocks">
+          <Link
+            className="text-secondary underline"
+            href="https://goodcode.us?utm_source=reablocks"
+          >
             Good Code
           </Link>
         </span>
@@ -104,13 +131,14 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/reaviz/reablocks/tree/master/docs",
   useNextSeoProps: () => {
-    const { asPath,  } = useRouter();
+    const { asPath } = useRouter();
 
     if (asPath !== "/") {
       // The index page is getting wrong titles
-      if (asPath === '/docs' || asPath === '/blocks') {
+      if (asPath === "/docs" || asPath === "/blocks") {
         return {
-          titleTemplate: "Reablocks \u2013 Open Source ReactJS Component Library",
+          titleTemplate:
+            "Reablocks \u2013 Open Source ReactJS Component Library",
           description:
             "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
         };
