@@ -104,9 +104,18 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/reaviz/reablocks/tree/master/docs",
   useNextSeoProps: () => {
-    const { asPath } = useRouter();
+    const { asPath,  } = useRouter();
 
     if (asPath !== "/") {
+      // The index page is getting wrong titles
+      if (asPath === '/docs' || asPath === '/blocks') {
+        return {
+          titleTemplate: "Reablocks \u2013 Open Source ReactJS Component Library",
+          description:
+            "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
+        };
+      }
+
       return {
         titleTemplate: "%s \u2013 Reablocks",
         description:
