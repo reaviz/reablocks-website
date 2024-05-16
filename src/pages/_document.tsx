@@ -13,6 +13,14 @@ export default function Document() {
           property="og:description"
           content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
         />
+        <meta
+          name="twitter:title"
+          content="Reablocks - Open Source ReactJS Component Library"
+        />
+        <meta
+          name="twitter:description"
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+        />
       </Head>
       <body>
         <Main />

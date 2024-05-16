@@ -72,7 +72,7 @@ export const Register = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
-            <LogoIcon className="h-11 mb-2" />
+            <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
@@ -209,12 +209,12 @@ export const RegisterFull = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[11000px]"
+      className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1100px]"
     >
       <Card className="w-full p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
-            <LogoIcon className="h-11 mb-2" />
+            <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
@@ -311,7 +311,7 @@ export const RegisterFull = () => {
             </Block>
           </div>
           <h6 className="text-lg font-bold mb-4">Select a package</h6>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
               className={cn(
                 'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
@@ -506,7 +506,7 @@ export const RegisterFull = () => {
             </Card>
           </div>
           <Divider variant="secondary" className="mt-4" />
-          <Stack justifyContent="spaceBetween">
+          <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="text-panel-secondary-content text-sm flex items-center justify-center gap-2">
               Already have an account?
               <a
@@ -527,7 +527,7 @@ export const RegisterFull = () => {
                 {isSubmitting ? 'Creating...' : 'Create Account →'}
               </Button>
             </div>
-          </Stack>
+          </div>
         </form>
       </Card>
     </motion.div>
@@ -550,7 +550,7 @@ export const RegisterV2 = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-5">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-2xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
           <p className="text-base text-panel-secondary-content font-sans text-center">
@@ -711,7 +711,7 @@ export const RegisterWithSocial = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-2xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
           <div className="grid grid-cols-2 w-full gap-4 mt-5">

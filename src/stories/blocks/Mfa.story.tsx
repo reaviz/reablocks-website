@@ -50,6 +50,7 @@ const QRLightIcon = ({ className }) => (
     height="200"
     viewBox="0 0 200 200"
     fill="none"
+    className={className}
   >
     <g clip-path="url(#clip0_1447_18003)">
       <path d="M200 0H0V200H200V0Z" fill="white" />
@@ -1096,7 +1097,7 @@ export const MfaLogin = () => {
     >
       <Card className="w-full p-[50px]">
         <Stack justifyContent="spaceBetween">
-          <LogoIcon className="h-[30px]" />
+          <LogoIcon className="h-[30px] w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             New to Reablocks?
           </a>

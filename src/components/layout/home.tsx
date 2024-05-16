@@ -48,7 +48,7 @@ export const Hero = ({ className }: { className?: string }) => (
           <motion.h1
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-[40px] font-bold text-content-primary md:text-6xl"
+            className="text-[40px] font-bold leading-[120%] text-content-primary md:text-6xl"
           >
             Stop coding from scratch. Build faster. Launch sooner.
           </motion.h1>
@@ -58,13 +58,13 @@ export const Hero = ({ className }: { className?: string }) => (
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
         >
-          <p className="text-xs text-content-secondary md:text-base">
+          <p className="text-base text-content-secondary md:text-lg">
             Beautifully designed, highly customizable, Open Source React
             components based on Tailwind and Framer Motion.
           </p>
           <div className="flex gap-4">
             <Link href="/docs">
-              <button className="w-1/2 min-w-[125px] rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover md:w-fit">
+              <button className="min-w-[125px] whitespace-nowrap rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:bg-primary-hover">
                 Get Started →
               </button>
             </Link>
@@ -83,7 +83,7 @@ export const Hero = ({ className }: { className?: string }) => (
             suffix={"+"}
           />
           <motion.h2
-            className="text-sm"
+            className="text-base"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -98,7 +98,7 @@ export const Hero = ({ className }: { className?: string }) => (
             suffix={"+"}
           />
           <motion.h2
-            className="text-sm"
+            className="text-base"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -114,7 +114,7 @@ export const Hero = ({ className }: { className?: string }) => (
             suffix={"+"}
           />
           <motion.h2
-            className="text-sm"
+            className="text-base"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -125,7 +125,7 @@ export const Hero = ({ className }: { className?: string }) => (
         <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
           <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
           <motion.h2
-            className="text-sm"
+            className="text-base"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -168,7 +168,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </Head>
       <main
-        className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden`}
+        className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden text-white`}
       >
         <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#00000020] to-transparent" />
         <header
@@ -308,7 +308,7 @@ export default function Home() {
                 Enterprise ready{" "}
                 <span className="text-secondary">Open-Source</span> components
               </h3>
-              <p className="mt-4 text-sm text-content-secondary md:text-base">
+              <p className="mt-4 text-base text-content-secondary md:text-lg">
                 Our collection of enterprise-grade, open-source components
                 provide the building blocks you need to create beautifully
                 designed, scalable, high-performance applications.
@@ -320,18 +320,18 @@ export default function Home() {
               <div className="flex flex-col gap-2 md:flex-row">
                 <div className="flex flex-1 flex-col gap-2 p-3">
                   <span className="font-bold">Installing Reablocks</span>
-                  <p className="text-xs text-content-secondary md:text-sm">
+                  <p className="text-xs text-content-secondary md:text-base">
                     Install Reablocks & Tailwind into your React project to get
                     started.
                   </p>
-                  <p className="text-xs text-content-secondary md:text-sm">
+                  <p className="text-xs text-content-secondary md:text-base">
                     Setup your Tailwind config file with our default color
                     tokens using the link below.
                   </p>
                   <Link
                     aria-label="Learn more about Reablocks"
                     href="/docs/getting-started/setup"
-                    className="w-fit text-xs text-secondary md:text-sm"
+                    className="w-fit text-xs text-secondary md:text-base"
                   >
                     Learn more
                   </Link>
@@ -359,13 +359,13 @@ $ npx tailwindcss init`}
               <div className="flex flex-col gap-2 md:flex-row">
                 <div className="flex flex-1 flex-col gap-2 p-3">
                   <span className="font-bold">Creating a custom theme</span>
-                  <p className=" text-xs text-content-secondary md:text-sm">
+                  <p className=" text-xs text-content-secondary md:text-base">
                     {
                       "Extend the default theme to fit your application's unique design language by using "
                     }
                     <span className="text-[#80E2F8]">extendTheme</span>.
                   </p>
-                  <p className=" text-xs text-content-secondary md:text-sm">
+                  <p className=" text-xs text-content-secondary md:text-base">
                     Reablocks provides the ability to customize the style of
                     each individual component using Tailwind, giving you the
                     ease and flexibility to match any design.
@@ -373,7 +373,7 @@ $ npx tailwindcss init`}
                   <Link
                     aria-label="Learn more about Reablocks"
                     href="/docs/getting-started/setup"
-                    className="w-fit text-xs text-secondary md:text-sm"
+                    className="w-fit text-xs text-secondary md:text-base"
                   >
                     Learn more
                   </Link>
@@ -421,7 +421,7 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                   <span className="font-bold">
                     Adding your theme to your application
                   </span>
-                  <p className="text-xs text-content-secondary md:text-sm">
+                  <p className="text-xs text-content-secondary md:text-base">
                     Wrap your application with{" "}
                     <span className="text-[#80E2F8]">ThemeProvider</span> and
                     pass in your new custom theme. This provider applies styling
@@ -430,7 +430,7 @@ export const customTheme = extendTheme(theme, partialTheme)`}
                   <Link
                     aria-label="Learn more about Reablocks"
                     href="/docs/getting-started/setup"
-                    className="w-fit text-xs text-secondary md:text-sm"
+                    className="w-fit text-xs text-secondary md:text-base"
                   >
                     Learn more
                   </Link>
@@ -459,7 +459,7 @@ export const App = () => {
               <Divider className="absolute left-0 hidden md:block" />
             </div>
           </section>
-          <footer className="container px-4 py-6 text-sm text-content-secondary md:px-24">
+          <footer className="container px-4 py-6 text-base text-content-secondary md:px-24">
             <div className="flex items-center justify-between gap-2">
               <Link href="#">
                 <Image

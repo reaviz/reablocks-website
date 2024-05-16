@@ -38,6 +38,11 @@ const config: Config = {
       },
     },
     extend: {
+      fontSize: {
+        sm: ["0.75rem", "1rem"], // 12px
+        base: ["0.875rem", "1.25rem"], // 14px
+        lg: ["1rem", "1.5rem"], // 16px
+      },
       colors: {
         ...colorPallete,
         primary: {
