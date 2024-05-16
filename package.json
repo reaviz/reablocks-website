@@ -28,7 +28,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
-    "react-syntax-highlighter": "^15.5.0",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2"
   },
@@ -46,7 +45,6 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-syntax-highlighter": "^15.5.11",
     "cpx": "^1.5.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
