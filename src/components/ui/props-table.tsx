@@ -8,9 +8,9 @@ export const PropsTable = ({ name }) => {
     <table style={{ width: '100%', fontSize: 14, marginTop: 20 }}>
       <thead>
         <tr>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>Prop</th>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>Description</th>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>Default</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '25%' }}>Prop</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '50%' }}>Description</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '25%' }}>Default</th>
         </tr>
       </thead>
       <tbody>
