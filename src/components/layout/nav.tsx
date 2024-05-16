@@ -22,7 +22,7 @@ const navLinks = [
     label: "GitHub",
     href: "https://github.com/reaviz/reablocks",
     target: "_blank",
-  }
+  },
 ];
 
 export const Nav: FC = () => {
@@ -102,7 +102,7 @@ export const Nav: FC = () => {
           >
             <Link
               href={href}
-              className="text-sm font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+              className="text-base font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
               target={target}
             >
               {label}
