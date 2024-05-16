@@ -36,8 +36,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.6.13
-        version: 7.6.13(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.6.15
+        version: 7.6.15(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18
         version: 18.2.0
@@ -6470,8 +6470,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  reablocks@7.6.13:
-    resolution: {integrity: sha512-Xr6ZhJwwg+cf3SVx1uYpgCTHGcCSbLOD47rb/vVLF0JJgin9y8u9Kynz0a0tSf5RSf5amM5q2SHFf+QstryAhQ==}
+  reablocks@7.6.15:
+    resolution: {integrity: sha512-Gjqu2vF7xgBTXBoiskE64odJjXVTxSlrsnbdzT4x56OjvrOTq8fdqVQSTkz0CvUV0Q0XseYWVvo7R0bqjBBvtA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -16016,7 +16016,7 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  reablocks@7.6.13(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.6.15(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
