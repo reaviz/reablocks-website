@@ -1,0 +1,18 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ExitListenerStories from '../../../stories/components/ExitListener.story.tsx';
+
+<Meta of={ExitListenerStories} />
+
+# Exit Listener
+
+---
+
+The exit listener is a hook that allows developers to subscribe to
+click events and escape keyboard events on a root element.
+
+A typical example of this would be a menu, when a user opens the menu we want
+to listen for events if a user clicks anywhere but our menu to notify
+the parent to close it.
+
+## Demo
+<Canvas of={ExitListenerStories.Simple} sourceState="shown" />

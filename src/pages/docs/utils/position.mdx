@@ -1,0 +1,18 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import { PropsTable } from '@/components/ui/props-table';
+import * as PositionStories from '../../../stories/components/Position.story.tsx';
+
+<Meta of={PositionStories} />
+
+# Position
+
+---
+
+Position is a component that is used to position elements absolutely
+with respect to their target element. Under the hood this component
+uses [Popper.js](https://popper.js.org/).
+
+## Demo
+This component can be used using hooks API.
+
+<Canvas of={PositionStories.Simple} sourceState="shown" />
