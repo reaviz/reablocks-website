@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as TeamStories from '../../../stories/blocks/Team.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={TeamStories} />
 
@@ -8,10 +9,10 @@ import * as TeamStories from '../../../stories/blocks/Team.story';
 The Team blocks provide a comprehensive view of team members and their roles within the organization. This block can be used manage team and assign roles and permissions.
 
 ## Team General
-<Canvas of={TeamStories.TeamGeneral} />
+<ToggleCanvas of={TeamStories.TeamGeneral} />
 
 ## Team Minimal
-<Canvas of={TeamStories.TeamMinimal} />
+<ToggleCanvas of={TeamStories.TeamMinimal} />
 
 ## Team Roles
-<Canvas of={TeamStories.TeamRoles} />
+<ToggleCanvas of={TeamStories.TeamRoles} />

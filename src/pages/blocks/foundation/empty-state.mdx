@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as EmptyStateStories from '../../../stories/blocks/EmptyState.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={EmptyStateStories} />
 
@@ -8,10 +9,10 @@ import * as EmptyStateStories from '../../../stories/blocks/EmptyState.story';
 The Empty State blocks are useful when a component has no data to display. This is a common scenario when a user has just signed up or has not yet created any content.
 
 ## No Results
-<Canvas of={EmptyStateStories.NoResults} />
+<ToggleCanvas of={EmptyStateStories.NoResults} />
 
 ## Missing Info
-<Canvas of={EmptyStateStories.MissingInfo} />
+<ToggleCanvas of={EmptyStateStories.MissingInfo} />
 
 ## Nothing to Display
-<Canvas of={EmptyStateStories.NothingToDisplay} />
+<ToggleCanvas of={EmptyStateStories.NothingToDisplay} />

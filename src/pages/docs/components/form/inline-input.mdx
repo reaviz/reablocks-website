@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as InlineInputStories from '../../../../stories/components/InlineInput.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={InlineInputStories} />
 
@@ -11,7 +12,7 @@ This component is ideally suited for applications requiring seamless inline text
 ### Basic Usage
 This example demonstrates the Inline Input in action, providing a user-friendly editing experience within a bordered container. 
 The input field automatically adjusts its size as the user types, accommodating the entered text while maintaining a compact UI footprint:
-<Canvas sourceState="shown" of={InlineInputStories.Basic} />
+<ToggleCanvas sourceState="shown" of={InlineInputStories.Basic} />
 
 ## API
 Configure the Inline Input component to fit your specific inline editing needs with these properties:

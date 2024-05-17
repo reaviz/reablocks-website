@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import * as PortalStories from '../../../stories/components/Portal.story.tsx';
 
 <Meta of={PortalStories} />
@@ -16,7 +17,7 @@ via the core method in React.
 ## Demo
 This component can be used via element api.
 
-<Canvas of={PortalStories.Simple} sourceState="shown" />
+<ToggleCanvas of={PortalStories.Simple} sourceState="shown" />
 
 ## API
 ### [src/utils/Portal/Portal.ts](https://github.com/reaviz/reablocks/blob/master/src/utils/Portal/Portal.ts)

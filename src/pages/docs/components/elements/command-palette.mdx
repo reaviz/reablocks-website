@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as CommandPaletteStories from '../../../../stories/components/CommandPalette.story.tsx';
 import { commandPaletteTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={CommandPaletteStories} />
@@ -12,7 +13,7 @@ It's akin to a spotlight search, providing immediate access to features, documen
 ## Examples
 ### Basic Usage
 This example showcases a basic Command Palette setup with sections for "Recently Used" commands and "Suggestions":
-<Canvas of={CommandPaletteStories.Simple}/>
+<ToggleCanvas of={CommandPaletteStories.Simple}/>
 
 ## Theme Customization
 The default theme for the Command Palette is designed for clarity and ease of use,

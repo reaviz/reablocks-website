@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DotsLoaderStories from '../../../../stories/components/DotsLoader.story.tsx';
 import { dotsLoaderTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={DotsLoaderStories} />
@@ -13,7 +14,7 @@ This component is especially crucial for enhancing user experience during initia
 ### Basic Usage
 
 Employ the Loader to maintain user engagement during wait times. Here's how to integrate a simple `DotsLoader` into your application:
-<Canvas sourceState="shown" of={DotsLoaderStories.Simple} />
+<ToggleCanvas sourceState="shown" of={DotsLoaderStories.Simple} />
 
 ## Theme Customization
 

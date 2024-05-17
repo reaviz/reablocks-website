@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as TextareaStories from '../../../../stories/components/Textarea.story.tsx';
 import { textareaTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={TextareaStories} />
@@ -13,28 +14,28 @@ It provides a flexible, space-efficient solution for capturing extensive user in
 ## Examples
 ### Basic Usage
 A minimal setup for a Textarea component, providing users with a straightforward multiline text input field:
-<Canvas sourceState="shown" of={TextareaStories.Basic} />
+<ToggleCanvas sourceState="shown" of={TextareaStories.Basic} />
 ### Advanced Customization
 #### Size Variations
 This example showcases how to adjust the size of the Textarea component to accommodate different content lengths and interface designs, with small, medium, and large options:
-<Canvas of={TextareaStories.Sizes} />
+<ToggleCanvas of={TextareaStories.Sizes} />
 ### States
 Illustrates the Textarea component in various states such as disabled, auto-focus, error indication, and full-width styling to demonstrate its versatility in different UI contexts:
 - **Disabled**
-<Canvas of={TextareaStories.Disabled} />
+<ToggleCanvas of={TextareaStories.Disabled} />
 - **Auto Focus**
-<Canvas of={TextareaStories.AutoFocus} />
+<ToggleCanvas of={TextareaStories.AutoFocus} />
 - **Error**
-<Canvas of={TextareaStories.Error} />
+<ToggleCanvas of={TextareaStories.Error} />
 - **Full Width**
-<Canvas of={TextareaStories.FullWidth} />
+<ToggleCanvas of={TextareaStories.FullWidth} />
 
 #### Value Initialization
 Demonstrates setting a default value and placeholder text in the Textarea, guiding users with pre-populated content or prompting input with instructional text:
 - **Default value**
-<Canvas of={TextareaStories.DefaultValue} />
+<ToggleCanvas of={TextareaStories.DefaultValue} />
 - **Placeholder text**
-<Canvas of={TextareaStories.Placeholder} />
+<ToggleCanvas of={TextareaStories.Placeholder} />
 
 ## Theme Customization
 The Textarea component comes with a default theme that can be tailored to fit your application's design requirements:

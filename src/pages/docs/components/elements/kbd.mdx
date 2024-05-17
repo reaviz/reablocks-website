@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as KbdStories from '../../../../stories/components/Kbd.story.tsx';
 import { kbdTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={KbdStories} />
@@ -12,7 +13,7 @@ It's particularly useful for highlighting shortcuts on hover over UI elements or
 ## Examples
 ### Basic Usage
 Showcase keyboard shortcuts effectively to enhance usability and provide quick access to application functionalities.
-<Canvas sourceState="shown" of={KbdStories.Basic}/>
+<ToggleCanvas sourceState="shown" of={KbdStories.Basic}/>
 
 ## Theme Customization
 The Kbd component comes with a default theme designed for clarity and readability. Customize this theme to align with your application's aesthetics and branding:

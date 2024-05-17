@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as LoginStories from '../../../stories/blocks/Login.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={LoginStories} />
 
@@ -7,16 +8,16 @@ import * as LoginStories from '../../../stories/blocks/Login.story';
 
 The Login block is the gateway for users to access their accounts, providing a simple yet secure login form.
 
-<Canvas of={LoginStories.Login} />
+<ToggleCanvas of={LoginStories.Login} />
 
 ## Login Basic
-<Canvas of={LoginStories.LoginBasic} />
+<ToggleCanvas of={LoginStories.LoginBasic} />
 
 ## Login Full
-<Canvas of={LoginStories.LoginFull} />
+<ToggleCanvas of={LoginStories.LoginFull} />
 
 ## Login Password
-<Canvas of={LoginStories.LoginPassword} />
+<ToggleCanvas of={LoginStories.LoginPassword} />
 
 ## Login Social
-<Canvas of={LoginStories.LoginSocial} />
+<ToggleCanvas of={LoginStories.LoginSocial} />

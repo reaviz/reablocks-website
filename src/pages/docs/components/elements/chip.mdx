@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as ChipStories from '../../../../stories/components/Chip.story.tsx';
 import { chipTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={ChipStories} />
@@ -13,21 +14,21 @@ Chips can be interactive, allowing for selection or removal, making them suitabl
 ### Basic Usage
 The Chip component supports several style variants such as "filled" and "outline".
 This allows for clear differentiation between different chip types based on their purpose or context within the UI:
-<Canvas sourceState="shown" of={ChipStories.Variants} />
+<ToggleCanvas sourceState="shown" of={ChipStories.Variants} />
 
 ### Advanced Customization
 #### Colors and Sizes
 Chips can be customized further in terms of color and size, providing flexibility to match them with the application's design theme:
-<Canvas of={ChipStories.Colors} />
-<Canvas of={ChipStories.Sizes} />
+<ToggleCanvas of={ChipStories.Colors} />
+<ToggleCanvas of={ChipStories.Sizes} />
 
 #### Icon Adornment
 Adding icons to chips enhances visual communication and can indicate additional functionalities like deletion or selection:
-<Canvas of={ChipStories.Adornment} />
+<ToggleCanvas of={ChipStories.Adornment} />
 
 #### Selectable Chips
 Chips can be made selectable, allowing users to choose one or more options from a set:
-<Canvas of={ChipStories.Selectable} />
+<ToggleCanvas of={ChipStories.Selectable} />
 
 ## Theme Customization
 The Chip component comes with a default theme, which can be customized according to your application's design requirements:

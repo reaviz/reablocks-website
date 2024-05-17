@@ -1,6 +1,7 @@
 import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
 import * as DateSizeStories from '../../../../stories/components/DataSize.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 # Data Size
 The Data Size component is designed to display data sizes in a human-readable format. 
@@ -14,13 +15,13 @@ Leveraging the [human-format](https://www.npmjs.com/package/human-format) librar
 You can directly use the `DataSize` component to render data sizes. 
 Here's a basic example demonstrating how various byte values are converted into human-readable formats:
 
-<Canvas of={DateSizeStories.Simple} />
+<ToggleCanvas of={DateSizeStories.Simple} />
 
 ### Handling Null/Undefined Values
 The component allows for a customizable placeholder string to be displayed when the input value is `null` or `undefined`, 
 enhancing the flexibility in various use cases:
 
-<Canvas of={DateSizeStories.Empty} />
+<ToggleCanvas of={DateSizeStories.Empty} />
 
 ## API
 The `DataSize` component and the `formatSize` function come with several configurable options:

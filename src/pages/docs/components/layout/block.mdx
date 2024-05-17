@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as BlockStories from '../../../../stories/components/Block.story.tsx';
 import { blockTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={BlockStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 Simple block component.
 
 ## Example
-<Canvas sourceState="shown" of={BlockStories.Label} />
+<ToggleCanvas sourceState="shown" of={BlockStories.Label} />
 
 ## Theme
 This component uses the following default theme:

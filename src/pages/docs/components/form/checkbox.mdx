@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as CheckboxStories from '../../../../stories/components/Checkbox.story.tsx';
 import { checkboxTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={CheckboxStories} />
@@ -13,16 +14,16 @@ It enhances user control by enabling or disabling specific choices, thereby faci
 ## Examples
 ### Basic Usage
 This basic example showcases a checkbox that users can click to enable or disable an option. It demonstrates the component's primary functionality - toggling between checked and unchecked states:
-<Canvas sourceState="shown" of={CheckboxStories.Simple} />
+<ToggleCanvas sourceState="shown" of={CheckboxStories.Simple} />
 
 ### Advanced Customization
 #### Size Variations
 Customize the size of the Checkbox to match the design requirements of your application, offering variations like small, medium, and large for better visual integration and user experience:
-<Canvas of={CheckboxStories.Sizes} />
+<ToggleCanvas of={CheckboxStories.Sizes} />
 
 ### State Variations
 Implement checkboxes with additional states such as disabled for non-interactive scenarios and intermediate for partially selected groups or indeterminate states:
-<Canvas of={CheckboxStories.States} />
+<ToggleCanvas of={CheckboxStories.States} />
 
 ## Theme Customization
 The Checkbox component features a default theme that can be customized to align with your application's aesthetics. Here's an overview of the theme structure:

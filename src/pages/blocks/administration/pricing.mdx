@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as PricingStories from '../../../stories/blocks/Pricing.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={PricingStories} />
 
@@ -7,10 +8,10 @@ import * as PricingStories from '../../../stories/blocks/Pricing.story';
 
 The Pricing block is for displaying pricing tables and managing active plans
 
-<Canvas of={PricingStories.Pricing} />
+<ToggleCanvas of={PricingStories.Pricing} />
  
 ## Pricing Full
-<Canvas of={PricingStories.PricingFull} />
+<ToggleCanvas of={PricingStories.PricingFull} />
 
 ## Pricing Minimal
-<Canvas of={PricingStories.PricingMinimal} />
+<ToggleCanvas of={PricingStories.PricingMinimal} />

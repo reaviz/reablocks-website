@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as MfaStories from '../../../stories/blocks/Mfa.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={MfaStories} />
 
@@ -7,10 +8,10 @@ import * as MfaStories from '../../../stories/blocks/Mfa.story';
 
 The MFA block facilitates capturing a user's MFA code and verifying it.
 
-<Canvas of={MfaStories.Mfa} />
+<ToggleCanvas of={MfaStories.Mfa} />
 
 ## MFA Login
-<Canvas of={MfaStories.MfaLogin} />
+<ToggleCanvas of={MfaStories.MfaLogin} />
 
 ## MFA Authenticator
-<Canvas of={MfaStories.MfaAuthenticator} />
+<ToggleCanvas of={MfaStories.MfaAuthenticator} />

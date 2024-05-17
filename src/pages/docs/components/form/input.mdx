@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as InputStories from '../../../../stories/components/Input.story.tsx';
 import { inputTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={InputStories} />
@@ -12,35 +13,35 @@ Its versatility supports a variety of applications, from simple text entries to 
 ## Examples
 ### Basic Usage
 A straightforward implementation of the Input component for basic text entry:
-<Canvas sourceState="shown" of={InputStories.Basic} />
+<ToggleCanvas sourceState="shown" of={InputStories.Basic} />
 
 ### Advanced Customization
 #### Size Variations
 Adjust the size of the input field (small, medium, large) to accommodate different content lengths and interface designs:
-<Canvas of={InputStories.Sizes} />
+<ToggleCanvas of={InputStories.Sizes} />
 
 #### Full Width
 Extend the input field to the full width of its container, ideal for forms or sections requiring larger text entries:
-<Canvas of={InputStories.FullWidth} />
+<ToggleCanvas of={InputStories.FullWidth} />
 
 #### Adornments at Start/End
 Enhance input fields with icons or text at the start or end to provide context or additional functionalities:
-<Canvas of={InputStories.StartEndAdorment} />
+<ToggleCanvas of={InputStories.StartEndAdorment} />
 
 #### State Variations
 Implement variations for error states and disabled inputs, providing visual feedback and interaction cues.
 
 - **Error**
-<Canvas of={InputStories.Error} />
+<ToggleCanvas of={InputStories.Error} />
 - **Disabled**
-<Canvas of={InputStories.Disabled} />
+<ToggleCanvas of={InputStories.Disabled} />
 
 ### Value Initialization
 Set initial values or placeholders to guide user input or display default values:
 - **Placeholder**
-<Canvas of={InputStories.Placeholder} />
+<ToggleCanvas of={InputStories.Placeholder} />
 - **Default value**
-<Canvas of={InputStories.DefaultValue} />
+<ToggleCanvas of={InputStories.DefaultValue} />
 
 ## Theme Customization
 Customize the Input component's appearance to align with your application's theme:

@@ -3,6 +3,7 @@ import * as RadioStories from '../../../../stories/components/Radio.story.tsx';
 import * as RadioGroupStories from '../../../../stories/components/RadioGroup.story.tsx';
 import { radioTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={RadioStories} />
@@ -15,20 +16,20 @@ This ensures that users can choose only one item from a list, streamlining clear
 ## Examples
 ### Basic Usage
 Illustrates a singular Radio button allowing users to make a choice with a simple click:
-<Canvas sourceState="shown" of={RadioStories.Simple} />
+<ToggleCanvas sourceState="shown" of={RadioStories.Simple} />
 
 ### Advanced Customization
 #### Size Variations
 Showcases Radio buttons in different sizes: small, medium, and large, accommodating various design needs and enhancing UI flexibility:
-<Canvas of={RadioStories.Sizes} />
+<ToggleCanvas of={RadioStories.Sizes} />
 
 #### Disabled state
 Demonstrates a Radio button in a disabled state, indicating non-interactive periods or conditions within the user interface:
-<Canvas of={RadioStories.Disabled} />
+<ToggleCanvas of={RadioStories.Disabled} />
 
 #### Group of Radio Buttons with Single Form Control
 A set of Radio buttons grouped together, allowing users to select one option from multiple choices, with a single selected value reflected in the application:
-<Canvas of={RadioGroupStories.Simple} />
+<ToggleCanvas of={RadioGroupStories.Simple} />
 
 ## Theme Customization
 The Radio component adheres to the following default theme, ensuring aesthetic consistency and visual appeal:

@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as ToggleStories from '../../../../stories/components/Toggle.story.tsx';
 import { toggleTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={ToggleStories} />
@@ -13,16 +14,16 @@ It's especially valuable in settings and preference panels for toggling features
 ## Examples
 ### Basic Usage
 This basic example demonstrates a toggle that users can interact with to switch states. It's a fundamental illustration of the Toggle component's functionality:
-<Canvas sourceState="shown" of={ToggleStories.Simple} />
+<ToggleCanvas sourceState="shown" of={ToggleStories.Simple} />
 
 ### Advanced Customization
 #### Toggle Size Variations
 Showcase the Toggle component in different sizes—small, medium, and large—to accommodate various design requirements and enhance interface flexibility:
-<Canvas sourceState="shown" of={ToggleStories.Sizes} />
+<ToggleCanvas sourceState="shown" of={ToggleStories.Sizes} />
 
 #### Disabled Toggle State
 Illustrates a Toggle component in a disabled state, which is non-interactive and signifies an option that is temporarily unavailable:
-<Canvas sourceState="shown" of={ToggleStories.Disabled} />
+<ToggleCanvas sourceState="shown" of={ToggleStories.Disabled} />
 
 ## Theme Customization
 The Toggle component is designed with a default theme that can be customized to match your application's aesthetic:

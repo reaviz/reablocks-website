@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as TabsStories from '../../../../stories/components/Tabs.story.tsx';
 import { tabsTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={TabsStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 The tabs component is a simple way to organize content into different sections.
 
 ## Example
-<Canvas sourceState="shown" of={TabsStories.Simple} />
+<ToggleCanvas sourceState="shown" of={TabsStories.Simple} />
 
 ## Theme
 This component uses the following default theme:

@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DrawerStories from '../../../../stories/components/Drawer.story.tsx';
 import { drawerTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={DrawerStories} />
@@ -13,9 +14,9 @@ is analysing a list of entries from a table and they quickly wants to see detail
 
 ## Example
 ### Basic example
-<Canvas sourceState="shown" of={DrawerStories.Simple} />
+<ToggleCanvas sourceState="shown" of={DrawerStories.Simple} />
 ### Drawer as bottom sheet
-<Canvas of={DrawerStories.BottomSheet} />
+<ToggleCanvas of={DrawerStories.BottomSheet} />
 
 ## Theme
 This component uses the following default theme:

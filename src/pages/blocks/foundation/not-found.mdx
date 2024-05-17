@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as NotFoundStories from '../../../stories/blocks/NotFound.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={NotFoundStories} />
 
@@ -9,10 +10,10 @@ The Not Found block provides a way to provide the user with feedback that someth
 or when a user tries to access a page they do not have access to.
 
 ## We Lost This Page
-<Canvas of={NotFoundStories.NotFound} />
+<ToggleCanvas of={NotFoundStories.NotFound} />
 
 ## Does Not Exist
-<Canvas of={NotFoundStories.DoesNotExist} />
+<ToggleCanvas of={NotFoundStories.DoesNotExist} />
 
 ## Lost Page
-<Canvas of={NotFoundStories.LostPage} />
+<ToggleCanvas of={NotFoundStories.LostPage} />

@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as RegisterStories from '../../../stories/blocks/Register.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={RegisterStories} />
 
@@ -7,13 +8,13 @@ import * as RegisterStories from '../../../stories/blocks/Register.story';
 
 The Register block facilitates new user registrations, capturing essential information to create user accounts.
 
-<Canvas of={RegisterStories.Register} />
+<ToggleCanvas of={RegisterStories.Register} />
 
 ## RegisterFull
-<Canvas of={RegisterStories.RegisterFull} />
+<ToggleCanvas of={RegisterStories.RegisterFull} />
 
 ## RegisterV2
-<Canvas of={RegisterStories.RegisterV2} />
+<ToggleCanvas of={RegisterStories.RegisterV2} />
 
 ## RegisterWithSocial
-<Canvas of={RegisterStories.RegisterWithSocial} />
+<ToggleCanvas of={RegisterStories.RegisterWithSocial} />

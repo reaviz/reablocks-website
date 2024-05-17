@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import * as GlobalOverlayStories from '../../../stories/components/GlobalOverlay.story.tsx';
 import * as ConnectedOverlayStories from '../../../stories/components/ConnectedOverlay.story.tsx';
 import * as OverlayTriggerStories from '../../../stories/components/OverlayTrigger.story.tsx';
@@ -42,27 +43,27 @@ body {
 }
 ```
 
-<Canvas of={GlobalOverlayStories.ClickToOpen} sourceState="shown" />
+<ToggleCanvas of={GlobalOverlayStories.ClickToOpen} sourceState="shown" />
 
 #### Dialog Example
 Below is an example of a simple dialog component using the global overlay.
 
-<Canvas of={GlobalOverlayStories.DialogExample} sourceState="shown" />
+<ToggleCanvas of={GlobalOverlayStories.DialogExample} sourceState="shown" />
 
 ### Connected Overlay
 A overlay component typically used by components like menus.
 
-<Canvas of={ConnectedOverlayStories.Simple} sourceState="shown" />
+<ToggleCanvas of={ConnectedOverlayStories.Simple} sourceState="shown" />
 
 #### Tooltip Example
 Below is an example of simple tooltip component using the connected overlay.
 
-<Canvas of={ConnectedOverlayStories.TooltipExample} sourceState="shown" />
+<ToggleCanvas of={ConnectedOverlayStories.TooltipExample} sourceState="shown" />
 
 #### Menu Example
 Below is an example of simple menu component using the connected overlay.
 
-<Canvas of={ConnectedOverlayStories.MenuExample} sourceState="shown" />
+<ToggleCanvas of={ConnectedOverlayStories.MenuExample} sourceState="shown" />
 
 ## API
 ### [src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx)
