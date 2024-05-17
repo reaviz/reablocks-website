@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 };
 
 export const Hero = ({ className }: { className?: string }) => (
-  <div className={className}>
-    <section className={`container mt-32 flex-1 px-4 md:px-24`}>
-      <div className="relative z-10 flex flex-col items-center gap-4 py-12 md:flex-row">
+  <div className={cn("h-[calc(100vh-300px)]", className)}>
+    <section className={`container mt-32 h-full flex-1 px-4 md:px-24`}>
+      <div className="relative z-10 flex flex-col gap-4 py-12">
         <div className="relative flex flex-1 flex-col gap-4">
           <div className="absolute -top-10 flex gap-2">
             <a href="https://npm.im/reablocks" target="_blank">
@@ -48,9 +48,9 @@ export const Hero = ({ className }: { className?: string }) => (
           <motion.h1
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-[40px] font-bold leading-[120%] text-content-primary md:text-6xl"
+            className="text-[40px] font-bold leading-[120%] text-content-primary md:text-[90px]"
           >
-            Stop coding from scratch. Build faster. Launch sooner.
+            Stop coding from scratch. <br /> Build faster. <br /> Launch sooner.
           </motion.h1>
         </div>
         <motion.div
@@ -72,8 +72,8 @@ export const Hero = ({ className }: { className?: string }) => (
         </motion.div>
       </div>
     </section>
-    <Divider className="absolute left-0 hidden md:block" />
-    <section className="relative z-10 flex w-full justify-center px-0 py-4 md:px-24 md:py-10">
+    <Divider className="absolute left-0 z-10 hidden md:block" />
+    <section className="relative z-10 flex w-full justify-center px-0 md:px-24 md:py-10">
       <div className="grid w-full grid-cols-2 grid-rows-2 gap-4 md:grid-cols-4 md:grid-rows-1">
         <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
           <Count
@@ -134,7 +134,7 @@ export const Hero = ({ className }: { className?: string }) => (
         </div>
       </div>
     </section>
-    <Divider className="absolute left-0 hidden md:block" />
+    <Divider className="absolute left-0 z-10 hidden md:block" />
   </div>
 );
 

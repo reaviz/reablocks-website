@@ -27,7 +27,7 @@ export const HeroParallax = ({
   children,
   className,
 }: HeroParallaxProps) => {
-  const { width } = useViewportDimensions();
+  const { width, height } = useViewportDimensions();
 
   const firstRow = products.slice(0, 10);
   const secondRow = products.slice(10, 20);
@@ -61,7 +61,7 @@ export const HeroParallax = ({
     springConfig,
   );
   const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    useTransform(scrollYProgress, [0, 0.7], [0.2, 1]),
     springConfig,
   );
   const rotateZ = useSpring(
@@ -69,7 +69,7 @@ export const HeroParallax = ({
     springConfig,
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [isMobile ? -800 : -650, 250]),
+    useTransform(scrollYProgress, [0, 0.4], [-height, 250]),
     springConfig,
   );
 
