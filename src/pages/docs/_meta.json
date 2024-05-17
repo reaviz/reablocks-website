@@ -13,14 +13,10 @@
   "utils": "Utils",
   "advanced": "Advanced",
   "recipes": "Recipes",
-  "---": {
-    "type": "separator"
-  },
   "changelog": {
     "title": "Changelog",
     "theme": {
       "timestamp": false
     }
-  },
-  "support": "Support"
+  }
 }

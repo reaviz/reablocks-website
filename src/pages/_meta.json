@@ -24,5 +24,12 @@
     "type": "page",
     "href": "https://storybook.reablocks.dev",
     "newWindow": true
+  },
+  "support": {
+    "title": "Support",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
   }
 }
