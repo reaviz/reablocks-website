@@ -35,6 +35,15 @@ body {
 .docblock-code-toggle {
   background: black !important;
   color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.docblock-code-toggle ~ button {
+  background: black !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 
 .nextra-toc > div > div {
