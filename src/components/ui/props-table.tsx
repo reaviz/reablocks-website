@@ -8,21 +8,21 @@ export const PropsTable = ({ name }) => {
     <table style={{ width: '100%', fontSize: 14, marginTop: 20 }}>
       <thead>
         <tr>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '25%' }}>Prop</th>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '50%' }}>Description</th>
-          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)', width: '25%' }}>Default</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>Prop</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '50%' }}>Description</th>
+          <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>Default</th>
         </tr>
       </thead>
       <tbody>
         {keys.map(prop => (
           <tr key={prop} >
-            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid rgba(241,245,249,0.1)' }}>
               <strong>
                 <code>{prop}</code>
               </strong>
               {data.props[prop].required && <i> *</i>}
             </td>
-            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid rgba(241,245,249,0.1)' }}>
               {data.props[prop].description}
               {data.props[prop].tsType && (
                 <>
@@ -33,7 +33,7 @@ export const PropsTable = ({ name }) => {
                 </>
               )}
             </td>
-            <td style={{ padding: '5px 0', borderBottom: '1px solid hsla(203, 50%, 30%, 0.15)' }}>
+            <td style={{ padding: '5px 0', borderBottom: '1px solid rgba(241,245,249,0.1)' }}>
               <code>
                 {data.props[prop].defaultValue && data.props[prop].defaultValue.value}
               </code>

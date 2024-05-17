@@ -2,6 +2,7 @@ import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
 import * as DateSizeStories from '../../../../stories/components/DataSize.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { TypesTable } from '@/components/ui/types-table';
 
 # Data Size
 The Data Size component is designed to display data sizes in a human-readable format. 
@@ -32,14 +33,19 @@ The `DataSize` component and the `formatSize` function come with several configu
 ### Function API
 For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
 you can use the `formatSize` function provided by the API:
+
 ```ts
 import { formatSize, FormatSizeTypes } from 'reablocks';
 
-function formatSomething(size: FormatSizeTypes) {
+function yourFunction(size: FormatSizeTypes) {
   // size = number | string | null | undefined;
   return formatSize(size);
 }
 ```
+
+Below is the function arguments for `formatSize`:
+
+<TypesTable type="functions" name="formatSize" />
 
 ## Design and Usability Tips
 
