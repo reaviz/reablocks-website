@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as StackStories from '../../../../stories/components/Stack.story.tsx';
 import { stackTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={StackStories} />
@@ -11,7 +12,7 @@ Component that sets component spacing. It can be used to add
 space between components such as a menu.
 
 ## Example
-<Canvas sourceState="shown" of={StackStories.Simple} />
+<ToggleCanvas sourceState="shown" of={StackStories.Simple} />
 
 ## Theme
 This component uses the following default theme:

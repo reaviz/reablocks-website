@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as IconButtonStories from '../../../../stories/components/IconButton.story.tsx';
 import { buttonTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={IconButtonStories} />
@@ -14,19 +15,19 @@ This component is crucial for creating intuitive and space-efficient user interf
 #### Icon Buttons with Type Variations
 The `IconButton` component integrates icons into buttons, providing various style variants like "filled", "outline", and "text".
 These options allow for versatile use across your UI, depending on the intended visual impact and user interaction:
-<Canvas sourceState="shown" of={IconButtonStories.Variants} />
+<ToggleCanvas sourceState="shown" of={IconButtonStories.Variants} />
 
 ### Advanced Customization
 #### Icon Buttons with Color Variations
 `IconButton` supports different color schemes to signify various actions or statuses, enhancing the UX with visual cues.
 You can customize the background, icon color, and border to fit your application's design language.
-<Canvas of={IconButtonStories.ColorsBackground} />
-<Canvas of={IconButtonStories.ColorsIcons} />
-<Canvas of={IconButtonStories.ColorsOutline} />
+<ToggleCanvas of={IconButtonStories.ColorsBackground} />
+<ToggleCanvas of={IconButtonStories.ColorsIcons} />
+<ToggleCanvas of={IconButtonStories.ColorsOutline} />
 
 #### Icon Buttons with Size Variations
 Adjusting the size of `IconButtons` is straightforward, allowing them to fit seamlessly into different parts of your application, from toolbars to forms:
-<Canvas of={IconButtonStories.Sizes} />
+<ToggleCanvas of={IconButtonStories.Sizes} />
 
 
 ## Theme Customization

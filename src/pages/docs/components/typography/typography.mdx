@@ -6,6 +6,7 @@ import * as TextStories from '../../../../stories/components/Text.story.tsx';
 import * as SubStories from '../../../../stories/components/Sub.story.tsx';
 import { typographyTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={PageTitleStories} />
@@ -27,19 +28,19 @@ of components for different heading sizes and text styles.
 ## Examples
 
 ### PageTitle
-<Canvas sourceState="shown" of={PageTitleStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={PageTitleStories.Simple}/>
 
 ### PrimaryHeading
-<Canvas sourceState="shown" of={PrimaryHeadingStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={PrimaryHeadingStories.Simple}/>
 
 ### SecondaryHeading
-<Canvas sourceState="shown" of={SecondaryHeadingStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={SecondaryHeadingStories.Simple}/>
 
 ### Text
-<Canvas sourceState="shown" of={TextStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={TextStories.Simple}/>
 
 ### Sub
-<Canvas sourceState="shown" of={SubStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={SubStories.Simple}/>
 
 ## Theme
 This component uses the following default theme:

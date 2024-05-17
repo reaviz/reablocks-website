@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as PopoverStories from '../../../../stories/components/Popover.story.tsx';
 import { popoverTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={PopoverStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 The Popover component displays addtional contextual information, content, or options when user perform an action on the UI element tied to it.
 
 ## Example
-<Canvas sourceState="shown" of={PopoverStories.Simple} />
+<ToggleCanvas sourceState="shown" of={PopoverStories.Simple} />
 
 ## Theme
 This component uses the following default theme:

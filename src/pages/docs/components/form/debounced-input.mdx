@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as InputStories from '../../../../stories/components/DebouncedInput.story.tsx';
 import { checkboxTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={InputStories} />
 
@@ -12,7 +13,7 @@ This feature is particularly useful in scenarios where real-time input processin
 ### Basic Usage
 This example illustrates the use of Debounced Input for both immediate and delayed text processing. 
 Instant input processes text changes immediately, while delayed input waits for a specified duration before processing the text, minimizing unnecessary computations or API calls:
-<Canvas sourceState="shown" of={InputStories.Basic} />
+<ToggleCanvas sourceState="shown" of={InputStories.Basic} />
 
 ## API
 The Debounced Input component offers several configurable properties to tailor its functionality and appearance to suit your application's needs:

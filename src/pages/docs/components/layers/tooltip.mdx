@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as TooltipStories from '../../../../stories/components/Tooltip.story.tsx';
 import { tooltipTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={TooltipStories} />
@@ -11,9 +12,9 @@ A Tooltip is a small, informative pop-up that provides context, explanations, or
 
 ## Example
 ### Basic
-<Canvas sourceState="shown" of={TooltipStories.Simple} />
+<ToggleCanvas sourceState="shown" of={TooltipStories.Simple} />
 ### Disabled
-<Canvas of={TooltipStories.Disabled} />
+<ToggleCanvas of={TooltipStories.Disabled} />
 
 ## Theme
 This component uses the following default theme:

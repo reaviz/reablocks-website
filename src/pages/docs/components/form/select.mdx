@@ -3,6 +3,7 @@ import * as SingleSelectStories from '../../../../stories/components/SingleSelec
 import * as MultiSelectStories from '../../../../stories/components/MultiSelect.story.tsx';
 import { selectTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={SingleSelectStories} />
@@ -26,22 +27,22 @@ It's designed with flexibility in mind, supporting a wide range of features such
 ### Basic Usage
 #### Single Select
 A straightforward implementation for choosing a single option from a dropdown list:
-<Canvas sourceState="shown" of={SingleSelectStories.Basic} />
+<ToggleCanvas sourceState="shown" of={SingleSelectStories.Basic} />
 - **Custom Label**
-<Canvas of={SingleSelectStories.CustomLabels} />
+<ToggleCanvas of={SingleSelectStories.CustomLabels} />
 - **Create value if not available**
-<Canvas of={SingleSelectStories.Createable} />
+<ToggleCanvas of={SingleSelectStories.Createable} />
 - **Values with sections**
-<Canvas of={SingleSelectStories.Groups} />
+<ToggleCanvas of={SingleSelectStories.Groups} />
 - **State: Error**
-<Canvas of={SingleSelectStories.Error} />
+<ToggleCanvas of={SingleSelectStories.Error} />
 - **State: Full Width**
-<Canvas of={SingleSelectStories.FluidWidth} />
+<ToggleCanvas of={SingleSelectStories.FluidWidth} />
 
 ### Advanced Customization
 #### Multi-Select
 Allows users to select multiple options, ideal for filtering mechanisms or gathering multiple interests/preferences.
-<Canvas sourceState="shown" of={MultiSelectStories.Basic} />
+<ToggleCanvas sourceState="shown" of={MultiSelectStories.Basic} />
 
 ## CSS Classes
 The select component exposes the following CSS class names for custom

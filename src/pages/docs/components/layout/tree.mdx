@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as TreeStories from '../../../../stories/components/Tree.story.tsx';
 import { treeTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={TreeStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 Simple tree component for showing hierarchical data.
 
 ## Example
-<Canvas sourceState="shown" of={TreeStories.Simple} />
+<ToggleCanvas sourceState="shown" of={TreeStories.Simple} />
 
 ## Theme
 This component uses the following default theme:

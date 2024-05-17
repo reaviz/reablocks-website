@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DialogStories from '../../../../stories/components/Dialog.story.tsx';
 import { dialogTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={DialogStories} />
@@ -12,9 +13,9 @@ allowing the display of important messages, forms, or user interactions while gr
 
 ## Example
 ### Basic Dialog
-<Canvas sourceState="shown" of={DialogStories.Simple} />
+<ToggleCanvas sourceState="shown" of={DialogStories.Simple} />
 ### Dialog with Footer and Custom header
-<Canvas of={DialogStories.Footer} />
+<ToggleCanvas of={DialogStories.Footer} />
 
 ## Theme
 This component uses the following default theme:

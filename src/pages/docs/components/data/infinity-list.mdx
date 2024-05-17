@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as InfinityListStories from '../../../../stories/components/InfinityList.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={InfinityListStories} />
 
@@ -9,14 +10,14 @@ The Infinity List component is designed to manage large datasets by progressivel
 enhancing performance and user experience. 
 This component is especially useful in scenarios where loading the entire dataset at once is feasible, 
 but displaying it all at once may overwhelm the user or the UI.
-<Canvas sourceState="shown" of={InfinityListStories.Simple} />
+<ToggleCanvas sourceState="shown" of={InfinityListStories.Simple} />
 
 ### Basic Usage (Component Approach)
 The basic implementation uses the `InfinityList` component directly. 
 This approach is straightforward, allowing you to map over your dataset and render each item within the `InfinityList` component:
 
 ### Advanced Usage (Hook API)
-<Canvas sourceState="shown" of={InfinityListStories.Hook}/>
+<ToggleCanvas sourceState="shown" of={InfinityListStories.Hook}/>
 
 
 ## API

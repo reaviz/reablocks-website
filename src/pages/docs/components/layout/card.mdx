@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as CardStories from '../../../../stories/components/Card.story.tsx';
 import { cardTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={CardStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 Cards are a fundamental building block for compositions, such as forms, or sections.
 
 ## Example
-<Canvas sourceState="shown" of={CardStories.Basic}/>
+<ToggleCanvas sourceState="shown" of={CardStories.Basic}/>
 
 ## Theme
 This component uses the following default theme:

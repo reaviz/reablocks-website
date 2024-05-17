@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DividerStories from '../../../../stories/components/Divider.story.tsx';
 import { dividerTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={DividerStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 A simple divider component that supports horizontal and vertical.
 
 ## Example
-<Canvas sourceState="shown" of={DividerStories.Horizontal} />
+<ToggleCanvas sourceState="shown" of={DividerStories.Horizontal} />
 
 ## Theme
 This component uses the following default theme:

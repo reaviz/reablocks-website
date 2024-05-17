@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as AvatarGroupStories from '../../../../stories/components/AvatarGroup.story.tsx';
 import { avatarGroupTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={AvatarGroupStories} />
@@ -12,7 +13,7 @@ It smartly handles large numbers of avatars by showing a set maximum number on t
 ## Examples
 ### Basic Usage
 The AvatarGroup component arranges multiple Avatar components together, indicating excess avatars when surpassing the specified maximum size:
-<Canvas sourceState="shown" of={AvatarGroupStories.Basic} />
+<ToggleCanvas sourceState="shown" of={AvatarGroupStories.Basic} />
 
 ## Theme Customization
 AvatarGroup supports theming to ensure its appearance aligns with the overall design of your application.

@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as MenuStories from '../../../../stories/components/Menu.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={MenuStories} />
 
@@ -10,9 +11,9 @@ navigation menues, table row selection menu etc.
 
 ## Examples
 ### Basic example
-<Canvas sourceState="shown" of={MenuStories.Simple} />
+<ToggleCanvas sourceState="shown" of={MenuStories.Simple} />
 ### Nested menu items
-<Canvas of={MenuStories.Nested} />
+<ToggleCanvas of={MenuStories.Nested} />
 
 ## API
 <PropsTable name="Menu" />

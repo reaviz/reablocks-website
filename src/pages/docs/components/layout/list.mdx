@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as ListItemStories from '../../../../stories/components/List.story.tsx';
 import { listTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={ListItemStories} />
@@ -10,7 +11,7 @@ import ThemeRender from '@/components/ui/theme-render';
 Simple list and list item component.
 
 ## Example
-<Canvas sourceState="shown" of={ListItemStories.Simple} />
+<ToggleCanvas sourceState="shown" of={ListItemStories.Simple} />
 
 ## Theme
 This component uses the following default theme:

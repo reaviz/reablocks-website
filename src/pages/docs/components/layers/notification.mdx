@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as NotificationsStories from '../../../../stories/components/Notification.story.tsx';
 import { notificationTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={NotificationsStories} />
@@ -87,11 +88,11 @@ interface NotificationOptions {
 
 ## Examples
 ### Notification for interface essential scenarios
-<Canvas sourceState="shown" of={NotificationsStories.Variants} />
+<ToggleCanvas sourceState="shown" of={NotificationsStories.Variants} />
 ### Custom styled notitications
-<Canvas of={NotificationsStories.CustomComponent} />
+<ToggleCanvas of={NotificationsStories.CustomComponent} />
 ### Notifications with title and body
-<Canvas of={NotificationsStories.TitleAndBody} />
+<ToggleCanvas of={NotificationsStories.TitleAndBody} />
 
 ## Theme
 This component uses the following default theme:

@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as SortStories from '../../../../stories/components/Sort.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={SortStories} />
 
@@ -12,7 +13,7 @@ The "Sort" component is a straightforward, user-friendly tool designed for toggl
 ### Basic Usage
 To use the Sort component, manage the sort direction state in your component or page and pass it along with a callback function to handle changes in sort direction. 
 This example demonstrates how to integrate the Sort component with ascending ('asc') and descending ('desc') sort directions:
-<Canvas sourceState="shown" of={SortStories.Simple} />
+<ToggleCanvas sourceState="shown" of={SortStories.Simple} />
 
 ## API
 Customize the Sort component using the following properties:

@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as BadgeStories from '../../../../stories/components/Badge.story.tsx';
 import { badgeTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={BadgeStories} />
@@ -13,11 +14,11 @@ It's designed to draw attention to specific elements by showing relevant numbers
 ### Basic Usage (Color Variations)
 The Badge component can be styled with various colors to indicate different statuses or priorities.
 Here's how to display badges with default, primary, secondary, and error color schemes:
-<Canvas sourceState="shown" of={BadgeStories.Colors} />
+<ToggleCanvas sourceState="shown" of={BadgeStories.Colors} />
 
 ### Advanced Usage (Position Variations)
 The position of a Badge relative to its child component can be customized to appear in various locations like `top-start`, `top-end`, `bottom-start`, and `bottom-end`:
-<Canvas of={BadgeStories.Positions} />
+<ToggleCanvas of={BadgeStories.Positions} />
 
 ## Theme Customization
 The Badge component comes with a default theme that can be customized according to your application's design system:

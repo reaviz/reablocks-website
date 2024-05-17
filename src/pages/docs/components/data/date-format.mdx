@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as DateFormatStories from '../../../../stories/components/DateFormat.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={DateFormatStories} />
 
@@ -10,11 +11,11 @@ Leveraging the capabilities of [date-fns](https://www.npmjs.com/package/date-fns
 ## Examples
 ### Basic Usage
 For straightforward applications, the component can directly format the current date and time into a default format.
-<Canvas sourceState="shown" of={DateFormatStories.Simple} />
+<ToggleCanvas sourceState="shown" of={DateFormatStories.Simple} />
 
 ### Relative Time
 The component also supports displaying dates in relative terms, such as "3 months ago", which can be particularly useful for content timestamps.
-<Canvas sourceState="shown" of={DateFormatStories.Relative} />
+<ToggleCanvas sourceState="shown" of={DateFormatStories.Relative} />
 
 ## API
 The `Date Format` component is highly configurable with several properties to adjust its behavior and output format:

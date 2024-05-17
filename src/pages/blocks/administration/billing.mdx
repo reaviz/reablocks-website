@@ -1,5 +1,6 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as BillingStories from '../../../stories/blocks/Billing.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={BillingStories} />
 
@@ -8,13 +9,13 @@ import * as BillingStories from '../../../stories/blocks/Billing.story';
 The Billing block enables users to manage and view subscriptions, plans, usage, payment information, and other billing related information within your product.
 
 ## Billing Full
-<Canvas of={BillingStories.BillingFull} />
+<ToggleCanvas of={BillingStories.BillingFull} />
  
 ## Pay And Billing
-<Canvas of={BillingStories.PayAndBilling} />
+<ToggleCanvas of={BillingStories.PayAndBilling} />
 
 ## Billing Subscription
-<Canvas of={BillingStories.BillingSubscription} />
+<ToggleCanvas of={BillingStories.BillingSubscription} />
 
 ## Billing Information
-<Canvas of={BillingStories.BillingInformation} />
+<ToggleCanvas of={BillingStories.BillingInformation} />

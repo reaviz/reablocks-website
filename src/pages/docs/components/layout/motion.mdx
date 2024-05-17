@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as MotionStories from '../../../../stories/components/Motion.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 
 <Meta of={MotionStories} />
 
@@ -8,7 +9,7 @@ import { PropsTable } from '@/components/ui/props-table';
 Basic motion helpers for animating components using framer-motion.
 
 ## Example
-<Canvas sourceState="shown" of={MotionStories.Simple} />
+<ToggleCanvas sourceState="shown" of={MotionStories.Simple} />
 
 ## API
 
