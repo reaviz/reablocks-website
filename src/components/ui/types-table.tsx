@@ -1,7 +1,7 @@
 import metadata from 'reablocks/typedoc.json';
 import { Fragment } from 'react';
 
-export const TypesTable = ({ type, name }) => {
+export const ParametersTable = ({ type, name }) => {
   const data: any = metadata?.[type]?.find(m => m.name === name);
 
   return (
@@ -10,7 +10,7 @@ export const TypesTable = ({ type, name }) => {
         <thead>
           <tr>
             <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>
-              Prop
+              Parameter
             </th>
             <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>
               Type

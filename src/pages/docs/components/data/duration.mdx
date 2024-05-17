@@ -2,7 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DurationStories from '../../../../stories/components/Duration.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import { TypesTable } from '@/components/ui/types-table';
+import { ParametersTable } from '@/components/ui/types-table';
 
 <Meta of={DurationStories} />
 
@@ -10,14 +10,14 @@ import { TypesTable } from '@/components/ui/types-table';
 The Duration component is designed to represent time durations derived from epoch time values in an easily interpretable format. 
 It's suitable for displaying durations like processing times, event lengths, or intervals in a [human-format](https://www.npmjs.com/package/human-format).
 
-## Example
+## Examples
 <ToggleCanvas sourceState="shown" of={DurationStories.Simple} />
 
 ## API
-### Component API
+### Component
 <PropsTable name="Duration" />
 
-### Function API
+### Function
 For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
 you can use the `formatDuration` function provided by the API:
 
@@ -32,4 +32,4 @@ function yourFunction(size: DurationFormatTypes) {
 
 Below is the function arguments for `formatDuration`:
 
-<TypesTable type="functions" name="formatDuration" />
+<ParametersTable type="functions" name="formatDuration" />
