@@ -1,20 +1,20 @@
 {
   "index": {
-    "title": "Introduction",
+    "title": "👋 ⏐ Introduction",
     "theme": {
       "timestamp": false,
       "layout": "full",
       "pagination": false
     }
   },
-  "getting-started": "Getting Started",
-  "theme": "Themeing",
-  "components": "Components",
-  "utils": "Utils",
-  "advanced": "Advanced",
-  "recipes": "Recipes",
+  "getting-started": "🚀 ⏐ Getting Started",
+  "theme": "🎨 ⏐ Themeing",
+  "components": "🏗️ ⏐ Components",
+  "utils": "⚙️ ⏐ Utils",
+  "advanced": "⚡️ ⏐ Advanced",
+  "recipes": "🧩 ⏐ Recipes",
   "changelog": {
-    "title": "Changelog",
+    "title": "📓 ⏐ Changelog",
     "theme": {
       "timestamp": false
     }
