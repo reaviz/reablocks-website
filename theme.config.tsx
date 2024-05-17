@@ -129,7 +129,7 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/reaviz/reablocks",
   },
-  docsRepositoryBase: "https://github.com/reaviz/reablocks/tree/master/docs",
+  docsRepositoryBase: "https://github.com/reaviz/reablocks-website/tree/master",
   useNextSeoProps: () => {
     const { asPath } = useRouter();
 
