@@ -9,7 +9,7 @@ export const ParametersTable = ({ type, name }) => {
     <Card className="mt-5 p-3">
       <table style={{ width: '100%', fontSize: 14 }}>
         <thead>
-          <tr>
+          <tr className="opacity-60">
             <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>
               Parameter
             </th>
