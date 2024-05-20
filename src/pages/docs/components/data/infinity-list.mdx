@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as InfinityListStories from '../../../../stories/components/InfinityList.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { ParametersTable } from '@/components/ui/types-table';
 
 <Meta of={InfinityListStories} />
 
@@ -25,4 +26,8 @@ This approach is straightforward, allowing you to map over your dataset and rend
 <ToggleCanvas sourceState="shown" of={InfinityListStories.Hook}/>
 
 ## API
+### Component
 <PropsTable name="InfinityList" />
+
+### Hook
+<ParametersTable type="hooks" name="useInfinityList" />
