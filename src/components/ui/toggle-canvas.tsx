@@ -4,9 +4,10 @@ import { useTheme } from 'nextra-theme-docs';
 
 export type ToggleCanvasProps = {
   of?: any;
+  storybook?: string;
 };
 
-export const ToggleCanvas: FC<ToggleCanvasProps> = props => {
+export const ToggleCanvas: FC<ToggleCanvasProps> = ({ storybook, ...props }) => {
   const { setTheme, ...rest } = useTheme();
 
   return (
@@ -19,7 +20,15 @@ export const ToggleCanvas: FC<ToggleCanvasProps> = props => {
             setTheme(rest.theme === 'dark' ? 'light' : 'dark');
             rest.theme = rest.theme === 'dark' ? 'light' : 'dark';
           }
-        }
+        },
+        ...(
+          storybook ? [{
+            title: 'View Storybook',
+            onClick: () => {
+              window.open(`https://storybook.reablocks.dev/?path=/story/${storybook}`, '_blank');
+            }
+          }] : []
+        )
       ]}
     />
   );
