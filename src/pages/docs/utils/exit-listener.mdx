@@ -1,6 +1,7 @@
 import { Canvas, Meta } from '@storybook/blocks';
 import * as ExitListenerStories from '../../../stories/components/ExitListener.story.tsx';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { ParametersTable } from '@/components/ui/types-table';
 
 <Meta of={ExitListenerStories} />
 
@@ -15,3 +16,6 @@ the parent to close it.
 
 ## Examples
 <ToggleCanvas of={ExitListenerStories.Simple} sourceState="shown" />
+
+## API
+<ParametersTable type="hooks" name="useExitListener" />

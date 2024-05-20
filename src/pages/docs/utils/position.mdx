@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import * as PositionStories from '../../../stories/components/Position.story.tsx';
+import { ParametersTable } from '@/components/ui/types-table';
 
 <Meta of={PositionStories} />
 
@@ -12,6 +13,7 @@ with respect to their target element. Under the hood this component
 uses [Popper.js](https://popper.js.org/).
 
 ## Examples
-This component can be used using hooks API.
-
 <ToggleCanvas of={PositionStories.Simple} sourceState="shown" />
+
+## API
+<ParametersTable type="hooks" name="usePosition" />
