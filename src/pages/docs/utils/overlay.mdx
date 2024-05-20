@@ -13,8 +13,6 @@ import * as OverlayPortalStories from '../../../stories/components/OverlayPortal
 
 # Overlay
 
----
-
 Overlay provides component developers a way to position elements globally
 or relative to a anchor element. The overlay wraps the backdrop, position, exit
 listener and portal to provide a simple API for handling position.
@@ -26,7 +24,7 @@ There are five overlay components in the Overlay:
 - `OverlayPortal` - A wrapper around the portal component to manage z-indexs.
 - `OverlayTrigger` - The internal trigger component that the `ConnectedOverlay` uses.
 
-## Demo
+## Examples
 
 ### Global Overlay
 A overlay component typically used by components like Dialogs or Drawers.
@@ -66,14 +64,14 @@ Below is an example of simple menu component using the connected overlay.
 <ToggleCanvas of={ConnectedOverlayStories.MenuExample} sourceState="shown" />
 
 ## API
-### [src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx)
+### [GlobalOverlay](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx)
 <PropsTable name='GlobalOverlay' />
 
-### [src/utils/Overlay/ConnectedOverlay/ConnectedOverlay.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/ConnectedOverlay/ConnectedOverlay.tsx)
+### [ConnectedOverlay](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/ConnectedOverlay/ConnectedOverlay.tsx)
 <PropsTable name='ConnectedOverlay' />
 
-### [src/utils/Overlay/OverlayTrigger.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayTrigger.tsx)
+### [OverlayTrigger](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayTrigger.tsx)
 <PropsTable name='OverlayTrigger' />
 
-### [src/utils/Overlay/OverlayPortal/OverlayPortal.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayPortal/OverlayPortal.tsx)
+### [OverlayPortal](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayPortal/OverlayPortal.tsx)
 <PropsTable name='OverlayPortal' />
