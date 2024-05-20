@@ -1,12 +1,13 @@
 import metadata from 'reablocks/typedoc.json';
 import { Fragment } from 'react';
+import { Card } from 'reablocks';
 
 export const ParametersTable = ({ type, name }) => {
   const data: any = metadata?.[type]?.find(m => m.name === name);
 
   return (
-    <>
-      <table style={{ width: '100%', fontSize: 14, marginTop: 20 }}>
+    <Card className="mt-5 p-3">
+      <table style={{ width: '100%', fontSize: 14 }}>
         <thead>
           <tr>
             <th style={{ padding: '5px 0', textAlign: 'left', borderBottom: '1px solid rgba(241,245,249,0.1)', width: '25%' }}>
@@ -39,6 +40,6 @@ export const ParametersTable = ({ type, name }) => {
       <a href={data.source} className="nx-text-sm opacity-50 mt-3">
         Source: {data.source}
       </a>
-    </>
+    </Card>
   );
 };
