@@ -17,12 +17,12 @@ It's widely used across applications to personalize user experiences, especially
 #### Displaying User Initials
 The Avatar component can automatically generate and display initials based on the user's name.
 For names comprising multiple words, it uses the first letter of each word. For single-word names, only the first letter is displayed:
-<ToggleCanvas sourceState="shown" of={AvatarStories.Simple}/>
+<ToggleCanvas sourceState="shown" of={AvatarStories.Simple} storybook="components-elements-avatar--simple" />
 
 #### Displaying Profile Pictures
 When a URL to a user's profile picture is available,
 the Avatar component can display the image within a circular frame, adhering to the common design pattern for user avatars:
-<ToggleCanvas of={AvatarStories.RoundedWithImage}/>
+<ToggleCanvas of={AvatarStories.RoundedWithImage} storybook="components-elements-avatar--rounded-with-image" />
 
 ## Theme Customization
 The Avatar component comes with a default theme that can be customized.

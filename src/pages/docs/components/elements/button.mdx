@@ -16,7 +16,7 @@ Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesi
 ## Examples
 ### Basic Usage
 The Button component supports several variants including "filled", "outline", and "text", allowing for flexibility in design and application:
-<ToggleCanvas sourceState="shown" of={ButtonStories.Variants} />
+<ToggleCanvas sourceState="shown" of={ButtonStories.Variants} storybook="components-elements-button--variants" />
 
 ```javascript
 {
@@ -31,7 +31,7 @@ The Button component supports several variants including "filled", "outline", an
 ### Advanced Customization
 #### Sizes and Colors
 Buttons can be customized further with size and color variations, providing a wide range of styling options to match your UI design:
-<ToggleCanvas of={ButtonStories.Sizes} />
+<ToggleCanvas of={ButtonStories.Sizes} storybook="components-elements-button--sizes" />
 Theme customization can be used to define the size variations for different button sizes:
 ```javascript
 {
@@ -43,7 +43,7 @@ Theme customization can be used to define the size variations for different butt
 }
 ```
 
-<ToggleCanvas of={ButtonStories.Colors} />
+<ToggleCanvas of={ButtonStories.Colors} storybook="components-elements-button--colors" />
 
 Theme customization can be used to define the color variations for different button types:
 ```javascript
@@ -89,7 +89,7 @@ Theme customization can be used to define the color variations for different but
 
 #### Buttons with Icon
 Incorporating icons with text can enhance button functionality and user understanding:
-<ToggleCanvas of={ButtonStories.WithIcon} />
+<ToggleCanvas of={ButtonStories.WithIcon} storybook="components-elements-button--with-icon" />
 
 Theme customization can be used to define the icon size and padding for different button sizes:
 
@@ -110,7 +110,7 @@ Theme customization can be used to define the icon size and padding for differen
 
 #### Group of Buttons
 The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
-<ToggleCanvas of={ButtonGroupStories.Colors} />
+<ToggleCanvas of={ButtonGroupStories.Colors} storybook="components-elements-button-group--colors" />
 
 ## Theme Customization
 The Button component comes with a default theme that can be customized for consistency with your application's design language:
