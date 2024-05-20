@@ -5,8 +5,6 @@ import { Card } from 'reablocks';
 export const ParametersTable = ({ type, name }) => {
   const data: any = metadata?.[type]?.find(m => m.name === name);
 
-  console.log('here', data, metadata, name, type)
-
   return (
     <Card className="mt-5 p-3">
       <table style={{ width: '100%', fontSize: 14 }}>
