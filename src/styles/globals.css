@@ -114,6 +114,11 @@ pre.highlighter code {
   display: block;
 }
 
+.prismjs > div {
+  /** Handle storybook code samples running off the page */
+  white-space: pre-wrap !important;
+}
+
 input {
   --tw-ring-opacity: 0 !important;
   --tw-ring-offset-shadow: none !important;
