@@ -24,7 +24,7 @@
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
     "posthog-js": "^1.131.4",
-    "reablocks": "^7.6.17",
+    "reablocks": "^7.7.1",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
