@@ -13,5 +13,11 @@
     "theme": {
       "layout": "full"
     }
+  },
+  "timeline": {
+    "title": "Timeline 🆕",
+    "theme": {
+      "layout": "full"
+    }
   }
 }

@@ -1,0 +1,16 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as TimelineStories from '../../../stories/blocks/ActivityTimeline.story';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+
+<Meta of={TimelineStories} />
+
+# Timeline
+
+## Activity Timeline
+<ToggleCanvas of={TimelineStories.ActivityTimeline} />
+
+## Version History
+<ToggleCanvas of={TimelineStories.VersionHistory} />
+
+## Workspace History
+<ToggleCanvas of={TimelineStories.WorkspaceHistory} />
