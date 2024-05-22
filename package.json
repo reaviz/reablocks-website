@@ -24,11 +24,12 @@
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
     "posthog-js": "^1.131.4",
-    "reablocks": "^7.7.3",
+    "reablocks": "^7.8.0",
     "reablocks-docs-theme": "^0.0.2",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
+    "react-syntax-highlighter": "^15.5.0",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2"
   },

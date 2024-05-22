@@ -45,7 +45,7 @@ Theme customization can be used to define the size variations for different butt
 
 <ToggleCanvas of={ButtonStories.Colors} storybook="components-elements-button--colors" />
 
-Theme customization can be used to define the color variations for different button types:
+Theme customization can be used to define the color variations for different button types. This includes extending the default colors with custom colors:
 ```javascript
 {
     colors: {
@@ -82,6 +82,12 @@ Theme customization can be used to define the color variations for different but
         filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
         outline: 'border border-error',
         text: 'text-error hover:text-error-hover'
+      },
+      // custom color e.g. pink
+      pink: {
+        filled: 'bg-pink-500 hover:bg-pink-500-hover border-pink-500 text-surface-content',
+        outline: 'border border-pink-500',
+        text: 'text-pink-500 hover:text-pink-500-hover'
       }
     }
 }

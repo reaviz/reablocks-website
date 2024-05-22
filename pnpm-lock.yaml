@@ -36,8 +36,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.7.3
-        version: 7.7.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.8.0
+        version: 7.8.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -50,6 +50,9 @@ importers:
       react-hook-form:
         specifier: ^7.51.4
         version: 7.51.4(react@18.2.0)
+      react-syntax-highlighter:
+        specifier: ^15.5.0
+        version: 15.5.0(react@18.2.0)
       sharp:
         specifier: ^0.33.3
         version: 0.33.3
@@ -6471,8 +6474,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@7.7.3:
-    resolution: {integrity: sha512-6WjziPSr6UvoDoYaTXd7pJapPghFTMujTSV9RUBLKQLnKZRxn0ubyJtPCUpVO/Uy2j0YZ0cSbBeAb4PXRtzcxA==}
+  reablocks@7.8.0:
+    resolution: {integrity: sha512-taeqc+WqbUSfiCGQOh1QfmI/f0F3d6/2pSGmns3hu59SNu5WAe+Uqxg9ZQ9OsLdmkGpY37ZL0+vMDFVskZ7AuQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -9332,7 +9335,7 @@ snapshots:
 
   '@radix-ui/react-arrow@1.0.3(@types/react-dom@18.3.0)(@types/react@18.0.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.0.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -9538,7 +9541,7 @@ snapshots:
 
   '@radix-ui/react-toggle@1.0.3(@types/react-dom@18.3.0)(@types/react@18.0.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.0.25)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.0.25)(react@18.2.0)
@@ -9581,7 +9584,7 @@ snapshots:
 
   '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@18.0.25)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.0.25)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -9603,7 +9606,7 @@ snapshots:
 
   '@radix-ui/react-use-rect@1.0.1(@types/react@18.0.25)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
       '@radix-ui/rect': 1.0.1
       react: 18.2.0
     optionalDependencies:
@@ -9611,7 +9614,7 @@ snapshots:
 
   '@radix-ui/react-use-size@1.0.1(@types/react@18.0.25)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.0.25)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -9629,7 +9632,7 @@ snapshots:
 
   '@radix-ui/rect@1.0.1':
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
 
   '@reaviz/react-use-fuzzy@1.0.3(fuse.js@6.6.2)(react@18.2.0)':
     dependencies:
@@ -16035,7 +16038,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@7.7.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.8.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
@@ -16058,7 +16061,6 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       react-fast-compare: 3.2.2
       react-highlight-words: 0.20.0(react@18.2.0)
-      react-syntax-highlighter: 15.5.0(react@18.2.0)
       react-textarea-autosize: 8.5.3(@types/react@18.0.25)(react@18.2.0)
       tailwind-merge: 2.3.0
     transitivePeerDependencies:
@@ -16282,7 +16284,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.5
 
   regex-cache@0.4.4:
     dependencies:
