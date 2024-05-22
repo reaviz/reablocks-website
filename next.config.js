@@ -1,7 +1,7 @@
 const { webpack } = require('@storybook/csf-plugin');
 
 const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
+  theme: 'reablocks-docs-theme',
   themeConfig: './theme.config.tsx'
 });
 

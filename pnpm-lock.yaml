@@ -38,6 +38,9 @@ importers:
       reablocks:
         specifier: ^7.7.3
         version: 7.7.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      reablocks-docs-theme:
+        specifier: ^0.0.1
+        version: 0.0.1(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18
         version: 18.2.0
@@ -6460,6 +6463,13 @@ packages:
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
+
+  reablocks-docs-theme@0.0.1:
+    resolution: {integrity: sha512-Xo1MY04l1QWzAtCsFmQ9kyq2Ug3cuuvOsMTqZdzU2fNerzzc2i2j5wvbI9/94YsEH7yX9ZR3FHFB6qlRUpEpeA==}
+    peerDependencies:
+      next: '>=9.5.3'
+      react: '>=16.13.1'
+      react-dom: '>=16.13.1'
 
   reablocks@7.7.3:
     resolution: {integrity: sha512-6WjziPSr6UvoDoYaTXd7pJapPghFTMujTSV9RUBLKQLnKZRxn0ubyJtPCUpVO/Uy2j0YZ0cSbBeAb4PXRtzcxA==}
@@ -16002,6 +16012,28 @@ snapshots:
       ini: 1.3.8
       minimist: 1.2.8
       strip-json-comments: 2.0.1
+
+  reablocks-docs-theme@0.0.1(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      '@headlessui/react': 1.7.19(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@popperjs/core': 2.11.8
+      clsx: 2.1.1
+      escape-string-regexp: 5.0.0
+      flexsearch: 0.7.31
+      focus-visible: 5.2.0
+      git-url-parse: 13.1.0
+      intersection-observer: 0.12.2
+      match-sorter: 6.3.1
+      next: 14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      next-seo: 6.4.0(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      next-themes: 0.2.1(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      nextra: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      scroll-into-view-if-needed: 3.1.0
+      zod: 3.22.4
+    transitivePeerDependencies:
+      - supports-color
 
   reablocks@7.7.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:

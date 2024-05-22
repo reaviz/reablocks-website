@@ -1,6 +1,6 @@
 import { Canvas } from '@storybook/blocks';
 import { FC } from "react";
-import { useTheme } from 'nextra-theme-docs';
+import { useTheme } from 'reablocks-docs-theme';
 
 export type ToggleCanvasProps = {
   of?: any;
