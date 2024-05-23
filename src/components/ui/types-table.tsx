@@ -21,7 +21,7 @@ export const ParametersTable = ({ type, name }) => {
         <tbody>
           {data.signatures.map((prop, index) => (
             <Fragment key={index}>
-              {prop.parameters.map(p => (
+              {prop.parameters?.map(p => (
                 <tr key={p.name}>
                   <td style={{ padding: '5px 0', borderBottom: '1px solid rgba(241,245,249,0.1)' }}>
                     <code>{p.name}</code>

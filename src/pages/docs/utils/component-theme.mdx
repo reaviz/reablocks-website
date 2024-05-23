@@ -1,0 +1,29 @@
+import { ParametersTable } from '@/components/ui/types-table';
+
+# useComponentTheme hook
+
+The `useComponentTheme` is a hook that allows developers to get theme of a component.
+It also allows developers to override the default theme of a component by passing a custom theme.
+
+## Examples
+
+In the below example, we are using `useComponentTheme` hook to get the theme of a button component.
+The `Button` actually passes `customTheme` prop to the `useComponentTheme` 
+hook to override the default theme. If no `customTheme` is passed, the default theme is used.
+
+```jsx
+import { useComponentTheme } from 'reablocks';
+
+function Button({ customTheme }) {
+  const theme = useComponentTheme('button', customTheme);
+
+  return (
+    <button className={theme.button}>
+      Hello World
+    </button>
+  );
+}
+```
+
+## API
+<ParametersTable type="hooks" name="useComponentTheme" />

@@ -1,0 +1,28 @@
+import { ParametersTable } from '@/components/ui/types-table';
+
+# useTheme hook
+
+The `useTheme` is a hook that allows developers to get the global theme.
+This will return all the theme options that are available in the global theme.
+
+## Examples
+Below is an example of using the `useTheme` hook to get two different component
+themes to theme a custom button.
+
+```jsx
+import { useTheme } from 'reablocks';
+
+function Button() {
+  const theme = useTheme();
+
+  return (
+    <button className={theme.button.base}>
+      Hello World
+      <input className={theme.input.base} />
+    </button>
+  );
+}
+```
+
+## API
+<ParametersTable type="hooks" name="useTheme" />
