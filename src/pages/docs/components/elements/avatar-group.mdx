@@ -8,12 +8,17 @@ import ThemeRender from '@/components/ui/theme-render';
 <Meta of={AvatarGroupStories} />
 
 # AvatarGroup
-The "AvatarGroup" component is designed to efficiently display a collection of user avatars, making it ideal for showcasing team members, participant lists, or any group of users.
-It smartly handles large numbers of avatars by showing a set maximum number on the screen, with an additional indicator for the number of hidden avatars.
+The `AvatarGroup` component is designed to efficiently display a collection of user avatars, 
+making it ideal for showcasing team members, participant lists, or any group of users.
+It smartly handles large numbers of avatars by showing a set maximum number on the screen, 
+with an additional indicator for the number of hidden avatars.
+
 ## Examples
 ### Basic Usage
-The AvatarGroup component arranges multiple Avatar components together, indicating excess avatars when surpassing the specified maximum size:
-<ToggleCanvas sourceState="shown" of={AvatarGroupStories.Basic} storybook="components-elements-avatar-group--basic" />
+The AvatarGroup component arranges multiple Avatar components together, indicating excess
+ avatars when surpassing the specified maximum size:
+
+<ToggleCanvas of={AvatarGroupStories.Basic} storybook="components-elements-avatar-group--basic" />
 
 ## Theme Customization
 AvatarGroup supports theming to ensure its appearance aligns with the overall design of your application.
