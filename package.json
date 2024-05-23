@@ -2,7 +2,7 @@
   "name": "reablocks-website",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.1.0",
+  "packageManager": "pnpm@9.1.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,7 +24,7 @@
     "nextra": "^2.13.4",
     "nextra-theme-docs": "^2.13.4",
     "posthog-js": "^1.131.4",
-    "reablocks": "^7.8.0",
+    "reablocks": "^7.8.1",
     "reablocks-docs-theme": "^0.0.2",
     "react": "^18",
     "react-dom": "^18",
