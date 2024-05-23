@@ -13,7 +13,7 @@ const ThemeRender: FC<ThemeRenderProps> = ({ theme }) => {
         size="small"
         color="primary"
         variant="outline"
-        className="absolute right-0 bottom-0 text-xs"
+        className="absolute right-0 bottom-0 text-xs border-0 bg-black"
         onClick={async () => {
           try {
             await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
