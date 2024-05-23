@@ -12,7 +12,8 @@ The Notification component delivers real-time messages or alerts to users, provi
 Notifications can be automatic or can be triggered based on some actions that the user performed.
 
 ## Quick Start
-Render `Notifications` component at the top of your application so that it does not conflict with other absolutely positioned DOM elements.
+Add the `Notifications` provider at the top of your application so that it does not conflict 
+with other absolutely positioned DOM elements.
 
 ```jsx
 import { Notifications } from 'reablocks';
@@ -48,13 +49,7 @@ const Component = () => {
 };
 ```
 
-Use these `Notifications` props to customize your notifications at a global level
-
-### API
-<PropsTable name="Notifications" />
-
-## NotificationOptions
-Pass in options when calling the `notify` function to customize the notification.
+You can also pass in options when calling the `notify` function to customize the notification.
 
 ```tsx
 const options: NotificationOptions = {
@@ -65,7 +60,8 @@ const options: NotificationOptions = {
 notify("This is a notification", options)
 ```
 
-### API
+The API for the `notify` function is as follows:
+
 ```jsx
 type NotificationVariants =
   | 'default'
@@ -88,9 +84,11 @@ interface NotificationOptions {
 
 ## Examples
 ### Notification for interface essential scenarios
-<ToggleCanvas sourceState="shown" of={NotificationsStories.Variants} storybook="components-layers-notification--variants" />
+<ToggleCanvas of={NotificationsStories.Variants} storybook="components-layers-notification--variants" />
+
 ### Custom styled notitications
 <ToggleCanvas of={NotificationsStories.CustomComponent} storybook="components-layers-notification--custom-component" />
+
 ### Notifications with title and body
 <ToggleCanvas of={NotificationsStories.TitleAndBody} storybook="components-layers-notification--title-and-body" />
 
@@ -100,3 +98,6 @@ This component uses the following default theme:
 <ThemeRender theme={notificationTheme} />
 
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Notifications" />
