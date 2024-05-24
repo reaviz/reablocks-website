@@ -1,4 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
+import { Cards, Card } from 'nextra/components'
 import * as ChipStories from '../../../../stories/components/Chip.story.tsx';
 import { chipTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -35,6 +36,16 @@ Adding icons to chips enhances visual communication and can indicate additional 
 #### Selectable Chips
 Chips can be made selectable, allowing users to choose one or more options from a set:
 <ToggleCanvas of={ChipStories.Selectable} storybook="components-elements-chip--selectable" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Card title="Billing" href="/blocks/administration/billing" />
+  <Card title="Pricing" href="/blocks/administration/pricing" />
+  <Card title="Profile" href="/blocks/administration/profile" />
+</Cards>
 
 ## Theme Customization
 The Chip component comes with a default theme, which can be customized according to your application's design requirements:
