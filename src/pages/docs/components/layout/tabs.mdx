@@ -1,4 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
+import { Cards, Card } from 'nextra/components'
 import * as TabsStories from '../../../../stories/components/Tabs.story.tsx';
 import { tabsTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -12,6 +13,15 @@ The tabs component is a simple way to organize content into different sections.
 
 ## Example
 <ToggleCanvas of={TabsStories.Simple} storybook="components-layout-tabs--simple" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Card title="Billing" href="/blocks/administration/billing" />
+  <Card title="Profile" href="/blocks/administration/profile" />
+  <Card title="Team" href="/blocks/administration/team" />
+</Cards>
 
 ## Theme
 This component uses the following default theme:

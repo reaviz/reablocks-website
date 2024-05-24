@@ -1,4 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
+import { Cards, Card } from 'nextra/components'
 import * as TextareaStories from '../../../../stories/components/Textarea.story.tsx';
 import { textareaTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -36,6 +37,14 @@ Demonstrates setting a default value and placeholder text in the Textarea, guidi
 <ToggleCanvas of={TextareaStories.DefaultValue} storybook="components-form-textarea--default-value" />
 - **Placeholder text**
 <ToggleCanvas of={TextareaStories.Placeholder} storybook="components-form-textarea--placeholder" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Card title="Contact" href="/blocks/foundation/contact" />
+  <Card title="Timeline" href="/blocks/foundation/timeline" />
+</Cards>
 
 ## Theme Customization
 The Textarea component comes with a default theme that can be tailored to fit your application's design requirements:

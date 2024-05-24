@@ -1,4 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
+import { Cards, Card } from 'nextra/components'
 import * as BlockStories from '../../../../stories/components/Block.story.tsx';
 import { blockTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -12,6 +13,18 @@ Simple block component.
 
 ## Example
 <ToggleCanvas of={BlockStories.Label} storybook="components-layout-block--label" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Card title="Login" href="/blocks/authentication/login" />
+  <Card title="MFA" href="/blocks/authentication/mfa" />
+  <Card title="Profile" href="/blocks/administration/profile" />
+  <Card title="Register" href="/blocks/authentication/register" />
+  <Card title="Contact" href="/blocks/foundation/contact" />
+</Cards>
 
 ## Theme
 This component uses the following default theme:
