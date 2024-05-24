@@ -47,15 +47,39 @@ const customTheme: PartialReablocksTheme = {
     }
   }
 };
+```
 
+You can extend the `colors`, `variants`, and `sizes` of applicable components with any custom values. This allows you to create properties that are specific to your app's design system.
+```tsx
+const customTheme: PartialReablocksTheme = {
+  components: {
+    button: {
+      base: 'bg-lime-600 text-gray-300',
+      variants: {
+        ...
+        destructive: 'bg-red-600 hover:bg-red-700',
+      },
+      sizes: {
+        ...
+        xxl: 'p-6',
+      }
+    }
+  }
+};
+```
+
+By using the `extendTheme` function, you can merge your customizations with the base theme, resulting in a coherent design system that still benefits from Reablocks' foundation.
+
+```tsx
 export const App = () => (
   <ThemeProvider theme={extendTheme(theme, customTheme)}>
     <YourComponents />
   </ThemeProvider>
 );
 ```
+
 **Result:** This example demonstrates how to create a `customTheme` that extends the `darkTheme`.
-By using the `extendTheme` function, you can merge your customizations with the base theme, resulting in a coherent design system that still benefits from Reablocks' foundation.
+
 
 &nbsp;
 
