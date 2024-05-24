@@ -94,6 +94,10 @@ body {
   list-style: none !important;
 }
 
+.nextra-cards > a {
+  @apply dark:hover:bg-gray-700/20 hover:bg-gray-100;
+}
+
 .rb-code {
   color: #029cfd !important;
 }
