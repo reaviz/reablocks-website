@@ -29,15 +29,12 @@ importers:
       nextra:
         specifier: ^2.13.4
         version: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      nextra-theme-docs:
-        specifier: ^2.13.4
-        version: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(nextra@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       posthog-js:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.8.1
-        version: 7.8.1(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.9.2
+        version: 7.9.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -5791,14 +5788,6 @@ packages:
       sass:
         optional: true
 
-  nextra-theme-docs@2.13.4:
-    resolution: {integrity: sha512-2XOoMfwBCTYBt8ds4ZHftt9Wyf2XsykiNo02eir/XEYB+sGeUoE77kzqfidjEOKCSzOHYbK9BDMcg2+B/2vYRw==}
-    peerDependencies:
-      next: '>=9.5.3'
-      nextra: 2.13.4
-      react: '>=16.13.1'
-      react-dom: '>=16.13.1'
-
   nextra@2.13.4:
     resolution: {integrity: sha512-7of2rSBxuUa3+lbMmZwG9cqgftcoNOVQLTT6Rxf3EhBR9t1EI7b43dted8YoqSNaigdE3j1CoyNkX8N/ZzlEpw==}
     engines: {node: '>=16'}
@@ -6474,8 +6463,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@7.8.1:
-    resolution: {integrity: sha512-KatrWX78jSf5Vhc3JMpl1JtU9+TK2BWduEsHbDl06UObKzJja+j8IgfOnH8apNjdYty/4zVxDnqZqaaLKHDsMw==}
+  reablocks@7.9.2:
+    resolution: {integrity: sha512-1BcFaRCU6027h2ME/b5Bxp18+3CN302BvsTqT3ES1MHyTK1j9tHyWPZ7e9qn9MCcgcqggOTZuzYW89OoMsIDZQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -15292,26 +15281,6 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-docs@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(nextra@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
-    dependencies:
-      '@headlessui/react': 1.7.19(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@popperjs/core': 2.11.8
-      clsx: 2.1.1
-      escape-string-regexp: 5.0.0
-      flexsearch: 0.7.31
-      focus-visible: 5.2.0
-      git-url-parse: 13.1.0
-      intersection-observer: 0.12.2
-      match-sorter: 6.3.1
-      next: 14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      next-seo: 6.4.0(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      next-themes: 0.2.1(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      nextra: 2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      scroll-into-view-if-needed: 3.1.0
-      zod: 3.22.4
-
   nextra@2.13.4(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@headlessui/react': 1.7.19(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -16038,7 +16007,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@7.8.1(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.9.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
