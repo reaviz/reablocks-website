@@ -33,8 +33,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.9.2
-        version: 7.9.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.9.6
+        version: 7.9.6(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -6463,8 +6463,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@7.9.2:
-    resolution: {integrity: sha512-1BcFaRCU6027h2ME/b5Bxp18+3CN302BvsTqT3ES1MHyTK1j9tHyWPZ7e9qn9MCcgcqggOTZuzYW89OoMsIDZQ==}
+  reablocks@7.9.6:
+    resolution: {integrity: sha512-5iR4m+1ROUJGJs83yFzj1IbWUqzmSiXNKO5CyvPQbsRHSKN4O4kyz8CmN0/mwkhJE7z9KDQ+p1KwjUTfaVmf1Q==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -16007,7 +16007,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@7.9.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.9.6(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
