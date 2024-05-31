@@ -29,12 +29,11 @@ export const PropsTable = ({ name }) => {
               </td>
               <td className="p-[5px]">
                 {data.props[prop].description}
-                {data.props[prop].tsType && (
+                {data.props[prop].type && (
                   <>
                     <br />
                     <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10 rb-code">
-                      {data.props[prop].tsType.raw ??
-                        data.props[prop].tsType.name}
+                      {data.props[prop].type.name}
                     </code>
                   </>
                 )}
