@@ -2,6 +2,7 @@
   "index": {
     "title": "👋 ⏐ Introduction",
     "theme": {
+      "sidebar": true,
       "timestamp": false,
       "layout": "full",
       "pagination": false

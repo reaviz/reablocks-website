@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 /* Import styles for reablocks nextra theme  */
-@import "node_modules/reablocks-docs-theme/style.css";
+@import "reablocks-docs-theme/style.css";
 
 /* Import pre generated styles for default reablocks theme  */
-@import "node_modules/reablocks/dist/index.css";
+@import "reablocks/index.css";
 
 html.light {
   --background: #ffffff;

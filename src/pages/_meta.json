@@ -13,11 +13,25 @@
   },
   "docs": {
     "title": "Docs",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
   },
   "blocks": {
     "title": "Blocks",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "breadcrumb": true,
+      "footer": true,
+      "sidebar": true,
+      "toc": true,
+      "pagination": true
+    }
   },
   "storybook": {
     "title": "Storybook",
