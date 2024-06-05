@@ -13,6 +13,7 @@ const nextConfig = {
   },
   experimental: {
     scrollRestoration: true,
+    webpackBuildWorker: true
   },
   typescript: {
     ignoreBuildErrors: true

@@ -104,6 +104,8 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     defaultMenuCollapseLevel: 3,
+    autoCollapse: false,
+    toggleButton: true
   },
   footer: {
     component: (
