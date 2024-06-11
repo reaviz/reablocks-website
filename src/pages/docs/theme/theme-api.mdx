@@ -50,6 +50,8 @@ export interface ReablocksTheme {
     pager: PagerTheme;
     tabs: TabsTheme;
     breadcrumbs: BreadcrumbsTheme;
+    stepper: StepperTheme;
+    callout: CalloutTheme;
   };
 }
 
@@ -785,5 +787,49 @@ interface TabsTheme {
     };
   };
   panel: string;
+}
+
+interface StepperTheme {
+  base: string;
+  step: {
+    base: string;
+    marker: {
+      container: string;
+      base: string;
+      active: string;
+      label: {
+        base: string;
+        active: string;
+      };
+    };
+    active: string;
+    content: string;
+  };
+}
+
+export interface CalloutTheme {
+  base: {
+    common: string;
+    variant: {
+      default: string;
+      success: string;
+      error: string;
+      warning: string;
+      info: string;
+      [key: string]: string;
+    };
+  };
+  icon: {
+    common: string;
+    variant: {
+      default: string;
+      success: string;
+      error: string;
+      warning: string;
+      info: string;
+      [key: string]: string;
+    };
+  };
+  text: string;
 }
 ```
