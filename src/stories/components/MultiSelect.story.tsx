@@ -4,6 +4,8 @@ import { SelectOption } from 'reablocks';
 import { SelectMenu } from 'reablocks';
 import { SelectInput, SelectInputChip } from 'reablocks';
 
+import CheckIcon from 'reablocks';
+
 export default {
   title: 'Components/Form/Select/Multi',
   component: Select,
@@ -120,6 +122,26 @@ export const CustomLabels = () => {
         >
           🔥 twitch
         </SelectOption>
+      </Select>
+    </div>
+  );
+};
+
+export const CustomCheckIcon = () => {
+  const [value, setValue] = useState<string[]>(['facebook']);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        closeOnSelect={false}
+        multiple
+        value={value}
+        onChange={v => setValue(v)}
+        placeholder="Pick a tool..."
+        menu={<SelectMenu checkIcon={<CheckIcon />} />}
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
       </Select>
     </div>
   );
@@ -283,6 +305,7 @@ export const InvalidValues = () => {
         value={value}
         onChange={v => setValue(v)}
         placeholder="Pick a tool..."
+        menu={<SelectMenu checkIcon={<CheckIcon />} />}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>

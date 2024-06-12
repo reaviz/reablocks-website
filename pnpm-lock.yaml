@@ -33,8 +33,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.12.0
-        version: 7.12.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^7.13.2
+        version: 7.13.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1037,8 +1037,23 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
+  '@floating-ui/react-dom@2.1.0':
+    resolution: {integrity: sha512-lNzj5EQmEKn5FFKc04+zasr09h/uX8RtJRNj5gUXsSQIXHVWTVh+hVAg1vOMCexkX8EgvemMvIFpQfkosnVNyA==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@floating-ui/react@0.26.16':
+    resolution: {integrity: sha512-HEf43zxZNAI/E781QIVpYSF3K2VH4TTYZpqecjdsFkjsaU1EbaWcM++kw0HXFffj7gDUcBFevX8s0rQGQpxkow==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
   '@floating-ui/utils@0.1.6':
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
+
+  '@floating-ui/utils@0.2.2':
+    resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
 
   '@headlessui/react@1.7.19':
     resolution: {integrity: sha512-Ll+8q3OlMJfJbAKM/+/Y2q6PPYbryqNTXDbryx7SXLIDamkF6iQFbriYHga0dY44PvDhvvBWCx1Xj4U5+G4hOw==}
@@ -6158,10 +6173,6 @@ packages:
     resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
     engines: {node: '>=10'}
 
-  popper.js@1.16.1:
-    resolution: {integrity: sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==}
-    deprecated: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
-
   posix-character-classes@0.1.1:
     resolution: {integrity: sha512-xTgYBc3fuo7Yt7JbiuFxSYGToMoz8fLoE6TC9Wx1P/u+LfeThMOAqmuyECnlBaaJb+u1m9hHiXUEtwW4OzfUJg==}
     engines: {node: '>=0.10.0'}
@@ -6463,8 +6474,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@7.12.0:
-    resolution: {integrity: sha512-nQDIgT3rYAyuQAxizO3gNZ/HfqlMaKY/6fliEqDX9gItQTin5ilWbWFfJMqjlJxlL6Gnqf4lqJckKuVenZRqvw==}
+  reablocks@7.13.2:
+    resolution: {integrity: sha512-DxC7yFIVygvefY5R3widrQmhKxkMfp3RINfG4Z8Ze9VtIyE3hpi0LjdgpYA8+sKp7neQk/0YVnRYbRU/QGSnKw==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -8935,7 +8946,23 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
+  '@floating-ui/react-dom@2.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@floating-ui/dom': 1.5.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  '@floating-ui/react@0.26.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@floating-ui/utils': 0.2.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tabbable: 6.2.0
+
   '@floating-ui/utils@0.1.6': {}
+
+  '@floating-ui/utils@0.2.2': {}
 
   '@headlessui/react@1.7.19(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
@@ -15717,8 +15744,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.23.5
 
-  popper.js@1.16.1: {}
-
   posix-character-classes@0.1.1: {}
 
   possible-typed-array-names@1.0.0: {}
@@ -16007,8 +16032,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@7.12.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@7.13.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
+      '@floating-ui/react': 0.26.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@marko19907/string-to-color': 1.0.0
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@18.2.0)
       body-scroll-lock-upgrade: 1.1.0
@@ -16025,7 +16051,6 @@ snapshots:
       human-format: 1.2.0
       name-initials: 0.1.3
       pluralize: 8.0.0
-      popper.js: 1.16.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-fast-compare: 3.2.2
