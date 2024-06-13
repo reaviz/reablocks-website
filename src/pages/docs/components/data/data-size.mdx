@@ -3,12 +3,25 @@ import * as DateSizeStories from '../../../../stories/components/DataSize.story.
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import { ParametersTable } from '@/components/ui/types-table';
+import { Runner } from '@/components/ui/runner';
 
 # Data Size
 The Data Size component is designed to display data sizes in a human-readable format. 
 Leveraging the [human-format](https://www.npmjs.com/package/human-format) library, it simplifies the representation of byte values into more understandable formats such as bytes (B), kilobytes (KiB), megabytes (MiB), and so forth, up to yottabytes (YiB).
 
 <Meta of={DateSizeStories} />
+
+## Quick Start
+To start using the `DataSize` component, import it from the `reablocks` library and enter the desired byte value as the `value` prop
+
+<Runner code={`import { DataSize } from 'reablocks';
+
+export default function App() {
+  return (
+    <DataSize value={324344535345232482} />
+  );
+}`}
+/>
 
 ## Examples
 
