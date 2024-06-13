@@ -47,6 +47,9 @@ importers:
       react-hook-form:
         specifier: ^7.51.4
         version: 7.51.4(react@18.2.0)
+      react-live-runner:
+        specifier: ^1.0.7
+        version: 1.0.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-syntax-highlighter:
         specifier: ^15.5.0
         version: 15.5.0(react@18.2.0)
@@ -6353,6 +6356,11 @@ packages:
     resolution: {integrity: sha512-66hKPCr+72mlfiSjlEB1+45IjXSqvVAIy6mocupoww4tBFE9R9IhwwUGoI4G++Tc9Aq+2rxOt0RFU6gPcrte0A==}
     engines: {node: '>= 0.8'}
 
+  prism-react-renderer@1.3.5:
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+
   prismjs@1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
     engines: {node: '>=6'}
@@ -6535,6 +6543,12 @@ packages:
   react-lifecycles-compat@3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
 
+  react-live-runner@1.0.7:
+    resolution: {integrity: sha512-G4KZ9paknXL/aGDBcVe54jgZ1vMwMU0ggVS9ExE51au/XDaAGzTqNReXDQ0akTqb+cuTA6aA7P98Wio/ESjU9A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
+
   react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
@@ -6558,6 +6572,18 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  react-runner@1.0.5:
+    resolution: {integrity: sha512-eCIybRpssp6ffjqXqId024esO9UP2lV838Lvm3fC7VgMQ/dQHhR0jJwOY2IPrYD3AaM/bcvMikmASIRZqNUHsw==}
+    peerDependencies:
+      react: ^16.0.0 || ^17 || ^18
+      react-dom: ^16.0.0 || ^17 || ^18
+
+  react-simple-code-editor@0.13.1:
+    resolution: {integrity: sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
 
   react-style-singleton@2.2.1:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
@@ -15875,6 +15901,10 @@ snapshots:
 
   pretty-hrtime@1.0.3: {}
 
+  prism-react-renderer@1.3.5(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+
   prismjs@1.27.0: {}
 
   prismjs@1.29.0: {}
@@ -16122,6 +16152,14 @@ snapshots:
 
   react-lifecycles-compat@3.0.4: {}
 
+  react-live-runner@1.0.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      prism-react-renderer: 1.3.5(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-runner: 1.0.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react-simple-code-editor: 0.13.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+
   react-refresh@0.14.0: {}
 
   react-remove-scroll-bar@2.3.4(@types/react@18.0.25)(react@18.2.0):
@@ -16142,6 +16180,17 @@ snapshots:
       use-sidecar: 1.1.2(@types/react@18.0.25)(react@18.2.0)
     optionalDependencies:
       '@types/react': 18.0.25
+
+  react-runner@1.0.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      sucrase: 3.35.0
+
+  react-simple-code-editor@0.13.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   react-style-singleton@2.2.1(@types/react@18.0.25)(react@18.2.0):
     dependencies:

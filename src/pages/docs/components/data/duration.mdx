@@ -3,12 +3,25 @@ import * as DurationStories from '../../../../stories/components/Duration.story.
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import { ParametersTable } from '@/components/ui/types-table';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={DurationStories} />
 
 # Duration
 The Duration component is designed to represent time durations derived from epoch time values in an easily interpretable format. 
 It's suitable for displaying durations like processing times, event lengths, or intervals in a [human-format](https://www.npmjs.com/package/human-format).
+
+## Quick Start
+To start using the `Duration` component, import it from the `reablocks` library and provide the `value` props in miliseconds.
+
+<Runner code={`import { Duration } from 'reablocks';
+
+export default function App() {
+  return (
+    <Duration value="123459101" />
+  );
+}`}
+/>
 
 ## Examples
 <ToggleCanvas of={DurationStories.Simple} storybook="components-data-duration--simple" />

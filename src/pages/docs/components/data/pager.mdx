@@ -2,6 +2,7 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as PagerStories from '../../../../stories/components/Pager.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={PagerStories} />
 
@@ -9,6 +10,28 @@ import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 The Pager component facilitates navigation through pages of data, 
 allowing users to easily switch between different subsets of data. 
 It supports customization of navigation indicators (arrows) and provides various display modes to tailor how pagination information is presented.
+
+## Quick Start
+To start using the `Pager` component, import it from the `reablocks` library and provide the `page`, `size`, `total` props. Anso set the `onPageChange` prop to handle page changes.
+
+<Runner code={`
+import { useState } from 'react';
+import { Pager } from 'reablocks';
+
+export default function App() {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="pages"
+    />
+  );
+}`}
+/>
 
 ## Examples
 ### Basic Usage

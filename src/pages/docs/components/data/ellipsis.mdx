@@ -2,12 +2,30 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as EllipsisStories from '../../../../stories/components/Ellipsis.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={EllipsisStories} />
 
 # Ellipsis
 The Ellipsis component is designed to manage long strings of text by truncating them and optionally allowing users to expand the text to view in full. 
 This component is particularly useful for maintaining a clean UI when dealing with potentially lengthy content such as descriptions, comments, or articles.
+
+## Quick Start
+To start using the `Ellipsis` component, import it from the `reablocks` library and provide the `value` and `limit` props.
+
+<Runner code={`import { Ellipsis } from 'reablocks';
+
+export default function App() {
+  const longString = "Integer a aliquet ligula. Fusce vel eros libero. Sed dictum tincidunt hendrerit. Integer id neque faucibus, imperdiet purus dapibus, rutrum tellus. Nullam facilisis odio sit amet metus efficitur.";
+
+  return (
+    <Ellipsis
+      value={longString}
+      limit={100}
+    />
+  );
+}`}
+/>
 
 ## Examples
 

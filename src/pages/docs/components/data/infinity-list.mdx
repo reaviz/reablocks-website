@@ -3,6 +3,7 @@ import * as InfinityListStories from '../../../../stories/components/InfinityLis
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import { ParametersTable } from '@/components/ui/types-table';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={InfinityListStories} />
 
@@ -13,7 +14,27 @@ displaying a subset of items, enhancing performance and user experience.
 This component is especially useful in scenarios where loading the entire dataset at 
 once is feasible, but displaying it all at once may overwhelm the user or the UI.
 
-<ToggleCanvas of={InfinityListStories.Simple} storybook="components-data-infinitylist--simple" />
+## Quick Start
+To start using the `InfinityList` component, import `useInfinityList` from the `reablocks` library and provide the `items` prop to the hook.
+
+<Runner code={`
+import { useMemo } from 'react';
+import { useInfinityList } from 'reablocks';
+
+export default function App() {
+  const items = useMemo(() => [...Array(30).keys()], []);
+  const { data, hasMore, showNext } = useInfinityList({ items });
+
+  return (
+    <div>
+      {data.map(i => (
+        <div key={i}>Item {i}</div>
+      ))}
+      {hasMore && <button onClick={() => showNext()}>Show More</button>}
+    </div>
+  );
+}`}
+/>
 
 ## Examples
 The basic implementation uses the `InfinityList` component directly. 
