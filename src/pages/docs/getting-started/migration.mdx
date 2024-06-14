@@ -1,5 +1,156 @@
 import {Steps} from 'nextra/components'
 
+## Migrating from 7.x to 8.x
+
+In 8.x, we've removed the dependency of text colors to panel or surface elements. As text colors are
+not necessarily always tied to panel and surface elements, moving these colors into a generic text
+block allows for a more flexible design system.
+
+```tsx
+{
+  // Previously, the structure for panel and surface
+  panel: {
+    // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
+    DEFAULT: colorPalette['black-pearl'],
+    content: colorPalette['athens-gray'],
+    'secondary-content': colorPalette.gray[600],
+    accent: colorPalette['charade']
+  },
+  surface: {
+    // Form component backgrounds, such as text fields, checkboxes, select, etc.
+    DEFAULT: colorPalette['charade'],
+    content: colorPalette['athens-gray'],
+    accent: colorPalette.blue[500],
+    disabled: colors.gray[800]
+  }
+
+  // New structure with added text block
+  panel: {
+    // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
+    DEFAULT: colorPalette['black-pearl'],
+    accent: colorPalette['charade']
+  },
+  surface: {
+    // Form component backgrounds, such as text fields, checkboxes, select, etc.
+    DEFAULT: colorPalette['charade'],
+    accent: colorPalette.blue[500],
+  },
+  text: {
+    'content-primary': colorPalette['athens-gray'],
+    'content-secondary': colorPalette.gray[600]
+  }
+}
+```
+
+<Steps>
+### Move and consolidate content tokens
+
+We set a primary and secondary text color which can be used throughout the app. In addition, we've
+consolidated to 2 main text colors, but our system allows for more colors to be added such as
+`tertiary` if needed.
+
+For example, if `panel.content` and `surface.content` colors were different, a third color will need
+to be added under `text` and theme files of components that are being used will need to be updated.
+
+_We realize that adding a `text` block will mean Tailwind references will end up with duplicate
+`text` prefixes such as `text-text-content-primary` but we feel that this is necessary for our
+designs to clearly differentiate colors being used for text and colors being used for ui elements._
+
+```tsx
+{
+  panel: {
+    // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
+    DEFAULT: colorPalette['black-pearl'],
+-   content: colorPalette['athens-gray'],
+-   'secondary-content': colorPalette.gray[600],
+    accent: colorPalette['charade']
+  },
+  surface: {
+    // Form component backgrounds, such as text fields, checkboxes, select, etc.
+    DEFAULT: colorPalette['charade'],
+-   content: colorPalette['athens-gray'],
+    accent: colorPalette.blue[500],
+    disabled: colors.gray[800]
+  },
++ text: {
++   'content-primary': colorPalette['athens-gray'],
++   'content-secondary': colorPalette.gray[600],
++ }
+}
+```
+
+### Update theme files of components being used
+
+This is ONLY necessary if `panel.content` and `surface.content` tokens are different.
+
+Add a new token to the `text` block (ie, `content-tertiary`) with the color that `surface.content`
+was.
+
+```tsx
+{
+  text: {
+    'content-primary': colorPalette['athens-gray'],
+    'content-secondary': colorPalette.gray[600],
++   'content-tertiary': colorPalette['waterloo']
+  }
+}
+```
+
+Update component theme files which previously referenced `surface.content` from `*-surface-content` to
+`*-text-content-secondary`:
+
+- PagerTheme: `base`
+- RedactTheme: `base`
+- SortTheme: `base`
+- ArrowTheme: `base`
+- AvatarGroupTheme: `base`
+- BadgeTheme:
+  - `colors.primary`
+  - `colors.secondary`
+  - `colors.error`
+- ButtonTheme:
+  - `base`
+  - `colors.default.text`
+  - `colors.primary.filled`
+  - `colors.secondary.filled`
+  - `colors.success.filled`
+  - `colors.warning.filled`
+  - `colors.error.filled`
+- DotsLoaderTheme: `dot`
+- CheckboxTheme: `base`
+- InputTheme:
+  - `base`
+  - `adornment.base`
+- RangeTheme: `tooltip`
+- SelectMenuTheme: `groupItem.title`
+- TooltipTheme: `base`
+- ListItemTheme:
+  - `base`
+  - `header`
+- StackTheme: `base`
+- TreeTheme:
+  - `arrow`
+  - `node.base`
+  - `node.button.icon`
+
+### Remove surface.disabled
+
+We have removed the `surface.disabled` color as it was not being used in any of our component theme
+files - only in a story block which has been updated. If there is a reference to this color, leaving
+the color in place will continue to work. Otherwise, we recommend removing this color token from the
+theme.
+
+```tsx
+{
+  surface: {
+    ...,
+-   disabled: colorPalette.gray[800]
+  }
+}
+```
+
+</Steps>
+
 ## Migrating from 6.x to 7.x
 In 7.x, we've introduced new supporting palettes for things like: panel, surface and backgrounds. This
 allows us to define a more consistent and flexible color system for our components.
