@@ -36,8 +36,8 @@ block allows for a more flexible design system.
     accent: colorPalette.blue[500],
   },
   text: {
-    'content-primary': colorPalette['athens-gray'],
-    'content-secondary': colorPalette.gray[600]
+    primary: colorPalette['athens-gray'],
+    secondary: colorPalette.gray[600]
   }
 }
 ```
@@ -53,7 +53,7 @@ For example, if `panel.content` and `surface.content` colors were different, a t
 to be added under `text` and theme files of components that are being used will need to be updated.
 
 _We realize that adding a `text` block will mean Tailwind references will end up with duplicate
-`text` prefixes such as `text-text-content-primary` but we feel that this is necessary for our
+`text` prefixes such as `text-text-primary` but we feel that this is necessary for our
 designs to clearly differentiate colors being used for text and colors being used for ui elements._
 
 ```tsx
@@ -73,8 +73,8 @@ designs to clearly differentiate colors being used for text and colors being use
     disabled: colors.gray[800]
   },
 + text: {
-+   'content-primary': colorPalette['athens-gray'],
-+   'content-secondary': colorPalette.gray[600],
++   primary: colorPalette['athens-gray'],
++   secondary: colorPalette.gray[600],
 + }
 }
 ```
@@ -83,21 +83,21 @@ designs to clearly differentiate colors being used for text and colors being use
 
 This is ONLY necessary if `panel.content` and `surface.content` tokens are different.
 
-Add a new token to the `text` block (ie, `content-tertiary`) with the color that `surface.content`
+Add a new token to the `text` block (ie, `tertiary`) with the color that `surface.content`
 was.
 
 ```tsx
 {
   text: {
-    'content-primary': colorPalette['athens-gray'],
-    'content-secondary': colorPalette.gray[600],
-+   'content-tertiary': colorPalette['waterloo']
+    primary: colorPalette['athens-gray'],
+    secondary: colorPalette.gray[600],
++   tertiary: colorPalette['waterloo']
   }
 }
 ```
 
 Update component theme files which previously referenced `surface.content` from `*-surface-content` to
-`*-text-content-secondary`:
+`*-text-secondary`:
 
 - PagerTheme: `base`
 - RedactTheme: `base`
