@@ -1,25 +1,40 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
-import * as ButtonStories from '../../../../stories/components/Button.story.tsx';
-import * as ButtonGroupStories from '../../../../stories/components/ButtonGroup.story.tsx';
-import { buttonTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import ThemeRender from '@/components/ui/theme-render';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Canvas, Meta } from "@storybook/blocks";
+import { Cards, Card } from "nextra/components";
+import * as ButtonStories from "../../../../stories/components/Button.story.tsx";
+import * as ButtonGroupStories from "../../../../stories/components/ButtonGroup.story.tsx";
+import { buttonTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import ThemeRender from "@/components/ui/theme-render";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={ButtonStories} />
 <Meta of={ButtonGroupStories} />
 
 # Button
+
 The `Button` component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application.
 Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesive unit, enhancing the visual consistency and usability of grouped actions.
 
 ## Examples
+
 ### Basic Usage
-The Button component supports several variants including "filled", "outline", and 
+
+The Button component supports several variants including "filled", "outline", and
 "text", allowing for flexibility in design and application:
 
-<ToggleCanvas of={ButtonStories.Variants} storybook="components-elements-button--variants" />
+<Runner code={`import { Button } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="filled">Filled</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="text">Text</Button>
+    </div>
+  )
+}
+`} />
 
 ```javascript
 {
@@ -32,11 +47,24 @@ The Button component supports several variants including "filled", "outline", an
 ```
 
 ### Advanced Customization
+
 #### Sizes and Colors
-Buttons can be customized further with size and color variations, providing a wide range of 
+
+Buttons can be customized further with size and color variations, providing a wide range of
 styling options to match your UI design:
 
-<ToggleCanvas of={ButtonStories.Sizes} storybook="components-elements-button--sizes" />
+<Runner code={`import { Button } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <Button size="small">Small</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="large">Large</Button>
+    </div>
+  )
+}
+`} />
 
 Theme customization can be used to define the size variations for different button sizes:
 
@@ -50,7 +78,27 @@ Theme customization can be used to define the size variations for different butt
 }
 ```
 
-<ToggleCanvas of={ButtonStories.Colors} storybook="components-elements-button--colors" />
+<Runner code={`import { Button } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      gap: 10
+    }}>
+      <Button>Default</Button>
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="error">Error</Button>
+      <Button disabled>Disabled</Button>
+    </div>
+  )
+}
+`} />
 
 Theme customization can be used to define the color variations for different button types. This includes extending the default colors with custom colors:
 
@@ -102,9 +150,13 @@ Theme customization can be used to define the color variations for different but
 ```
 
 #### Buttons with Icon
+
 Incorporating icons with text can enhance button functionality and user understanding:
 
-<ToggleCanvas of={ButtonStories.WithIcon} storybook="components-elements-button--with-icon" />
+<ToggleCanvas
+  of={ButtonStories.WithIcon}
+  storybook="components-elements-button--with-icon"
+/>
 
 Theme customization can be used to define the icon size and padding for different button sizes:
 
@@ -124,10 +176,16 @@ Theme customization can be used to define the icon size and padding for differen
 ```
 
 #### Group of Buttons
+
 The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
-<ToggleCanvas of={ButtonGroupStories.Colors} storybook="components-elements-button-group--colors" />
+
+<ToggleCanvas
+  of={ButtonGroupStories.Colors}
+  storybook="components-elements-button-group--colors"
+/>
 
 ### Blocks
+
 This component is used in the following Blocks:
 
 <Cards>
@@ -143,6 +201,7 @@ This component is used in the following Blocks:
 </Cards>
 
 ## Theme Customization
+
 The Button component comes with a default theme that can be customized for consistency with your application's design language:
 
 <ThemeRender theme={buttonTheme} />
@@ -150,11 +209,15 @@ The Button component comes with a default theme that can be customized for consi
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Customize the `Button` and `ButtonGroup` components through the following properties:
+
 ### Button
+
 <PropsTable name="Button" />
 
 ### ButtonGroup
+
 <PropsTable name="ButtonGroup" />
 
 ## Design and Usability Tips

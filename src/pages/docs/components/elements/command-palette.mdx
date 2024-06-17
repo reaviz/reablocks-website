@@ -1,21 +1,55 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as CommandPaletteStories from '../../../../stories/components/CommandPalette.story.tsx';
-import { commandPaletteTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as CommandPaletteStories from "../../../../stories/components/CommandPalette.story.tsx";
+import { commandPaletteTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={CommandPaletteStories} />
 
 # Command Palette
+
 The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface.
 It's akin to a spotlight search, providing immediate access to features, documents, settings, or actions directly from the keyboard.
+
 ## Examples
+
 ### Basic Usage
+
 This example showcases a basic Command Palette setup with sections for "Recently Used" commands and "Suggestions":
-<ToggleCanvas of={CommandPaletteStories.Simple} storybook="components-data-command-palette--simple" />
+
+<Runner code={`import { useState } from 'react';
+import { 
+  CommandPalette, 
+  CommandPaletteSection, 
+  CommandPaletteItem, 
+  Divider
+} from 'reablocks';
+
+export default function App() {
+  const [IsFilledSelected, setIsFilledSelected] = useState(false);
+  const [isOutlineSelected, setIsOutlineSelected] = useState(false);
+
+  return (
+    <CommandPalette placeholder="Type a command or search...">
+      <CommandPaletteSection title="Recently Used" key="recent">
+        <CommandPaletteItem key="home">Home</CommandPaletteItem>
+        <CommandPaletteItem key="inbox">Inbox</CommandPaletteItem>
+        <CommandPaletteItem key="settings">Settings</CommandPaletteItem>
+      </CommandPaletteSection>
+      <Divider />
+      <CommandPaletteSection title="Suggestions" key="sugs">
+        <CommandPaletteItem key="shortcut">Create Shortcut</CommandPaletteItem>
+        <CommandPaletteItem key="export">Export Data</CommandPaletteItem>
+        <CommandPaletteItem key="invite">Invite User</CommandPaletteItem>
+      </CommandPaletteSection>
+    </CommandPalette>
+  );
+}`} />
 
 ## Theme Customization
+
 The default theme for the Command Palette is designed for clarity and ease of use,
 but can be customized to match your application's design language:
 
@@ -24,9 +58,12 @@ but can be customized to match your application's design language:
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Customize the Command Palette through the following properties:
+
 <PropsTable name="CommandPalette" />
 
 ## Design and Usability Tips
+
 - **Intuitive Access:** Ensure the Command Palette is easily accessible through a well-known keyboard shortcut (e.g., Cmd/Ctrl + P), making it discoverable and convenient.
 - **Clear Categorization:** Organize commands into clear categories or sections to help users quickly find what they need.

@@ -1,52 +1,182 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as IconButtonStories from '../../../../stories/components/IconButton.story.tsx';
-import { buttonTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as IconButtonStories from "../../../../stories/components/IconButton.story.tsx";
+import { buttonTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={IconButtonStories} />
 
 # IconButton
+
 The IconButton component integrates icons within buttons, combining the visual appeal of icons with the functionality of buttons.
 This component is crucial for creating intuitive and space-efficient user interfaces, especially in applications requiring a clean and modern aesthetic.
+
 ## Examples
+
 ### Basic Usage
+
 #### Icon Buttons with Type Variations
+
 The `IconButton` component integrates icons into buttons, providing various style variants like "filled", "outline", and "text".
 These options allow for versatile use across your UI, depending on the intended visual impact and user interaction:
-<ToggleCanvas of={IconButtonStories.Variants} storybook="components-elements-iconbutton--variants" />
+
+<Runner code={`import { IconButton } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <IconButton size="medium">®</IconButton>
+      <IconButton size="medium" variant="outline">®</IconButton>
+      <IconButton size="medium" variant="text">®</IconButton>
+    </div>
+  );
+}`} />
 
 ### Advanced Customization
+
 #### Icon Buttons with Color Variations
+
 `IconButton` supports different color schemes to signify various actions or statuses, enhancing the UX with visual cues.
 You can customize the background, icon color, and border to fit your application's design language.
-<ToggleCanvas of={IconButtonStories.ColorsBackground} storybook="components-elements-iconbutton--colors-background" />
-<ToggleCanvas of={IconButtonStories.ColorsIcons} storybook="components-elements-iconbutton--colors-icons" />
-<ToggleCanvas of={IconButtonStories.ColorsOutline} storybook="components-elements-iconbutton--colors-outline" />
+
+<Runner code={`import { IconButton } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <IconButton size="medium" variant="filled">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" color="primary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" color="secondary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" color="success">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" color="warning">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" color="error">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="filled" disabled>
+        ®
+      </IconButton>
+    </div>
+  );
+}`} />
+
+<Runner code={`import { IconButton } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <IconButton size="medium" variant="text">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" color="primary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" color="secondary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" color="success">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" color="warning">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" color="error">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="text" disabled>
+        ®
+      </IconButton>
+    </div>
+  );
+}`} />
+
+<Runner
+  code={`import { IconButton } from 'reablocks';
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <IconButton size="medium" variant="outline">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" color="primary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" color="secondary">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" color="success">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" color="warning">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" color="error">
+        ®
+      </IconButton>
+      <IconButton size="medium" variant="outline" disabled>
+        ®
+      </IconButton>
+    </div>
+  );
+}`}
+/>
 
 #### Icon Buttons with Size Variations
-Adjusting the size of `IconButtons` is straightforward, allowing them to fit seamlessly into different parts of your application, from toolbars to forms:
-<ToggleCanvas of={IconButtonStories.Sizes} storybook="components-elements-iconbutton--sizes" />
 
+Adjusting the size of `IconButtons` is straightforward, allowing them to fit seamlessly into different parts of your application, from toolbars to forms:
+
+<Runner
+  code={`import { IconButton } from 'reablocks';
+export default function App() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <IconButton size="small">
+        ®
+      </IconButton>
+      <IconButton size="medium">
+        ®
+      </IconButton>
+      <IconButton size="large">
+        ®
+      </IconButton>
+    </div>
+  );
+}`}
+/>
 
 ## Theme Customization
+
 Customize the IconButton's appearance with our default theme or your tailored version to ensure it complements your application's style.
 Here's the default theme structure:
+
 <ThemeRender theme={buttonTheme} />
 
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Each property of the IconButton is detailed below, providing insight into how to fully utilize the component's capabilities.
 
 {/* TODO Incorect DOC for IconButton due to extend with Omit of Button */}
+
 <PropsTable name="Button" />
 
 ## Design and Usability Tips
+
 - **Accessibility Considerations:** Ensure that `IconButtons` are accessible by providing appropriate `aria-labels` for screen readers.
-Icons might convey meaning visually, but without proper labels, they can be meaningless or confusing to visually impaired users.
+  Icons might convey meaning visually, but without proper labels, they can be meaningless or confusing to visually impaired users.
 
 - **Spacing and Sizing for Touch:** Consider the touch target size, especially for touch-screen device users.
-Ensure `IconButtons` are large enough to be easily tapped without accidentally activating neighboring elements.
-The recommended minimum touch target size is 48x48 pixels.
+  Ensure `IconButtons` are large enough to be easily tapped without accidentally activating neighboring elements.
+  The recommended minimum touch target size is 48x48 pixels.

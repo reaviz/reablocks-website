@@ -1,26 +1,69 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as AvatarGroupStories from '../../../../stories/components/AvatarGroup.story.tsx';
-import { avatarGroupTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as AvatarGroupStories from "../../../../stories/components/AvatarGroup.story.tsx";
+import { avatarGroupTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={AvatarGroupStories} />
 
 # AvatarGroup
-The `AvatarGroup` component is designed to efficiently display a collection of user avatars, 
+
+The `AvatarGroup` component is designed to efficiently display a collection of user avatars,
 making it ideal for showcasing team members, participant lists, or any group of users.
-It smartly handles large numbers of avatars by showing a set maximum number on the screen, 
+It smartly handles large numbers of avatars by showing a set maximum number on the screen,
 with an additional indicator for the number of hidden avatars.
 
 ## Examples
-### Basic Usage
-The AvatarGroup component arranges multiple Avatar components together, indicating excess
- avatars when surpassing the specified maximum size:
 
-<ToggleCanvas of={AvatarGroupStories.Basic} storybook="components-elements-avatar-group--basic" />
+### Basic Usage
+
+The AvatarGroup component arranges multiple Avatar components together, indicating excess
+avatars when surpassing the specified maximum size:
+
+<Runner code={`import { AvatarGroup, Avatar } from 'reablocks';
+
+export default function App() {
+  return (
+    <AvatarGroup>
+        {[...Array(32).keys()].map(idx => {
+        if (idx % 3 === 0) {
+          return (
+            <Avatar 
+              key={idx} 
+              size={24} 
+              rounded 
+              src="https://lh3.googleusercontent.com/a-/AAuE7mAtQVUnylKNBtevO2lU0S-a4X-nu0IwMIyVl0Qe"
+            />
+          );
+        } else if (idx % 3 === 1) {
+          return (
+            <Avatar 
+              rounded 
+              key={idx} 
+              size={24} 
+              name="Austin McDaniel"
+            />
+          );
+        } else {
+          return (
+            <Avatar 
+              key={idx} 
+              rounded 
+              size={24} 
+              name="amcdaniel2@gmail.com"
+            />
+          );
+        }
+      })}
+    </AvatarGroup>
+  );
+}`}
+/>
 
 ## Theme Customization
+
 AvatarGroup supports theming to ensure its appearance aligns with the overall design of your application.
 The default theme settings include:
 
@@ -29,7 +72,9 @@ The default theme settings include:
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Customization options available through the AvatarGroup component's properties:
+
 <PropsTable name="AvatarGroup" />
 
 ## Design and Usability Tips

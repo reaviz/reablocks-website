@@ -1,43 +1,108 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
-import * as ChipStories from '../../../../stories/components/Chip.story.tsx';
-import { chipTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import { Cards, Card } from "nextra/components";
+import * as ChipStories from "../../../../stories/components/Chip.story.tsx";
+import { chipTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={ChipStories} />
 
 # Chip
-The `Chip"` component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons.
+
+The `Chip` component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons.
 Chips can be interactive, allowing for selection or removal, making them suitable for various applications from filtering content to showing user selections.
 
 ## Examples
+
 ### Basic Usage
+
 The Chip component supports several style variants such as "filled" and "outline".
-This allows for clear differentiation between different chip types based on their 
+This allows for clear differentiation between different chip types based on their
 purpose or context within the UI:
 
-<ToggleCanvas of={ChipStories.Variants} storybook="components-elements-chip--variants" />
+<Runner code={`import { Chip } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip variant="filled">Filled</Chip>
+      <Chip variant="outline">Outline</Chip>
+    </div>
+  )
+}
+`} />
 
 ### Advanced Customization
+
 #### Colors and Sizes
-Chips can be customized further in terms of color and size, providing flexibility to 
+
+Chips can be customized further in terms of color and size, providing flexibility to
 match them with the application's design theme:
 
-<ToggleCanvas of={ChipStories.Colors} storybook="components-elements-chip--colors" />
+<Runner code={`import { Chip } from 'reablocks';
 
-<ToggleCanvas of={ChipStories.Sizes} storybook="components-elements-chip--sizes" />
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
+      <Chip>Default</Chip>
+      <Chip color="primary">Primary</Chip>
+      <Chip color="secondary">Secondary</Chip>
+      <Chip color="error">Error</Chip>
+      <Chip color="success">Success</Chip>
+      <Chip color="warning">Warning</Chip>
+      <Chip color="info">Info</Chip>
+    </div>
+  )
+}
+`} />
 
 #### Icon Adornment
+
 Adding icons to chips enhances visual communication and can indicate additional functionalities like deletion or selection:
-<ToggleCanvas of={ChipStories.Adornment} storybook="components-elements-chip--adornment" />
+
+<Runner code={`import { Chip } from 'reablocks';
+
+export default function App() {
+  return (
+    <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
+      <Chip start="®">Icon</Chip>
+      <Chip end={'®'}>Icon</Chip>
+      <Chip start={'©'} end={'®'}>
+        Icon
+      </Chip>
+    </div>
+  )
+}
+`} />
 
 #### Selectable Chips
+
 Chips can be made selectable, allowing users to choose one or more options from a set:
-<ToggleCanvas of={ChipStories.Selectable} storybook="components-elements-chip--selectable" />
+
+<Runner code={`import { useState } from 'react';
+import { Chip, Stack } from 'reablocks';
+
+export default function App() {
+  const [IsFilledSelected, setIsFilledSelected] = useState(false);
+  const [isOutlineSelected, setIsOutlineSelected] = useState(false);
+
+  return (
+    <Stack>
+      <Chip onClick={() => setIsFilledSelected(!IsFilledSelected)} selected={IsFilledSelected}>
+        Selectable
+      </Chip>
+      <Chip variant="outline" onClick={() => setIsOutlineSelected(!isOutlineSelected)} selected={isOutlineSelected}>
+        Selectable
+      </Chip>
+    </Stack>
+  )
+}
+`} />
 
 ### Blocks
+
 This component is used in the following Blocks:
 
 <Cards>
@@ -48,6 +113,7 @@ This component is used in the following Blocks:
 </Cards>
 
 ## Theme Customization
+
 The Chip component comes with a default theme, which can be customized according to your application's design requirements:
 
 <ThemeRender theme={chipTheme} />
@@ -55,7 +121,9 @@ The Chip component comes with a default theme, which can be customized according
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Customize the Chip component using the following properties:
+
 <PropsTable name="Chip" />
 
 ## Design and Usability Tips

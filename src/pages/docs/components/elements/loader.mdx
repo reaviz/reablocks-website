@@ -4,6 +4,7 @@ import { dotsLoaderTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={DotsLoaderStories} />
 
@@ -14,8 +15,14 @@ This component is especially crucial for enhancing user experience during initia
 ### Basic Usage
 
 Employ the Loader to maintain user engagement during wait times. Here's how to integrate a simple `DotsLoader` into your application:
-<ToggleCanvas of={DotsLoaderStories.Simple} storybook="components-elements-loader-dots--simple" />
 
+<Runner
+  code={`import { DotsLoader } from 'reablocks';
+  
+export default function App() {
+  return <DotsLoader />
+}`}
+/>
 ## Theme Customization
 
 Tailor the Loader's appearance to fit your application's aesthetic with our customizable theme options.

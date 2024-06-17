@@ -1,28 +1,80 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as BadgeStories from '../../../../stories/components/Badge.story.tsx';
-import { badgeTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as BadgeStories from "../../../../stories/components/Badge.story.tsx";
+import { badgeTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={BadgeStories} />
 
 # Badge
-The `Badge` component serves as a small count and labeling tool that overlays its content on another 
-element, typically used for displaying notifications, status, or additional info like new messages or 
+
+The `Badge` component serves as a small count and labeling tool that overlays its content on another
+element, typically used for displaying notifications, status, or additional info like new messages or
 alerts. It's designed to draw attention to specific elements by showing relevant numbers or indicators.
 
 ## Examples
+
 ### Basic Usage (Color Variations)
+
 The Badge component can be styled with various colors to indicate different statuses or priorities.
 Here's how to display badges with default, primary, secondary, and error color schemes:
-<ToggleCanvas of={BadgeStories.Colors} storybook="components-elements-badge--colors" />
+
+<Runner code={`import { Badge } from 'reablocks';
+
+export default function App() {
+  return (
+    <Badge content="7">
+      <span>content</span>
+    </Badge>
+  )
+}
+`} />
 
 ### Advanced Usage (Position Variations)
+
 The position of a Badge relative to its child component can be customized to appear in various locations like `top-start`, `top-end`, `bottom-start`, and `bottom-end`:
-<ToggleCanvas of={BadgeStories.Positions} storybook="components-elements-badge--positions" />
+
+<Runner code={`import { Badge } from 'reablocks';
+
+export default function App() {
+  return (
+    <div>
+      <Badge
+        content="7" 
+        placement="top-start"
+      >
+        <span>top-start</span>
+      </Badge>
+
+      <Badge
+        content="7"
+        placement="top-end"
+      >
+        <span>top-end</span>
+      </Badge>
+
+      <Badge
+        content="7"
+        placement="bottom-start"
+      >
+        <span>bottom-start</span>
+      </Badge>
+
+      <Badge
+        content="7"
+        placement="bottom-end"
+      >
+        <span>bottom-end</span>
+      </Badge>
+    </div>
+  );
+}
+`} />
 
 ## Theme Customization
+
 The Badge component comes with a default theme that can be customized according to your application's design system:
 
 <ThemeRender theme={badgeTheme} />
@@ -30,7 +82,9 @@ The Badge component comes with a default theme that can be customized according 
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 Customize the Badge component through the following properties:
+
 <PropsTable name="Badge" />
 
 ## Design and Usability Tips

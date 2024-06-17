@@ -1,26 +1,69 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as PluralizeStories from '../../../../stories/components/Pluralize.story.tsx';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as PluralizeStories from "../../../../stories/components/Pluralize.story.tsx";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={PluralizeStories} />
 
 # Pluralize
-The Pluralize component dynamically renders words in their singular or plural form depending on the provided item count. 
-It supports customization for singular, plural, and zero-item states, making it ideal for UIs that need to display varying amounts of items or data points.
+
+The Pluralize component dynamically renders words in their singular or plural form depending on the provided item count. It supports customization for singular, plural, and zero-item states, making it ideal for UIs that need to display varying amounts of items or data points.
+
 ## Examples
+
 ### Basic Usage
+
 #### Singular and Plural Forms
-In this basic example, we show how to render a word in both its singular and plural forms based on the count. 
+
+In this basic example, we show how to render a word in both its singular and plural forms based on the count.
 The component automatically appends an "s" to the singular form for the plural representation if the plural form is not explicitly provided:
-<ToggleCanvas of={PluralizeStories.Simple} storybook="components-data-pluralize--simple" />
+
+<Runner code={`import { Pluralize } from 'reablocks';
+
+export default function App() {
+  return (
+    <div>
+      <div>
+        <Pluralize
+          count={1} 
+          singular="Example"
+        />
+      </div>
+      <div>
+        <Pluralize
+          count={5000}
+          singular="Example"
+        />
+      </div>
+    </div>
+  );
+}`}
+/>
 
 #### Custom Text for Zero Values
+
 You can specify custom text to display when the count is zero, providing a more descriptive or friendly message.
-<ToggleCanvas of={PluralizeStories.ZeroCount} storybook="components-data-pluralize--zero-count" />
+
+<Runner code={`import { Pluralize } from 'reablocks';
+
+export default function App() {
+  return (
+    <div>
+      <Pluralize 
+        count={0} 
+        singular="Example" 
+        zero="No Examples"
+      />
+    </div>
+  );
+}`}
+/>
 
 ## API
+
 The Pluralize component's functionality is controlled through several properties:
+
 <PropsTable name="Pluralize" />
 
 ## Design and Usability Tips

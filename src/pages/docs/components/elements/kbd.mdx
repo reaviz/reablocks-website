@@ -1,21 +1,34 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import * as KbdStories from '../../../../stories/components/Kbd.story.tsx';
-import { kbdTheme } from 'reablocks';
-import { PropsTable } from '@/components/ui/props-table';
-import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import ThemeRender from '@/components/ui/theme-render';
+import { Canvas, Meta } from "@storybook/blocks";
+import * as KbdStories from "../../../../stories/components/Kbd.story.tsx";
+import { kbdTheme } from "reablocks";
+import { PropsTable } from "@/components/ui/props-table";
+import { ToggleCanvas } from "@/components/ui/toggle-canvas";
+import ThemeRender from "@/components/ui/theme-render";
+import { Runner } from "@/components/ui/runner";
 
 <Meta of={KbdStories} />
 
 # Kbd
+
 The Kbd (Keyboard Shortcut Chip) component is designed to visually represent keyboard shortcuts within your web application.
 It's particularly useful for highlighting shortcuts on hover over UI elements or integrating with command-driven features like the [Command Palette](/docs/components/elements/command-palette) component.
+
 ## Examples
+
 ### Basic Usage
+
 Showcase keyboard shortcuts effectively to enhance usability and provide quick access to application functionalities.
-<ToggleCanvas of={KbdStories.Basic} storybook="components-elements-kbd--basic" />
+
+<Runner
+  code={`import { Kbd } from 'reablocks';
+  
+export default function App() {
+  return <Kbd keycode="super+shift+k" />
+}`}
+/>
 
 ## Theme Customization
+
 The Kbd component comes with a default theme designed for clarity and readability. Customize this theme to align with your application's aesthetics and branding:
 
 <ThemeRender theme={kbdTheme} />
@@ -23,13 +36,15 @@ The Kbd component comes with a default theme designed for clarity and readabilit
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
+
 The Kbd component API is straightforward, focusing on the essential functionality of displaying keyboard shortcuts:
+
 <PropsTable name="Kbd" />
 
 ## Design and Usability Tips
 
 - **Clear Formatting:** Ensure keyboard shortcuts are displayed in a clear, easily understood format.
-Use symbols and abbreviations recognized by most users (e.g., "Cmd" for Command, "Ctrl" for Control).
+  Use symbols and abbreviations recognized by most users (e.g., "Cmd" for Command, "Ctrl" for Control).
 
 - **Strategic Positioning:** Place Kbd components where they are most relevant within your UI.
-Consider proximity to the related action or feature to help users make the connection between the shortcut and its function.
+  Consider proximity to the related action or feature to help users make the connection between the shortcut and its function.
