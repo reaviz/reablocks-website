@@ -5,12 +5,24 @@ import { chipTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={ChipStories} />
 
 # Chip
 The `Chip"` component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons.
 Chips can be interactive, allowing for selection or removal, making them suitable for various applications from filtering content to showing user selections.
+
+## Quick Start
+To start using the `Chip` component, import it from the `reablocks` library.
+
+<Runner code={`
+import { Chip } from 'reablocks';
+
+export default function App() {
+  return <Chip>Active</Chip>
+}`}
+/>
 
 ## Examples
 ### Basic Usage

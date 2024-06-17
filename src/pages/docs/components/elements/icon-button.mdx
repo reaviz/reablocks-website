@@ -4,12 +4,25 @@ import { buttonTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={IconButtonStories} />
 
 # IconButton
 The IconButton component integrates icons within buttons, combining the visual appeal of icons with the functionality of buttons.
 This component is crucial for creating intuitive and space-efficient user interfaces, especially in applications requiring a clean and modern aesthetic.
+
+## Quick Start
+To start using the `IconButton` component, import it from the `reablocks` library.
+
+<Runner code={`
+import { IconButton } from 'reablocks';
+
+export default function App() {
+  return <IconButton>©</IconButton>
+}`}
+/>
+
 ## Examples
 ### Basic Usage
 #### Icon Buttons with Type Variations

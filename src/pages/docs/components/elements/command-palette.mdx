@@ -4,12 +4,36 @@ import { commandPaletteTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={CommandPaletteStories} />
 
 # Command Palette
 The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface.
 It's akin to a spotlight search, providing immediate access to features, documents, settings, or actions directly from the keyboard.
+
+## Quick Start 
+To start using the `CommandPalette` component, import it, the `CommandPaletteSection` component, and the `CommandPaletteItem` component from the `reablocks` library, and then provide the `placeholder`, `title`, and `key` props.
+
+<Runner code={`import { 
+  CommandPalette, 
+  CommandPaletteSection, 
+  CommandPaletteItem
+} from 'reablocks';
+
+export default function App() {
+  return (
+    <CommandPalette placeholder="Search...">
+      <CommandPaletteSection title="Characters" key="recent">
+        <CommandPaletteItem key="luke">Luke</CommandPaletteItem>
+        <CommandPaletteItem key="r2d2">R2D2</CommandPaletteItem>
+        <CommandPaletteItem key="c3po">C-3PO</CommandPaletteItem>
+      </CommandPaletteSection>
+    </CommandPalette>
+  );
+}`}
+/>
+
 ## Examples
 ### Basic Usage
 This example showcases a basic Command Palette setup with sections for "Recently Used" commands and "Suggestions":
