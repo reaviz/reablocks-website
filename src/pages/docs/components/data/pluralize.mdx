@@ -2,12 +2,25 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as PluralizeStories from '../../../../stories/components/Pluralize.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={PluralizeStories} />
 
 # Pluralize
 The Pluralize component dynamically renders words in their singular or plural form depending on the provided item count. 
 It supports customization for singular, plural, and zero-item states, making it ideal for UIs that need to display varying amounts of items or data points.
+
+## Quick Start
+To start using the `Pluralize` component, import it from the `reablocks` library and provide the `count` and `singular` props.
+
+<Runner code={`
+import { Pluralize } from 'reablocks';
+
+export default function App() {
+  return <Pluralize count={20} singular="Apple" />
+}`}
+/>
+
 ## Examples
 ### Basic Usage
 #### Singular and Plural Forms

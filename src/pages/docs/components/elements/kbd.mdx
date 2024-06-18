@@ -4,12 +4,25 @@ import { kbdTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={KbdStories} />
 
 # Kbd
 The Kbd (Keyboard Shortcut Chip) component is designed to visually represent keyboard shortcuts within your web application.
 It's particularly useful for highlighting shortcuts on hover over UI elements or integrating with command-driven features like the [Command Palette](/docs/components/elements/command-palette) component.
+
+## Quick Start
+To start using the `Kbd` component, import it from the `reablocks` library and provide the `keycode` prop.
+
+<Runner code={`
+import { Kbd } from 'reablocks';
+
+export default function App() {
+  return <Kbd keycode="option+m"></Kbd>
+}`}
+/>
+
 ## Examples
 ### Basic Usage
 Showcase keyboard shortcuts effectively to enhance usability and provide quick access to application functionalities.

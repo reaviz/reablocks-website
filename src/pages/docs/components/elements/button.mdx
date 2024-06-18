@@ -6,6 +6,7 @@ import { buttonTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import ThemeRender from '@/components/ui/theme-render';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={ButtonStories} />
 <Meta of={ButtonGroupStories} />
@@ -13,6 +14,17 @@ import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 # Button
 The `Button` component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application.
 Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesive unit, enhancing the visual consistency and usability of grouped actions.
+
+## Quick Start
+To start using the `Button` component, import it from the `reablocks` library.
+
+<Runner code={`
+import { Button } from 'reablocks';
+
+export default function App() {
+  return <Button>Click Me</Button>
+}`}
+/>
 
 ## Examples
 ### Basic Usage

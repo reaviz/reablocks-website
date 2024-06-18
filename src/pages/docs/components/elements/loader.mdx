@@ -4,12 +4,24 @@ import { dotsLoaderTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
 
 <Meta of={DotsLoaderStories} />
 
 # Loader
 The Loader component acts as a visual placeholder, signaling to users that data is being loaded or UI components are in the process of rendering.
 This component is especially crucial for enhancing user experience during initial page loads or data fetching processes, reducing perceived wait times through engaging animations.
+
+## Quick Start
+To start using the `DotsLoader` component, import it from the `reablocks` library.
+
+<Runner code={`
+import { DotsLoader } from 'reablocks';
+
+export default function App() {
+  return <DotsLoader />
+}`}
+/>
 
 ### Basic Usage
 
