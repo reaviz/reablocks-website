@@ -33,8 +33,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^7.13.2
-        version: 7.13.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^8.0.0
+        version: 8.0.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -6482,8 +6482,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@7.13.2:
-    resolution: {integrity: sha512-DxC7yFIVygvefY5R3widrQmhKxkMfp3RINfG4Z8Ze9VtIyE3hpi0LjdgpYA8+sKp7neQk/0YVnRYbRU/QGSnKw==}
+  reablocks@8.0.0:
+    resolution: {integrity: sha512-/s4hZUOd7rm2QMur8U/LKfwiwDYII9t6lv5KAYBlWN8gYIHadj3n1lukcUadyKo64SVE0yk5tArbDQlbV1WnoQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -16062,7 +16062,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@7.13.2(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@8.0.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@floating-ui/react': 0.26.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@marko19907/string-to-color': 1.0.0
