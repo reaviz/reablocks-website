@@ -1,0 +1,20 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as DialogStories from '../../../../stories/components/ConfirmDialog.story.tsx';
+import { PropsTable } from '@/components/ui/props-table';
+import { ToggleCanvas } from '@/components/ui/toggle-canvas';
+import { ParametersTable } from '@/components/ui/types-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+
+<Meta of={DialogStories} />
+
+# Confirm Dialog
+The `ConfirmationDialog` component is a dialog that prompts the user to confirm an action. 
+It is a wrapper around the `Dialog` component that provides a simple API for creating 
+confirmation dialogs.
+
+## Examples
+<ToggleCanvas of={DialogStories.Default} storybook="components-layers-confirm-dialog--default" />
+
+## API
+<PropsTable name="ConfirmDialog" />

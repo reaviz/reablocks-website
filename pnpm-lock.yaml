@@ -33,8 +33,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^8.0.0
-        version: 8.0.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^8.1.3
+        version: 8.1.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3271,8 +3271,8 @@ packages:
   csstype@3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
 
-  ctrl-keys@1.0.2:
-    resolution: {integrity: sha512-MBVjzR+RlUqbgmDRbnrGsXdFo0xB5/OxO4o54tyhBvPtbZ/f5hPl/De4i5yEGPyKPKyyEbLCxR5qmY+NEbXnCA==}
+  ctrl-keys@1.0.3:
+    resolution: {integrity: sha512-Kcb05/xUNra57fxpsLOflECWYbjQEQ9ZuQEthB3cgESN5zMLJ364twA9h2kqz8n06RnTY/+rKWM3UbkOWKeEJg==}
     engines: {node: '>=10'}
 
   cytoscape-cose-bilkent@4.1.0:
@@ -6482,8 +6482,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@8.0.0:
-    resolution: {integrity: sha512-/s4hZUOd7rm2QMur8U/LKfwiwDYII9t6lv5KAYBlWN8gYIHadj3n1lukcUadyKo64SVE0yk5tArbDQlbV1WnoQ==}
+  reablocks@8.1.3:
+    resolution: {integrity: sha512-zPBFAWOdoaS6zv/ZkDoHiKN/6+JpI5XgGqThV8jA0FH2fyjLL6TTJ0ZQ4oO0uGOj4U3TXVRUrIXCLmtwOp2meQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -11916,7 +11916,7 @@ snapshots:
 
   csstype@3.1.1: {}
 
-  ctrl-keys@1.0.2: {}
+  ctrl-keys@1.0.3: {}
 
   cytoscape-cose-bilkent@4.1.0(cytoscape@3.27.0):
     dependencies:
@@ -16062,7 +16062,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@8.0.0(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@8.1.3(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@floating-ui/react': 0.26.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@marko19907/string-to-color': 1.0.0
@@ -16072,7 +16072,7 @@ snapshots:
       classnames: 2.5.1
       coverup: 0.1.1
       create-global-state-hook: 0.0.2
-      ctrl-keys: 1.0.2
+      ctrl-keys: 1.0.3
       date-fns: 3.6.0
       ellipsize: 0.5.1
       focus-trap-react: 10.2.3(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)

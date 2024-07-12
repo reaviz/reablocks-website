@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card } from 'reablocks';
 import { Calendar } from 'reablocks';
 import { CalendarRange } from 'reablocks';
-import { add, addMonths, sub } from 'date-fns';
+import { add, addMonths, endOfMonth, startOfMonth, sub } from 'date-fns';
 import { Divider } from 'reablocks';
 import { Stack } from 'reablocks';
 
@@ -132,6 +132,31 @@ export const WithLabels = () => {
 
 export const Range = () => {
   const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <Calendar
+        value={range}
+        onChange={val => setRange(val as [Date, Date | undefined])}
+        isRange
+        showDayOfWeek
+        showToday
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const CurrentMonth = () => {
+  const [range, setRange] = useState<[Date, Date]>([
+    startOfMonth(new Date()),
+    endOfMonth(new Date())
+  ]);
 
   return (
     <Card>
