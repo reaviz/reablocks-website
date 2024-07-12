@@ -3,7 +3,6 @@ import * as DialogStories from '../../../../stories/components/Dialog.story.tsx'
 import { dialogTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import { ParametersTable } from '@/components/ui/types-table';
 import ThemeRender from '@/components/ui/theme-render';
 
 <Meta of={DialogStories} />
@@ -15,6 +14,7 @@ allowing the display of important messages, forms, or user interactions while gr
 ## Examples
 ### Basic Dialog
 <ToggleCanvas of={DialogStories.Simple} storybook="components-layers-dialog--simple" />
+
 ### Dialog with Footer and Custom header
 <ToggleCanvas of={DialogStories.Footer} storybook="components-layers-dialog--footer" />
 
@@ -27,6 +27,3 @@ Learn more about how to customize in the [Theme documentation](/docs/theme/getti
 
 ## API
 <PropsTable name="Dialog" />
-
-## Hook
-<ParametersTable type="hooks" name="useDialog" />

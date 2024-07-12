@@ -2,7 +2,6 @@ import { Canvas, Meta } from '@storybook/blocks';
 import * as DurationStories from '../../../../stories/components/Duration.story.tsx';
 import { PropsTable } from '@/components/ui/props-table';
 import { ToggleCanvas } from '@/components/ui/toggle-canvas';
-import { ParametersTable } from '@/components/ui/types-table';
 import { Runner } from '@/components/ui/runner';
 
 <Meta of={DurationStories} />
@@ -42,7 +41,3 @@ function yourFunction(size: DurationFormatTypes) {
   return formatDuration(size);
 }
 ```
-
-Below is the function arguments for `formatDuration`:
-
-<ParametersTable type="functions" name="formatDuration" />
