@@ -10,6 +10,13 @@ import { Runner } from '@/components/ui/runner';
 The Ellipsis component is designed to manage long strings of text by truncating them and optionally allowing users to expand the text to view in full. 
 This component is particularly useful for maintaining a clean UI when dealing with potentially lengthy content such as descriptions, comments, or articles.
 
+This ellipsis component supports 2 different modes of operation:
+
+- Limit based on the number of characters
+- Limit based on the number of lines
+
+It also supports a tooltip mode where the full text is visible on hover and the ability to expand/collapse the text.
+
 ## Quick Start
 To start using the `Ellipsis` component, import it from the `reablocks` library and provide the `value` and `limit` props.
 
@@ -39,6 +46,9 @@ and users can click on the ellipsis to reveal the hidden text:
 For cases where the full text should not be expanded within the component 
 but is visible via a tooltip on hover:
 <ToggleCanvas of={EllipsisStories.Unexpandable} storybook="components-data-ellipsis--unexpandable" />
+
+#### Line Clamping
+<ToggleCanvas of={EllipsisStories.Lines} storybook="components-data-ellipsis--lines" />
 
 ## API
 The `Ellipsis` component offers flexibility through several properties that adjust its behavior and presentation:

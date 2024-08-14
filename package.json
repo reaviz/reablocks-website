@@ -23,7 +23,7 @@
     "next": "^14",
     "nextra": "^2.13.4",
     "posthog-js": "^1.131.4",
-    "reablocks": "^8.2.0",
+    "reablocks": "^8.5.2",
     "reablocks-docs-theme": "^0.0.2",
     "react": "^18",
     "react-dom": "^18",
