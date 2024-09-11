@@ -1,5 +1,11 @@
 import { IconButton } from 'reablocks';
 import { Stack } from 'reablocks';
+import {
+  extendTheme,
+  PartialReablocksTheme
+} from 'reablocks';
+import { ThemeProvider } from 'reablocks';
+import { theme } from 'reablocks';
 
 export default {
   title: 'Components/Elements/IconButton',
@@ -123,3 +129,32 @@ export const Variants = () => (
     </IconButton>
   </div>
 );
+
+export const Square = () => {
+  const iconTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        iconSizes: {
+          small: 'p-1',
+          medium: 'p-2',
+          large: 'p-2.5'
+        }
+      }
+    }
+  };
+  return (
+    <ThemeProvider theme={extendTheme(theme, iconTheme)}>
+      <Stack>
+        <IconButton size="small">
+          <BellIcon />
+        </IconButton>
+        <IconButton size="medium">
+          <BellIcon />
+        </IconButton>
+        <IconButton size="large">
+          <BellIcon />
+        </IconButton>
+      </Stack>
+    </ThemeProvider>
+  );
+};
