@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { toggleTheme, Toggle } from 'reablocks';
 import { radioTheme, Radio } from 'reablocks';
