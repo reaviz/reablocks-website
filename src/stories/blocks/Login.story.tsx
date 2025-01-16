@@ -1,6 +1,6 @@
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { Block, Card, Divider, Stack } from 'reablocks';
 import { Checkbox, Input } from 'reablocks';
