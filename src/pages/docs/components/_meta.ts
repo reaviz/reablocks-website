@@ -1,4 +1,4 @@
-{
+const meta = {
   "data": "Data",
   "elements": "Elements",
   "form": "Form",
@@ -6,3 +6,5 @@
   "layout": "Layout",
   "typography": "Typography"
 }
+
+export default meta;

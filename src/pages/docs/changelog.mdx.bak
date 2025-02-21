@@ -1,4 +1,4 @@
-import { useData } from 'nextra/data';
+import { useSSG } from 'nextra';
 import Mdx from '../../components/ui/mdx';
  
 export const getStaticProps = ({ params }) => {
@@ -8,7 +8,7 @@ export const getStaticProps = ({ params }) => {
 }
  
 export const Result = () => {
-  const { text } = useData();
+  const { text } = useSSG();
   return (
     <Mdx>
       {text}

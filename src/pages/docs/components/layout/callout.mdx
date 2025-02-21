@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
+import { Cards } from 'nextra/components'
 import * as CalloutStories from '../../../../stories/components/Callout.story.tsx';
 import { calloutTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -9,7 +9,7 @@ import ThemeRender from '@/components/ui/theme-render';
 <Meta of={CalloutStories} />
 
 # Callout
-Short message to attract user’s attention.
+Short message to attract user's attention.
 
 ## Examples
 <ToggleCanvas of={CalloutStories.Variants} storybook="components-layers-callout--variants" />
@@ -24,3 +24,8 @@ Learn more about how to customize in the [Theme documentation](/docs/theme/getti
 
 ## API
 <PropsTable name="Callout" />
+
+<Cards>
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+</Cards>

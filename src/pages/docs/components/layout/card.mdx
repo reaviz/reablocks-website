@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
+import { Cards } from 'nextra/components'
 import * as CardStories from '../../../../stories/components/Card.story.tsx';
 import { cardTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -18,8 +18,8 @@ Cards are a fundamental building block for compositions, such as forms, or secti
 This component is used in the following Blocks:
 
 <Cards>
-  <Card title="Billing" href="/blocks/administration/billing" />
-  <Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
 </Cards>
 
 ## Theme

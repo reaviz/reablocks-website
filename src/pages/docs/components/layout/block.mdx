@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
+import { Cards } from 'nextra/components'
 import * as BlockStories from '../../../../stories/components/Block.story.tsx';
 import { blockTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -18,12 +18,12 @@ Simple block component.
 This component is used in the following Blocks:
 
 <Cards>
-  <Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
-  <Card title="Login" href="/blocks/authentication/login" />
-  <Card title="MFA" href="/blocks/authentication/mfa" />
-  <Card title="Profile" href="/blocks/administration/profile" />
-  <Card title="Register" href="/blocks/authentication/register" />
-  <Card title="Contact" href="/blocks/foundation/contact" />
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
 </Cards>
 
 ## Theme
