@@ -1,15 +1,15 @@
 "use client";
-import { useViewportDimensions } from "@/hooks/useViewportDimensions";
-import { cn } from "@/utils/cn";
+import { useViewportDimensions } from "../../hooks/useViewportDimensions";
 import {
   MotionValue,
   motion,
   useScroll,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { cn } from "reablocks";
 import React, { useMemo, useState } from "react";
 
 export type HeroParallaxProps = {

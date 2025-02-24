@@ -2,8 +2,8 @@ import nextra from 'nextra'
 import { webpack } from '@storybook/csf-plugin';
 
 const withNextra = nextra({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
+  // theme: 'nextra-theme-docs',
+  // themeConfig: './theme.config.tsx',
   latex: true,
   search: {
     codeblocks: false
@@ -22,13 +22,13 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true
   },
-  webpack: (config, _options) => {
-    config.plugins.push(
-      webpack({})
-    );
+  // webpack: (config, _options) => {
+  //   config.plugins.push(
+  //     webpack({})
+  //   );
 
-    return config;
-  }
+  //   return config;
+  // }
 };
 
 export default withNextra(nextConfig);

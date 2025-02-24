@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+'use client'
+
+import { motion } from "motion/react";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -8,17 +10,17 @@ import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-import { Nav } from "@/components/layout/nav";
-import { Divider } from "@/components/ui/divider";
-import { HeroParallax } from "@/components/ui/hero-parallax";
-import { TracingBeams } from "@/components/ui/tracing-beams";
-import { Count } from "@/components/utils/Count/Count";
-import { useViewportDimensions } from "@/hooks/useViewportDimensions";
-import DribbbleIcon from "@/icons/Dribbble";
-import GithubIcon from "@/icons/Github";
-import LinkedinIcon from "@/icons/LinkedIn";
-import SparklesIcon from "@/icons/Sparkles";
-import { cn } from "@/utils/cn";
+import { Nav } from "./nav";
+import { Divider } from "../ui/divider";
+import { HeroParallax } from "../ui/hero-parallax";
+import { TracingBeams } from "../ui/tracing-beams";
+import { Count } from "../utils/Count/Count";
+import { useViewportDimensions } from "../../hooks/useViewportDimensions";
+import DribbbleIcon from "../../icons/Dribbble";
+import GithubIcon from "../../icons/Github";
+import LinkedinIcon from "../../icons/LinkedIn";
+import SparklesIcon from "../../icons/Sparkles";
+import { cn } from "../../utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
 

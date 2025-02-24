@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "reablocks";
 import React, { FC } from "react";
 
 export type DividerProps = {

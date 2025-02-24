@@ -1,4 +1,4 @@
-import { cn } from "@/utils/cn";
+import { cn } from "reablocks";
 import { FC, ReactNode } from "react";
 
 export type BadgeProps = {
