@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { Code, Mermaid, Playground, Pre, Tabs } from 'nextra/components'
-import { MdxIcon } from 'nextra/icons'
-import type { FC } from 'react'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useMDXComponents } from '../../../../mdx-components'
+import { Code, Mermaid, Playground, Pre, Tabs } from "nextra/components";
+import { MdxIcon } from "nextra/icons";
+import type { FC } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useMDXComponents } from "../../../../mdx-components";
 
 export const Demo: FC = () => {
   const [rawMdx, setRawMdx] =
@@ -43,20 +43,20 @@ C --> Z
 Z --> E
 Z --> F
 Z --> G
-\`\`\``)
-  const handleInput = useCallback(e => {
-    setRawMdx(e.currentTarget.textContent ?? '')
-  }, [])
+\`\`\``);
+  const handleInput = useCallback((e) => {
+    setRawMdx(e.currentTarget.textContent ?? "");
+  }, []);
 
-  const spanRef = useRef<HTMLSpanElement>(null!)
-  const initialRender = useRef(false)
+  const spanRef = useRef<HTMLSpanElement>(null!);
+  const initialRender = useRef(false);
 
   useEffect(() => {
     if (!initialRender.current) {
-      initialRender.current = true
-      spanRef.current.textContent = rawMdx
+      initialRender.current = true;
+      spanRef.current.textContent = rawMdx;
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps -- only on mount
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps -- only on mount
 
   return (
     <div className="mt-6 grid grid-cols-1 gap-2 lg:grid-cols-2">
@@ -86,5 +86,5 @@ Z --> G
         />
       </div>
     </div>
-  )
-}
+  );
+};

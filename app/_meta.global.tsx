@@ -1,10 +1,10 @@
-import type { MetaRecord } from 'nextra'
-import { LinkArrowIcon } from 'nextra/icons'
-import type { FC, ReactNode } from 'react'
-import { useMDXComponents } from '../mdx-components'
+import type { MetaRecord } from "nextra";
+import { LinkArrowIcon } from "nextra/icons";
+import type { FC, ReactNode } from "react";
+import { useMDXComponents } from "../mdx-components";
 
 // eslint-disable-next-line react-hooks/rules-of-hooks -- isn't react hook
-const { code: Code } = useMDXComponents()
+const { code: Code } = useMDXComponents();
 
 const ExternalLink: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -16,195 +16,154 @@ const ExternalLink: FC<{ children: ReactNode }> = ({ children }) => {
         className="x:inline x:align-baseline x:shrink-0"
       />
     </>
-  )
-}
+  );
+};
 
 const FILE_CONVENTIONS: MetaRecord = {
   _: {
-    type: 'separator',
-    title: 'Files'
+    type: "separator",
+    title: "Files",
   },
-  'page-file': <Code>page.mdx</Code>,
-  'meta-file': <Code>_meta.js</Code>,
+  "page-file": <Code>page.mdx</Code>,
+  "meta-file": <Code>_meta.js</Code>,
   _2: {
-    href: 'https://nextjs.org/docs/app/api-reference/file-conventions/page',
-    title: <ExternalLink>page.jsx</ExternalLink>
+    href: "https://nextjs.org/docs/app/api-reference/file-conventions/page",
+    title: <ExternalLink>page.jsx</ExternalLink>,
   },
   _3: {
-    href: 'https://nextjs.org/docs/app/api-reference/file-conventions/layout',
-    title: <ExternalLink>layout.jsx</ExternalLink>
+    href: "https://nextjs.org/docs/app/api-reference/file-conventions/layout",
+    title: <ExternalLink>layout.jsx</ExternalLink>,
   },
   _4: {
-    type: 'separator',
-    title: 'Top-Level Files'
+    type: "separator",
+    title: "Top-Level Files",
   },
-  'mdx-components-file': <Code>mdx-components.js</Code>,
+  "mdx-components-file": <Code>mdx-components.js</Code>,
   _5: {
-    type: 'separator',
-    title: 'Top-Level Folders'
+    type: "separator",
+    title: "Top-Level Folders",
   },
-  'content-directory': <Code>content</Code>,
-  'src-directory': <Code>src</Code>,
+  "content-directory": <Code>content</Code>,
+  "src-directory": <Code>src</Code>,
   _6: {
-    href: 'https://nextjs.org/docs/app/getting-started/installation?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar#create-the-app-directory',
-    title: <ExternalLink>app</ExternalLink>
+    href: "https://nextjs.org/docs/app/getting-started/installation?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar#create-the-app-directory",
+    title: <ExternalLink>app</ExternalLink>,
   },
   _7: {
-    href: 'https://nextjs.org/docs/app/building-your-application/optimizing/static-assets?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar',
-    title: <ExternalLink>public</ExternalLink>
-  }
-}
+    href: "https://nextjs.org/docs/app/building-your-application/optimizing/static-assets?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar",
+    title: <ExternalLink>public</ExternalLink>,
+  },
+};
 
 const GUIDE: MetaRecord = {
-  markdown: '',
-  'syntax-highlighting': '',
-  link: '',
-  image: '',
-  ssg: '',
-  i18n: '',
-  'custom-css': '',
-  'static-exports': '',
-  search: '',
-  'github-alert-syntax': '',
-  turbopack: '',
+  markdown: "",
+  "syntax-highlighting": "",
+  link: "",
+  image: "",
+  ssg: "",
+  i18n: "",
+  "custom-css": "",
+  "static-exports": "",
+  search: "",
+  "github-alert-syntax": "",
+  turbopack: "",
   _: {
-    title: 'Deploying',
-    href: 'https://nextjs.org/docs/app/building-your-application/deploying?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar'
-  }
-}
+    title: "Deploying",
+    href: "https://nextjs.org/docs/app/building-your-application/deploying?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar",
+  },
+};
 
 const ADVANCED: MetaRecord = {
-  npm2yarn: '',
-  mermaid: '',
-  'tailwind-css': '',
-  latex: '',
-  table: '',
-  typescript: '',
-  remote: '',
+  npm2yarn: "",
+  mermaid: "",
+  "tailwind-css": "",
+  latex: "",
+  table: "",
+  typescript: "",
+  remote: "",
   playground: {
     theme: {
-      layout: 'full',
-      toc: false
-    }
-  }
-}
+      layout: "full",
+      toc: false,
+    },
+  },
+};
 
 const NEXTRA_BUILTINS: MetaRecord = {
   _: {
-    type: 'separator',
-    title: 'Layout Components'
+    type: "separator",
+    title: "Layout Components",
   },
-  banner: '',
-  head: '',
-  search: '',
+  banner: "",
+  head: "",
+  search: "",
   __: {
-    type: 'separator',
-    title: 'Content Components'
-  }
-}
+    type: "separator",
+    title: "Content Components",
+  },
+};
 
 const BLOG_THEME: MetaRecord = {
-  start: '',
-  'get-posts-and-tags': '',
+  start: "",
+  "get-posts-and-tags": "",
   // prettier-ignore
   posts: <><Code>/posts</Code>&nbsp;Page</>,
   // prettier-ignore
   tags: <><Code>/tags/:id</Code>&nbsp;Page</>,
   // prettier-ignore
-  rss: <><Code>/rss.xml</Code>&nbsp;Route</>
-}
+  rss: <><Code>/rss.xml</Code>&nbsp;Route</>,
+};
 
 export default {
   index: {
-    type: 'page',
-    display: 'hidden'
+    type: "page",
+    display: "hidden",
   },
   docs: {
-    type: 'page',
-    title: 'Documentation',
+    type: "page",
+    title: "Documentation",
     items: {
-      index: '',
-      'file-conventions': { items: FILE_CONVENTIONS },
+      index: "",
+      "file-conventions": { items: FILE_CONVENTIONS },
       guide: { items: GUIDE },
       advanced: { items: ADVANCED },
-      'built-ins': { items: NEXTRA_BUILTINS },
+      "built-ins": { items: NEXTRA_BUILTINS },
       _: {
-        type: 'separator',
-        title: 'Themes'
+        type: "separator",
+        title: "Themes",
       },
-      'docs-theme': {
+      "docs-theme": {
         items: {
-          start: '',
-          'built-ins': {
+          start: "",
+          "built-ins": {
             items: {
-              layout: ''
-            }
-          }
-        }
+              layout: "",
+            },
+          },
+        },
       },
-      'blog-theme': { items: BLOG_THEME },
-      'custom-theme': '',
+      "blog-theme": { items: BLOG_THEME },
+      "custom-theme": "",
       __: {
-        type: 'separator',
-        title: 'More'
+        type: "separator",
+        title: "More",
       },
-      'about-link': {
-        title: 'About Nextra',
-        href: '/about'
+      "about-link": {
+        title: "About Nextra",
+        href: "/about",
       },
-      'next.js-link': {
-        title: 'Next.js Docs',
-        href: 'https://nextjs.org?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar'
+      "blocks-link": {
+        title: "blocks Nextra",
+        href: "/blocks",
       },
-      'migration-from-v3': {
-        title: 'Migration from Nextra v3',
-        href: 'https://the-guild.dev/blog/nextra-4?utm_source=nextra.site&utm_campaign=sidebar&utm_content=sidebar_link#nextra-theme-docs-changes'
-      }
-    }
-  },
-  versions: {
-    type: 'menu',
-    title: 'Versions',
-    items: {
-      _3: {
-        title: 'Nextra v3 Docs',
-        href: 'https://nextra-v2-7hslbun8z-shud.vercel.app'
+      "next.js-link": {
+        title: "Next.js Docs",
+        href: "https://nextjs.org?utm_source=nextra.site&utm_medium=referral&utm_campaign=sidebar",
       },
-      _2: {
-        title: 'Nextra v2 Docs',
-        href: 'https://nextra-v2-oe0zrpzjp-shud.vercel.app'
-      }
-    }
+      "migration-from-v3": {
+        title: "Migration from Nextra v3",
+        href: "https://the-guild.dev/blog/nextra-4?utm_source=nextra.site&utm_campaign=sidebar&utm_content=sidebar_link#nextra-theme-docs-changes",
+      },
+    },
   },
-  blog: {
-    type: 'page',
-    theme: {
-      typesetting: 'article',
-      toc: false
-    }
-  },
-  about: {
-    type: 'page',
-    theme: {
-      typesetting: 'article'
-    }
-  },
-  showcase: {
-    type: 'page',
-    theme: {
-      typesetting: 'article',
-      layout: 'full',
-      timestamp: false,
-      toc: false
-    }
-  },
-  sponsors: {
-    type: 'page',
-    theme: {
-      typesetting: 'article',
-      layout: 'full',
-      timestamp: false,
-      toc: false
-    }
-  }
-}
+};

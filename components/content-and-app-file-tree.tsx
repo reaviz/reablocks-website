@@ -1,52 +1,52 @@
-import path from 'node:path'
-import { FileTree } from 'nextra/components'
-import type { FC, ReactNode } from 'react'
-import { Children } from 'react'
-import { useMDXComponents } from '../mdx-components'
+import { FileTree } from "nextra/components";
+import path from "node:path";
+import type { FC, ReactNode } from "react";
+import { Children } from "react";
+import { useMDXComponents } from "../mdx-components";
 
 function mapChildren(children) {
-  return Children.map(children, child => {
-    const { name, ext } = path.parse(child.props.name)
-    if (name === '_meta') {
-      return child
+  return Children.map(children, (child) => {
+    const { name, ext } = path.parse(child.props.name);
+    if (name === "_meta") {
+      return child;
     }
-    if (ext === '.md' || ext === '.mdx') {
-      const file = <FileTree.File {...child.props} name={`page${ext}`} />
-      if (name === 'index') {
-        return file
+    if (ext === ".md" || ext === ".mdx") {
+      const file = <FileTree.File {...child.props} name={`page${ext}`} />;
+      if (name === "index") {
+        return file;
       }
-      return <FileTree.Folder name={name}>{file}</FileTree.Folder>
+      return <FileTree.Folder name={name}>{file}</FileTree.Folder>;
     }
     if (!ext) {
       return (
         <FileTree.Folder {...child.props}>
           {mapChildren(child.props.children)}
         </FileTree.Folder>
-      )
+      );
     }
-    return child
+    return child;
   }).sort((a, b) => {
-    const aName = a.props.name
-    const bName = b.props.name
-    const isAFolder = a.props.children
-    const isBFolder = b.props.children
-    if (isAFolder && !isBFolder) return -1
-    if (isBFolder && !isAFolder) return 1
-    return aName.localeCompare(bName)
-  })
+    const aName = a.props.name;
+    const bName = b.props.name;
+    const isAFolder = a.props.children;
+    const isBFolder = b.props.children;
+    if (isAFolder && !isBFolder) return -1;
+    if (isBFolder && !isAFolder) return 1;
+    return aName.localeCompare(bName);
+  });
 }
 
 export const ContentAndAppFileTee: FC<{
-  children: ReactNode
-  className: string
+  children: ReactNode;
+  className: string;
 }> = ({ children, className }) => {
-  const { a: Link, code: Code } = useMDXComponents()
-  const layout = <FileTree.File name="layout.jsx" />
+  const { a: Link, code: Code } = useMDXComponents();
+  const layout = <FileTree.File name="layout.jsx" />;
   return (
     <>
       <FileTree className={className}>
         <b>
-          Using{' '}
+          Using{" "}
           <Link href="/docs/file-conventions/content-directory">
             <Code>content</Code> directory
           </Link>
@@ -60,10 +60,10 @@ export const ContentAndAppFileTee: FC<{
         <FileTree.Folder name="content" defaultOpen>
           {children}
         </FileTree.Folder>
-      </FileTree>{' '}
+      </FileTree>{" "}
       <FileTree className={className}>
         <b>
-          Using{' '}
+          Using{" "}
           <Link href="/docs/file-conventions/page-file">
             <Code>page.mdx</Code> files
           </Link>
@@ -74,5 +74,5 @@ export const ContentAndAppFileTee: FC<{
         </FileTree.Folder>
       </FileTree>
     </>
-  )
-}
+  );
+};
