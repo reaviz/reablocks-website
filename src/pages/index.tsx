@@ -1,3 +1,4 @@
+import { ShadowWrapper } from "@/components/utils/shadow-wrapper/shadow-wrapper";
 import { motion } from "framer-motion";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
