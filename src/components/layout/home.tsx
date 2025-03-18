@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Head from "next/head";

@@ -65,6 +65,44 @@
   padding: 20px;
   background: rgba(0, 0, 0, 0.85);
   color: #C9CDCF;
+  font-size: 13px;
+  
+   /*todo should use react-syntax-highlighter"*/
+  .token.punctuation {
+    color: #EDEDED;
+  }
+
+  .token.operator {
+    color: #EDEDED;
+  }
+
+  .token.keyword {
+    color: #B474DD;
+  }
+
+  .token.property {
+    color: #96CBFE;
+  }
+  
+  .token.keyword {
+    color: #B474DD;
+  }
+
+  .token.tag {
+    color: #A8FF60;
+  }
+
+  .token.attr-value {
+    color: #B474DD;
+  }
+
+  .token.attr-name {
+    color: #96CBFE;
+  }
+
+  .token.class-name {
+    color: #FFFFB6;
+  }
 }
 
 .prismjs>div {

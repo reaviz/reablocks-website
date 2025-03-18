@@ -194,11 +194,11 @@
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1);
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --inset-shadow-2xs: inset 0 1px rgb(0 0 0 / 0.05);
     --inset-shadow-xs: inset 0 1px 1px rgb(0 0 0 / 0.05);
@@ -234,14 +234,14 @@
     --default-font-family: var(--font-sans);
     --default-font-feature-settings: var(--font-sans--font-feature-settings);
     --default-font-variation-settings: var(
-            --font-sans--font-variation-settings
+      --font-sans--font-variation-settings
     );
     --default-mono-font-family: var(--font-mono);
     --default-mono-font-feature-settings: var(
-            --font-mono--font-feature-settings
+      --font-mono--font-feature-settings
     );
     --default-mono-font-variation-settings: var(
-            --font-mono--font-variation-settings
+      --font-mono--font-variation-settings
     );
     --color-primary: var(--primary);
     --color-primary-active: var(--primary-active);
@@ -5183,25 +5183,25 @@
   --text-primary: var(--color-athens-gray);
   --text-secondary: var(--color-waterloo);
   --bottom-border-glow: radial-gradient(
-          circle at center,
-          var(--color-anakiwa) 0,
-          blue,
-          transparent 100%
+    circle at center,
+    var(--color-anakiwa) 0,
+    blue,
+    transparent 100%
   );
   --button-gradient: linear-gradient(
-          283deg,
-          #0808a5 0%,
-          rgba(8, 8, 165, 0) 100%
+    283deg,
+    #0808a5 0%,
+    rgba(8, 8, 165, 0) 100%
   );
   --button-gradient-hover: linear-gradient(
-          283deg,
-          #44f 0%,
-          rgba(23, 23, 255, 0.1) 100%
+    283deg,
+    #44f 0%,
+    rgba(23, 23, 255, 0.1) 100%
   );
   --button-gradient-focus: linear-gradient(
-          283deg,
-          #0d0dd2 0%,
-          rgba(23, 23, 255, 0.1) 100%
+    283deg,
+    #0d0dd2 0%,
+    rgba(23, 23, 255, 0.1) 100%
   );
   .theme-light, &.theme-light, [data-theme='light'], &[data-theme='light'] {
     --reablocks-theme: light;
@@ -5316,9 +5316,6 @@ body {
   inherits: false;
   initial-value: solid;
 }
-
-/*--tw-border-style: solid;*/
-
 @property --tw-gradient-position {
   syntax: "*";
   inherits: false;

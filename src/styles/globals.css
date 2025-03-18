@@ -127,3 +127,8 @@ input {
   --tw-ring-opacity: 0 !important;
   --tw-ring-offset-shadow: none !important;
 }
+
+.nextra-sidebar-footer {
+  background: transparent;
+  box-shadow: none;
+}

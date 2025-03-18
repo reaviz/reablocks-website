@@ -7,7 +7,7 @@ import {
   useScroll,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo, useState } from "react";

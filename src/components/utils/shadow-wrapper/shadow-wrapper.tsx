@@ -1,13 +1,14 @@
 import { theme, ThemeProvider } from "reablocks";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import root from "react-shadow";
+import { useTheme } from "nextra-theme-docs";
 
 export type ShadowWrapperProps = {
   children: ReactNode;
 };
 
 export const ShadowWrapper: FC<ShadowWrapperProps> = ({ children }) => {
-  const [themeClass, setThemeClass] = useState("");
+  const { setTheme, theme: nextraTheme } = useTheme();
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -16,7 +17,7 @@ export const ShadowWrapper: FC<ShadowWrapperProps> = ({ children }) => {
       const htmlClass = document.documentElement.classList.contains("dark")
         ? "dark"
         : "light";
-      setThemeClass(htmlClass);
+      setTheme(htmlClass);
     };
 
     updateTheme();
@@ -28,13 +29,13 @@ export const ShadowWrapper: FC<ShadowWrapperProps> = ({ children }) => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [setTheme]);
 
   return (
     <root.div>
       <link rel="stylesheet" href="/shadow-wrapper.css" />
       <ThemeProvider theme={theme}>
-        <div className={`theme-${themeClass}`}>{children}</div>
+        <div className={`theme-${nextraTheme}`}>{children}</div>
       </ThemeProvider>
     </root.div>
   );

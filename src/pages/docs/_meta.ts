@@ -13,12 +13,7 @@ const meta = {
   utils: "⚙️ ⏐ Utils",
   advanced: "⚡️ ⏐ Advanced",
   recipes: "🧩 ⏐ Recipes",
-  // changelog: {
-  //   title: "📓 ⏐ Changelog",
-  //   theme: {
-  //     timestamp: false,
-  //   },
-  // },
+  changelog: "📓 ⏐ Changelog",
 };
 
 export default meta;
