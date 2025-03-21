@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <Unstyled>
         <ThemeProvider theme={theme}>
-          <link rel="stylesheet" href="/reablocks/properties.css" />
+          <link rel="stylesheet" href="../../reablocks/properties.css" />
           <Component {...pageProps} />
         </ThemeProvider>
       </Unstyled>
