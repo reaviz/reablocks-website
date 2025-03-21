@@ -1,5 +1,5 @@
 import { Canvas, Meta } from '@storybook/blocks';
-import { Cards, Card } from 'nextra/components'
+import { Cards } from 'nextra/components'
 import * as StepperStories from '../../../../stories/components/Stepper.story.tsx';
 import { stepperTheme } from 'reablocks';
 import { PropsTable } from '@/components/ui/props-table';
@@ -9,7 +9,7 @@ import ThemeRender from '@/components/ui/theme-render';
 <Meta of={StepperStories} />
 
 # Stepper
-A representation of a user’s progress through a series of discrete steps.
+A representation of a user's progress through a series of discrete steps.
 
 ## Examples
 ### Markers
@@ -22,8 +22,8 @@ A representation of a user’s progress through a series of discrete steps.
 This component is used in the following Blocks:
 
 <Cards>
-  <Card title="🕦 Timeline" href="/blocks/foundation/timeline" />
-  <Card title="👤 Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="🕦 Timeline" href="/blocks/foundation/timeline" />
+  <Cards.Card title="👤 Profile" href="/blocks/administration/profile" />
 </Cards>
 
 ## Theme

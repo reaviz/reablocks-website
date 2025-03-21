@@ -1,10 +1,16 @@
-import { useData } from 'nextra/data';
+import { useData } from 'nextra/hooks'
 import Mdx from '../../components/ui/mdx';
  
 export const getStaticProps = ({ params }) => {
   return fetch(`https://raw.githubusercontent.com/reaviz/reablocks/master/CHANGELOG.md`)
     .then(res => res.text())
-    .then(text => ({ props: { ssg: { text } } }))
+    .then(text => ({
+      props: {
+        ssg: {
+          text
+        }
+      },
+    }))
 }
  
 export const Result = () => {

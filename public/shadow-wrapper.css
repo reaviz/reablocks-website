@@ -1,0 +1,110 @@
+@import './reablocks/index.css';
+
+:host {
+  all: initial;
+  font-family: "Inter", sans-serif;
+}
+
+.docs-story {
+  overflow: hidden;
+  position: relative;
+}
+
+.docs-story > :nth-child(1) {
+  padding: 30px 20px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
+.docs-story > :nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: #FFFFFF;
+  z-index: 1;
+  
+  button {
+    margin: 0;
+    border: 0 none;
+    padding: 4px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: black;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    margin-left: -1px;
+    color: white;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.sbdocs-preview {
+  position: relative;
+  overflow: hidden;
+  margin: 25px 0 40px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.10) 0 1px 3px 0;
+  border: 1px solid hsla(203, 50%, 30%, 0.15);
+}
+
+.prismjs {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #C9CDCF;
+  font-size: 13px;
+  
+   /*todo should use react-syntax-highlighter"*/
+  .token.punctuation {
+    color: #EDEDED;
+  }
+
+  .token.operator {
+    color: #EDEDED;
+  }
+
+  .token.keyword {
+    color: #B474DD;
+  }
+
+  .token.property {
+    color: #96CBFE;
+  }
+  
+  .token.keyword {
+    color: #B474DD;
+  }
+
+  .token.tag {
+    color: #A8FF60;
+  }
+
+  .token.attr-value {
+    color: #B474DD;
+  }
+
+  .token.attr-name {
+    color: #96CBFE;
+  }
+
+  .token.class-name {
+    color: #FFFFB6;
+  }
+}
+
+.prismjs>div {
+  white-space: pre-wrap !important;
+}

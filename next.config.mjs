@@ -1,8 +1,13 @@
-const { webpack } = require('@storybook/csf-plugin');
+import nextra from 'nextra'
+import { webpack } from '@storybook/csf-plugin';
 
-const withNextra = require('nextra')({
-  theme: 'reablocks-docs-theme',
-  themeConfig: './theme.config.tsx'
+const withNextra = nextra({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx',
+  latex: true,
+  search: {
+    codeblocks: false
+  }
 });
 
 /** @type {import('next').NextConfig} */
@@ -26,4 +31,4 @@ const nextConfig = {
   }
 };
 
-module.exports = withNextra(nextConfig);
+export default withNextra(nextConfig);
