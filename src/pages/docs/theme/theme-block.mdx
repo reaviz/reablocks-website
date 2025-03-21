@@ -31,38 +31,51 @@ import {
   useTheme,
   extractTheme
 } from 'reablocks';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '[PATH TO YOUR TW CONFIG]/tailwind.config';
 
 const { theme: TWConfig } = resolveConfig(tailwindConfig);
 
 export default {
-  title: 'General/Theme',
-  component: ThemeProvider,
+  title: 'Components/Theme',
   decorators: [
-    Story => (
-      <ThemeProvider theme={theme}>
-        <div style={{ width: '90vw' }}>
-          <Story />
+    Story => {
+      const { tokens } = useTheme();
+
+      const {
+        colors,
+        borderRadius,
+        boxShadow,
+        spacing,
+        fontFamily,
+        fontSize,
+        fontWeight
+      } = extractTheme(tokens);
+
+      return (
+        <div style={{ width: '95vw' }}>
+          <Story
+            colors={colors}
+            borderRadius={borderRadius}
+            boxShadow={boxShadow}
+            spacing={spacing}
+            fontFamily={fontFamily}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+          />
         </div>
-      </ThemeProvider>
-    )
+      );
+    }
   ]
 };
 
-const {
-  colors,
-  borderRadius,
-  boxShadow,
-  spacing,
-  fontFamily,
-  fontSize,
-  fontWeight
-} = extractTheme(TWConfig);
 
-export const Colors = () => <ColorBlocks colors={colors} />;
+export const Colors = (_: unknown, { colors }) => {
+  return <ColorBlocks colors={colors} />;
+};
 
-export const Typography = () => (
+export const Typography = (
+  __: unknown,
+  { fontFamily, fontSize, fontWeight }
+) => (
   <TypographyBlocks
     families={fontFamily}
     sizes={fontSize}
@@ -70,16 +83,41 @@ export const Typography = () => (
   />
 );
 
-export const Spacings = () => <SpacingBlocks spacings={spacing} />;
+export const Spacings = (__: unknown, { spacing }) => (
+  <SpacingBlocks spacings={spacing} />
+);
 
-export const Borders = () => <BorderBlocks borders={borderRadius} />;
+export const Borders = (_: unknown, { borderRadius }) => (
+  <BorderBlocks borders={borderRadius} />
+);
 
-export const Shadows = () => <ShadowBlocks shadows={boxShadow} />;
+export const Shadows = (_: unknown, { boxShadow }) => (
+  <ShadowBlocks shadows={boxShadow} />
+);
 
 export const Components = () => {
   const { theme } = useTheme();
   return <ComponentBlocks components={theme.components} />;
 };
+
+export const Icons = () => (
+  <>
+    <h2>Icon Block Helper ( icons not included )</h2>
+    <IconBlocks
+      icons={[
+        {
+          name: 'favorite',
+          src: favoriteIcon
+        },
+        {
+          name: 'another favorite',
+          src: favoriteIcon
+        }
+      ]}
+    />
+  </>
+);
+
 ````
 
 **NOTE:** This example utilizes the `ThemeProvider` in the story decorator, allowing each story 
@@ -88,16 +126,3 @@ to inherit the dark theme context. Alternatively, you could use `ThemeProvider` 
 
 You can see how it looks in the Storybook
 [here](https://storybook.reablocks.dev/?path=/story/components-theme--colors).
-
-## Examples
-### Color
-<ColorBlocksExample />
-
-### Typography
-<TypographyBlocksExample />
-
-### Spacing
-<SpacingBlocksExample />
-
-### Border
-<BorderBlocksExample />
