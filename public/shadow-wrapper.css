@@ -3,6 +3,15 @@
 :host {
   all: initial;
   font-family: "Inter", sans-serif;
+  .shadow-wrapper {
+    color: #fff;
+    &.theme-light {
+      color: #000;
+      .sbdocs-preview {
+        background: #F7F7FA;
+      }
+    }
+  }
 }
 
 .docs-story {
@@ -11,6 +20,7 @@
 }
 
 .docs-story > :nth-child(1) {
+  min-height: 100px;
   padding: 30px 20px;
   flex-wrap: wrap;
   flex-direction: column;
