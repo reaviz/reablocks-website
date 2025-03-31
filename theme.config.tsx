@@ -36,7 +36,6 @@ const Header = () => {
   );
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 const config: DocsThemeConfig = {
   head: () => Header(),
   logo: (
