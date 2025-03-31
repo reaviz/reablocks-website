@@ -16,7 +16,28 @@ const config: DocsThemeConfig = {
     );
     const usedTittle = activePage?.title || title;
 
-    return <title>{usedTittle}</title>;
+    return (
+      <>
+        <meta property="og:image" content="https://reablocks.dev/preview.png" />
+        <meta
+          property="og:title"
+          content="Reablocks - Open Source ReactJS Component Library"
+        />
+        <meta
+          property="og:description"
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+        />
+        <meta
+          name="twitter:title"
+          content="Reablocks - Open Source ReactJS Component Library"
+        />
+        <meta
+          name="twitter:description"
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+        />
+        <title>{usedTittle}</title>
+      </>
+    );
   },
   logo: (
     <svg
