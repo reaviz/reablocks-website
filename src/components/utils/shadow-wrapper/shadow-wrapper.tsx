@@ -35,7 +35,7 @@ export const ShadowWrapper: FC<ShadowWrapperProps> = ({ children }) => {
     <root.div>
       <link rel="stylesheet" href="/shadow-wrapper.css" />
       <ThemeProvider theme={theme}>
-        <div className={`theme-${nextraTheme}`}>{children}</div>
+        <div className={`theme-${nextraTheme} shadow-wrapper`}>{children}</div>
       </ThemeProvider>
     </root.div>
   );

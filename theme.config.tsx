@@ -1,11 +1,18 @@
+import { useConfig } from "nextra-theme-docs";
 import { Pre, Code } from "nextra/components";
 import { useRouter } from "next/router";
 import { DocsThemeConfig } from "reablocks-docs-theme";
 import Link from "next/link";
 
-// eslint-disable-next-line import/no-anonymous-default-export
-const config: DocsThemeConfig = {
-  head: (
+const Header = () => {
+  const { title: defaultTitle, normalizePagesResult } = useConfig();
+  const router = useRouter();
+  const activePage = normalizePagesResult.flatDirectories.find(
+    (page) => page.route === router.pathname,
+  );
+  const title = activePage?.title || defaultTitle;
+
+  return (
     <>
       <meta property="og:image" content="https://reablocks.dev/preview.png" />
       <meta
@@ -24,8 +31,13 @@ const config: DocsThemeConfig = {
         name="twitter:description"
         content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
       />
+      <title>{title}</title>
     </>
-  ),
+  );
+};
+
+const config: DocsThemeConfig = {
+  head: () => Header(),
   logo: (
     <svg
       className="h-fit w-[150px] text-[var(--foreground-rgb)]"
