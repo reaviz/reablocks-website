@@ -57,7 +57,7 @@ const config: Config = {
           secondary: "#C6CBD9",
         },
         panel: {
-          DEFAULT: "#02020f",
+          DEFAULT: "#02020F",
           accent: "#242433",
         },
       },
