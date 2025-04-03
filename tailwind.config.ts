@@ -56,6 +56,10 @@ const config: Config = {
           primary: "#F2F3F7",
           secondary: "#C6CBD9",
         },
+        panel: {
+          DEFAULT: "#02020F",
+          accent: "#242433",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
