@@ -14,26 +14,34 @@ This section will guide you through the initial steps required to integrate Tail
   </TabList>
   <TabPanel>
     <Callout type="info" emoji="ℹ️">
-      If you already have Tailwind installed, you can skip to step 3.
+      If you already have Tailwind installed, you can skip 2nd and 3rd steps.
     </Callout>
 
     <Steps>
-    ### 1. Installing Tailwind CSS
+    ### 1. Install Reablocks
+
+    ```sh copy npm2yarn
+    npm install reablocks --save
+    ```
+
+    <Callout type="info" emoji="ℹ️">
+      If you want to use `Reablocks` **prebuilt** theme, without customizing it, please import `reablocks` styles in your CSS file and skip the 6th step.
+
+      ```css copy
+      @import "../node_modules/reablocks/dist/index.css";
+      ```
+    </Callout>
+
+    ### 2. Installing Tailwind CSS
     Open your terminal, navigate to your project's root directory, and run the following command:
     ```sh copy npm2yarn
     npm install tailwindcss @tailwindcss/cli
     ```
 
-    ### 2. Import Tailwind in your CSS
+    ### 3. Import Tailwind in your CSS
     Add the @import "tailwindcss"; import to your main CSS file.
     ```bash copy
     @import "tailwindcss";
-    ```
-
-    ### 3. Install Reablocks
-
-    ```sh copy npm2yarn
-    npm install reablocks --save
     ```
 
     ### 4. Add Reablocks to your CSS as a source to be used by Tailwind
@@ -42,7 +50,7 @@ This section will guide you through the initial steps required to integrate Tail
     -  Add the reablocks as a source to be used by Tailwind at the top of your CSS file:
 
     ```css copy
-    @source "../node_modules/reablocks/index.css";
+    @source "../node_modules/reablocks";
     ```
     **Result:** The reablocks styles are now available to be used by Tailwind.
 
