@@ -36,7 +36,7 @@ Decorators are utilized to wrap stories for global style or functionality applic
 ```jsx
 export const decorators = [
   Story => (
-    <ThemeProvider value={theme}>
+    <ThemeProvider theme={theme}>
       <Story />
     </ThemeProvider>
   )
@@ -52,7 +52,7 @@ export const parameters = {
   docs: {
     container: ({ context, children }) => (
       <DocsContainer context={context}>
-        <ThemeProvider value={theme}>
+        <ThemeProvider theme={theme}>
           {children}
         </ThemeProvider>
       </DocsContainer>
@@ -74,7 +74,7 @@ import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
 
 export const decorators = [
   Story => (
-    <ThemeProvider value={theme}>
+    <ThemeProvider theme={theme}>
       <Story />
     </ThemeProvider>
   )
@@ -85,7 +85,7 @@ export const parameters = {
   docs: {
     container: ({ context, children }) => (
       <DocsContainer context={context}>
-        <ThemeProvider value={theme}>
+        <ThemeProvider theme={theme}>
           {children}
         </ThemeProvider>
       </DocsContainer>

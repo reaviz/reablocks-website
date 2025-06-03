@@ -470,7 +470,7 @@ This section will guide you through the initial steps required to integrate Tail
     export const decorators = [
       Story => (
         // NOTE: You can extend 'theme' with your own custom theme tokens.
-        <ThemeProvider value={theme}>
+        <ThemeProvider theme={theme}>
           <Story />
         </ThemeProvider>
       )
