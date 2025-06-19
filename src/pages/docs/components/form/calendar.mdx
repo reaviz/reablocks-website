@@ -18,6 +18,27 @@ This example demonstrates a simple calendar allowing for a single date selection
 <ToggleCanvas of={CalendarStories.Simple} storybook="components-form-calendar--simple" />
 
 ### Advanced Customization
+
+#### Date and Time Selection
+Allow users to select both date and time, providing a comprehensive date and time selection experience:
+<ToggleCanvas of={CalendarStories.WithTime} storybook="components-form-calendar--with-time" />
+
+#### 12-Hour Cycle
+Allow users to select time in 12-hour format, providing a more intuitive experience for time selection:
+<ToggleCanvas of={CalendarStories.WithTime12HourCycle} storybook="components-form-calendar--with-time-12-hour-cycle" />
+
+#### Date Presets
+Allow users to select a date from a predefined set of dates, useful for applications requiring a specific date selection.
+User can use the `presets` prop to define the presets.
+
+```tsx
+<Calendar presets={[
+  { label: 'Today', value: new Date() },
+]} />
+```
+
+<ToggleCanvas of={CalendarStories.WithDatePresets} storybook="components-form-calendar--with-date-presets" />
+
 #### Date Range Selection
 Enable users to select a range of dates, useful for applications requiring start and end date inputs:
 <ToggleCanvas of={CalendarStories.Range} storybook="components-form-calendar--range" />

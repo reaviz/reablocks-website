@@ -36,8 +36,8 @@ importers:
         specifier: ^1.131.4
         version: 1.131.4
       reablocks:
-        specifier: ^9.0.0-beta.2
-        version: 9.0.0-beta.2(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^9.1.1
+        version: 9.1.1(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       reablocks-docs-theme:
         specifier: ^0.0.2
         version: 0.0.2(next@14.0.3(@babel/core@7.23.5)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -7328,8 +7328,8 @@ packages:
       react: '>=16.13.1'
       react-dom: '>=16.13.1'
 
-  reablocks@9.0.0-beta.2:
-    resolution: {integrity: sha512-Vgx1D4QcDCZSCxLauUtgj5dh16/Y6mB2OfvRW6iJ11OVsRUgGkzUorAUmJwdApxoXWl3uXZTPjR8zudmfFOhmA==}
+  reablocks@9.1.1:
+    resolution: {integrity: sha512-tMSUlcfbEediyvhn5RnmTQM6Q/w779wV8ZxudjOFJQRPmazXw8T5apqluGaoTpzUiemrISgkBFKIyZMxXMJeyQ==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -18386,7 +18386,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  reablocks@9.0.0-beta.2(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  reablocks@9.1.1(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@floating-ui/react': 0.26.28(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@marko19907/string-to-color': 1.0.0
