@@ -68,6 +68,7 @@ export const Hero = ({ className }: { className?: string }) => (
             <a href="https://motion.dev" target="_blank">
               Motion
             </a>
+            .
           </p>
           <div className="flex gap-4">
             <Link href="/docs">
