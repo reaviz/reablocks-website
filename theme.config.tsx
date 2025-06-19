@@ -21,7 +21,7 @@ const Header = () => {
       />
       <meta
         property="og:description"
-        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion."
       />
       <meta
         name="twitter:title"
@@ -29,7 +29,7 @@ const Header = () => {
       />
       <meta
         name="twitter:description"
-        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+        content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion."
       />
       <title>{title}</title>
     </>
@@ -152,20 +152,20 @@ const config: DocsThemeConfig = {
           titleTemplate:
             "Reablocks \u2013 Open Source ReactJS Component Library",
           description:
-            "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
+            "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion.",
         };
       }
 
       return {
         titleTemplate: "%s \u2013 Reablocks",
         description:
-          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
+          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion.",
       };
     } else {
       return {
         titleTemplate: "Reablocks \u2013 Open Source ReactJS Component Library",
         description:
-          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion.",
+          "Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion.",
       };
     }
   },

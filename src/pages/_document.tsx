@@ -11,7 +11,7 @@ export default function Document() {
         />
         <meta
           property="og:description"
-          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion."
         />
         <meta
           name="twitter:title"
@@ -19,7 +19,7 @@ export default function Document() {
         />
         <meta
           name="twitter:description"
-          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Framer Motion."
+          content="Beautifully designed, highly customizable, Open Source React components based on Tailwind and Motion."
         />
       </Head>
       <body>
