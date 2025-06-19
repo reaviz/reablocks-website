@@ -60,7 +60,15 @@ export const Hero = ({ className }: { className?: string }) => (
         >
           <p className="text-base text-content-secondary md:text-lg">
             Beautifully designed, highly customizable, Open Source React
-            components based on Tailwind and Framer Motion.
+            components based on{" "}
+            <a href="https://tailwindcss.com" target="_blank">
+              Tailwind
+            </a>{" "}
+            and{" "}
+            <a href="https://motion.dev" target="_blank">
+              Motion
+            </a>
+            .
           </p>
           <div className="flex gap-4">
             <Link href="/docs">
