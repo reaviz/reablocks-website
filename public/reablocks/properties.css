@@ -46,6 +46,27 @@
   initial-value: skewY(0);
 }
 
+@property --tw-pan-x {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --tw-pan-y {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --tw-pinch-zoom {
+  syntax: "*";
+  inherits: false;
+}
+
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;

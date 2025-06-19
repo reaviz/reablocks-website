@@ -9,7 +9,15 @@ import { ToggleCanvas } from '@/components/ui/toggle-canvas';
 A visual way to choose a date using a calendar view and input box.
 
 ## Examples
+
+#### Basic Usage
 <ToggleCanvas of={DateInputStories.Simple} storybook="components-form-date-input--simple" />
+
+#### Date Presets
+Allow to select a date from a predefined set of dates, useful for applications requiring a specific date selection.
+User can use the `presets` prop to define the presets.
+
+<ToggleCanvas of={DateInputStories.Preset} storybook="components-form-date-input--with-presets" />
 
 ## API
 ### Component
