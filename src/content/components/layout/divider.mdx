@@ -1,0 +1,34 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Divider
+A simple divider component that supports horizontal and vertical.
+
+## Examples
+<StoryRenderer path="components/Divider.story.tsx" name="Horizontal" storybookKey="components-layout-divider--horizontal" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Empty State" href="/blocks/foundation/empty-state" />
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Pricing" href="/blocks/administration/pricing" />
+  <Cards.Card title="Team" href="/blocks/administration/team" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="divider" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Divider" />

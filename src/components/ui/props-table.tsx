@@ -1,12 +1,14 @@
-import metadata from 'reablocks/stories/docs.json';
-import { Card } from 'reablocks';
+'use client'
 
-export const PropsTable = ({ name }) => {
+import metadata from 'reablocks/stories/docs.json';
+import { Card, theme } from 'reablocks';
+
+export const PropsTable = ({ name }: { name: string }) => {
   const data: any = metadata.find((m) => m.displayName === name);
   const keys = Object.keys(data?.props ?? {});
 
   return (
-    <Card className="mt-5 p-3">
+    <Card className="mt-5 p-3" theme={theme.components.card}>
       <table className="w-full text-base">
         <thead className="border-b-[1px] border-[rgba(241,245,249,0.2)]">
           <tr className="opacity-60">

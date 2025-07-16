@@ -1,0 +1,82 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Overlay
+
+Overlay provides component developers a way to position elements globally
+or relative to a anchor element. The overlay wraps the backdrop, position, exit
+listener and portal to provide a simple API for handling position.
+
+There are five overlay components in the Overlay:
+
+- `ConnectedOverlay` - A overlay that is relative to a anchoring element.
+- `GlobalOverlay` - A overlay that is placed on top of other elements globally.
+- `OverlayPortal` - A wrapper around the portal component to manage z-indexs.
+- `OverlayTrigger` - The internal trigger component that the `ConnectedOverlay` uses.
+
+## Examples
+
+### Global Overlay
+A overlay component typically used by components like Dialogs or Drawers.
+You can use the Global Ovleray using element APIs.
+
+    
+Use the css variable `--color-layer-transparent` to set the backdrop color.
+
+```css
+// index.css
+
+body {
+  --color-layer-transparent: rgba(0, 0, 0, 0.5);
+}
+```
+
+<StoryRenderer 
+  path="components/GlobalOverlay.story" 
+  name="ClickToOpen" 
+/>
+
+#### Dialog Example
+Below is an example of a simple dialog component using the global overlay.
+
+<StoryRenderer 
+  path="components/Dialog.story" 
+  name="DialogExample" 
+/>
+
+### Connected Overlay
+A overlay component typically used by components like menus.
+
+<StoryRenderer 
+  path="components/GlobalOverlay.story" 
+  name="Simple" 
+/>
+
+#### Tooltip Example
+Below is an example of simple tooltip component using the connected overlay.
+
+<StoryRenderer 
+  path="components/ConnectedOverlay.story" 
+  name="TooltipExample" 
+/>
+
+#### Menu Example
+Below is an example of simple menu component using the connected overlay.
+
+<StoryRenderer 
+  path="components/ConnectedOverlay.story" 
+  name="MenuExample" 
+/>
+
+## API
+### [GlobalOverlay](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/GlobalOverlay/GlobalOverlay.tsx)
+<PropsTable name='GlobalOverlay' />
+
+### [ConnectedOverlay](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/ConnectedOverlay/ConnectedOverlay.tsx)
+<PropsTable name='ConnectedOverlay' />
+
+### [OverlayTrigger](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayTrigger.tsx)
+<PropsTable name='OverlayTrigger' />
+
+### [OverlayPortal](https://github.com/reaviz/reablocks/blob/master/src/utils/Overlay/OverlayPortal/OverlayPortal.tsx)
+<PropsTable name='OverlayPortal' />

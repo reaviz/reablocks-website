@@ -1,0 +1,40 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Tabs
+The tabs component is a simple way to organize content into different sections.
+
+## Examples
+<StoryRenderer path="components/Tabs.story.tsx" name="Simple" storybookKey="components-layout-tabs--simple" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Team" href="/blocks/administration/team" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="tabs" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+
+### Tabs
+<PropsTable name="Tabs" />
+
+### TabList
+<PropsTable name="TabList" />
+
+### Tab
+<PropsTable name="Tab" />
+
+### TabPanel
+<PropsTable name="TabPanel" />

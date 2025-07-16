@@ -1,0 +1,38 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Stack
+Component that sets component spacing. It can be used to add
+space between components such as a menu.
+
+## Examples
+<StoryRenderer path="components/Stack.story.tsx" name="Simple" storybookKey="components-layout-stack--simple" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Pricing" href="/blocks/administration/pricing" />
+  <Cards.Card title="Team" href="/blocks/administration/team" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Timeline" href="/blocks/foundation/timeline" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="stack" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Stack" />

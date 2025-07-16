@@ -1,0 +1,30 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+
+# Command Palette
+The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface.
+It's akin to a spotlight search, providing immediate access to features, documents, settings, or actions directly from the keyboard.
+
+## Examples
+### Basic Usage
+This example showcases a basic Command Palette setup with sections for "Recently Used" commands and "Suggestions":
+<StoryRenderer path="components/CommandPalette.story.tsx" name="Simple" storybookKey="components-data-command-palette--simple" />
+
+## Theme Customization
+The default theme for the Command Palette is designed for clarity and ease of use,
+but can be customized to match your application's design language:
+
+<ThemeRender name="commandPalette" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Customize the Command Palette through the following properties:
+<PropsTable name="CommandPalette" />
+
+## Design and Usability Tips
+- **Intuitive Access:** Ensure the Command Palette is easily accessible through a well-known keyboard shortcut (e.g., Cmd/Ctrl + P), making it discoverable and convenient.
+- **Clear Categorization:** Organize commands into clear categories or sections to help users quickly find what they need.

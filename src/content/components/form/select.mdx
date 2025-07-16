@@ -1,0 +1,73 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Select
+The Select component enhances user interaction by allowing the selection of a value or multiple values from a list of options.
+It's designed with flexibility in mind, supporting a wide range of features such as:
+
+- Single Select
+- Multi Select
+- Flexible customization of the components
+- Tagging / Creation of options
+- Filtering with Fuzzy Search via [fuse.js](https://github.com/reaviz/react-use-fuzzy)
+- Highlighting of selected options
+- Async Support
+- Groups Support
+- Animation
+
+## Examples
+### Basic Usage
+#### Single Select
+A straightforward implementation for choosing a single option from a dropdown list:
+<StoryRenderer path="components/SingleSelect.story.tsx" name="Basic" storybookKey="components-form-select-single--basic" />
+- **Custom Label**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="CustomLabels" storybookKey="components-form-select-single--custom-labels" />
+- **Create value if not available**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="Createable" storybookKey="components-form-select-single--createable" />
+- **Values with sections**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="Groups" storybookKey="components-form-select-single--groups" />
+- **State: Error**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="Error" storybookKey="components-form-select-single--error" />
+- **State: Full Width**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="FluidWidth" storybookKey="components-form-select-single--fluid-width" />
+
+#### Async
+- **Remote Fetch on Load**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="Async" storybookKey="components-form-select-single--async" />
+- **Async Filtering**
+<StoryRenderer path="components/SingleSelect.story.tsx" name="AsyncFiltering" storybookKey="components-form-select-single--async-filtering" />
+
+#### Multi-Select
+Allows users to select multiple options, ideal for filtering mechanisms or gathering multiple interests/preferences.
+<StoryRenderer path="components/MultiSelect.story.tsx" name="Basic" storybookKey="components-form-select-multi--basic" />
+
+
+## Theme Customization
+The Select component adheres to a comprehensive theme, ensuring it seamlessly integrates into any application's design:
+
+<ThemeRender name="select" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Configure the Select component to suit your application's needs with these properties:
+### Select
+<PropsTable name="Select" />
+
+### SelectOption
+<PropsTable name="SelectOption" />
+
+### SelectMenu
+<PropsTable name="SelectMenu" />
+
+### SelectInput
+<PropsTable name="SelectInput" />
+
+### SelectInputChip
+<PropsTable name="SelectInputChip" />
+
+## Design and Usability Tips
+
+- **Immediate Feedback:** Provide visual cues for actions such as hovering, selection, and focusing, enhancing the user's interaction with the component.
+- **Keyboard Navigation:** Support full keyboard navigation including arrow keys for option selection and Esc to close the dropdown, ensuring accessibility.

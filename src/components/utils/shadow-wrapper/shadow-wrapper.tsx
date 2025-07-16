@@ -1,7 +1,8 @@
+'use client'
 import { theme, ThemeProvider } from "reablocks";
 import { FC, ReactNode, useEffect } from "react";
 import root from "react-shadow";
-import { useTheme } from "nextra-theme-docs";
+import { useTheme } from "reablocks-docs-theme";
 
 export type ShadowWrapperProps = {
   children: ReactNode;

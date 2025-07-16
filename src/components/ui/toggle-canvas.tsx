@@ -1,7 +1,7 @@
 import ShadowWrapper from "@/components/utils/shadow-wrapper/shadow-wrapper";
 import { Canvas } from "@storybook/blocks";
 import { FC } from "react";
-import { useTheme } from "nextra-theme-docs";
+import { useTheme } from "reablocks-docs-theme";
 
 export type ToggleCanvasProps = {
   of?: any;

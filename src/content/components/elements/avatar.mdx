@@ -1,0 +1,49 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+
+# Avatar
+
+The "Avatar" component is a versatile UI element designed to display visual identifiers for users, such as profile pictures or initials.
+It's widely used across applications to personalize user experiences, especially in sections related to user profiles, comments, or team pages.
+
+## Quick Start
+To start using the `Avatar` component, import it from the `reablocks` library and provide the `name` prop.
+
+<Runner code={`import { Avatar } from 'reablocks';
+
+export default function App() {
+  return <Avatar name="Teddy Roosevelt" />
+}`}
+/>
+
+## Examples
+### Basic Usage
+#### Displaying User Initials
+The Avatar component can automatically generate and display initials based on the user's name.
+For names comprising multiple words, it uses the first letter of each word. For single-word names, only the first letter is displayed:
+<StoryRenderer path="components/Avatar.story.tsx" name="Simple" storybookKey="components-elements-avatar--simple" />
+
+#### Displaying Profile Pictures
+When a URL to a user's profile picture is available,
+the Avatar component can display the image within a circular frame, adhering to the common design pattern for user avatars:
+<StoryRenderer path="components/Avatar.story.tsx" name="RoundedWithImage" storybookKey="components-elements-avatar--rounded-with-image"/>
+
+## Theme Customization
+The Avatar component comes with a default theme that can be customized.
+The base theme includes styles for center alignment, background cover, and text styling, with an option to make the avatar rounded:
+
+<ThemeRender name="avatar" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Customize the Avatar component through the following properties:
+<PropsTable name="Avatar" />
+
+## Design and Usability Tips
+
+- **Optimal Resolution:** For user avatars, ensure that images are displayed at an optimal resolution to maintain visual clarity without unnecessarily burdening the page load times.
+Consider implementing a standard size for avatars across your application to create a consistent and professional appearance.
