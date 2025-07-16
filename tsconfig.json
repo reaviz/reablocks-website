@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/layout.jsx", "src/app/page.jsx", "src/app/not-found.js", "src/mdx-components.js", "next.config.js", "src/app/docs/[[...mdxPath]]/page.jsx"],
+  "include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/layout.jsx", "src/app/page.jsx", "src/app/not-found.js", "src/mdx-components.js", "next.config.js", "src/app/[[...mdxPath]]/page.jsx"],
   "exclude": ["node_modules"]
 }

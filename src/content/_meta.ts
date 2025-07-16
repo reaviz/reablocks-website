@@ -1,12 +1,30 @@
 const meta = {
-  index: "👋 ⏐ Introduction",
-  "getting-started": "🚀 ⏐ Getting Started",
-  theme: "🎨 ⏐ Themeing",
-  components: "🏗️ ⏐ Components",
-  utils: "⚙️ ⏐ Utils",
-  advanced: "⚡️ ⏐ Advanced",
-  recipes: "🧩 ⏐ Recipes",
-  changelog: "📓 ⏐ Changelog",
+  index: {
+    type: 'page',
+    title: 'Home',
+    theme: {
+      navbar: false,
+      footer: false,
+    },
+  },
+  docs: {
+    type: 'page',
+    title: 'Docs',
+  },
+  blocks: {
+    type: 'page',
+    title: 'Blocks',
+  },
+  storybook: {
+    title: "Storybook",
+    type: 'page',
+    href: 'https://storybook.reagraph.dev'
+  },
+  support: {
+    title: "Support",
+    type: 'page',
+    href: '/docs/support'
+  },
 };
 
 export default meta;
