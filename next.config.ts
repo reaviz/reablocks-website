@@ -3,13 +3,13 @@ import nextra from 'nextra';
 const withNextra = nextra({
   latex: true,
   defaultShowCopyCode: true,
-  // contentDirBasePath: '/',
 });
 
 const nextConfig = withNextra({
   reactStrictMode: true,
 
-  webpack(config) {
+  webpack(config, { isServer }) {
+
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule: any) =>
       rule.test?.test?.('.svg')

@@ -23,7 +23,10 @@ const meta = {
   support: {
     title: "Support",
     type: 'page',
-    href: '/docs/support'
+    theme: {
+      layout: 'full',
+      toc: false,
+    },
   },
 };
 

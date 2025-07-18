@@ -41,7 +41,7 @@ export const LargeRounded: StoryObj<typeof Avatar> = {
 };
 
 export const MultipleAvatars: StoryObj<typeof Avatar> = {
-  render: (args) => (
+  render: args => (
     <div style={{ display: 'flex', gap: '1em' }}>
       <Avatar {...args} name="Alice" />
       <Avatar {...args} name="Bob Meyer Bogger" />

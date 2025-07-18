@@ -80,8 +80,8 @@
     rgba(23, 23, 255, 0.1) 100%
   );
 
-  .theme-light,
-  &.theme-light,
+  .light,
+  &.light,
   [data-theme='light'],
   &[data-theme='light'] {
     --reablocks-theme: light;
@@ -198,7 +198,7 @@
   --color-info-background: var(--info-background);
 
   /* Panel colors */
-  --color-panel: var(--color-black-pearl);
+  --color-panel: var(--panel);
   --color-panel-accent: var(--panel-accent);
 
   /* Surface colors */
@@ -408,4 +408,140 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-image: var(--backdrop-url);
+}
+
+
+html.light {
+  --background: #ffffff;
+  --tooltip-background: #f7f7fa;
+  --tooltip-color: #3d3d4d;
+  --foreground: #000000;
+  --foreground-rgb: 0, 0, 0;
+}
+
+html.dark {
+  --background: #11101f;
+  --tooltip-background: #00050be6;
+  --tooltip-color: #fff;
+  --foreground: #ffffff;
+  --foreground-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb)) !important;
+  background-color: var(--background) !important;
+  --tooltip-spacing: 5px;
+  --tooltip-border-radius: 5px;
+}
+
+.nextra-nav-container > nav {
+  background-color: var(--background) !important;
+}
+
+.nextra-nav-container {
+  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
+}
+
+.nextra-nav-container-blur {
+  display: none;
+}
+
+.docblock-code-toggle {
+  background: black !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.docblock-code-toggle ~ button {
+  background: black !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.nextra-toc > div > div {
+  background: none !important;
+  box-shadow: none !important;
+  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
+}
+
+.nextra-sidebar-container > .nx-sticky {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.sbdocs {
+  background: transparent !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+.nextra-content p,
+.nextra-content li,
+.nextra-toc p {
+  color: rgb(var(--foreground-rgb)) !important;
+}
+
+.sbdocs-content {
+  max-width: 100% !important;
+}
+
+.sbdocs-content > div > .nx-flex {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.nextra-toc ul,
+.nextra-menu-desktop,
+.nextra-menu-desktop ul {
+  padding-left: auto !important;
+  list-style: none !important;
+}
+
+.nextra-cards > a {
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700/20;
+}
+
+.rb-code {
+  color: #029cfd !important;
+}
+
+.rb-code-block {
+  margin-top: 1px;
+  background: transparent;
+}
+
+.rb-code-block code {
+  display: block !important;
+}
+
+.sbdocs-preview {
+  border-color: hsl(
+    var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1
+  ) !important;
+}
+
+pre.highlighter code {
+  display: block;
+}
+
+.prismjs > div {
+  /** Handle storybook code samples running off the page */
+  white-space: pre-wrap !important;
+}
+
+input {
+  --tw-ring-opacity: 0 !important;
+  --tw-ring-offset-shadow: none !important;
+}
+
+svg {
+  overflow: visible;
 }

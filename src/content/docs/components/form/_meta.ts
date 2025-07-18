@@ -1,15 +1,15 @@
 const meta = {
-  calendar: "",
-  checkbox: "",
-  "debounced-input": "",
+  calendar: "Calendar",
+  checkbox: "Checkbox",
+  "debounced-input": "Debounced Input",
   "date-input": "Date Input 🆕",
-  "inline-input": "",
-  input: "",
-  radio: "",
-  range: "",
-  select: "",
-  textarea: "",
-  toggle: "",
+  "inline-input": "Inline Input",
+  input: "Input",
+  radio: "Radio",
+  range: "Range",
+  select: "Select",
+  textarea: "Textarea",
+  toggle: "Toggle",
 };
 
 export default meta;

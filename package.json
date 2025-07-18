@@ -12,9 +12,7 @@
     "copy:styles": "cpx \"node_modules/reablocks/dist/index.css\" \"public/reablocks\"",
     "postinstall": "pnpm run copy:blocks && pnpm run copy:stories && pnpm run copy:styles && node scripts/extract-properties.js",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
-    "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "lint": "next lint"
   },
   "browser": {
     "fs": false,
@@ -24,14 +22,15 @@
   "dependencies": {
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
+    "@storybook/preview-api": "^8.6.14",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
     "motion": "^12.5.0",
     "next": "^15.3.3",
     "nextra": "^4.2.17",
     "posthog-js": "^1.131.4",
-    "reablocks": "file:../reablocks",
-    "reablocks-docs-theme": "^2.0.2",
+    "reablocks": "9.1.2",
+    "reablocks-docs-theme": "2.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
@@ -42,16 +41,6 @@
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.6.3",
-    "@storybook/addon-interactions": "7.6.3",
-    "@storybook/addon-links": "7.6.3",
-    "@storybook/blocks": "7.6.3",
-    "@storybook/components": "7.6.3",
-    "@storybook/csf-plugin": "^7.6.3",
-    "@storybook/nextjs": "7.6.3",
-    "@storybook/react": "7.6.3",
-    "@storybook/test": "7.6.3",
-    "@storybook/theming": "7.6.3",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
@@ -65,8 +54,6 @@
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "storybook": "7.6.3",
-    "storybook-addon-react-docgen": "^1.2.44",
     "tailwindcss": "^4.1.11",
     "typescript": "^5"
   }

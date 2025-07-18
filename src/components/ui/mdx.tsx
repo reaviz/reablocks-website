@@ -38,8 +38,8 @@ export default function Mdx({ children }: { children: string }) {
     async function compile() {
       try {
         const { default: Content } = await evaluate(children, {
-          jsx: runtime.jsx,
-          jsxs: runtime.jsxs,
+          jsx: (runtime as any).jsx,
+          jsxs: (runtime as any).jsxs,
           Fragment,
           format: "mdx",
           development: false,

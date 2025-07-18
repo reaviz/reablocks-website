@@ -1,4 +1,7 @@
 const meta = {
+  index: {
+    display: "hidden",
+  },
   "data-size": "Data Size",
   "date-format": "Date Format",
   duration: "Duration",

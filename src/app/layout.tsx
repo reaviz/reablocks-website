@@ -2,8 +2,10 @@ import { Footer, Layout, Navbar } from 'reablocks-docs-theme';
 import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
-import Image from 'next/image';
+import LogoIcon from '../../public/logo.svg';
+
 import 'reablocks-docs-theme/style.css';
 import './globals.css';
 
@@ -14,14 +16,24 @@ export const metadata: Metadata = {
 };
 
 const footer = (
-  <Footer className="flex w-full justify-center">TMP footer</Footer>
+  <Footer className="flex w-full justify-center py-4">
+    <span>
+      Made with ❤️ by{' '}
+      <Link
+        className="text-primary underline"
+        href="https://goodcode.us?utm_source=reablocks"
+      >
+        Good Code
+      </Link>
+    </span>
+  </Footer>
 );
 
 const navbar = (
   <Navbar
     logo={
       <div className="flex items-center gap-2">
-        <Image src="/logo.svg" alt="Reablocks" width={112} height={24} />
+        <LogoIcon className="h-fit w-[150px] text-[var(--foreground)]" />
       </div>
     }
     projectLink="https://github.com/reaviz/reagraph"
@@ -38,7 +50,6 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap"
           rel="stylesheet"
