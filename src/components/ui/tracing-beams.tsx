@@ -91,7 +91,7 @@ export const TracingBeams = ({
           </svg>
         </div>
       </motion.div>
-      <div ref={contentRef}>{children}</div>
+      <div ref={contentRef} className="2xl:max-w-[1440px]">{children}</div>
       <motion.div
         ref={ref}
         className={cn("relative flex-1", containerClassName)}

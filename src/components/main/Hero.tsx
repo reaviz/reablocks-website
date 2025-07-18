@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const Hero = ({ className }: { className?: string }) => (
   <div className={cn("h-[calc(100vh-300px)]", className)}>
-    <section className={`container mt-32 h-full flex-1 px-4 md:px-24`}>
+    <section className={`container mt-32 mx-auto h-full flex-1 px-4 md:px-12 2xl:!px-0`}>
       <div className="relative z-10 flex flex-col gap-4 py-12">
         <div className="relative flex flex-1 flex-col gap-4">
           <div className="absolute -top-10 flex gap-2">

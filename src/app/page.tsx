@@ -143,7 +143,7 @@ export default function Home() {
         >
           <Hero />
         </HeroParallax>
-        <section className="container mt-20 px-4 md:px-24">
+        <section className="container mt-20 mx-auto px-4 md:px-12 2xl:!px-0">
           <div className="flex w-full items-center gap-2">
             <div className="to-secondary h-px flex-1 bg-gradient-to-r from-transparent" />
             <SparklesIcon className="h-3 w-3" />
@@ -152,8 +152,8 @@ export default function Home() {
             <div className="from-secondary h-px flex-1 bg-gradient-to-r to-transparent" />
           </div>
         </section>
-        <section className="container mt-20 px-4 md:px-24">
-          <div className="mb-4 flex flex-col items-start gap-4 md:mb-20 md:max-w-[50%]">
+        <section className="container mt-20 mx-auto px-4 md:px-12 2xl:!px-0">
+          <div className="mb-4 flex flex-col items-start gap-4 md:mb-20 lg:max-w-[50%]">
             <a href="https://github.com/reaviz/reablocks" target="_blank">
               <img
                 alt="GitHub stars"
@@ -173,8 +173,8 @@ export default function Home() {
           <span className="px-3 lg:pl-0 text-2xl font-bold">Getting Started 🚀</span>
           <div className="mt-4 mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
-            <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
+            <div className="flex flex-col gap-2 md:flex-row md:py-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 md:p-0">
                 <span className="font-bold">Installing Reablocks</span>
                 <p className="text-content-secondary text-xs md:text-base">
                   Install Reablocks & Tailwind into your React project to get
@@ -212,8 +212,8 @@ $ npx tailwindcss init`}
           </div>
           <div className="mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
-            <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
+            <div className="flex flex-col gap-2 md:flex-row md:py-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 md:pl-0">
                 <span className="font-bold">Creating a custom theme</span>
                 <p className="text-content-secondary text-xs md:text-base">
                   {
@@ -272,8 +272,8 @@ export const customTheme = extendTheme(theme, partialTheme)`}
           </div>
           <div className="mt-4 mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
-            <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
+            <div className="flex flex-col gap-2 md:flex-row md:py-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 md:pl-0">
                 <span className="font-bold">
                   Adding your theme to your application
                 </span>

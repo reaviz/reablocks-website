@@ -78,7 +78,7 @@ export const HeroParallax = ({
       {children}
       <div
         className={cn(
-          "flex h-[1200px] max-w-[100vw] flex-col self-auto pt-40 antialiased [perspective:1000px] [transform-style:preserve-3d] md:max-w-[1440px] pointer-events-none lg:pointer-events-auto",
+          "flex h-[1200px] max-w-[100vw] flex-col self-auto pt-40 antialiased [perspective:1000px] [transform-style:preserve-3d] pointer-events-none lg:pointer-events-auto",
           className,
         )}
       >

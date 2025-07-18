@@ -37,7 +37,7 @@ export const Nav: FC = () => {
       )}
       aria-label="Global"
     >
-      <div className="absolute top-3 left-4 flex-1 md:top-7 md:left-24">
+      <div className="absolute top-3 left-4 flex-1 md:top-7 md:left-20">
         <a href="/">
           <span className="sr-only">reablocks</span>
           <LogoIcon className="h-fit w-[150px] text-white" />
