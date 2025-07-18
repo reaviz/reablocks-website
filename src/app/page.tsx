@@ -170,11 +170,11 @@ export default function Home() {
               scalable, high-performance applications.
             </p>
           </div>
-          <span className="px-3 text-2xl font-bold">Getting Started 🚀</span>
+          <span className="px-3 lg:pl-0 text-2xl font-bold">Getting Started 🚀</span>
           <div className="mt-4 mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
             <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
                 <span className="font-bold">Installing Reablocks</span>
                 <p className="text-content-secondary text-xs md:text-base">
                   Install Reablocks & Tailwind into your React project to get
@@ -213,7 +213,7 @@ $ npx tailwindcss init`}
           <div className="mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
             <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
                 <span className="font-bold">Creating a custom theme</span>
                 <p className="text-content-secondary text-xs md:text-base">
                   {
@@ -273,7 +273,7 @@ export const customTheme = extendTheme(theme, partialTheme)`}
           <div className="mt-4 mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
             <div className="flex flex-col gap-2 md:flex-row">
-              <div className="flex flex-1 flex-col gap-2 p-3">
+              <div className="flex flex-1 flex-col gap-2 p-3 lg:pl-0">
                 <span className="font-bold">
                   Adding your theme to your application
                 </span>

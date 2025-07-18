@@ -1,13 +1,12 @@
-import { Footer, Layout, Navbar } from 'reablocks-docs-theme';
+import { Footer, LandingFooter, Layout, Navbar } from 'reablocks-docs-theme';
 import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import type { ReactNode } from 'react';
 import LogoIcon from '../../public/logo.svg';
 
 import 'reablocks-docs-theme/style.css';
-import './globals.css';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Reablocks - Open Source ReactJS Component Library',
@@ -17,15 +16,11 @@ export const metadata: Metadata = {
 
 const footer = (
   <Footer className="flex w-full justify-center py-4">
-    <span>
-      Made with ❤️ by{' '}
-      <Link
-        className="text-primary underline"
-        href="https://goodcode.us?utm_source=reablocks"
-      >
-        Good Code
-      </Link>
-    </span>
+    <LandingFooter
+      logo={<LogoIcon className="h-fit w-[150px] text-white" />}
+      className="py-6 text-base"
+      libName="reablocks"
+    />
   </Footer>
 );
 
