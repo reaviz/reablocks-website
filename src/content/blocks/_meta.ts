@@ -1,5 +1,12 @@
 const meta = {
-  index: "👋 ⏐ Introduction",
+  index: {
+    title: '👋 ⏐ Introduction',
+    theme: {
+      toc: false,
+      breadcrumb: false,
+      pagination: false,
+    }
+  },
   authentication: "🔐 ⏐ Authentication",
   foundation: "🏗️ ⏐ Foundation",
   administration: "⚙️ ⏐ Administration",
