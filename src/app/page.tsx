@@ -204,8 +204,7 @@ export default function Home() {
                 }}
               >
                 {`$ npm install reablocks -S
-$ npm install -D tailwindcss postcss autoprefixer
-$ npx tailwindcss init`}
+$ npm install tailwindcss @tailwindcss/postcss postcss -D`}
               </SyntaxHighlighter>
             </div>
             <Divider className="absolute left-0 hidden md:block" />

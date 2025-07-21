@@ -87,7 +87,7 @@ export const Hero = ({ className }: { className?: string }) => (
           </motion.h2>
         </div>
 
-        <div className="flex flex-1 flex-col items-center gap-4 px-12">
+        <div className="flex flex-1 flex-col items-center gap-4 px-12 border-r border-[#9091A0] border-opacity-[16%] ">
           <Count
             className="min-h-9 text-3xl font-bold"
             from={120}
@@ -103,7 +103,7 @@ export const Hero = ({ className }: { className?: string }) => (
           </motion.h2>
         </div>
 
-        <div className="flex flex-1 flex-col items-center gap-4 border-r border-[#9091A0] border-opacity-[16%] px-12">
+        <div className="flex flex-1 flex-col items-center gap-4 px-12">
           <Count className="min-h-9 text-3xl font-bold" from={0} to={4} />
           <motion.h2
             className="text-base"
