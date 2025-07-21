@@ -32,6 +32,28 @@ const extractComponentName = (fileContent: string): string => {
     return directExportMatch[1];
   }
 
+  // Check if this is a hook-based story (render function present)
+  if (fileContent.includes('render:')) {
+    // Try to extract from title for hook-based stories
+    const titleMatch = fileContent.match(/title:\s*['"]([^'"]*)['"]/);
+    if (titleMatch) {
+      const title = titleMatch[1];
+      const parts = title.split('/').pop()?.replace(/[^a-zA-Z0-9]/g, '');
+      if (parts && parts.length > 0) {
+        return parts;
+      }
+    }
+    
+    // Look for hook imports (functions starting with 'use')
+    const hookImportMatch = fileContent.match(/import\s+\{\s*([^}]*use[A-Z][a-zA-Z0-9]*[^}]*)\s*\}/);
+    if (hookImportMatch) {
+      const hookMatch = hookImportMatch[1].match(/(use[A-Z][a-zA-Z0-9]*)/);
+      if (hookMatch) {
+        return hookMatch[1].replace(/^use/, '') + 'Hook';
+      }
+    }
+  }
+
   // Look for component imports (excluding Storybook types)
   const storyBookTypes = ['Meta', 'StoryObj', 'StoryFn', 'Story'];
   const importMatches = fileContent.matchAll(/import\s+\{\s*([^}]+)\s*\}\s+from\s+['"][^'"]*['"]/g);
@@ -226,6 +248,87 @@ export async function GET(request: NextRequest) {
     }
 
     if (objectFound) {
+      // First check if the story has a render function
+      const renderIndex = storyObject.indexOf('render:');
+      
+      if (renderIndex !== -1) {
+        // Find the start of the render function
+        const afterRender = storyObject.substring(renderIndex + 7).trim();
+        
+        // Extract function parameters
+        let params = '';
+        let renderFunctionStart = -1;
+        
+        if (afterRender.startsWith('(')) {
+          const parenEnd = afterRender.indexOf(')');
+          if (parenEnd !== -1) {
+            params = afterRender.substring(1, parenEnd).trim();
+            const arrowIndex = afterRender.indexOf('=>', parenEnd);
+            if (arrowIndex !== -1) {
+              renderFunctionStart = arrowIndex + 2;
+            }
+          }
+        }
+        
+        if (renderFunctionStart !== -1) {
+          const functionBody = afterRender.substring(renderFunctionStart).trim();
+          
+          if (functionBody.startsWith('{')) {
+            // Find the matching closing brace for the render function
+            let braceCount = 0;
+            let endIndex = -1;
+            let inString = false;
+            let stringChar = '';
+            
+            for (let i = 0; i < functionBody.length; i++) {
+              const char = functionBody[i];
+              
+              if (!inString && (char === '"' || char === "'")) {
+                inString = true;
+                stringChar = char;
+              } else if (inString && char === stringChar && functionBody[i - 1] !== '\\') {
+                inString = false;
+              } else if (!inString) {
+                if (char === '{') {
+                  braceCount++;
+                } else if (char === '}') {
+                  braceCount--;
+                  if (braceCount === 0) {
+                    endIndex = i;
+                    break;
+                  }
+                }
+              }
+            }
+            
+            if (endIndex !== -1) {
+              let renderBody = functionBody.substring(1, endIndex).trim();
+              
+              // Remove any trailing comma from the render body
+              renderBody = renderBody.replace(/,\s*$/, '');
+              
+              const result = params ? `(${params}) => {\n${renderBody}\n}` : `() => {\n${renderBody}\n}`;
+              return NextResponse.json({ source: result });
+            }
+          } else {
+            // Single expression render function without braces
+            let renderBody = functionBody;
+            
+            // Find the end of the render function (next property or end of object)
+            const nextPropertyMatch = renderBody.match(/,\s*[a-zA-Z_$][a-zA-Z0-9_$]*\s*:/);
+            if (nextPropertyMatch) {
+              renderBody = renderBody.substring(0, nextPropertyMatch.index).trim();
+            }
+            
+            // Remove trailing comma if present
+            renderBody = renderBody.replace(/,\s*$/, '');
+            
+            const result = params ? `(${params}) => ${renderBody}` : `() => ${renderBody}`;
+            return NextResponse.json({ source: result });
+          }
+        }
+      }
+      
       // Extract args from the story object
       const argsMatch = storyObject.match(/args\s*:\s*\{([^}]*(?:\{[^}]*\}[^}]*)*)\}/);
       
@@ -268,7 +371,7 @@ export async function GET(request: NextRequest) {
         }
       }
       
-      // Story object without args or couldn't parse args
+      // Story object without args or render function - fallback
       const result = `(args) => <${componentName} {...args} />;`;
       return NextResponse.json({ source: result });
     }

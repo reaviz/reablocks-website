@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import { StoryRenderer as BaseStoryRenderer } from 'reablocks-docs-theme';
 import { DotsLoader, theme } from 'reablocks';
@@ -11,7 +11,7 @@ interface StoryRendererProps {
   storybookKey?: string;
 }
 
-export const StoryRenderer: React.FC<StoryRendererProps> = ({
+export const StoryRenderer: FC<StoryRendererProps> = ({
   path,
   name,
   storybookKey
@@ -22,6 +22,7 @@ export const StoryRenderer: React.FC<StoryRendererProps> = ({
         .then(storyModule => ({
           default: () => (
             <BaseStoryRenderer
+              wrapperClassName="block w-fit mx-auto"
               storyModule={storyModule}
               storyName={name}
               storyPath={path}

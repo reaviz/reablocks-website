@@ -511,7 +511,7 @@ body {
   @apply hover:bg-gray-100 dark:hover:bg-gray-700/20;
 }
 
-.rb-code {
+.nextra-code, .rb-code {
   color: #029cfd !important;
 }
 
