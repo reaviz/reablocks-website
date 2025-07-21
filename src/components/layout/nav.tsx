@@ -97,7 +97,7 @@ export const Nav: FC = () => {
           >
             <Link
               href={href}
-              className="text-content-secondary hover:text-content-primary text-base leading-6 font-semibold transition-colors"
+              className="text-mist-gray hover:text-white text-base leading-6 font-semibold transition-colors"
               target={target}
             >
               {label}
