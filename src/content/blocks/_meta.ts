@@ -2,6 +2,7 @@ const meta = {
   index: {
     title: '👋 ⏐ Introduction',
     theme: {
+      layout: 'full',
       toc: false,
       breadcrumb: false,
       pagination: false,
