@@ -26,12 +26,13 @@ const footer = (
 
 const navbar = (
   <Navbar
+    className="font-inter"
     logo={
       <div className="flex items-center gap-2">
         <LogoIcon className="h-fit w-[150px] text-[var(--foreground)]" />
       </div>
     }
-    projectLink="https://github.com/reaviz/reagraph"
+    projectLink="https://github.com/reaviz/reablocks"
   />
 );
 export default async function RootLayout({

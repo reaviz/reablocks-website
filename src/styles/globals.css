@@ -436,6 +436,10 @@ body {
   --tooltip-border-radius: 5px;
 }
 
+.nextra-sidebar {
+  font-family: var(--font-inter), 'sans-serif';
+}
+
 .nextra-nav-container > nav {
   background-color: var(--background) !important;
 }
