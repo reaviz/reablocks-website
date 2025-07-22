@@ -146,8 +146,7 @@
   --breakpoint-2xl: 1440px;
 
   /* Fonts */
-  --font-gilroy: Gilroy, sans-serif;
-  --font-inter: Inter, sans-serif;
+  --font-sans: Inter, sans-serif;
   --font-mono: Fira Code, monospace;
 
   --shadow-code: 0px_4px_16px_0px_rgba(0,0,0,0.25);
@@ -437,7 +436,7 @@ body {
 }
 
 .nextra-sidebar {
-  font-family: var(--font-inter), 'sans-serif';
+  font-family: var(--font-sans), 'sans-serif';
 }
 
 .nextra-nav-container > nav {
@@ -536,6 +535,12 @@ body {
 
 pre.highlighter code {
   display: block;
+}
+
+pre {
+  background-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)77%/.1);
+  box-shadow: none;
+  border-radius: .75rem;
 }
 
 .prismjs > div {

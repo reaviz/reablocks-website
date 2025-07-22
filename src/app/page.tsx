@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 import React from 'react';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
@@ -17,22 +17,15 @@ import LogoIcon from '../../public/logo.svg';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Reablocks - Open Source ReactJS Component Library",
+  title: 'Reablocks - Open Source ReactJS Component Library',
   description:
-    "50+ Components for ReactJS based on Tailwind CSS and Framer Motion",
+    '50+ Components for ReactJS based on Tailwind CSS and Framer Motion'
 };
 
 export default function Home() {
   return (
     <main
       className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden text-white`}
-      style={
-        {
-          '--tw-gradient-from': '#11111F',
-          '--tw-gradient-via': '#11111F',
-          '--tw-gradient-to': '#121212'
-        } as React.CSSProperties
-      }
     >
       <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#00000020] to-transparent" />
       <Header />
@@ -143,7 +136,7 @@ export default function Home() {
         >
           <Hero />
         </HeroParallax>
-        <section className="container mt-20 mx-auto px-4 md:px-12 2xl:!px-0">
+        <section className="container mx-auto mt-20 px-4 md:px-12 2xl:!px-0">
           <div className="flex w-full items-center gap-2">
             <div className="to-secondary h-px flex-1 bg-gradient-to-r from-transparent" />
             <SparklesIcon className="h-3 w-3" />
@@ -152,7 +145,7 @@ export default function Home() {
             <div className="from-secondary h-px flex-1 bg-gradient-to-r to-transparent" />
           </div>
         </section>
-        <section className="container mt-20 mx-auto px-4 md:px-12 2xl:!px-0">
+        <section className="container mx-auto mt-20 px-4 md:px-12 2xl:!px-0">
           <div className="mb-4 flex flex-col items-start gap-4 md:mb-20 lg:max-w-[50%]">
             <a href="https://github.com/reaviz/reablocks" target="_blank">
               <img
@@ -170,7 +163,9 @@ export default function Home() {
               scalable, high-performance applications.
             </p>
           </div>
-          <span className="px-3 lg:pl-0 text-2xl font-bold">Getting Started 🚀</span>
+          <span className="px-3 text-2xl font-bold lg:pl-0">
+            Getting Started 🚀
+          </span>
           <div className="mt-4 mb-4 md:mb-20">
             <Divider className="absolute left-0 hidden md:block" />
             <div className="flex flex-col gap-2 md:flex-row md:py-3">
