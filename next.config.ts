@@ -2,14 +2,31 @@ import nextra from 'nextra';
 
 const withNextra = nextra({
   latex: true,
-  defaultShowCopyCode: true,
+  defaultShowCopyCode: true
 });
 
 const nextConfig = withNextra({
   reactStrictMode: true,
 
-  webpack(config, { isServer }) {
+  // Rewrites required for PostHog ingestion endpoints
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*'
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*'
+      },
+      {
+        source: '/ingest/decide',
+        destination: 'https://us.i.posthog.com/decide'
+      }
+    ];
+  },
 
+  webpack(config, { isServer }) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule: any) =>
       rule.test?.test?.('.svg')
@@ -20,14 +37,14 @@ const nextConfig = withNextra({
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
+        resourceQuery: /url/ // *.svg?url
       },
       // Convert all other *.svg imports to React components
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
+        use: ['@svgr/webpack']
       }
     );
 
@@ -35,7 +52,7 @@ const nextConfig = withNextra({
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
-  },
+  }
 });
 
 export default nextConfig;
