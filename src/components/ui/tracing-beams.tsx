@@ -91,12 +91,12 @@ export const TracingBeams = ({
           </svg>
         </div>
       </motion.div>
-      <div ref={contentRef}>{children}</div>
+      <div ref={contentRef} className="2xl:max-w-[1440px]">{children}</div>
       <motion.div
         ref={ref}
         className={cn("relative flex-1", containerClassName)}
       >
-        <div className={cn("absolute right-8 z-50", className)}>
+        <div className={cn("absolute right-3 z-50", className)}>
           <svg
             viewBox={`0 0 20 ${svgHeight}`}
             width="20"

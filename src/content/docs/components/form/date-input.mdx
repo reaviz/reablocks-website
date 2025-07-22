@@ -1,0 +1,21 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+
+# Date Input
+A visual way to choose a date using a calendar view and input box.
+
+## Examples
+
+#### Basic Usage
+<StoryRenderer path="components/DateInput.story.tsx" name="Simple" storybookKey="components-form-date-input--simple" />
+
+#### Date Presets
+Allow to select a date from a predefined set of dates, useful for applications requiring a specific date selection.
+User can use the `presets` prop to define the presets.
+
+<StoryRenderer path="components/DateInput.story.tsx" name="Preset" storybookKey="components-form-date-input--with-presets" />
+
+## API
+### Component
+<PropsTable name="DateInput" />

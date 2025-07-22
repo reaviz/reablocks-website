@@ -1,0 +1,59 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# IconButton
+The IconButton component integrates icons within buttons, combining the visual appeal of icons with the functionality of buttons.
+This component is crucial for creating intuitive and space-efficient user interfaces, especially in applications requiring a clean and modern aesthetic.
+
+## Quick Start
+To start using the `IconButton` component, import it from the `reablocks` library.
+
+<Runner code={`import { IconButton } from 'reablocks';
+
+export default function App() {
+  return <IconButton>©</IconButton>
+}`}
+/>
+
+## Examples
+### Basic Usage
+#### Icon Buttons with Type Variations
+The `IconButton` component integrates icons into buttons, providing various style variants like "filled", "outline", and "text".
+These options allow for versatile use across your UI, depending on the intended visual impact and user interaction:
+<StoryRenderer path="components/IconButton.story.tsx" name="Variants" storybookKey="components-elements-iconbutton--variants" />
+
+### Advanced Customization
+#### Icon Buttons with Color Variations
+`IconButton` supports different color schemes to signify various actions or statuses, enhancing the UX with visual cues.
+You can customize the background, icon color, and border to fit your application's design language.
+<StoryRenderer path="components/IconButton.story.tsx" name="ColorsBackground" storybookKey="components-elements-iconbutton--colors-background" />
+<StoryRenderer path="components/IconButton.story.tsx" name="ColorsIcons" storybookKey="components-elements-iconbutton--colors-icons" />
+<StoryRenderer path="components/IconButton.story.tsx" name="ColorsOutline" storybookKey="components-elements-iconbutton--colors-outline" />
+
+#### Icon Buttons with Size Variations
+Adjusting the size of `IconButtons` is straightforward, allowing them to fit seamlessly into different parts of your application, from toolbars to forms:
+<StoryRenderer path="components/IconButton.story.tsx" name="Sizes" storybookKey="components-elements-iconbutton--sizes" />
+
+
+## Theme Customization
+Customize the IconButton's appearance with our default theme or your tailored version to ensure it complements your application's style.
+Here's the default theme structure:
+<ThemeRender name="button" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Each property of the IconButton is detailed below, providing insight into how to fully utilize the component's capabilities.
+
+{/* TODO Incorect DOC for IconButton due to extend with Omit of Button */}
+<PropsTable name="Button" />
+
+## Design and Usability Tips
+- **Accessibility Considerations:** Ensure that `IconButtons` are accessible by providing appropriate `aria-labels` for screen readers.
+Icons might convey meaning visually, but without proper labels, they can be meaningless or confusing to visually impaired users.
+
+- **Spacing and Sizing for Touch:** Consider the touch target size, especially for touch-screen device users.
+Ensure `IconButtons` are large enough to be easily tapped without accidentally activating neighboring elements.
+The recommended minimum touch target size is 48x48 pixels.

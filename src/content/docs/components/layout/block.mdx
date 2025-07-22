@@ -1,0 +1,32 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Block
+Simple block component.
+
+## Examples
+<StoryRenderer path="components/Block.story.tsx" name="Label" storybookKey="components-layout-block--label" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="block" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Block" />

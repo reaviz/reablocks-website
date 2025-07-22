@@ -1,12 +1,14 @@
-import metadata from 'reablocks/stories/docs.json';
-import { Card } from 'reablocks';
+'use client'
 
-export const PropsTable = ({ name }) => {
+import metadata from 'reablocks/stories/docs.json';
+import { Card, theme } from 'reablocks';
+
+export const PropsTable = ({ name }: { name: string }) => {
   const data: any = metadata.find((m) => m.displayName === name);
   const keys = Object.keys(data?.props ?? {});
 
   return (
-    <Card className="mt-5 p-3">
+    <Card className="mt-5 p-3" theme={theme.components.card}>
       <table className="w-full text-base">
         <thead className="border-b-[1px] border-[rgba(241,245,249,0.2)]">
           <tr className="opacity-60">
@@ -32,7 +34,7 @@ export const PropsTable = ({ name }) => {
                 {data.props[prop].type && (
                   <>
                     <br />
-                    <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10 rb-code">
+                    <code className="border-black border-opacity-[0.04] bg-opacity-[0.03] bg-black break-words rounded-md border py-0.5 px-[.25em] text-[.9em] dark:border-white/10 dark:bg-white/10 nextra-code">
                       {data.props[prop].type.name}
                     </code>
                   </>
@@ -40,7 +42,7 @@ export const PropsTable = ({ name }) => {
               </td>
               <td className="p-[5px]">
                 {data.props[prop].defaultValue && (
-                  <code className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10">
+                  <code className="border-gray-200 border-opacity-[0.04] bg-opacity-[0.03] bg-gray-100 break-words rounded-md border py-0.5 px-[.25em] text-[.9em] dark:border-white/10 dark:bg-white/10">
                     {data.props[prop].defaultValue.value}
                   </code>
                 )}

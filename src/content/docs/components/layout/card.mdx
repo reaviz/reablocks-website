@@ -1,0 +1,28 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Card
+Cards are a fundamental building block for compositions, such as forms, or sections.
+
+## Examples
+<StoryRenderer path="components/Card.story.tsx" name="Basic" storybookKey="components-layout-card--basic" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="card" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Card" />

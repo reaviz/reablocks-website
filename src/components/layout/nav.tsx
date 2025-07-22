@@ -1,28 +1,29 @@
-import { motion } from "motion/react";
-import Image from "next/image";
-import Link from "next/link";
-import { FC, useState } from "react";
+import { motion } from 'motion/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FC, useState } from 'react';
+import LogoIcon from '../../../public/logo.svg';
 
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn';
 
 const navLinks = [
   {
-    label: "Docs",
-    href: "/docs",
+    label: 'Docs',
+    href: '/docs'
   },
   {
-    label: "Blocks",
-    href: "/blocks",
+    label: 'Blocks',
+    href: '/blocks'
   },
   {
-    label: "Storybook",
-    href: "https://storybook.reablocks.dev",
+    label: 'Storybook',
+    href: 'https://storybook.reablocks.dev'
   },
   {
-    label: "GitHub",
-    href: "https://github.com/reaviz/reablocks",
-    target: "_blank",
-  },
+    label: 'GitHub',
+    href: 'https://github.com/reaviz/reablocks',
+    target: '_blank'
+  }
 ];
 
 export const Nav: FC = () => {
@@ -31,27 +32,21 @@ export const Nav: FC = () => {
   return (
     <nav
       className={cn(
-        "relative flex h-fit w-full max-w-[1440px] items-center p-6 transition-[box-shadow] md:justify-center",
-        isNavOpen && "shadow-xl",
+        'relative flex h-fit w-full max-w-[1440px] items-center p-6 transition-[box-shadow] md:justify-center',
+        isNavOpen && 'shadow-xl'
       )}
       aria-label="Global"
     >
-      <div className="absolute left-4 top-3 flex-1 md:left-24 md:top-7">
-        <a href="#">
+      <div className="absolute top-3 left-4 flex-1 md:top-7 md:left-20">
+        <a href="/">
           <span className="sr-only">reablocks</span>
-          <Image
-            draggable={false}
-            src="/logo.svg"
-            alt="logo"
-            width={122}
-            height={24}
-          />
+          <LogoIcon className="h-fit w-[150px] text-white" />
         </a>
       </div>
-      <div className="absolute right-4 top-3 flex md:hidden">
+      <div className="absolute top-3 right-4 flex md:hidden">
         <button
           type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-content-secondary"
+          className="text-content-secondary -m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
           onClick={() => setIsNavOpen(!isNavOpen)}
         >
           <span className="sr-only">Open main menu</span>
@@ -102,7 +97,7 @@ export const Nav: FC = () => {
           >
             <Link
               href={href}
-              className="text-base font-semibold leading-6 text-content-secondary transition-colors hover:text-content-primary"
+              className="text-mist-gray hover:text-white text-base leading-6 font-semibold transition-colors"
               target={target}
             >
               {label}
@@ -119,7 +114,7 @@ export const Nav: FC = () => {
               animate={{ opacity: 1, x: 0, transition: { delay: 0.1 * index } }}
             >
               <Link
-                className="text-content-secondary transition-colors hover:text-content-primary lg:inline-block"
+                className="text-content-secondary hover:text-content-primary transition-colors lg:inline-block"
                 href={href}
                 target={target}
                 onClick={() => setIsNavOpen(false)}

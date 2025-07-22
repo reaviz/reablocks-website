@@ -1,0 +1,36 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Stepper
+A representation of a user's progress through a series of discrete steps.
+
+## Examples
+### Markers
+<StoryRenderer path="components/Stepper.story.tsx" name="Markers" storybookKey="components-layout-stepper--markers" />
+
+### Numbered
+<StoryRenderer path="components/Stepper.story.tsx" name="Numbered" storybookKey="components-layout-stepper--numbered" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="🕦 Timeline" href="/blocks/foundation/timeline" />
+  <Cards.Card title="👤 Profile" href="/blocks/administration/profile" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="stepper" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+### Stepper
+<PropsTable name="Stepper" />
+
+### Step
+<PropsTable name="Step" />

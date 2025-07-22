@@ -1,0 +1,72 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+
+# Input
+The Input component is a fundamental element in form design, allowing users to enter data.
+Its versatility supports a variety of applications, from simple text entries to complex data inputs.
+
+## Examples
+### Basic Usage
+A straightforward implementation of the Input component for basic text entry:
+<StoryRenderer path="components/Input.story.tsx" name="Basic" storybookKey="components-form-input--basic" />
+
+### Advanced Customization
+#### Size Variations
+Adjust the size of the input field (small, medium, large) to accommodate different content lengths and interface designs:
+<StoryRenderer path="components/Input.story.tsx" name="Sizes" storybookKey="components-form-input--sizes" />
+
+#### Full Width
+Extend the input field to the full width of its container, ideal for forms or sections requiring larger text entries:
+<StoryRenderer path="components/Input.story.tsx" name="FullWidth" storybookKey="components-form-input--full-width" />
+
+#### Adornments at Start/End
+Enhance input fields with icons or text at the start or end to provide context or additional functionalities:
+<StoryRenderer path="components/Input.story.tsx" name="StartEndAdorment" storybookKey="components-form-input--start-end-adorment" />
+
+#### State Variations
+Implement variations for error states and disabled inputs, providing visual feedback and interaction cues.
+
+- **Error**
+<StoryRenderer path="components/Input.story.tsx" name="Error" storybookKey="components-form-input--error" />
+- **Disabled**
+<StoryRenderer path="components/Input.story.tsx" name="Disabled" storybookKey="components-form-input--disabled" />
+
+### Value Initialization
+Set initial values or placeholders to guide user input or display default values:
+- **Placeholder**
+<StoryRenderer path="components/Input.story.tsx" name="Placeholder" storybookKey="components-form-input--placeholder" />
+- **Default value**
+<StoryRenderer path="components/Input.story.tsx" name="DefaultValue" storybookKey="components-form-input--default-value" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+</Cards>
+
+## Theme Customization
+Customize the Input component's appearance to align with your application's theme:
+<ThemeRender name="input" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Fine-tune the Input component's behavior and appearance with these configurable properties:
+<PropsTable name="Input" />
+
+## Design and Usability Tips
+
+- **Consistent Field Width:** Design input fields with a width that hints at the expected length of the answer. For example, shorter fields for postal codes or longer fields for descriptions. This visual cue helps users gauge the expected input at a glance.
+- **Error State Feedback:** Clearly indicate error states through text messages. Place error messages close to the related input field, and ensure they provide constructive feedback on how to resolve the issue.
+

@@ -1,0 +1,43 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Loader
+The Loader component acts as a visual placeholder, signaling to users that data is being loaded or UI components are in the process of rendering.
+This component is especially crucial for enhancing user experience during initial page loads or data fetching processes, reducing perceived wait times through engaging animations.
+
+## Quick Start
+To start using the `DotsLoader` component, import it from the `reablocks` library.
+
+<Runner code={`import { DotsLoader } from 'reablocks';
+
+export default function App() {
+  return <DotsLoader />
+}`}
+/>
+
+### Basic Usage
+
+Employ the Loader to maintain user engagement during wait times. Here's how to integrate a simple `DotsLoader` into your application:
+<StoryRenderer path="components/DotsLoader.story.tsx" name="Simple" storybookKey="components-elements-loader-dots--simple" />
+
+## Theme Customization
+
+Tailor the Loader's appearance to fit your application's aesthetic with our customizable theme options.
+The default theme includes flexible settings for base alignment, dot style, and size variations:
+<ThemeRender name="dotsLoader" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+
+Optimize the Loader's functionality and style to meet your specific requirements with these configurable properties:
+<PropsTable name="DotsLoader" />
+
+## Design and Usability Tips
+
+- **Visibility:** Place the Loader in a central, visible location to reassure users that the application is actively processing their request.
+
+- **Contextual Use:** Select Loader sizes and speeds appropriate to the context.
+For example, use smaller, faster loaders for inline loading states, and larger, more deliberate animations for page-wide loads.

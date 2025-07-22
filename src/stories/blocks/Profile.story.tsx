@@ -19,7 +19,7 @@ import { Input, Radio } from 'reablocks';
 import { Avatar, Button, Chip } from 'reablocks';
 import { Controller, useForm } from 'react-hook-form';
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"

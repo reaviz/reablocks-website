@@ -1,0 +1,53 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+import ThemeRender from '@/components/ui/theme-render';
+
+# Typography
+Component for styling text and headings. It contains a set
+of components for different heading sizes and text styles.
+
+- `PageTitle` - The page title component is used for the main title of a page.
+- `PrimaryHeading` - The primary heading component is used for the main heading of a section.
+- `SecondaryHeading` - The secondary heading component is used for the secondary heading of a section.
+- `Sub` - The sub component is used for a sub heading of a section.
+- `Text` - The text component is used for normal text.
+
+## Examples
+
+### PageTitle
+<StoryRenderer path="components/PageTitle.story.tsx" name="Simple" storybookKey="components-typography-pagetitle--simple" />
+
+### PrimaryHeading
+<StoryRenderer path="components/PrimaryHeading.story.tsx" name="Simple" storybookKey="components-typography-primaryheading--simple" />
+
+### SecondaryHeading
+<StoryRenderer path="components/SecondaryHeading.story.tsx" name="Simple" storybookKey="components-typography-secondaryheading--simple" />
+
+### Text
+<StoryRenderer path="components/Text.story.tsx" name="Simple" storybookKey="components-typography-text--simple" />
+
+### Sub
+<StoryRenderer path="components/Sub.story.tsx" name="Simple" storybookKey="components-typography-sub--simple" />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="typography" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+### PageTitle
+<PropsTable name="PageTitle" />
+
+### PrimaryHeading
+<PropsTable name="PrimaryHeading" />
+
+### SecondaryHeading
+<PropsTable name="SecondaryHeading" />
+
+### Sub
+<PropsTable name="Sub" />
+
+### Text
+<PropsTable name="Text" />

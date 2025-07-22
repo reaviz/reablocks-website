@@ -1,0 +1,56 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Data Size
+The Data Size component is designed to display data sizes in a human-readable format. 
+Leveraging the [human-format](https://www.npmjs.com/package/human-format) library, it simplifies the representation of byte values into more understandable formats such as bytes (B), kilobytes (KiB), megabytes (MiB), and so forth, up to yottabytes (YiB).
+
+## Quick Start
+To start using the `DataSize` component, import it from the `reablocks` library and enter the desired byte value as the `value` prop
+
+<Runner code={`import { DataSize } from 'reablocks';
+
+export default function App() {
+  return (
+    <DataSize value={324344535345232482} />
+  );
+}`}
+/>
+
+## Examples
+
+### Basic Usage
+You can directly use the `DataSize` component to render data sizes. 
+Here's a basic example demonstrating how various byte values are converted into human-readable formats:
+
+<StoryRenderer path="components/DataSize.story.tsx" name="Simple" storybookKey="components-data-data-size--simple" />
+
+### Handling Null/Undefined Values
+The component allows for a customizable placeholder string to be displayed when the input value is `null` or `undefined`, 
+enhancing the flexibility in various use cases:
+
+<StoryRenderer path="components/DataSize.story.tsx" name="Empty" storybookKey="components-data-data-size--empty" />
+
+## API
+The `DataSize` component and the `formatSize` function come with several configurable options:
+
+### Component API
+<PropsTable name="DateFormat" />
+
+### Function API
+For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
+you can use the `formatSize` function provided by the API:
+
+```ts
+import { formatSize, FormatSizeTypes } from 'reablocks';
+
+function yourFunction(size: FormatSizeTypes) {
+  // size = number | string | null | undefined;
+  return formatSize(size);
+}
+```
+
+## Design and Usability Tips
+
+- **Intuitive Units:** Automatically adjust units for data size to the most intuitive option (e.g., automatically displaying in MB instead of KB for large files), enhancing readability.

@@ -1,3 +1,11 @@
 {
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 80,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
   "plugins": ["prettier-plugin-tailwindcss"]
 }

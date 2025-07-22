@@ -1,0 +1,70 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Chip
+The `Chip"` component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons.
+Chips can be interactive, allowing for selection or removal, making them suitable for various applications from filtering content to showing user selections.
+
+## Quick Start
+To start using the `Chip` component, import it from the `reablocks` library.
+
+<Runner code={`import { Chip } from 'reablocks';
+
+export default function App() {
+  return <Chip>Active</Chip>
+}`}
+/>
+
+## Examples
+### Basic Usage
+The Chip component supports several style variants such as "filled" and "outline".
+This allows for clear differentiation between different chip types based on their 
+purpose or context within the UI:
+
+<StoryRenderer path="components/Chip.story.tsx" name="Variants" storybookKey="components-elements-chip--variants" />
+
+### Advanced Customization
+#### Colors and Sizes
+Chips can be customized further in terms of color and size, providing flexibility to 
+match them with the application's design theme:
+
+<StoryRenderer path="components/Chip.story.tsx" name="Colors" storybookKey="components-elements-chip--colors" />
+
+<StoryRenderer path="components/Chip.story.tsx" name="Sizes" storybookKey="components-elements-chip--sizes" />
+
+#### Icon Adornment
+Adding icons to chips enhances visual communication and can indicate additional functionalities like deletion or selection:
+<StoryRenderer path="components/Chip.story.tsx" name="Adornment" storybookKey="components-elements-chip--adornment" />
+
+#### Selectable Chips
+Chips can be made selectable, allowing users to choose one or more options from a set:
+<StoryRenderer path="components/Chip.story.tsx" name="Selectable" storybookKey="components-elements-chip--selectable" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Pricing" href="/blocks/administration/pricing" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+</Cards>
+
+## Theme Customization
+The Chip component comes with a default theme, which can be customized according to your application's design requirements:
+
+<ThemeRender name="chip" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Customize the Chip component using the following properties:
+<PropsTable name="Chip" />
+
+## Design and Usability Tips
+
+- **Dynamic Interaction:** For chips representing dynamic content (like filters), provide immediate visual feedback when the state changes (e.g., through animation) to reflect the action's impact.
+- **Accessibility Enhancements:** Beyond color, utilize shapes or icons within chips to communicate status or category for those with color vision deficiencies.

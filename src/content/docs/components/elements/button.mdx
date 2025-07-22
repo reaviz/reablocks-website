@@ -1,0 +1,173 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+
+# Button
+The `Button` component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application.
+Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesive unit, enhancing the visual consistency and usability of grouped actions.
+
+## Quick Start
+To start using the `Button` component, import it from the `reablocks` library.
+
+<Runner code={`import { Button } from 'reablocks';
+
+export default function App() {
+  return <Button>Click Me</Button>
+}`}
+/>
+
+## Examples
+### Basic Usage
+The Button component supports several variants including "filled", "outline", and 
+"text", allowing for flexibility in design and application:
+
+<StoryRenderer path="components/Button.story.tsx" name="Variants" storybookKey="components-elements-button--variants" />
+
+```javascript
+{
+  variants: {
+    filled: "bg-gray-800 text-white hover:bg-gray-700 border-gray-800",
+    outline: "bg-opacity-0 border-grey border",
+    text: "bg-opacity-0 border-0"
+  }
+}
+```
+
+### Advanced Customization
+#### Sizes and Colors
+Buttons can be customized further with size and color variations, providing a wide range of 
+styling options to match your UI design:
+
+<StoryRenderer path="components/Button.story.tsx" name="Sizes" storybookKey="components-elements-button--sizes" />
+
+Theme customization can be used to define the size variations for different button sizes:
+
+```javascript
+{
+    sizes: {
+      small: 'text-sm px-2 py-1 leading-[normal]',
+      medium: 'text-base px-4 py-2 leading-[normal]',
+      large: 'text-xl px-5 py-2.5 leading-[normal]'
+    }
+    iconSizes: {
+      small: 'p-1',
+      medium: 'p-2',
+      large: 'p-2.5'
+    }
+}
+```
+
+<StoryRenderer path="components/Button.story.tsx" name="Colors" storybookKey="components-elements-button--colors" />
+
+Theme customization can be used to define the color variations for different button types. This includes extending the default colors with custom colors:
+
+```javascript
+{
+    colors: {
+      default: {
+        filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+        outline: 'border-secondary border',
+        text: 'text-surface-content'
+      },
+      primary: {
+        filled:
+          'bg-primary hover:bg-primary-hover border-primary text-surface-content',
+        outline: 'border border-primary',
+        text: 'text-primary hover:text-primary-hover'
+      },
+      secondary: {
+        filled:
+          'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
+        outline: 'border border-secondary',
+        text: 'text-secondary hover:text-secondary-hover'
+      },
+      success: {
+        filled:
+          'bg-success hover:bg-success-hover border-success text-surface-content',
+        outline: 'border border-success',
+        text: 'text-success hover:text-success-hover'
+      },
+      warning: {
+        filled:
+          'bg-warning hover:bg-warning-hover border-warning text-surface-content',
+        outline: 'border border-warning',
+        text: 'text-warning hover:text-warning-hover'
+      },
+      error: {
+        filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
+        outline: 'border border-error',
+        text: 'text-error hover:text-error-hover'
+      },
+      // custom color e.g. pink
+      pink: {
+        filled: 'bg-pink-500 hover:bg-pink-500-hover border-pink-500 text-surface-content',
+        outline: 'border border-pink-500',
+        text: 'text-pink-500 hover:text-pink-500-hover'
+      }
+    }
+}
+```
+
+#### Buttons with Icon
+Incorporating icons with text can enhance button functionality and user understanding:
+
+<StoryRenderer path="components/Button.story.tsx" name="WithIcon" storybookKey="components-elements-button--with-icon" />
+
+Theme customization can be used to define the icon size and padding for different button sizes:
+
+```javascript
+{
+    adornment: {
+    base: "flex",
+    start: "pr-1",
+    end: "pl-1",
+    sizes: {
+      small: "[&>svg]:w-3 [&>svg]:h-3",
+      medium: "[&>svg]:w-4 [&>svg]:h-4",
+      large" "[&>svg]:w-5 [&>svg]:h-5"
+    }
+  }
+}
+```
+
+#### Group of Buttons
+The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
+<StoryRenderer path="components/ButtonGroup.story.tsx" name="Colors" storybookKey="components-elements-button-group--colors" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
+  <Cards.Card title="Billing" href="/blocks/administration/billing" />
+  <Cards.Card title="Pricing" href="/blocks/administration/pricing" />
+  <Cards.Card title="Team" href="/blocks/administration/team" />
+</Cards>
+
+## Theme Customization
+The Button component comes with a default theme that can be customized for consistency with your application's design language:
+
+<ThemeRender name="button" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+Customize the `Button` and `ButtonGroup` components through the following properties:
+### Button
+<PropsTable name="Button" />
+
+### ButtonGroup
+<PropsTable name="ButtonGroup" />
+
+## Design and Usability Tips
+
+- **Focus Indicators:** Maintain visible focus indicators for keyboard navigation, aiding in accessibility and indicating the current interactive element to users.
+- **Efficient Space Use:** Optimize button sizes and padding to use space efficiently while ensuring touch targets meet accessibility standards (minimum 44x44 pixels).

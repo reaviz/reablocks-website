@@ -1,0 +1,39 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Duration
+The Duration component is designed to represent time durations derived from epoch time values in an easily interpretable format. 
+It's suitable for displaying durations like processing times, event lengths, or intervals in a [human-format](https://www.npmjs.com/package/human-format).
+
+## Quick Start
+To start using the `Duration` component, import it from the `reablocks` library and provide the `value` props in miliseconds.
+
+<Runner code={`import { Duration } from 'reablocks';
+
+export default function App() {
+  return (
+    <Duration value="123459101" />
+  );
+}`}
+/>
+
+## Examples
+<StoryRenderer path="components/Duration.story.tsx" name="Simple" storybookKey="components-data-duration--simple" />
+
+## API
+### Component
+<PropsTable name="Duration" />
+
+### Function
+For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
+you can use the `formatDuration` function provided by the API:
+
+```ts
+import { formatDuration, DurationFormatTypes } from 'reablocks';
+
+function yourFunction(size: DurationFormatTypes) {
+  // size = number | string | null | undefined;
+  return formatDuration(size);
+}
+```
