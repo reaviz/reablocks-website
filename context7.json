@@ -1,0 +1,16 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Reablocks",
+  "description": "🧩 Component Library for React based on Tailwind. Maintained by @goodcodeus.",
+  "folders": ["src/pages", "src/stories"],
+  "excludeFolders": [],
+  "excludeFiles": [],
+  "rules": [
+    "Use Tailwind v4 for styling",
+    "Use reablocks for components",
+    "Use instructions in setup.mdx to setup reablocks",
+    "Analyze stories to understand the components before writing code",
+    "Use Reablocks tokens for tailwind configuration from setup.mdx",
+    "Use the latest version of reablocks"
+  ]
+}
