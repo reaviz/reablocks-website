@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { MotionProps } from 'motion/react';
 import { Dialog } from 'reablocks';
 import { useDialog } from 'reablocks';
 import { Button } from 'reablocks';
@@ -101,7 +100,9 @@ export const ConfirmDialog = () => {
         header="Whats up"
         footer={
           <Stack justifyContent="end" className="w-full">
-            <Button>Cancel</Button>
+            <Button variant="outline" color="secondary">
+              Cancel
+            </Button>
             <Button color="primary">Save</Button>
           </Stack>
         }

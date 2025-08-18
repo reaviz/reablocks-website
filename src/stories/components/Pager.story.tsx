@@ -16,7 +16,9 @@ export const ShowPages = () => {
       size={10}
       total={100}
       onPageChange={setPage}
-      displayMode="pages"
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
     />
   );
 };
