@@ -1,0 +1,67 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { Runner } from '@/components/ui/runner';
+import ThemeRender from '@/components/ui/theme-render';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Navigation
+The Navigation component serves as the primary entry point for users to explore an application’s key sections. It provides a clear, consistent structure for navigating between core pages or features, ensuring users can easily orient themselves and move through the interface. Typically positioned at the top or side of the layout, it may include icons, labels, dropdowns, or interactive states for active and hovered items.
+
+## Quick Start
+To start using the `NavigationBar` component, import it from the `reablocks` library along with `NavigationButton`.
+
+<Runner code={`
+  import { NavigationBar, NavigationButton } from 'reablocks';
+  import { useState } from 'react';
+
+  export default function App() {
+    const [active, setActive] = useState<number>(1);
+
+    return (
+      <NavigationBar >
+        <NavigationButton
+          active={active === 1}
+          onClick={() => setActive(1)}
+        >
+          Home
+        </NavigationButton>
+        <NavigationButton
+          active={active === 2}
+          onClick={() => setActive(2)}
+        >
+          Dashboard
+        </NavigationButton>
+        <NavigationButton
+          active={active === 3}
+          onClick={() => setActive(3)}
+        >
+          Settings
+        </NavigationButton>
+      </NavigationBar>
+    );
+  }
+`} />
+
+## Examples
+### Text & Icon
+A navigation button that combines text labels with icons for better clarity.
+<StoryRenderer path="components/Navigation.story.tsx" name="Text" storybookKey="components-elements-navigation-text"/>
+
+### Icon
+A compact navigation style that uses only icons, saving space and focusing on visuals.
+<StoryRenderer path="components/Navigation.story.tsx" name="Icons" storybookKey="components-elements-navigation-icon"/>
+
+### Horizontal
+Displays navigation items in a horizontal row, often used at the top of an application.
+<StoryRenderer path="components/Navigation.story.tsx" name="Horizontal" storybookKey="components-elements-navigation-horizontal"/>
+
+### Without animation
+A simplified version of navigation where button selection animations are disabled using the `disableAnimation` property.
+<StoryRenderer path="components/Navigation.story.tsx" name="AnimationDisabled" storybookKey="components-elements-navigation-animation-disabled"/>
+
+## Theme Customization
+The Navigation component is designed with a default theme that can be customized to match your application's aesthetic:
+
+<ThemeRender name="navigation" />
+
+<PropsTable name="NavigationBar" />
+<PropsTable name="NavigationButton" />
