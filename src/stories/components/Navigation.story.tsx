@@ -1,6 +1,6 @@
 import { NavigationTheme } from 'reablocks';
 import { NavigationButton } from 'reablocks';
-import { mergeDeep, useComponentTheme } from 'reablocks';
+import { extendComponentTheme, useComponentTheme } from 'reablocks';
 import { useId, useState } from 'react';
 import { NavigationBar } from 'reablocks';
 
@@ -502,7 +502,7 @@ export const CustomTheme = () => {
   const id = useId();
   const navigationTheme: NavigationTheme = useComponentTheme('navigation');
 
-  const customTheme: NavigationTheme = mergeDeep(navigationTheme, {
+  const customTheme: NavigationTheme = extendComponentTheme(navigationTheme, {
     bar: {
       base: 'flex flex-col p-4 gap-4 rounded-md shadow-[0_4px_20px_0_#e1e2e333_inset] bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base'
     },

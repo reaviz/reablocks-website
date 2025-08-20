@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { Notifications, NotificationsContext } from 'reablocks';
-import { Text } from 'reablocks';
 import { Button } from 'reablocks';
 import { Badge } from 'reablocks';
 

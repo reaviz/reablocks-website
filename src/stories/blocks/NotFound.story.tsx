@@ -7,7 +7,7 @@ import {
 } from 'reablocks';
 import { Button } from 'reablocks';
 import { Input } from 'reablocks';
-import { PageTitle } from 'reablocks';
+import { PageTitle, Typography } from 'reablocks';
 import { Chip } from 'reablocks';
 
 export default {
@@ -957,9 +957,9 @@ export const DoesNotExist = () => (
         >
           404
         </Chip>
-        <PageTitle className="font-bold my-3 text-content-text-neutral-2">
+        <Typography variant="h1" weight="bold" color="secondary" className="my-3">
           This page does not exist
-        </PageTitle>
+        </Typography>
         <span className="text-content-text-neutral-2">
           Sorry, we couldn't find the page you're looking for.
         </span>
