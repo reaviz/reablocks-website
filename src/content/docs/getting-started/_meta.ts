@@ -2,7 +2,8 @@ const meta = {
   setup: "Setup",
   philosophy: "Philosophy",
   storybook: "Storybook",
-  migration: "Migration",
+  migration: { title: 'Migration', theme: { collapsed: false } },
+
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import { StoryRenderer } from '@/components/ui/story-renderer';
 ## Migrating from 9.x to 10.x
 In 10.x version we've introduced new [Unify Design System](https://unifydesignsystem.com/#process) with component styles update and several breaking changes related to the theme.
 
-If you don't want to use updated styles you can continue using the previous version of Reablocks theme:
+If you’d prefer to keep the look and feel from 9.x, don’t worry — you can still use the legacy Reablocks theme:
 
 ```tsx
 import { themeV9 } from 'reablocks';
@@ -16,16 +16,19 @@ instead of
 import { theme } from 'reablocks';
 ```
 
-and just merge it with your custom theme. Pay attention that theme interface for some component was changed, so you need to update your custom theme accordingly.
+From there, you can merge it with your custom theme as before. Please note: the theme interface has changed for some components, so you may need to adjust your custom theme accordingly.
 
-Additionally need to add Reablocks [default tokens](#9x-theme-tokens) to your project if you didn't do it before:
+If you haven’t already, make sure to also include the Reablocks [default tokens](#9x-theme-tokens) in your project.
 
+---
 
 ### Breaking changes
 
 #### Button component
 
-Removed `default`, `success`, `error` and `warning` color types. If Button component have used in project without default color property, please add `color="primary"`. Even if colors were removed from interface they still present in old theme and you can still use it
+* The `default`, `success`, `error` and `warning` color types have been removed.
+* If you were using a Button without specifying a color, please add `color="primary"`.
+* While these color options are no longer part of the interface, they remain available in the legacy theme if you’re still using it.
 
 #### Chip component
 Introduced `type` component property with default `badge` value and `types` theme level to define separately styles for `badge` and `tag`. Selection and close functionality moved to `tag` type.
@@ -50,18 +53,31 @@ Instead of these components introduced single `Typography` component with `varia
 
 Marked as deprecated
 
-### Features
+---
 
-Along with breaking changes, we've introduced several new features: Typography (mentioned above) and Navigation component.
+### New Features
+
+Alongside these changes, version 10.x also brings exciting new components:
+
+#### Typography
+
+A single, flexible Typography component (as described above).
 
 #### Navigation component
 
-Vertical:
+Vertical layout:
 <StoryRenderer path="components/Navigation.story.tsx" name="Text"/>
 
-Horizontal:
+Horizontal layout:
 <StoryRenderer path="components/Navigation.story.tsx" name="Horizontal"/>
 
+---
+
+✅ That’s it!
+
+We hope these improvements make your experience with Reablocks even better. If you run into any issues, please let us know—we’d love to help.
+
+---
 
 ### 9.x theme tokens
 ```css
@@ -127,19 +143,19 @@ Horizontal:
   transparent 100%
   );
   --button-gradient: linear-gradient(
-  283deg,
-  #0808a5 0%,
-  rgba(8, 8, 165, 0) 100%
+    283deg,
+    #0808a5 0%,
+    rgba(8, 8, 165, 0) 100%
   );
   --button-gradient-hover: linear-gradient(
-  283deg,
-  #44f 0%,
-  rgba(23, 23, 255, 0.1) 100%
+    283deg,
+    #44f 0%,
+    rgba(23, 23, 255, 0.1) 100%
   );
   --button-gradient-focus: linear-gradient(
-  283deg,
-  #0d0dd2 0%,
-  rgba(23, 23, 255, 0.1) 100%
+    283deg,
+    #0d0dd2 0%,
+    rgba(23, 23, 255, 0.1) 100%
   );
 
   .theme-light,
