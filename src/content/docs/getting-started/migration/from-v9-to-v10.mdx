@@ -1,13 +1,90 @@
-@import "tailwindcss";
-@import "../../node_modules/reablocks/dist/styles/index.css";
-
-@source './**/*.{ts,tsx}';
-@source '../../node_modules/reablocks';
+import { StoryRenderer } from '@/components/ui/story-renderer';
 
 
-/* Color palette */
-:root,
-:host {
+## Migrating from 9.x to 10.x
+In 10.x version we've introduced new [Unify Design System](https://unifydesignsystem.com/#process) with component styles update and several breaking changes related to the theme.
+
+If you’d prefer to keep the look and feel from 9.x, don’t worry — you can still use the legacy Reablocks theme:
+
+```tsx
+import { themeV9 } from 'reablocks';
+```
+
+instead of
+
+```tsx
+import { theme } from 'reablocks';
+```
+
+From there, you can merge it with your custom theme as before. Please note: the theme interface has changed for some components, so you may need to adjust your custom theme accordingly.
+
+If you haven’t already, make sure to also include the Reablocks [default tokens](#9x-theme-tokens) in your project.
+
+---
+
+### Breaking changes
+
+#### Button component
+
+* The `default`, `success`, `error` and `warning` color types have been removed.
+* If you were using a Button without specifying a color, please add `color="primary"`.
+* While these color options are no longer part of the interface, they remain available in the legacy theme if you’re still using it.
+
+#### Chip component
+Introduced `type` component property with default `badge` value and `types` theme level to define separately styles for `badge` and `tag`. Selection and close functionality moved to `tag` type.
+
+Badge:
+<StoryRenderer path="components/ChipBadge.story.tsx" name="Colors"/>
+
+Tag (Selectable):
+<StoryRenderer path="components/ChipTag.story.tsx" name="Selectable"/>
+
+Tag (Closable):
+<StoryRenderer path="components/ChipTag.story.tsx" name="Closable"/>
+
+#### Typography
+`PageTitle`, `PrimaryHeading`, `SecondaryHeading`, `SmallHeading`, `Sub` and `Text` marked as deprecated.
+
+Instead of these components introduced single `Typography` component with `variant` property to define typography type.
+
+<StoryRenderer path="components/Typography.story.tsx" name="Label"/>
+
+#### DeletableChip component
+
+Marked as deprecated
+
+---
+
+### New Features
+
+Alongside these changes, version 10.x also brings exciting new components:
+
+#### Typography
+
+A single, flexible Typography component (as described above).
+
+#### Navigation component
+
+Vertical layout:
+<StoryRenderer path="components/Navigation.story.tsx" name="Text"/>
+
+Horizontal layout:
+<StoryRenderer path="components/Navigation.story.tsx" name="Horizontal"/>
+
+---
+
+✅ That’s it!
+
+We hope these improvements make your experience with Reablocks even better. If you run into any issues, please let us know—we’d love to help.
+
+---
+
+### 9.x theme tokens
+```css
+
+  /* Color palette */
+  :root,
+  :host {
   --reablocks-theme: dark;
 
   /* Primary colors */
@@ -55,15 +132,15 @@
   --surface-accent: var(--color-blue-500);
 
   /* Text colors */
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-mist-gray);
+  --text-primary: var(--color-athens-gray);
+  --text-secondary: var(--color-waterloo);
 
   /* Custom Backgrounds */
   --bottom-border-glow: radial-gradient(
-    circle at center,
-    var(--color-anakiwa) 0,
-    blue,
-    transparent 100%
+  circle at center,
+  var(--color-anakiwa) 0,
+  blue,
+  transparent 100%
   );
   --button-gradient: linear-gradient(
     283deg,
@@ -81,76 +158,72 @@
     rgba(23, 23, 255, 0.1) 100%
   );
 
-  .light,
-  &.light,
+  .theme-light,
+  &.theme-light,
   [data-theme='light'],
   &[data-theme='light'] {
-    --reablocks-theme: light;
+  --reablocks-theme: light;
 
-    /* Primary colors */
-    --primary: var(--color-blue-500);
-    --primary-active: var(--color-blue-500);
-    --primary-hover: var(--color-blue-600);
-    --primary-inactive: var(--color-gray-500);
+  /* Primary colors */
+  --primary: var(--color-blue-500);
+  --primary-active: var(--color-blue-500);
+  --primary-hover: var(--color-blue-600);
+  --primary-inactive: var(--color-gray-500);
 
-    /* Secondary colors */
-    --secondary: var(--color-blue-200);
-    --secondary-active: var(--color-blue-200);
-    --secondary-hover: var(--color-blue-300);
-    --secondary-inactive: var(--color-waterloo);
+  /* Secondary colors */
+  --secondary: var(--color-blue-200);
+  --secondary-active: var(--color-blue-200);
+  --secondary-hover: var(--color-blue-300);
+  --secondary-inactive: var(--color-waterloo);
 
-    /* Success colors */
-    --success: var(--color-green-500);
-    --success-active: var(--color-green-500);
-    --success-hover: var(--color-green-600);
-    --success-background: var(--color-green-100);
+  /* Success colors */
+  --success: var(--color-green-500);
+  --success-active: var(--color-green-500);
+  --success-hover: var(--color-green-600);
+  --success-background: var(--color-green-100);
 
-    /* Error colors */
-    --error: var(--color-red-500);
-    --error-active: var(--color-red-400);
-    --error-hover: var(--color-red-600);
-    --error-background: var(--color-red-100);
+  /* Error colors */
+  --error: var(--color-red-500);
+  --error-active: var(--color-red-400);
+  --error-hover: var(--color-red-600);
+  --error-background: var(--color-red-100);
 
-    /* Warning colors */
-    --warning: var(--color-orange-500);
-    --warning-active: var(--color-orange-500);
-    --warning-hover: var(--color-orange-600);
-    --warning-background: var(--color-orange-100);
+  /* Warning colors */
+  --warning: var(--color-orange-500);
+  --warning-active: var(--color-orange-500);
+  --warning-hover: var(--color-orange-600);
+  --warning-background: var(--color-orange-100);
 
-    /* Info colors */
-    --info: var(--color-blue-500);
-    --info-active: var(--color-blue-500);
-    --info-hover: var(--color-blue-600);
-    --info-background: var(--color-blue-100);
+  /* Info colors */
+  --info: var(--color-blue-500);
+  --info-active: var(--color-blue-500);
+  --info-hover: var(--color-blue-600);
+  --info-background: var(--color-blue-100);
 
-    /* Panel colors */
-    --panel: var(--color-white);
-    --panel-accent: var(--color-mystic);
+  /* Panel colors */
+  --panel: var(--color-white);
+  --panel-accent: var(--color-mystic);
 
-    /* Surface colors */
-    --surface: var(--color-gray-300);
-    --surface-accent: var(--color-blue-500);
+  /* Surface colors */
+  --surface: var(--color-gray-300);
+  --surface-accent: var(--color-blue-500);
 
-    /* Text colors */
-    --text-primary: var(--color-vulcan);
-    --text-secondary: var(--color-gray-700);
-  }
+  /* Text colors */
+  --text-primary: var(--color-vulcan);
+  --text-secondary: var(--color-gray-700);
+}
 }
 
-/* Custom variants */
-@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
-@custom-variant light (&:where(.light, .light *, [data-theme=light], [data-theme=light] *));
-@custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
+  /* Custom variants */
+  @custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *));
+  @custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *));
+  @custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
 
-/* Define theme tokens */
-@theme inline {
-  --breakpoint-2xl: 1440px;
-
+  /* Define theme tokens */
+  @theme inline {
   /* Fonts */
   --font-sans: Inter, sans-serif;
   --font-mono: Fira Code, monospace;
-
-  --shadow-code: 0px_4px_16px_0px_rgba(0,0,0,0.25);
 
   /* Font sizes */
   --text-xs: 0.625rem; /* 10px */
@@ -161,7 +234,6 @@
   --text-base--line-height: 1.25rem;
   --text-lg: 1rem; /* 16px */
   --text-lg--line-height: 1.5rem;
-  --text-7.5xl: 5.625rem;
 
   /* Primary colors */
   --color-primary: var(--primary);
@@ -387,173 +459,10 @@
   /* Named colors */
   --color-black-pearl: #02020f;
   --color-athens-gray: #f7f7fa;
-  --color-athens-dark-navy-overlay: #0909194D;
-  --color-mist-gray: #ADAFBD;
   --color-mystic: #e6e6f0;
   --color-vulcan: #11111f;
   --color-charade: #242433;
   --color-waterloo: #77778c;
   --color-anakiwa: #93b6ff;
 }
-
-body {
-  line-height: inherit;
-}
-
-/* Backdrop background for layouts component */
-.backdrop-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--backdrop-url);
-}
-
-
-html.light {
-  --background: #ffffff;
-  --tooltip-background: #f7f7fa;
-  --tooltip-color: #3d3d4d;
-  --foreground: #000000;
-  --foreground-rgb: 0, 0, 0;
-}
-
-html.dark {
-  --background: #11101f;
-  --tooltip-background: #00050be6;
-  --tooltip-color: #fff;
-  --foreground: #ffffff;
-  --foreground-rgb: 255, 255, 255;
-}
-
-body {
-  color: rgb(var(--foreground-rgb)) !important;
-  background-color: var(--background) !important;
-  --tooltip-spacing: 5px;
-  --tooltip-border-radius: 5px;
-}
-
-.nextra-sidebar {
-  font-family: var(--font-sans), 'sans-serif';
-}
-
-.nextra-nav-container > nav {
-  background-color: var(--background) !important;
-}
-
-.nextra-nav-container {
-  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-nav-container-blur {
-  display: none;
-}
-
-.docblock-code-toggle {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.docblock-code-toggle ~ button {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.nextra-toc > div > div {
-  background: none !important;
-  box-shadow: none !important;
-  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-sidebar-container > .nx-sticky {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-.sbdocs {
-  background: transparent !important;
-  padding: 0 !important;
-  gap: 0 !important;
-}
-
-.nextra-content p,
-.nextra-content li,
-.nextra-toc p {
-  color: rgb(var(--foreground-rgb)) !important;
-}
-
-.sbdocs-content {
-  max-width: 100% !important;
-}
-
-.sbdocs-content > div > .nx-flex {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.nextra-toc ul,
-.nextra-menu-desktop,
-.nextra-menu-desktop ul {
-  padding-left: auto !important;
-  list-style: none !important;
-}
-
-.nextra-cards > a {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-700/20;
-}
-
-.nextra-code, .rb-code {
-  color: #029cfd !important;
-}
-
-.rb-code-block {
-  margin-top: 1px;
-  background: transparent;
-}
-
-.rb-code-block code {
-  display: block !important;
-}
-
-.sbdocs-preview {
-  border-color: hsl(
-    var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1
-  ) !important;
-}
-
-pre.highlighter code {
-  display: block;
-}
-
-pre {
-  background-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)77%/.1);
-  box-shadow: none;
-  border-radius: .75rem;
-}
-
-.prismjs > div {
-  /** Handle storybook code samples running off the page */
-  white-space: pre-wrap !important;
-}
-
-input {
-  --tw-ring-opacity: 0 !important;
-  --tw-ring-offset-shadow: none !important;
-}
-
-svg {
-  overflow: visible;
-}
+```
