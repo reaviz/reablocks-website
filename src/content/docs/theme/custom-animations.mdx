@@ -1,0 +1,27 @@
+# Custom Animations
+
+The library provides a way to customize the animations of the components by passing the `animation` prop.
+animate object may have the next properties:
+
+- `initial`: The initial state of the animation.
+- `animate`: The animate state of the animation.
+- `exit`: The exit state of the animation.
+- `variants`: The variants of the animation.
+- `transition`: The transition of the animation.
+
+You can read more about the animation object in the [Motion.dev](https://motion.dev/docs/react-animation#animatable-values).
+
+### Example:
+```tsx
+<Dialog
+  open={open}
+  onClose={() => setOpen(false)}
+  header="Custom Animation Dialog"
+  animation={{
+    initial: { opacity: 0, scale: 0.5, rotate: -10 },
+    animate: { opacity: 1, scale: 1, rotate: 0 },
+    exit: { opacity: 0, scale: 0.5, rotate: 10 },
+    transition: { duration: 0.4, type: 'spring', stiffness: 150 }
+  }}
+/>
+```
