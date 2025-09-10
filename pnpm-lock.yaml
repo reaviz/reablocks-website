@@ -42,8 +42,8 @@ importers:
         specifier: 9.2.1
         version: 9.2.1(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       reablocks-docs-theme:
-        specifier: ^2.2.0
-        version: 2.2.0(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(nextra@4.2.17(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.4.5))(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^2.2.1
+        version: 2.2.1(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(nextra@4.2.17(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.4.5))(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -4788,8 +4788,8 @@ packages:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
     engines: {node: '>= 0.10.0'}
 
-  reablocks-docs-theme@2.2.0:
-    resolution: {integrity: sha512-EIKukBqCzH4G/dkKwL9gHfLIw5PkGJ74jnm7cKkgpK6rripyKcR2zgQLdqEx0nmEJ79/V732RpFixkrxvE8HPQ==}
+  reablocks-docs-theme@2.2.1:
+    resolution: {integrity: sha512-RqzObkRCy2jHbF+iksDKjr6Bc7DxccwvAnxOLh6KVfWg48lVBi0hOmKhhYGcqb+TXOY0V8YzSewOO728Ywsz9Q==}
     peerDependencies:
       next: '>=14'
       nextra: '>=4.2.0'
@@ -11268,7 +11268,7 @@ snapshots:
       kind-of: 6.0.3
       math-random: 1.0.4
 
-  reablocks-docs-theme@2.2.0(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(nextra@4.2.17(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.4.5))(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  reablocks-docs-theme@2.2.1(@emotion/is-prop-valid@0.8.8)(@types/react@18.0.25)(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(nextra@4.2.17(next@15.3.5(@babel/core@7.23.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.4.5))(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@headlessui/react': 2.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       clsx: 2.1.1
