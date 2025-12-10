@@ -5,6 +5,8 @@
   "packageManager": "pnpm@9.1.2",
   "scripts": {
     "dev": "next dev",
+    "generate:story-sources": "node scripts/generate-story-sources.mjs",
+    "prebuild": "pnpm run generate:story-sources",
     "build": "next build",
     "start": "next start",
     "copy:blocks": "cpx \"node_modules/reablocks/dist/blocks/*.tsx\" \"src/stories/blocks\" -C",
