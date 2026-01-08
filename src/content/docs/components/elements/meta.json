@@ -1,14 +1,1 @@
-{
-  "title": "Elements",
-  "pages": [
-    "avatar",
-    "avatar-group",
-    "badge",
-    "button",
-    "chip",
-    "command-palette",
-    "icon-button",
-    "kbd",
-    "loader"
-  ]
-}
+{"title":"Elements"}

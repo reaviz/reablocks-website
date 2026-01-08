@@ -1,14 +1,1 @@
-{
-  "title": "Utils",
-  "pages": [
-    "overlay",
-    "portal",
-    "cursor",
-    "exit-listener",
-    "id",
-    "position",
-    "component-theme",
-    "theme",
-    "user-select"
-  ]
-}
+{"title":"Utils"}
