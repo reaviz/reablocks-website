@@ -491,3 +491,38 @@ input {
 svg {
   overflow: visible;
 }
+
+/* Fix Fumadocs code block styling */
+figure[data-rehype-pretty-code-figure] pre,
+pre:has(code) {
+  background: #1e1e2e !important;
+  border: 1px solid rgba(60, 60, 80, 0.4);
+  border-radius: 0.5rem;
+}
+
+figure[data-rehype-pretty-code-figure] pre code,
+pre code {
+  background: transparent !important;
+}
+
+figure[data-rehype-pretty-code-figure] .line,
+pre code .line,
+pre code span {
+  background: transparent !important;
+}
+
+/* Code block title/caption */
+figure[data-rehype-pretty-code-figure] figcaption {
+  background: #242433;
+  border: 1px solid rgba(60, 60, 80, 0.4);
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #adafbd;
+}
+
+figure[data-rehype-pretty-code-figure] figcaption + pre {
+  border-radius: 0 0 0.5rem 0.5rem;
+  margin-top: 0;
+}
