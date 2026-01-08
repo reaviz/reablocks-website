@@ -13,15 +13,21 @@ You can read more about the animation object in the [Motion.dev](https://motion.
 
 ### Example:
 ```tsx
+import { Dialog, DialogHeader, DialogContent } from 'reablocks';
+
 <Dialog
   open={open}
   onClose={() => setOpen(false)}
-  header="Custom Animation Dialog"
   animation={{
     initial: { opacity: 0, scale: 0.5, rotate: -10 },
     animate: { opacity: 1, scale: 1, rotate: 0 },
     exit: { opacity: 0, scale: 0.5, rotate: 10 },
     transition: { duration: 0.4, type: 'spring', stiffness: 150 }
   }}
-/>
+>
+  <DialogHeader>Custom Animation Dialog</DialogHeader>
+  <DialogContent>
+    {/* Your content here */}
+  </DialogContent>
+</Dialog>
 ```
