@@ -33,7 +33,7 @@
     "nextra": "^4.2.17",
     "posthog-js": "^1.256.2",
     "posthog-node": "^5.2.1",
-    "reablocks": "9.3.0",
+    "reablocks": "9.4.0",
     "reablocks-docs-theme": "^2.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
