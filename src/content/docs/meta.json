@@ -1,0 +1,13 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "getting-started",
+    "theme",
+    "components",
+    "utils",
+    "recipes",
+    "advanced",
+    "changelog"
+  ]
+}

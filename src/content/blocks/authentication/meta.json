@@ -1,0 +1,4 @@
+{
+  "title": "Authentication",
+  "pages": ["login", "register", "forgot-password", "mfa"]
+}

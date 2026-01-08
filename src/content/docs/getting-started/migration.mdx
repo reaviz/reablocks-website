@@ -1,4 +1,5 @@
-import { Steps, Tabs } from 'nextra/components'
+import { Steps } from 'fumadocs-ui/components/steps'
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 
 ## Migrating from 8.x to 9.x
 In 9.x, we've upgraded to Tailwind CSS v4.x. This upgrade includes several breaking changes.
@@ -9,7 +10,7 @@ In 9.x, we've upgraded to Tailwind CSS v4.x. This upgrade includes several break
 Please follow the guide depending on the number of themes you have in your project.
 
 <Tabs items={['Single Theme', 'Multiple Themes']}>
-  <Tabs.Tab>
+  <Tab value="Single Theme">
     Migrate from this `tailwind.config.js`:
       ```tsx
       const config: Config = {
@@ -41,9 +42,9 @@ Please follow the guide depending on the number of themes you have in your proje
         ... other tokens
       }
       ```
-  </Tabs.Tab>
+  </Tab>
 
-  <Tabs.Tab>
+  <Tab value="Multiple Themes">
     Migrate from this `tailwind.config.js`:
     ```tsx
     import { createThemes } from 'tw-colors';
@@ -103,7 +104,7 @@ Please follow the guide depending on the number of themes you have in your proje
       --color-primary-inactive: var(--primary-inactive);
     }
     ```
-  </Tabs.Tab>
+  </Tab>
 </Tabs>
 
 ### Migrate Tailwind CSS plugins to `index.css`
