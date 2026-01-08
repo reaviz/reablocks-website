@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import React from 'react';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
-import { LandingFooter } from 'reablocks-docs-theme';
+import { LandingFooter } from '@/components/ui/landing-footer';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
@@ -14,8 +13,6 @@ import { Hero } from '@/components/main/Hero';
 import { Header } from '@/components/main/Header';
 import LogoIcon from '../../public/logo.svg';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'Reablocks - Open Source ReactJS Component Library',
   description:
@@ -25,7 +22,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden text-white`}
+      className="flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] font-sans antialiased overflow-x-hidden text-white"
     >
       <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#00000020] to-transparent" />
       <Header />

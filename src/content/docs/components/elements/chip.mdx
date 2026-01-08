@@ -1,6 +1,6 @@
-import { Cards } from 'nextra/components'
+import { Cards, Card } from 'fumadocs-ui/components/card'
 import { PropsTable } from '@/components/ui/props-table';
-import ThemeRender from '@/components/ui/theme-render';
+import { ThemeRender } from '@/components/ui/theme-render';
 import { Runner } from '@/components/ui/runner';
 import { StoryRenderer } from '@/components/ui/story-renderer';
 
@@ -47,10 +47,10 @@ Chips can be made selectable, allowing users to choose one or more options from 
 This component is used in the following Blocks:
 
 <Cards>
-  <Cards.Card title="Not Found" href="/blocks/foundation/not-found" />
-  <Cards.Card title="Billing" href="/blocks/administration/billing" />
-  <Cards.Card title="Pricing" href="/blocks/administration/pricing" />
-  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Card title="Not Found" href="/blocks/foundation/not-found" />
+  <Card title="Billing" href="/blocks/administration/billing" />
+  <Card title="Pricing" href="/blocks/administration/pricing" />
+  <Card title="Profile" href="/blocks/administration/profile" />
 </Cards>
 
 ## Theme Customization

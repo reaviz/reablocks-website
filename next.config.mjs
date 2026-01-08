@@ -1,11 +1,9 @@
-import nextra from 'nextra';
+import { createMDX } from 'fumadocs-mdx/next';
 
-const withNextra = nextra({
-  latex: true,
-  defaultShowCopyCode: true
-});
+const withMDX = createMDX();
 
-const nextConfig = withNextra({
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
 
   // Rewrites required for PostHog ingestion endpoints
@@ -26,9 +24,9 @@ const nextConfig = withNextra({
     ];
   },
 
-  webpack(config, { isServer }) {
+  webpack(config) {
     // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule: any) =>
+    const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
     );
 
@@ -53,6 +51,6 @@ const nextConfig = withNextra({
 
     return config;
   }
-});
+};
 
-export default nextConfig;
+export default withMDX(nextConfig);

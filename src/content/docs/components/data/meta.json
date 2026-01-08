@@ -1,0 +1,14 @@
+{
+  "title": "Data",
+  "pages": [
+    "data-size",
+    "date-format",
+    "duration",
+    "ellipsis",
+    "infinity-list",
+    "pager",
+    "pluralize",
+    "redact",
+    "sort"
+  ]
+}

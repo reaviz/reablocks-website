@@ -31,4 +31,4 @@ const ThemeRender: FC<ThemeRenderProps> = ({ name }) => {
   );
 };
 
-export default ThemeRender;
+export { ThemeRender };

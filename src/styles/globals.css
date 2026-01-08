@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
 
 @source './**/*.{ts,tsx}';
 @source '../../node_modules/reablocks';
-
+@source '../../node_modules/fumadocs-ui/dist/**/*.js';
 
 /* Color palette */
 :root,
@@ -146,7 +148,7 @@
   --breakpoint-2xl: 1440px;
 
   /* Fonts */
-  --font-sans: Inter, sans-serif;
+  --font-sans: var(--font-sans), Inter, sans-serif;
   --font-mono: Fira Code, monospace;
 
   --shadow-code: 0px_4px_16px_0px_rgba(0,0,0,0.25);
@@ -411,69 +413,9 @@ body {
   background-image: var(--backdrop-url);
 }
 
-
-html.light {
-  --background: #ffffff;
-  --tooltip-background: #f7f7fa;
-  --tooltip-color: #3d3d4d;
-  --foreground: #000000;
-  --foreground-rgb: 0, 0, 0;
-}
-
-html.dark {
-  --background: #11101f;
-  --tooltip-background: #00050be6;
-  --tooltip-color: #fff;
-  --foreground: #ffffff;
-  --foreground-rgb: 255, 255, 255;
-}
-
-body {
-  color: rgb(var(--foreground-rgb)) !important;
-  background-color: var(--background) !important;
-  --tooltip-spacing: 5px;
-  --tooltip-border-radius: 5px;
-}
-
-.nextra-sidebar {
-  font-family: var(--font-sans), 'sans-serif';
-}
-
-.nextra-nav-container > nav {
-  background-color: var(--background) !important;
-}
-
-.nextra-nav-container {
-  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-nav-container-blur {
-  display: none;
-}
-
-.docblock-code-toggle {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.docblock-code-toggle ~ button {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.nextra-toc > div > div {
-  background: none !important;
-  box-shadow: none !important;
-  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-sidebar-container > .nx-sticky {
-  background: transparent !important;
-  box-shadow: none !important;
+/* Landing page styles */
+.landing-page {
+  background: linear-gradient(to bottom, #11111F 50%, #11111F, #121212);
 }
 
 @layer utilities {
@@ -488,34 +430,8 @@ body {
   gap: 0 !important;
 }
 
-.nextra-content p,
-.nextra-content li,
-.nextra-toc p {
-  color: rgb(var(--foreground-rgb)) !important;
-}
-
 .sbdocs-content {
   max-width: 100% !important;
-}
-
-.sbdocs-content > div > .nx-flex {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.nextra-toc ul,
-.nextra-menu-desktop,
-.nextra-menu-desktop ul {
-  padding-left: auto !important;
-  list-style: none !important;
-}
-
-.nextra-cards > a {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-700/20;
-}
-
-.nextra-code, .rb-code {
-  color: #029cfd !important;
 }
 
 .rb-code-block {
@@ -527,20 +443,8 @@ body {
   display: block !important;
 }
 
-.sbdocs-preview {
-  border-color: hsl(
-    var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1
-  ) !important;
-}
-
 pre.highlighter code {
   display: block;
-}
-
-pre {
-  background-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)77%/.1);
-  box-shadow: none;
-  border-radius: .75rem;
 }
 
 .prismjs > div {

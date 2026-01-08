@@ -1,0 +1,11 @@
+{
+  "title": "Themeing",
+  "pages": [
+    "getting-started",
+    "theme-api",
+    "theme-block",
+    "theme-example",
+    "theme-icons",
+    "custom-animations"
+  ]
+}

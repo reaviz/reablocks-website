@@ -34,7 +34,7 @@ export const PropsTable = ({ name }: { name: string }) => {
                 {data.props[prop].type && (
                   <>
                     <br />
-                    <code className="border-black border-opacity-[0.04] bg-opacity-[0.03] bg-black break-words rounded-md border py-0.5 px-[.25em] text-[.9em] dark:border-white/10 dark:bg-white/10 nextra-code">
+                    <code className="border-black border-opacity-[0.04] bg-opacity-[0.03] bg-black break-words rounded-md border py-0.5 px-[.25em] text-[.9em] dark:border-white/10 dark:bg-white/10 text-blue-400">
                       {data.props[prop].type.name}
                     </code>
                   </>
