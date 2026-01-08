@@ -10,7 +10,7 @@ const meta = {
     },
   },
   profile: {
-    title: "Profile 🆕",
+    title: "Profile",
     theme: {
       layout: "full",
     },

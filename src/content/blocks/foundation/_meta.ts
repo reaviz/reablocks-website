@@ -15,7 +15,7 @@ const meta = {
     },
   },
   timeline: {
-    title: "Timeline 🆕",
+    title: "Timeline",
     theme: {
       layout: "full",
     },
