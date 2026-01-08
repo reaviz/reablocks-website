@@ -1,1 +1,9 @@
-{"title":"Blocks"}
+{
+  "title": "Blocks",
+  "pages": [
+    "index",
+    "authentication",
+    "administration",
+    "foundation"
+  ]
+}

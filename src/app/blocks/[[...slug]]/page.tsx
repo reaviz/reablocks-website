@@ -1,5 +1,15 @@
 import { blocks } from '@/lib/source';
+import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
+import type { ComponentType } from 'react';
+import type { TableOfContents } from 'fumadocs-core/server';
+
+interface PageData {
+  title: string;
+  description?: string;
+  body: ComponentType;
+  toc: TableOfContents;
+}
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -8,10 +18,16 @@ export default async function Page(props: {
   const page = blocks.getPage(params.slug);
   if (!page) notFound();
 
+  const data = page.data as PageData;
+  const MDX = data.body;
+
   return (
-    <div>
-      <h1>{String(page.data.title)}</h1>
-    </div>
+    <DocsPage toc={data.toc}>
+      <DocsBody>
+        <h1>{data.title}</h1>
+        <MDX />
+      </DocsBody>
+    </DocsPage>
   );
 }
 
@@ -27,6 +43,7 @@ export async function generateMetadata(props: {
   if (!page) notFound();
 
   return {
-    title: String(page.data.title),
+    title: page.data.title,
+    description: page.data.description,
   };
 }

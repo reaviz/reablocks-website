@@ -1,9 +1,12 @@
+import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
+import { baseOptions } from '@/app/layout.config';
+import { blocks } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="container mx-auto p-4">
+    <DocsLayout tree={blocks.pageTree} {...baseOptions}>
       {children}
-    </div>
+    </DocsLayout>
   );
 }

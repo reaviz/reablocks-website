@@ -1,1 +1,4 @@
-{"title":"Advanced"}
+{
+  "title": "Advanced",
+  "pages": ["best-practices", "tools"]
+}

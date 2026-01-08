@@ -1,1 +1,4 @@
-{"title":"Form"}
+{
+  "title": "Form",
+  "pages": ["calendar", "checkbox", "date-input", "debounced-input", "inline-input", "input", "radio", "range", "select", "textarea", "toggle"]
+}

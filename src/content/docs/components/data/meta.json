@@ -1,1 +1,4 @@
-{"title":"Data"}
+{
+  "title": "Data",
+  "pages": ["index", "data-size", "date-format", "duration", "ellipsis", "infinity-list", "pager", "pluralize", "redact", "sort"]
+}

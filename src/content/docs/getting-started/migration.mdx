@@ -9,8 +9,8 @@ In 9.x, we've upgraded to Tailwind CSS v4.x. This upgrade includes several break
 
 Please follow the guide depending on the number of themes you have in your project.
 
-<Tabs defaultValue="single">
-  <Tab value="">
+<Tabs items={['Single Theme', 'Multiple Themes']}>
+  <Tab value="Single Theme">
     Migrate from this `tailwind.config.js`:
       ```tsx
       const config: Config = {
@@ -44,7 +44,7 @@ Please follow the guide depending on the number of themes you have in your proje
       ```
   </Tab>
 
-  <Tab value="">
+  <Tab value="Multiple Themes">
     Migrate from this `tailwind.config.js`:
     ```tsx
     import { createThemes } from 'tw-colors';

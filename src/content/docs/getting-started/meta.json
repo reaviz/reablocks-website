@@ -1,1 +1,4 @@
-{"title":"Getting Started"}
+{
+  "title": "Getting Started",
+  "pages": ["setup", "philosophy", "storybook", "migration"]
+}
