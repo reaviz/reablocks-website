@@ -5,7 +5,7 @@ const meta = {
   "data-size": "Data Size",
   "date-format": "Date Format",
   duration: "Duration",
-  ellipsis: "Ellipsis 🆕",
+  ellipsis: "Ellipsis",
   "infinity-list": "Infinity List",
   pager: "Pager",
   pluralize: "Pluralize",

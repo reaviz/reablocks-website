@@ -1,0 +1,55 @@
+import { PropsTable } from '@/components/ui/props-table';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Skeleton
+
+
+## Quick Start
+To start using the `Skeleton` component, import it from the `reablocks` library.
+
+<Runner code={`import { Skeleton } from 'reablocks';
+
+export default function App() {
+  return (
+    <div className="w-[300px]">
+      <Skeleton animated className="h-5" />
+    </div>
+  );
+}`}
+/>
+
+### Basic Usage
+
+This shows the basic skeleton placeholder, without any animation or styling overrides. Use it to represent a loading state for content whose shape/layout is known (e.g. a text block or image). It provides a neutral visual cue that data is pending.
+
+<StoryRenderer path="components/Skeleton.story.tsx" name="Simple" storybookKey="components-elements-skeleton--simple" />
+
+### Animated Skeleton (Pulse / Wave)
+
+This variant includes a built-in animation (e.g. pulse or wave) to give the skeleton a subtle “breathing” or shimmer effect. Use this to indicate active loading rather than a static placeholder, improving perceived responsiveness.
+
+<StoryRenderer path="components/Skeleton.story.tsx" name="Animated" storybookKey="components-elements-skeleton--animated" />
+
+### Sized Variants (Small / Medium / Large)
+
+Multiple size variants to reflect different content scales (e.g. small, medium, large). Use appropriate size to match where the skeleton will be placed (e.g. inline text vs full-width card).
+
+<StoryRenderer path="components/Skeleton.story.tsx" name="Sizes" storybookKey="components-elements-skeleton--sizes" />
+
+### Custom Styles / Colors
+
+Demonstrates passing custom styling (e.g. background color, border radius) or override CSS to the skeleton. Useful when integrating into a theme or dark mode context.
+
+<StoryRenderer path="components/Skeleton.story.tsx" name="CustomStyles" storybookKey="components-elements-skeleton--custom-styles" />
+
+### Custom Styles / Colors
+
+The Skeleton component showcases a variety of placeholder styles used to indicate loading states across the UI. It includes shape variations such as circular placeholders for avatars or icons, rectangular and rounded blocks for cards and images, and multi-line text skeletons that simulate paragraphs or content rows. Each variant can be animated with a subtle pulse or shimmer effect to convey activity, or kept static for reduced motion contexts.
+
+<StoryRenderer path="components/Skeleton.story.tsx" name="Variants" storybookKey="components-elements-skeleton--variants" />
+
+## API
+
+Optimize the Loader's functionality and style to meet your specific requirements with these configurable properties:
+<PropsTable name="Skeleton" />

@@ -7,12 +7,39 @@ import { StoryRenderer } from '@/components/ui/story-renderer';
 The Dialog component serves as a pop-up or modal window that overlays the main content,
 allowing the display of important messages, forms, or user interactions while grabbing user's focus.
 
+## Usage
+
+The Dialog component uses a slot-based API for its structure. Use `DialogHeader`, `DialogContent`, and `DialogFooter` as child components to compose your dialog:
+
+```tsx
+import { Dialog, DialogHeader, DialogContent, DialogFooter } from 'reablocks';
+
+<Dialog open={open} onClose={() => setOpen(false)}>
+  <DialogHeader>Dialog Title</DialogHeader>
+  <DialogContent>
+    {/* Your content here */}
+  </DialogContent>
+  <DialogFooter>
+    {/* Footer actions here */}
+  </DialogFooter>
+</Dialog>
+```
+
+All three slots are optional - you can use any combination of them based on your needs.
+
 ## Examples
 ### Basic Dialog
 <StoryRenderer path="components/Dialog.story.tsx" name="Simple" storybookKey="components-layers-dialog--simple" />
 
 ### Dialog with Footer and Custom header
 <StoryRenderer path="components/Dialog.story.tsx" name="Footer" storybookKey="components-layers-dialog--footer" />
+
+### Custom Animation
+Define custom animations for the dialog, using the `animation`, `animationViewChange` props:
+<StoryRenderer path="components/Dialog.story.tsx" name="CustomAnimation" storybookKey="components-layers-dialog--custom-animation" />
+
+Learn more about how to customize the animations in the [Custom Animations](/docs/theme/custom-animations) section.
+
 
 ## Theme
 This component uses the following default theme:

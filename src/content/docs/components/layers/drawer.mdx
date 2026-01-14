@@ -7,11 +7,36 @@ The Drawer component provides a hidden or off-canvas panel that can slide in or 
 offering additional navigation or content without obstructing the main interface. One common use case is when user
 is analysing a list of entries from a table and they quickly wants to see details for some entries.
 
+## Usage
+
+The Drawer component uses a slot-based API for its structure. Use `DrawerHeader`, `DrawerContent`, and `DrawerFooter` as child components to compose your drawer:
+
+```tsx
+import { Drawer, DrawerHeader, DrawerContent, DrawerFooter } from 'reablocks';
+
+<Drawer open={open} onClose={() => setOpen(false)}>
+  <DrawerHeader>Drawer Title</DrawerHeader>
+  <DrawerContent>
+    {/* Your content here */}
+  </DrawerContent>
+  <DrawerFooter>
+    {/* Footer actions here */}
+  </DrawerFooter>
+</Drawer>
+```
+
+All three slots are optional - you can use any combination of them based on your needs.
+
 ## Examples
 ### Basic example
 <StoryRenderer path="components/Drawer.story.tsx" name="Simple" storybookKey="components-layers-drawer--simple" />
 ### Drawer as bottom sheet
 <StoryRenderer path="components/Drawer.story.tsx" name="BottomSheet" storybookKey="components-layers-drawer--bottom-sheet" />
+### Custom Animation
+Define custom animations for the drawer, using the `animation`, `animationViewChange` props:
+<StoryRenderer path="components/Drawer.story.tsx" name="CustomAnimation" storybookKey="components-layers-drawer--custom-animation" />
+
+Learn more about how to customize the animations in the [Custom Animations](/docs/theme/custom-animations) section.
 
 ## Theme
 This component uses the following default theme:

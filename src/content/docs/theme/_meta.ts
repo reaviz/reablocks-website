@@ -4,6 +4,7 @@ const meta = {
   "theme-block": "Blocks",
   "theme-example": "Customization",
   "theme-icons": "Icons",
+  "custom-animations": "Custom Animations",
 };
 
 export default meta;
