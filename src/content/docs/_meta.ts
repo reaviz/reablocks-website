@@ -9,7 +9,7 @@ const meta = {
     }
   },
   'getting-started': '🚀 ⏐ Getting Started',
-  theme: '🎨 ⏐ Themeing',
+  theme: '🎨 ⏐ Theming',
   components: '🏗️ ⏐ Components',
   utils: '⚙️ ⏐ Utils',
   advanced: '⚡️ ⏐ Advanced',

@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { Notifications, NotificationsContext } from 'reablocks';
-import { Text } from 'reablocks';
 import { Button } from 'reablocks';
 import { Badge } from 'reablocks';
 
@@ -59,7 +58,7 @@ export const Custom = () => (
           {({ notifyError }) => (
             <Fragment>
               <Button
-                color="error"
+                color="destructive"
                 onClick={() => notifyError('You have 10 alerts!')}
               >
                 Alerts

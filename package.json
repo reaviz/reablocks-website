@@ -26,6 +26,7 @@
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@storybook/preview-api": "^8.6.14",
+    "@storybook/react": "7.6.3",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
     "motion": "^12.5.0",

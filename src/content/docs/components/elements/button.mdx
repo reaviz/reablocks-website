@@ -21,18 +21,19 @@ export default function App() {
 
 ## Examples
 ### Basic Usage
-The Button component supports several variants including "filled", "outline", and 
-"text", allowing for flexibility in design and application:
+The Button component supports several variants including "filled", "outline", "text" and
+"ghost", allowing for flexibility in design and application:
 
 <StoryRenderer path="components/Button.story.tsx" name="Variants" storybookKey="components-elements-button--variants" />
 
 ```javascript
 {
   variants: {
-    filled: "bg-gray-800 text-white hover:bg-gray-700 border-gray-800",
-    outline: "bg-opacity-0 border-grey border",
-    text: "bg-opacity-0 border-0"
-  }
+    filled: 'bg-secondary hover:bg-border-secondary-hover',
+    outline: 'border',
+    text: 'border-0',
+    ghost: ''
+  },
 }
 ```
 
@@ -48,15 +49,16 @@ Theme customization can be used to define the size variations for different butt
 ```javascript
 {
     sizes: {
-      small: 'text-sm px-2 py-1 leading-[normal]',
-      medium: 'text-base px-4 py-2 leading-[normal]',
-      large: 'text-xl px-5 py-2.5 leading-[normal]'
-    }
+      small: 'text-xs leading-4 px-2 py-[5px]',
+      medium: 'text-sm leading-4 px-3 py-[7px]',
+      large: 'text-base leading-4.5 px-4 py-2.5'
+    },
     iconSizes: {
-      small: 'p-1',
-      medium: 'p-2',
-      large: 'p-2.5'
-    }
+      xsmall: '[&>svg]:size-4 p-1',
+      small: '[&>svg]:size-4 p-[5px]',
+      medium: '[&>svg]:size-4 p-[7px]',
+      large: '[&>svg]:size-4.5 p-2.5'
+    },
 }
 ```
 
@@ -66,48 +68,83 @@ Theme customization can be used to define the color variations for different but
 
 ```javascript
 {
-    colors: {
-      default: {
-        filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
-        outline: 'border-secondary border',
-        text: 'text-surface-content'
-      },
-      primary: {
-        filled:
-          'bg-primary hover:bg-primary-hover border-primary text-surface-content',
-        outline: 'border border-primary',
-        text: 'text-primary hover:text-primary-hover'
-      },
-      secondary: {
-        filled:
-          'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
-        outline: 'border border-secondary',
-        text: 'text-secondary hover:text-secondary-hover'
-      },
-      success: {
-        filled:
-          'bg-success hover:bg-success-hover border-success text-surface-content',
-        outline: 'border border-success',
-        text: 'text-success hover:text-success-hover'
-      },
-      warning: {
-        filled:
-          'bg-warning hover:bg-warning-hover border-warning text-surface-content',
-        outline: 'border border-warning',
-        text: 'text-warning hover:text-warning-hover'
-      },
-      error: {
-        filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
-        outline: 'border border-error',
-        text: 'text-error hover:text-error-hover'
-      },
-      // custom color e.g. pink
-      pink: {
-        filled: 'bg-pink-500 hover:bg-pink-500-hover border-pink-500 text-surface-content',
-        outline: 'border border-pink-500',
-        text: 'text-pink-500 hover:text-pink-500-hover'
-      }
+  colors: {
+    primary: {
+      filled: `
+        bg-buttons-colors-core-icon-primary-background-resting border-buttons-colors-core-icon-primary-stroke-resting text-buttons-colors-core-icon-primary-text-resting [&_svg]:fill-buttons-colors-core-icon-primary-assets-resting
+        hover:bg-buttons-colors-core-icon-primary-background-hover hover:border-buttons-colors-core-icon-primary-stroke-hover hover:text-buttons-colors-core-icon-primary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-primary-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-primary-background-selected focus-visible:border-buttons-colors-core-icon-primary-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-primary-assets-selected
+        disabled:bg-buttons-colors-core-icon-primary-background-resting disabled:border-buttons-colors-core-icon-primary-stroke-resting disabled:text-buttons-colors-core-icon-primary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-primary-assets-resting
+      `,
+      outline: `
+        bg-buttons-colors-core-icon-outline-background-resting border-buttons-colors-core-icon-outline-stroke-resting text-buttons-colors-core-icon-outline-text-resting [&_svg]:fill-buttons-colors-core-icon-outline-assets-resting
+        hover:bg-buttons-colors-core-icon-outline-background-hover hover:border-buttons-colors-core-icon-outline-stroke-hover hover:text-buttons-colors-core-icon-outline-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-outline-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-outline-background-selected focus-visible:border-buttons-colors-core-icon-outline-stroke-selected focus-visible:text-buttons-colors-core-icon-outline-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-outline-assets-selected
+        disabled:bg-buttons-colors-core-icon-outline-background-resting disabled:border-buttons-colors-core-icon-outline-stroke-resting disabled:text-buttons-colors-core-icon-outline-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-outline-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-primary-text-resting hover:text-buttons-colors-link-primary-text-hover focus-visible:text-buttons-colors-link-primary-text-selected
+        [&_svg]:fill-buttons-colors-link-primary-assets-resting hover:[&_svg]:fill-buttons-colors-link-primary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-primary-assets-selected
+        disabled:text-buttons-colors-link-primary-text-resting disabled:[&_svg]:fill-buttons-colors-link-primary-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-ghost-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-ghost-background-selected focus-visible:border-buttons-colors-core-icon-ghost-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
+    },
+    secondary: {
+      filled: `
+        bg-buttons-colors-core-icon-secondary-background-resting border-buttons-colors-core-icon-secondary-stroke-resting text-buttons-colors-core-icon-secondary-text-resting [&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+        hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-secondary-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-selected
+        disabled:bg-buttons-colors-core-icon-secondary-background-resting disabled:border-buttons-colors-core-icon-secondary-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+      `,
+      outline: `
+        border-buttons-colors-core-icon-secondary-background-resting text-buttons-colors-core-icon-secondary-text-resting [&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+        hover:border-buttons-colors-core-icon-secondary-background-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-hover
+        focus-visible:border-buttons-colors-core-icon-secondary-background-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-selected
+        disabled:border-buttons-colors-core-icon-secondary-background-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-secondary-text-resting hover:text-buttons-colors-link-secondary-text-hover focus-visible:text-buttons-colors-link-secondary-text-selected
+        [&_svg]:fill-buttons-colors-link-secondary-assets-resting hover:[&_svg]:fill-buttons-colors-link-secondary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-secondary-assets-selected
+        disabled:text-buttons-colors-link-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-link-secondary-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-ghost-background-selected focus-visible:border-buttons-colors-core-icon-ghost-stroke-selected focus-visible:-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
+    },
+    destructive: {
+      filled: `
+        bg-buttons-colors-core-icon-destructive-background-resting border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-core-icon-destructive-text-resting [&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
+        hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-core-icon-destructive-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected
+        disabled:bg-buttons-colors-core-icon-destructive-background-resting disabled:border-buttons-colors-core-icon-destructive-stroke-resting disabled:text-buttons-colors-core-icon-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
+      `,
+      outline: `
+        border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-link-destructive-text-resting [&_svg]:fill-buttons-colors-link-destructive-assets-resting
+        hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-link-destructive-text-hover hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover
+        focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-link-destructive-text-selected focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected
+        disabled:border-buttons-colors-core-icon-destructive-stroke-resting disabled:text-buttons-colors-link-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-link-destructive-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-destructive-text-resting hover:text-buttons-colors-link-destructive-text-hover focus-visible:text-buttons-colors-link-destructive-text-selected
+        [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected
+        disabled:text-buttons-colors-link-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-link-destructive-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-ghost-background-selected focus-visible:border-buttons-colors-core-icon-ghost-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
     }
+  }
 }
 ```
 
@@ -135,7 +172,7 @@ Theme customization can be used to define the icon size and padding for differen
 
 #### Group of Buttons
 The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
-<StoryRenderer path="components/ButtonGroup.story.tsx" name="Colors" storybookKey="components-elements-button-group--colors" />
+<StoryRenderer path="components/ButtonGroup.story.tsx" name="Filled" storybookKey="components-elements-button-group--colors" />
 
 ### Blocks
 This component is used in the following Blocks:
