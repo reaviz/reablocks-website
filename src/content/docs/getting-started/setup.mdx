@@ -2,13 +2,13 @@ import { Steps } from 'nextra/components'
 import { Callout } from 'nextra/components'
 
 # Setup
-This section will guide you through the initial steps required to integrate Tailwind CSS into your project. Tailwind CSS is a utility-first CSS framework that can be customized to fit the design needs of your project. Follow these instructions to ensure a smooth setup.
+This section will guide you through the initial steps required to integrate Reablocks into your project. Reablocks ships pre-built CSS, so you don't need to install Tailwind CSS unless you want to customize the design tokens.
 &nbsp;
 
 ## Install Steps
 
 <Callout type="info" emoji="ℹ️">
-  If you already have Tailwind installed, you can skip 2nd and 3rd steps.
+  **v10 Update**: Reablocks v10 offers three theme variants. The **default theme** (v9-compatible) requires no changes. The **Unify theme** and **custom theme** are opt-in. See the [migration guide](/docs/getting-started/migration/from-v9-to-v10) for details.
 </Callout>
 
 <Steps>
@@ -18,115 +18,229 @@ This section will guide you through the initial steps required to integrate Tail
 npm install reablocks --save
 ```
 
-<Callout type="info" emoji="ℹ️">
-  If you want to use `Reablocks` **prebuilt** theme, without customizing it, please import `reablocks` styles in your CSS file and skip the 6th step.
+### 2. Import CSS
 
-  ```css copy
-  @import "../node_modules/reablocks/dist/index.css";
-  ```
+Reablocks ships pre-built CSS. Choose the theme variant you want to use:
+
+#### Default Theme (Recommended for most projects)
+
+The default theme uses semantic tokens and is v9-compatible:
+
+```css copy
+@import "reablocks/index.css";
+```
+
+#### Unify Theme (Opt-in)
+
+For the Unify Design System theme with component-specific tokens:
+
+```css copy
+@import "reablocks/unify.css";
+```
+
+#### Custom Theme (Opt-in)
+
+For maximum customization, use the `custom` variant with your own CSS file:
+
+```css copy
+/* Import your own CSS file - do not import reablocks CSS */
+@import "./my-custom-tokens.css";
+```
+
+<Callout type="warning" emoji="⚠️">
+  **Important**: Import only one CSS file. Do not import both `index.css` and `unify.css` in the same application. If using `variant="custom"`, do not import any Reablocks CSS files. Choose one based on your theme variant.
 </Callout>
 
-### 2. Installing Tailwind CSS
-Open your terminal, navigate to your project's root directory, and run the following command:
-```sh copy npm2yarn
-npm install tailwindcss @tailwindcss/cli
-```
+### 3. Initialize Theme Provider
 
-### 3. Import Tailwind in your CSS
-Add the @import "tailwindcss"; import to your main CSS file.
-```bash copy
-@import "tailwindcss";
-```
+Wrap your application with the `ThemeProvider` component from `reablocks`.
 
-### 4. Add Reablocks to your CSS as a source to be used by Tailwind
-After installing Tailwind CSS, you need to inject reablocks styles into your project.
--  Open or create your main CSS file. This file is typically located at `src/index.css` or `src/styles.css`.
--  Add the reablocks as a source to be used by Tailwind at the top of your CSS file:
-
-```css copy
-@source "../node_modules/reablocks";
-```
-**Result:** The reablocks styles are now available to be used by Tailwind.
-
-  ### 5. Configure Reablocks tokens for Tailwind
-Import default colors tokens (primary, secondary, success, etc) in your main stylesheet file:
-
-```css copy
-@import "../node_modules/reablocks/dist/styles/index.css";
-```
-
-  If you would like to customize default colors, you can add every token from next files list with your custom values:
-
-  - [Level 1](https://github.com/reaviz/reablocks/blob/main/src/assets/css/colors.css)
-  - [Level 3 Dark](https://github.com/reaviz/reablocks/blob/main/src/assets/css/theme-dark.css)
-  - [Level 3 Light](https://github.com/reaviz/reablocks/blob/main/src/assets/css/theme-light.css)
-  - [Level 4](https://github.com/reaviz/reablocks/blob/main/src/assets/css/tailwind/colors.css)
-
-Pay attention to wrap them in next selectors to keep it working.
-```css copy
-:root, :host {
-  /* Level 1 */
-  --neutrals-kyber-crystal-a-100: #e1e2e314;
-  --neutrals-darth-abyss-a-100: #01010514;
-}
-
-:root, :host {
-  &.theme-dark, &.dark {
-    /* Level 3 */
-  --stroke-neutral-6: var(--neutrals-kyber-crystal-a-100);
-  }
-}
-:root, :host {
-  &.theme-light, &.light {
-    /* Level 3 */
-  --stroke-neutral-6: var(--neutrals-darth-abyss-a-100);
-  }
-}
-
-@theme inline {
-  /* Level 4 */
-  --color-select-menu-items-color-item-stroke-row-hover: var(--stroke-neutral-6);
-}
-```
-  More details about tokens you can find here: https://unifydesignsystem.com/#process
-
-### 6. Initialize Theme Provider
-Wrap your application with the `ThemeProvider` component from `reablocks`. 
+#### Default Theme
 
 ```tsx copy
-import { ThemeProvider, theme } from 'reablocks';
-
-// NOTE: You can extend 'theme' with your own custom theme tokens.
+import { ThemeProvider } from 'reablocks';
 
 export const App = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider>
     <YourComponents />
   </ThemeProvider>
 );
 ```
 
-You can learn more about the `ThemeProvider` [here](/docs/theme/getting-started).
+#### Unify Theme
 
-### 7. Setup Storybook
-Optionally: If you are using Storybook, you can setup the reablocks in Storybook by adding the 
-following code to `.storybook/preview.js`:
+```tsx copy
+import { ThemeProvider } from 'reablocks';
+
+export const App = () => (
+  <ThemeProvider variant="unify">
+    <YourComponents />
+  </ThemeProvider>
+);
+```
+
+#### Custom Theme
+
+```tsx copy
+import { ThemeProvider } from 'reablocks';
+import './my-custom-tokens.css'; // Your own CSS file
+
+export const App = () => (
+  <ThemeProvider variant="custom">
+    <YourComponents />
+  </ThemeProvider>
+);
+```
+
+<Callout type="info" emoji="ℹ️">
+  The `theme` prop is optional and only needed for custom overrides. The `variant` prop determines which base theme to use (`"default"`, `"unify"`, or `"custom"`). Learn more about [theme customization](/docs/theme/getting-started).
+</Callout>
+
+### 4. (Optional) Customize Theme Tokens
+
+If you want to customize design tokens, you have three options:
+
+#### Option A: Use Pre-built CSS with Custom Overrides
+
+Use the pre-built CSS and override specific tokens via the `theme` prop:
+
+```tsx copy
+import { ThemeProvider } from 'reablocks';
+
+export const App = () => (
+  <ThemeProvider
+    theme={{
+      components: {
+        button: {
+          colors: {
+            primary: {
+              filled: 'bg-purple-600 hover:bg-purple-700'
+            }
+          }
+        }
+      }
+    }}
+  >
+    <YourComponents />
+  </ThemeProvider>
+);
+```
+
+**Why use custom variant instead of theme overrides?** The `theme` prop on default/unify variants still uses Reablocks CSS files (~19-35 KB gzipped). Use `variant="custom"` (shown in Step 3) when you want zero Reablocks CSS in your bundle, such as when integrating with an existing design system or implementing custom Tailwind configuration with your own design tokens.
+
+#### Option B: Build Custom CSS with Tailwind (Advanced)
+
+<Callout type="warning" emoji="⚠️">
+  **Advanced Use Case**: This option requires access to Reablocks source files, which are not included in the published npm package. You'll need to reference files from the GitHub repository or clone the repo locally.
+</Callout>
+
+If you need extensive customization and want to build your own CSS using Tailwind CSS:
+
+1. **Install Tailwind CSS**:
+```sh copy npm2yarn
+npm install tailwindcss @tailwindcss/cli
+```
+
+2. **Create your custom CSS file** and import Tailwind:
+```css copy
+@import "tailwindcss";
+```
+
+3. **Import Reablocks source CSS files** (you'll need to copy these from the [GitHub repository](https://github.com/reaviz/reablocks/tree/main/src/assets/css) or reference them if you've cloned the repo):
+
+For **Default Theme**, import:
+```css copy
+/* Copy these files from reablocks/src/assets/css/ to your project */
+@import "./path-to-copied-files/tailwind/main.css";
+@import "./path-to-copied-files/colors.css";
+@import "./path-to-copied-files/dimensions.css";
+@import "./path-to-copied-files/theme-dark.css";
+@import "./path-to-copied-files/theme-light.css";
+@import "./path-to-copied-files/semantic-tokens.css";
+@import "./path-to-copied-files/variants.css";
+```
+
+For **Unify Theme**, import:
+```css copy
+/* Copy these files from reablocks/src/assets/css/unify/ to your project */
+@import "./path-to-copied-files/unify/tailwind/main.css";
+@import "./path-to-copied-files/unify/colors.css";
+@import "./path-to-copied-files/unify/dimensions.css";
+@import "./path-to-copied-files/unify/theme-dark.css";
+@import "./path-to-copied-files/unify/theme-light.css";
+@import "./path-to-copied-files/variants.css";
+```
+
+4. **Customize tokens** by overriding them after the imports:
+```css copy
+@theme {
+  /* Override specific tokens */
+  --color-primary: #your-custom-color;
+  --background-brand-base: #your-custom-brand-color;
+}
+```
+
+**Note**: This approach requires maintaining your own copy of Reablocks source CSS files. For most use cases, **Option A** (using pre-built CSS with theme prop overrides) or **Option B** (using `variant="custom"` with your own CSS) is recommended as they're simpler and easier to maintain.
+
+### 5. Setup Storybook (Optional)
+
+If you are using Storybook, add the following code to `.storybook/preview.js`:
+
+#### Default Theme
 
 ```javascript copy
 import type { Preview } from "@storybook/react";
-import { ThemeProvider, theme } from "reablocks";
+import { ThemeProvider } from "reablocks";
 
 export const decorators = [
   Story => (
-    // NOTE: You can extend 'theme' with your own custom theme tokens.
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Story />
     </ThemeProvider>
   )
 ];
 
 const preview: Preview = {
-  // Your other configurations here too
-  decorators: [withProvider],
+  decorators,
+};
+```
+
+#### Unify Theme
+
+```javascript copy
+import type { Preview } from "@storybook/react";
+import { ThemeProvider } from "reablocks";
+
+export const decorators = [
+  Story => (
+    <ThemeProvider variant="unify">
+      <Story />
+    </ThemeProvider>
+  )
+];
+
+const preview: Preview = {
+  decorators,
+};
+```
+
+#### Custom Theme
+
+```javascript copy
+import type { Preview } from "@storybook/react";
+import { ThemeProvider } from "reablocks";
+import '../path-to-your-custom.css';
+
+export const decorators = [
+  Story => (
+    <ThemeProvider variant="custom">
+      <Story />
+    </ThemeProvider>
+  )
+];
+
+const preview: Preview = {
+  decorators,
 };
 ```
 
@@ -134,8 +248,39 @@ You can learn more about the Storybook setup [here](/docs/getting-started/storyb
 
 </Steps>
 
+## Theme Variants
+
+Reablocks v10 offers three theme variants:
+
+**CSS Bundle Size**
+- **Default Theme**: Smaller (~145 KB / 19 KB gzipped in v10.0)
+- **Unify Theme**: Larger (~310 KB / 35 KB gzipped in v10.0)
+- **Custom Theme**: You control (your own CSS)
+
+**Token Style**
+- **Default Theme**: Semantic tokens (e.g., `bg-primary`)
+- **Unify Theme**: Component-specific tokens (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
+- **Custom Theme**: Your own design tokens
+
+**Customization**
+- **Default Theme**: Simple overrides
+- **Unify Theme**: Granular control
+- **Custom Theme**: Complete control
+
+**Setup**
+- **Default Theme**: Minimal (no configuration needed)
+- **Unify Theme**: More configuration (requires `variant="unify"` and `unify.css` import)
+- **Custom Theme**: Advanced (requires `variant="custom"`, your own CSS, and optional theme object)
+
+**Recommendation**: Choose based on your needs and preferences:
+- **Visual preference**: The themes have slightly different visual styles; compare them in [Storybook](https://storybook.reablocks.dev) to see which you prefer
+- **Design system needs**: Use Unify for enterprise applications requiring granular design token control
+- **Bundle size**: For marketing sites or lightweight apps where every KB matters, the default theme may be more appropriate (~16KB gzipped difference)
+
+For detailed comparison and migration guidance, see the [migration guide](/docs/getting-started/migration/from-v9-to-v10).
 
 ## Example Repository
+
 You can use the following [repository](https://github.com/goodcodeus/starter) to get started with Reablocks.
 
 ## Developing Locally
@@ -164,11 +309,11 @@ npm start
 
 **Result:** This command runs Storybook locally and opens it in your default web browser at `http://localhost:9009.` You can now view your components, experiment with their properties, and see changes in real-time.
 &nbsp;
-### Building for Distribution with Rollup
-Our project uses Rollup for bundling and preparing the package for distribution. To build the project, simply run:
+### Building for Distribution
+
+Our project uses Vite for bundling and preparing the package for distribution. To build the project, simply run:
 
 ```bash copy
 npm run build
 ```
 **Result:** This command generates a `dist` folder containing the bundled JavaScript, CSS files, and type definitions, ready for deployment or distribution.
-
