@@ -1,0 +1,111 @@
+# AI Skills
+
+[AI Skills](https://github.com/reaviz/skills) are Claude Code skill files that provide
+AI-assistant reference guides for Reablocks. Skills contain component APIs,
+usage patterns, theming details, and code examples derived from source code and stories.
+
+When installed, Claude Code automatically loads the relevant skill files when it encounters
+Reablocks components in your code, giving it deep knowledge of the component APIs, props, and
+usage patterns.
+
+## Available Components
+
+| Category | Components |
+|----------|------------|
+| **Data** | DataSize, DateFormat, Duration, Ellipsis, InfinityList, Pager, Pluralize, Redact, Sort |
+| **Elements** | Avatar, AvatarGroup, Badge, Button, Chip, CommandPalette, IconButton, Kbd, Loader, Navigation, Skeleton |
+| **Form** | Calendar, Checkbox, DateInput, Input, Radio, Range, Select, Textarea, Toggle |
+| **Layout** | Breadcrumbs, Card, Collapse, Divider, Field, List, Motion, Stepper, Tabs, Tree |
+| **Layers** | Backdrop, Callout, ConfirmDialog, ContextMenu, Dialog, Drawer, Menu, Notification, Popover, Tooltip |
+| **Typography** | H1-H6, P, BlockQuote, Lead, Large, Small, Muted |
+
+## Installation
+
+Choose one of the following methods to make skills available in your project.
+
+### Option 1: Project-level (recommended for teams)
+
+Copy or symlink the Reablocks skills into your project's `.claude/skills/` folder:
+
+```bash
+# From your project root
+mkdir -p .claude/skills
+
+# Symlink the reablocks skill tree
+ln -s /path/to/reaviz/skills/reablocks .claude/skills/reablocks
+```
+
+Skills placed in `.claude/skills/` are committed to version control and shared with all team members.
+
+### Option 2: User-level (personal, all projects)
+
+Copy or symlink skills into `~/.claude/skills/` to make them available across all your projects:
+
+```bash
+mkdir -p ~/.claude/skills
+
+# Symlink the library
+ln -s /path/to/reaviz/skills/reablocks ~/.claude/skills/reablocks
+```
+
+User-level skills are not shared with other team members.
+
+### Option 3: `--add-dir` flag (per-session)
+
+Point Claude Code to the skills repository at launch. Skills inside `.claude/skills/` of added
+directories are discovered automatically:
+
+```bash
+claude --add-dir /path/to/reaviz/skills
+```
+
+This grants file access for the current session only.
+
+## Verifying Installation
+
+Once installed, Claude Code will automatically load the relevant skill files when it encounters
+Reablocks components in your code. You can verify by asking Claude Code about a specific component:
+
+```
+> How do I use the reablocks Select component?
+```
+
+Claude Code should respond with API details, props, and examples sourced from the skill files.
+
+## Skill Structure
+
+Skills are organized into category directories with per-component skill files:
+
+```
+reablocks/
+├── SKILL.md              # Library overview, theming, common rules
+├── data/
+│   ├── SKILL.md          # Data category overview
+│   ├── data-size/SKILL.md
+│   ├── date-format/SKILL.md
+│   └── ...
+├── elements/
+│   ├── SKILL.md
+│   ├── avatar/SKILL.md
+│   ├── button/SKILL.md
+│   └── ...
+├── form/
+│   ├── SKILL.md
+│   ├── calendar/SKILL.md
+│   ├── select/SKILL.md
+│   └── ...
+├── layout/
+│   ├── SKILL.md
+│   ├── tabs/SKILL.md
+│   ├── card/SKILL.md
+│   └── ...
+├── layers/
+│   ├── SKILL.md
+│   ├── dialog/SKILL.md
+│   ├── tooltip/SKILL.md
+│   └── ...
+└── typography/
+    └── SKILL.md
+```
+
+For more details, see the [skills repository on GitHub](https://github.com/reaviz/skills).
