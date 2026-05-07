@@ -8,7 +8,6 @@ const meta = {
   'icon-button': 'Icon Button',
   'kbd': 'Kbd',
   'loader': 'Loader',
-  'navigation': 'Navigation',
   'skeleton': 'Skeleton',
 }
 

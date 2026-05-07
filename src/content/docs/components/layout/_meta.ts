@@ -6,6 +6,7 @@ const meta = {
   collapse: "",
   divider: "",
   "json-tree": "JSON Tree",
+  'navigation': 'Navigation 🆕',
   list: "",
   motion: "",
   stepper: "Stepper",
