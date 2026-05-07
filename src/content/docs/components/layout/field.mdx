@@ -38,7 +38,11 @@ The `error` prop accepts a `boolean` or a `ReactNode`. When set, it replaces
 the hint and is rendered with `role="alert"` so it's announced by screen
 readers.
 
-<StoryRenderer path="components/Field.story.tsx" name="Error" storybookKey="components-layout-field--error" />
+<StoryRenderer path="components/Field.story.tsx" name="ErrorMessage" storybookKey="components-layout-field--error-message" />
+
+When both `hint` and `error` are present, `error` takes precedence:
+
+<StoryRenderer path="components/Field.story.tsx" name="ErrorReplacesHint" storybookKey="components-layout-field--error-replaces-hint" />
 
 ```tsx
 <Field

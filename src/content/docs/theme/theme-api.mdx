@@ -798,15 +798,24 @@ export interface CalloutTheme {
 }
 
 interface NavigationTheme {
-  base: string;
-  list: string;
-  item: {
+  bar: {
+    base: string;
+  };
+  button: {
     base: string;
     active: string;
     disabled: string;
+    variant: {
+      ghost: {
+        base: string;
+        selection: string;
+      };
+      underline: {
+        base: string;
+        selection: string;
+      };
+    };
   };
-  link: string;
-  icon: string;
 }
 
 interface SkeletonTheme {
