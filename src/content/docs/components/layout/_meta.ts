@@ -1,18 +1,17 @@
 const meta = {
-  block: "",
+  field: "Field",
   breadcrumbs: "Breadcrumbs",
   callout: "Callout",
   card: "",
   collapse: "",
   divider: "",
   "json-tree": "JSON Tree",
+  'navigation': 'Navigation 🆕',
   list: "",
   motion: "",
-  stack: "",
   stepper: "Stepper",
   tabs: "",
   tree: "",
-  "vertical-spacer": "",
 };
 
 export default meta;

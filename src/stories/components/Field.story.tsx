@@ -1,47 +1,48 @@
-import { Block } from 'reablocks';
+import { Field } from 'reablocks';
+import { Input } from 'reablocks';
 import React from 'react';
 
 export default {
-  title: 'Components/Layout/Block',
-  component: Block
+  title: 'Components/Layout/Field',
+  component: Field
 };
 
 export const Labelless = () => (
   <>
-    <Block>
+    <Field>
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
-    <Block>
+    </Field>
+    <Field>
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
+    </Field>
   </>
 );
 
 export const Label = () => (
   <>
-    <Block label="Haxor">
+    <Field label="Haxor">
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
-    <Block label="Manifest">
+    </Field>
+    <Field label="Manifest">
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
+    </Field>
   </>
 );
 
 export const Required = () => (
-  <Block label="Name" required={true}>
+  <Field label="Name" required={true}>
     Haxx0r ipsum else break headers private dereference.
-  </Block>
+  </Field>
 );
 
 export const Alignment = () => (
   <>
     <h2>Start</h2>
-    <Block
+    <Field
       label="Name"
       required={true}
       alignment="start"
@@ -55,9 +56,9 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
     <h2>Center</h2>
-    <Block
+    <Field
       label="Name"
       required={true}
       alignment="center"
@@ -71,9 +72,9 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
     <h2>End</h2>
-    <Block label="Name" required={true} alignment="end" direction="horizontal">
+    <Field label="Name" required={true} alignment="end" direction="horizontal">
       Haxx0r ipsum else break headers private dereference. Haxx0r ipsum else
       break headers private dereference. Haxx0r ipsum else break headers private
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
@@ -82,12 +83,72 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
   </>
 );
 
 export const Horizontal = () => (
-  <Block label="Name" direction="horizontal" required={true}>
+  <Field label="Name" direction="horizontal" required={true}>
     Haxx0r ipsum else break headers private dereference.
-  </Block>
+  </Field>
+);
+
+export const Hint = () => (
+  <Field label="Email" hint="We'll never share your email.">
+    <Input type="email" placeholder="you@example.com" />
+  </Field>
+);
+
+export const ErrorMessage = () => (
+  <Field label="Email" error="Please enter a valid email address.">
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorReplacesHint = () => (
+  <Field
+    label="Email"
+    hint="We'll never share your email."
+    error="Please enter a valid email address."
+  >
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorBooleanOnly = () => (
+  <Field label="Email" error={true}>
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorBooleanWithHint = () => (
+  <Field label="Email" error={true} hint="We'll never share your email.">
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const HintWithRequired = () => (
+  <Field label="Password" required hint="Must be at least 8 characters.">
+    <Input type="password" />
+  </Field>
+);
+
+export const HorizontalWithError = () => (
+  <Field
+    label="Email"
+    direction="horizontal"
+    error="Please enter a valid email address."
+  >
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const HorizontalWithHint = () => (
+  <Field
+    label="Email"
+    direction="horizontal"
+    hint="We'll never share your email."
+  >
+    <Input type="email" placeholder="you@example.com" />
+  </Field>
 );

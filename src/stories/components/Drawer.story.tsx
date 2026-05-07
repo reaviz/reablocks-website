@@ -4,7 +4,6 @@ import { DrawerHeader } from 'reablocks';
 import { DrawerContent } from 'reablocks';
 import { DrawerFooter } from 'reablocks';
 import { Button } from 'reablocks';
-import { Stack } from 'reablocks';
 
 export default {
   title: 'Components/Layers/Drawer',
@@ -46,10 +45,10 @@ export const WithFooter = () => {
           </p>
         </DrawerContent>
         <DrawerFooter>
-          <Stack justifyContent="end" className="w-full">
+          <div className="flex items-center gap-2.5 justify-end w-full">
             <Button onClick={() => setOpen(false)}>Cancel</Button>
             <Button color="primary">Save</Button>
-          </Stack>
+          </div>
         </DrawerFooter>
       </Drawer>
     </Fragment>
@@ -94,14 +93,14 @@ export const WithForm = () => {
             </div>
           </DrawerContent>
           <DrawerFooter>
-            <Stack justifyContent="end" className="w-full">
+            <div className="flex items-center gap-2.5 justify-end w-full">
               <Button type="button" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
               <Button type="submit" color="primary">
                 Create
               </Button>
-            </Stack>
+            </div>
           </DrawerFooter>
         </form>
       </Drawer>

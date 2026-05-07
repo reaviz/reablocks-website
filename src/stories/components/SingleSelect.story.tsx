@@ -3,7 +3,6 @@ import { Select } from 'reablocks';
 import { SelectOption } from 'reablocks';
 import { SelectMenu } from 'reablocks';
 import { SelectInput, SelectInputChip } from 'reablocks';
-import { Stack } from 'reablocks';
 import { ListItem } from 'reablocks';
 
 export default {
@@ -49,8 +48,8 @@ export const Sizes = () => {
   const [value, setValue] = useState<string | null>(null);
   return (
     <div style={{ width: 500 }}>
-      <Stack className="w-full" direction="column">
-        <Stack className="w-full">
+      <div className="flex items-center gap-2.5 flex-col w-full">
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Small: </label>
           <Select
             placeholder="Select a category"
@@ -66,8 +65,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-        <Stack className="w-full">
+        </div>
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Medium: </label>
           <Select
             placeholder="Select a category"
@@ -82,8 +81,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-        <Stack className="w-full">
+        </div>
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Large: </label>
           <Select
             placeholder="Select a category"
@@ -99,8 +98,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-      </Stack>
+        </div>
+      </div>
     </div>
   );
 };
@@ -715,6 +714,40 @@ export const TabToSelect = () => {
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
         <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
+
+export const WithStartEnd = () => {
+  const [value, setValue] = useState<string | null>(null);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        placeholder="Search..."
+        value={value}
+        onChange={v => setValue(v)}
+        start={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        }
+        end={<span className="text-xs text-gray-400">Required</span>}
+      >
+        <SelectOption value="facebook">Facebook</SelectOption>
+        <SelectOption value="twitter">Twitter</SelectOption>
+        <SelectOption value="twitch">Twitch</SelectOption>
       </Select>
     </div>
   );

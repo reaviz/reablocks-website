@@ -1,9 +1,11 @@
 import { BasicForm } from '@/components/ui/forms';
 
 # Forms
-reablocks recommended that you use a form library like [react-hook-form](https://react-hook-form.com/) to handle form state.
-This will allow you to easily validate and submit your form. Below is an example
-of how to use `react-hook-form` with the Input component.
+reablocks recommends pairing [react-hook-form](https://react-hook-form.com/)
+with [Zod](https://zod.dev/) for form state and validation. `react-hook-form`
+keeps form state and rendering performant; Zod gives you a single schema that
+defines both the runtime validation and the inferred TypeScript type for the
+form values.
 
 Here is a basic login form example:
 
@@ -11,16 +13,16 @@ Here is a basic login form example:
 <BasicForm />
 <br />
 
-In order to use the `react-hook-form` library, you need to wrap the `Input` in a
-`Controller` component. Here is an example of how we wrapped the `Input` component
-in the `BasicForm` example above:
+## Wiring `react-hook-form` to an `Input`
+Wrap the reablocks `Input` in a `Controller` so `react-hook-form` owns the
+field state:
 
 ```tsx
 import { Input } from 'reablocks';
 import { useForm, Controller } from 'react-hook-form';
 
 export const BasicForm = () => {
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, formState: { isSubmitting } } = useForm();
 
   return (
     <form onSubmit={handleSubmit(values => console.log('values', values))}>
@@ -39,9 +41,100 @@ export const BasicForm = () => {
           />
         )}
       />
-    </Form>
+    </form>
   );
 };
 ```
 
-More examples of how to use the `react-hook-form` library can be found in the [official documentation](https://react-hook-form.com/).
+## Adding validation with Zod
+Define a Zod schema for the form, infer the TypeScript type from it, and
+plug it into `react-hook-form` via `@hookform/resolvers/zod`. The resolver
+runs the schema on every submit (and on change/blur if you opt in via
+`mode`) and surfaces errors through `formState.errors`.
+
+```shell
+npm install zod @hookform/resolvers
+```
+
+```tsx
+import { Field, Input, Button } from 'reablocks';
+import { useForm, Controller } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const loginSchema = z.object({
+  email: z.string().email('Enter a valid email address'),
+  password: z.string().min(8, 'Password must be at least 8 characters')
+});
+
+type LoginValues = z.infer<typeof loginSchema>;
+
+export const LoginForm = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting }
+  } = useForm<LoginValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: '', password: '' }
+  });
+
+  return (
+    <form onSubmit={handleSubmit(values => console.log(values))}>
+      <Controller
+        name="email"
+        control={control}
+        render={({ field }) => (
+          <Field label="Email" error={errors.email?.message ?? false}>
+            <Input
+              {...field}
+              type="email"
+              placeholder="you@example.com"
+              disabled={isSubmitting}
+              error={!!errors.email}
+            />
+          </Field>
+        )}
+      />
+
+      <Controller
+        name="password"
+        control={control}
+        render={({ field }) => (
+          <Field label="Password" error={errors.password?.message ?? false}>
+            <Input
+              {...field}
+              type="password"
+              disabled={isSubmitting}
+              error={!!errors.password}
+            />
+          </Field>
+        )}
+      />
+
+      <Button type="submit" disabled={isSubmitting}>Sign in</Button>
+    </form>
+  );
+};
+```
+
+A few notes on this pattern:
+
+- **Single source of truth.** `z.infer<typeof loginSchema>` derives the form
+  value type, so renaming a field in the schema updates the type, the
+  resolver, and the editor's autocomplete in one go.
+- **Field-level error rendering.** reablocks' [`Field`](/docs/components/layout/field)
+  accepts `error` as a `string | boolean | ReactNode` and renders it with
+  `role="alert"`, which `react-hook-form`'s `errors.<field>?.message` plugs
+  straight into.
+- **Cross-field rules.** Use `z.refine` / `superRefine` when one field's
+  validity depends on another (e.g. confirming a password) — the resolver
+  forwards the errors to whichever path you set with `ctx.addIssue`.
+
+## More
+
+- [react-hook-form](https://react-hook-form.com/) — full API reference.
+- [Zod](https://zod.dev/) — schema definitions, parsing, and refinements.
+- [`@hookform/resolvers`](https://github.com/react-hook-form/resolvers) —
+  also provides resolvers for Yup, Joi, Valibot, and others if Zod isn't
+  your stack.

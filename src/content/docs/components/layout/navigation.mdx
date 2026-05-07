@@ -1,0 +1,40 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Navigation
+The `NavigationBar` component renders a themed list of links for navigation. It was added in `10.0.0`.
+
+## Quick Start
+To start using the `NavigationBar` component, import it from `reablocks`.
+
+<Runner code={`import { NavigationBar, NavigationButton } from 'reablocks';
+
+export default function App() {
+  return (
+    <NavigationBar>
+      <NavigationButton>
+        Home
+      </NavigationButton>
+      <NavigationButton>
+        Tickets
+      </NavigationButton>
+    </NavigationBar>
+  );
+}`}
+/>
+
+## API
+### NavigationBar
+<PropsTable name="NavigationBar" />
+
+### NavigationButton
+<PropsTable name="NavigationButton" />
+
+## Design and Usability Tips
+
+- **Highlight Current Location:** Always indicate the active item so users
+  know where they are in the application.
+- **Keep Labels Short:** Aim for one or two words per item; long labels make
+  scanning slow.

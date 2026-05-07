@@ -23,7 +23,15 @@ Extend the input field to the full width of its container, ideal for forms or se
 <StoryRenderer path="components/Input.story.tsx" name="FullWidth" storybookKey="components-form-input--full-width" />
 
 #### Adornments at Start/End
-Enhance input fields with icons or text at the start or end to provide context or additional functionalities:
+Enhance input fields with icons or text at the start or end to provide context or additional functionalities.
+Use the `start` and `end` props (the deprecated `startAdornment` / `endAdornment`
+props were removed in `10.0.0`):
+
+```tsx
+<Input start={<SearchIcon />} placeholder="Search..." />
+<Input end={<span>USD</span>} type="number" />
+```
+
 <StoryRenderer path="components/Input.story.tsx" name="StartEndAdorment" storybookKey="components-form-input--start-end-adorment" />
 
 #### State Variations

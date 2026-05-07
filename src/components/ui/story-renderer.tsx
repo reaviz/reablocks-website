@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import { StoryRenderer as BaseStoryRenderer } from 'reablocks-docs-theme';
-import { DotsLoader, theme } from 'reablocks';
+import { DotsLoader, theme, ThemeProvider } from 'reablocks';
 
 interface StoryRendererProps {
   path: string;
@@ -21,14 +21,16 @@ export const StoryRenderer: FC<StoryRendererProps> = ({
       import(`../../stories/${path}`)
         .then(storyModule => ({
           default: () => (
-            <BaseStoryRenderer
-              wrapperClassName="block w-fit mx-auto"
-              storyModule={storyModule}
-              storyName={name}
-              storyPath={path}
-              storybookUrl="https://storybook.reablocks.dev"
-              storybookKey={storybookKey}
-            />
+            <ThemeProvider theme={theme}>
+              <BaseStoryRenderer
+                wrapperClassName="block w-fit mx-auto"
+                storyModule={storyModule}
+                storyName={name}
+                storyPath={path}
+                storybookUrl="https://storybook.reablocks.dev"
+                storybookKey={storybookKey}
+              />
+            </ThemeProvider>
           )
         }))
         .catch(() => ({

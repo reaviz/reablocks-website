@@ -1,53 +1,153 @@
 import { PropsTable } from '@/components/ui/props-table';
 import { StoryRenderer } from '@/components/ui/story-renderer';
+import { Runner } from '@/components/ui/runner';
 import ThemeRender from '@/components/ui/theme-render';
 
 # Typography
-Component for styling text and headings. It contains a set
-of components for different heading sizes and text styles.
+The typography components are semantic HTML wrappers that ship with sensible
+defaults for every level of headings and body text. They're designed to be
+composed and styled with Tailwind utility classes via `className` or via the
+shared `typography` theme.
 
-- `PageTitle` - The page title component is used for the main title of a page.
-- `PrimaryHeading` - The primary heading component is used for the main heading of a section.
-- `SecondaryHeading` - The secondary heading component is used for the secondary heading of a section.
-- `Sub` - The sub component is used for a sub heading of a section.
-- `Text` - The text component is used for normal text.
+## Components
+
+- `H1` – page title
+- `H2` – primary section heading
+- `H3` – sub-section heading
+- `H4` – small heading
+- `H5` – tertiary heading
+- `H6` – smallest heading
+- `P` – paragraph / body text
+- `Lead` – emphasized intro paragraph
+- `Large` – emphasized inline text
+- `Small` – de-emphasized inline text
+- `Muted` – muted helper text
+- `BlockQuote` – block quotation
+
+## Quick Start
+To start using the typography components, import them from `reablocks`.
+
+<Runner code={`import { H1, P, Muted } from 'reablocks';
+
+export default function App() {
+  return (
+    <>
+      <H1>Welcome</H1>
+      <P>Build beautiful interfaces with reablocks.</P>
+      <Muted>Last updated today.</Muted>
+    </>
+  );
+}`}
+/>
 
 ## Examples
 
-### PageTitle
-<StoryRenderer path="components/PageTitle.story.tsx" name="Simple" storybookKey="components-typography-pagetitle--simple" />
+### Headings
+<StoryRenderer path="components/Typography.story.tsx" name="Headings" storybookKey="components-typography-typography--headings" />
 
-### PrimaryHeading
-<StoryRenderer path="components/PrimaryHeading.story.tsx" name="Simple" storybookKey="components-typography-primaryheading--simple" />
+### Paragraphs
+<StoryRenderer path="components/Typography.story.tsx" name="Paragraph" storybookKey="components-typography-typography--paragraph" />
 
-### SecondaryHeading
-<StoryRenderer path="components/SecondaryHeading.story.tsx" name="Simple" storybookKey="components-typography-secondaryheading--simple" />
+### Lead
+<StoryRenderer path="components/Typography.story.tsx" name="LeadText" storybookKey="components-typography-typography--lead-text" />
 
-### Text
-<StoryRenderer path="components/Text.story.tsx" name="Simple" storybookKey="components-typography-text--simple" />
+### Large, Small, and Muted
+<StoryRenderer path="components/Typography.story.tsx" name="LargeText" storybookKey="components-typography-typography--large-text" />
+<StoryRenderer path="components/Typography.story.tsx" name="SmallText" storybookKey="components-typography-typography--small-text" />
+<StoryRenderer path="components/Typography.story.tsx" name="MutedText" storybookKey="components-typography-typography--muted-text" />
 
-### Sub
-<StoryRenderer path="components/Sub.story.tsx" name="Simple" storybookKey="components-typography-sub--simple" />
+### BlockQuote
+<StoryRenderer path="components/Typography.story.tsx" name="BlockQuoteExample" storybookKey="components-typography-typography--block-quote-example" />
+
+### Everything together
+<StoryRenderer path="components/Typography.story.tsx" name="All" storybookKey="components-typography-typography--all" />
+
+### Customizing with `className`
+The old `color`, `variant`, `fontStyle`, and `disableMargins` props were
+removed in `10.0.0`. Apply Tailwind utilities directly via `className`, or
+override the shared theme to change defaults globally.
+
+```tsx
+import { H1, P } from 'reablocks';
+
+<H1 className="text-primary tracking-tight">Title</H1>
+<P className="font-bold italic">Bold italic body</P>
+```
 
 ## Theme
-This component uses the following default theme:
+Typography uses a per-element theme. Every key maps to a single string of
+Tailwind classes that's applied to that semantic element.
 
 <ThemeRender name="typography" />
+
+```ts
+interface TypographyTheme {
+  h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
+  h5: string;
+  h6: string;
+  p: string;
+  blockquote: string;
+  lead: string;
+  large: string;
+  small: string;
+  muted: string;
+}
+```
 
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 
 ## API
-### PageTitle
-<PropsTable name="PageTitle" />
+### H1
+<PropsTable name="H1" />
 
-### PrimaryHeading
-<PropsTable name="PrimaryHeading" />
+### H2
+<PropsTable name="H2" />
 
-### SecondaryHeading
-<PropsTable name="SecondaryHeading" />
+### H3
+<PropsTable name="H3" />
 
-### Sub
-<PropsTable name="Sub" />
+### H4
+<PropsTable name="H4" />
 
-### Text
-<PropsTable name="Text" />
+### H5
+<PropsTable name="H5" />
+
+### H6
+<PropsTable name="H6" />
+
+### P
+<PropsTable name="P" />
+
+### Lead
+<PropsTable name="Lead" />
+
+### Large
+<PropsTable name="Large" />
+
+### Small
+<PropsTable name="Small" />
+
+### Muted
+<PropsTable name="Muted" />
+
+### BlockQuote
+<PropsTable name="BlockQuote" />
+
+## Migrating from 9.x
+
+| Before | After |
+| --- | --- |
+| `PageTitle` | `H1` |
+| `PrimaryHeading` | `H2` |
+| `SecondaryHeading` | `H3` |
+| `SmallHeading` | `H4` |
+| `Sub` | `H5` |
+| `<Text>` | `P`, `Small`, or `Muted` |
+| `<Text fontStyle="bold">` | `<P className="font-bold" />` |
+| `<Text color="primary">` | `<P className="text-primary" />` |
+| `<Text variant="mono">` | `<P className="font-mono" />` |
+
+See the full guide in [Migration](/docs/getting-started/migration#migrating-from-9x-to-10x).

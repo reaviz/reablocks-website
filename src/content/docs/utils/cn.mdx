@@ -1,0 +1,65 @@
+import { Runner } from '@/components/ui/runner';
+
+# cn
+
+`cn` is a small utility for composing Tailwind class strings. It combines
+[`classnames`](https://github.com/JedWatson/classnames) (for conditional
+class lists) with [`tailwind-merge`](https://github.com/dcastil/tailwind-merge)
+(to dedupe conflicting Tailwind utilities so the last one wins).
+
+It is the same helper reablocks uses internally to merge a component's
+default theme classes with whatever you pass in via `className` or theme
+overrides. It was made public in `10.0.0`.
+
+## Quick Start
+
+```tsx
+import { cn } from 'reablocks';
+
+cn('px-4 py-2', 'px-6');
+// → 'py-2 px-6'  (px-4 is dropped because px-6 wins)
+
+cn('text-sm', isActive && 'font-bold text-primary', { 'opacity-50': disabled });
+// → 'text-sm font-bold text-primary'  (when isActive=true, disabled=false)
+```
+
+<Runner code={`import { cn } from 'reablocks';
+
+export default function App() {
+  const isActive = true;
+  const disabled = false;
+
+  return (
+    <button
+      className={cn(
+        'px-4 py-2 rounded',
+        isActive && 'bg-primary text-white',
+        disabled && 'opacity-50 cursor-not-allowed'
+      )}
+    >
+      Click me
+    </button>
+  );
+}`}
+/>
+
+## When to use it
+
+- **Composing component class names** — pass `cn(theme.base, className)` to
+  let consumers append or override classes without breaking the defaults.
+- **Conditional styling** — `cn('text-base', error && 'text-error')` is
+  cleaner than building strings by hand.
+- **Resolving Tailwind conflicts** — when two utilities target the same CSS
+  property (e.g. `px-4` and `px-6`), `cn` keeps the last one so theme
+  overrides behave predictably.
+
+## API
+
+```ts
+function cn(
+  ...inputs: Array<string | number | boolean | null | undefined | Record<string, unknown> | unknown[]>
+): string;
+```
+
+Accepts the same inputs as `classnames`. Returns a single space-separated
+class string with Tailwind conflicts resolved.

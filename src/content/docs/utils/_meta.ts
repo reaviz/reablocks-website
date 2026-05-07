@@ -1,4 +1,5 @@
 const meta = {
+  cn: "cn",
   overlay: "Overlay",
   portal: "Portal",
   cursor: "useCursor",

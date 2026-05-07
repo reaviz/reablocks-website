@@ -1,3 +1,220 @@
 # Table
-We recommend using [Tanstack's Table](https://tanstack.com/table/latest)
-component for displaying tabular data. Examples coming soon!
+We recommend using [Tanstack's Table](https://tanstack.com/table/latest) for
+your data and column model and pairing it with reablocks' [`Pager`](/docs/components/data/pager)
+and [`Sort`](/docs/components/data/sort) components for the chrome around it.
+Tanstack handles the model (rows, sort state, pagination state); reablocks
+handles the visuals.
+
+## Setup
+
+```shell
+npm install @tanstack/react-table
+```
+
+```tsx
+import { useState } from 'react';
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+  type SortingState
+} from '@tanstack/react-table';
+import { Pager, Sort } from 'reablocks';
+
+type User = { id: string; name: string; email: string; age: number };
+
+const columnHelper = createColumnHelper<User>();
+
+const columns = [
+  columnHelper.accessor('name', { header: 'Name' }),
+  columnHelper.accessor('email', { header: 'Email' }),
+  columnHelper.accessor('age', { header: 'Age' })
+];
+```
+
+## Sortable headers with `Sort`
+
+`Sort` is a presentational toggle — give it a `direction` of `'asc' | 'desc'`
+and a click handler. Wire those into Tanstack's column-level sort API
+(`column.getIsSorted()` / `column.toggleSorting()`) and the table model takes
+care of the rest.
+
+```tsx
+import { Sort } from 'reablocks';
+
+function SortableHeader({ column, children }) {
+  const sorted = column.getIsSorted(); // 'asc' | 'desc' | false
+
+  if (!column.getCanSort()) {
+    return <>{children}</>;
+  }
+
+  return (
+    <Sort
+      direction={sorted === false ? 'asc' : sorted}
+      onSort={() => column.toggleSorting()}
+    >
+      {children}
+    </Sort>
+  );
+}
+```
+
+Then render it inside the header cell:
+
+```tsx
+<thead>
+  {table.getHeaderGroups().map(group => (
+    <tr key={group.id}>
+      {group.headers.map(header => (
+        <th key={header.id} className="text-left p-2">
+          <SortableHeader column={header.column}>
+            {flexRender(header.column.columnDef.header, header.getContext())}
+          </SortableHeader>
+        </th>
+      ))}
+    </tr>
+  ))}
+</thead>
+```
+
+## Pagination with `Pager`
+
+`Pager` is fully controlled and takes `page` (zero-indexed), `size`, `total`,
+and `onPageChange`. Drive it from Tanstack's pagination state:
+
+```tsx
+<Pager
+  page={table.getState().pagination.pageIndex}
+  size={table.getState().pagination.pageSize}
+  total={data.length}
+  onPageChange={pageIndex => table.setPageIndex(pageIndex)}
+  displayMode="all"
+/>
+```
+
+For server-driven data, swap `data.length` for the total returned by your
+API and set `manualPagination: true` on the table — `onPageChange` then
+becomes the trigger for your fetch.
+
+## Putting it all together
+
+```tsx
+import { useState } from 'react';
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+  type SortingState
+} from '@tanstack/react-table';
+import { Pager, Sort } from 'reablocks';
+
+type User = { id: string; name: string; email: string; age: number };
+
+const columnHelper = createColumnHelper<User>();
+
+const columns = [
+  columnHelper.accessor('name', { header: 'Name' }),
+  columnHelper.accessor('email', { header: 'Email' }),
+  columnHelper.accessor('age', { header: 'Age' })
+];
+
+export const UserTable = ({ data }: { data: User[] }) => {
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 10 });
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: { sorting, pagination },
+    onSortingChange: setSorting,
+    onPaginationChange: setPagination,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel()
+  });
+
+  return (
+    <div className="flex flex-col gap-4">
+      <table className="w-full border-collapse">
+        <thead>
+          {table.getHeaderGroups().map(group => (
+            <tr key={group.id} className="border-b border-panel-accent">
+              {group.headers.map(header => {
+                const sorted = header.column.getIsSorted();
+                const canSort = header.column.getCanSort();
+                const label = flexRender(
+                  header.column.columnDef.header,
+                  header.getContext()
+                );
+
+                return (
+                  <th key={header.id} className="text-left p-2">
+                    {canSort ? (
+                      <Sort
+                        direction={sorted === false ? 'asc' : sorted}
+                        onSort={() => header.column.toggleSorting()}
+                      >
+                        {label}
+                      </Sort>
+                    ) : (
+                      label
+                    )}
+                  </th>
+                );
+              })}
+            </tr>
+          ))}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map(row => (
+            <tr key={row.id} className="border-b border-panel-accent">
+              {row.getVisibleCells().map(cell => (
+                <td key={cell.id} className="p-2">
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div className="flex justify-end">
+        <Pager
+          page={table.getState().pagination.pageIndex}
+          size={table.getState().pagination.pageSize}
+          total={data.length}
+          onPageChange={pageIndex => table.setPageIndex(pageIndex)}
+          displayMode="all"
+        />
+      </div>
+    </div>
+  );
+};
+```
+
+## Notes
+
+- **Zero-indexed pages.** Both Tanstack Table and `Pager` use a zero-indexed
+  `pageIndex` / `page`, so they pass through cleanly without arithmetic.
+- **Multi-column sort.** `Sort` only models a single direction. If you need
+  multi-column sorting, render multiple `Sort` toggles and let Tanstack's
+  `sorting` state hold the array — only the active column's `Sort` will show
+  a non-default direction.
+- **Server-driven data.** Set `manualSorting: true` and `manualPagination: true`
+  on the table and re-fetch in your `onSortingChange` / `onPaginationChange`
+  handlers. `Pager`'s `total` should be the server's total count, not
+  `data.length`.
+
+## More
+
+- [`Pager`](/docs/components/data/pager) — full prop reference and theme.
+- [`Sort`](/docs/components/data/sort) — full prop reference and theme.
+- [Tanstack Table](https://tanstack.com/table/latest) — the underlying table
+  model.

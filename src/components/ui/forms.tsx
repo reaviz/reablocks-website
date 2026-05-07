@@ -1,5 +1,5 @@
 'use client';
-import { Input, Button, Card, Block, ThemeProvider, theme } from 'reablocks';
+import { Input, Button, Card, Field, ThemeProvider, theme } from 'reablocks';
 import { useForm, Controller } from 'react-hook-form';
 
 export const BasicForm = () => {
@@ -9,7 +9,7 @@ export const BasicForm = () => {
     <ThemeProvider theme={theme}>
       <Card>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block>
+          <Field>
             <Controller
               name="email"
               control={control}
@@ -25,8 +25,8 @@ export const BasicForm = () => {
                 />
               )}
             />
-          </Block>
-          <Block>
+          </Field>
+          <Field>
             <Controller
               name="password"
               control={control}
@@ -42,7 +42,7 @@ export const BasicForm = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             fullWidth
