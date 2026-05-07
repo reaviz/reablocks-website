@@ -1,0 +1,123 @@
+import { Cards } from 'nextra/components'
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Field
+The `Field` component wraps a label, an input, and optional helper or error
+text into a single, themed unit. It replaces the old `Block` component from
+9.x and adds first-class support for hint and error states.
+
+## Quick Start
+To start using the `Field` component, import it from `reablocks`.
+
+<Runner code={`import { Field, Input } from 'reablocks';
+
+export default function App() {
+  return (
+    <Field label="Email" hint="We'll never share your email.">
+      <Input placeholder="you@example.com" />
+    </Field>
+  );
+}`}
+/>
+
+## Examples
+
+### Label
+<StoryRenderer path="components/Field.story.tsx" name="Label" storybookKey="components-layout-field--label" />
+
+### Hint
+A `hint` displays guidance text below the input:
+
+<StoryRenderer path="components/Field.story.tsx" name="Hint" storybookKey="components-layout-field--hint" />
+
+### Error
+The `error` prop accepts a `boolean` or a `ReactNode`. When set, it replaces
+the hint and is rendered with `role="alert"` so it's announced by screen
+readers.
+
+<StoryRenderer path="components/Field.story.tsx" name="Error" storybookKey="components-layout-field--error" />
+
+```tsx
+<Field
+  label="Email"
+  error={errors.email?.message ?? false}
+>
+  <Input />
+</Field>
+```
+
+### Horizontal layout
+<StoryRenderer path="components/Field.story.tsx" name="Horizontal" storybookKey="components-layout-field--horizontal" />
+
+### Blocks
+This component is used in the following Blocks:
+
+<Cards>
+  <Cards.Card title="Forgot Password" href="/blocks/authentication/forgot-password" />
+  <Cards.Card title="Login" href="/blocks/authentication/login" />
+  <Cards.Card title="MFA" href="/blocks/authentication/mfa" />
+  <Cards.Card title="Profile" href="/blocks/administration/profile" />
+  <Cards.Card title="Register" href="/blocks/authentication/register" />
+  <Cards.Card title="Contact" href="/blocks/foundation/contact" />
+</Cards>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender name="field" />
+
+```ts
+interface FieldTheme {
+  base: string;
+  disableMargin: string;
+  label: string;
+  hint: string;
+  error: string;
+  errorState: string;
+  centerAlign: string;
+  endAlign: string;
+  horizontal: {
+    base: string;
+    label: string;
+    content: string;
+  };
+  vertical: {
+    base: string;
+    label: string;
+  };
+}
+```
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Field" />
+
+## Migrating from `Block`
+
+`Block` was renamed to `Field` in `10.0.0`.
+
+```tsx
+// Before
+import { Block } from 'reablocks';
+
+<Block label="Email"><Input /></Block>
+
+// After
+import { Field } from 'reablocks';
+
+<Field label="Email"><Input /></Field>
+```
+
+| Before | After |
+| --- | --- |
+| `Block` | `Field` |
+| `BlockProps` | `FieldProps` |
+| `BlockTheme` | `FieldTheme` |
+| `blockTheme` | `fieldTheme` |
+| `components.block` | `components.field` |
+
+See the full guide in [Migration](/docs/getting-started/migration#migrating-from-9x-to-10x).

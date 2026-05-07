@@ -42,11 +42,57 @@ A straightforward implementation for choosing a single option from a dropdown li
 Allows users to select multiple options, ideal for filtering mechanisms or gathering multiple interests/preferences.
 <StoryRenderer path="components/MultiSelect.story.tsx" name="Basic" storybookKey="components-form-select-multi--basic" />
 
+#### Adornments
+Render content before or after the input with the `start` and `end` props:
+
+```tsx
+<Select start={<SearchIcon />} placeholder="Search a country..." options={options} />
+```
 
 ## Theme Customization
 The Select component adheres to a comprehensive theme, ensuring it seamlessly integrates into any application's design:
 
 <ThemeRender name="select" />
+
+The `SelectInputTheme` was restructured in `10.0.0`:
+
+```ts
+interface SelectInputTheme {
+  base: string;
+  inputContainer: string;
+  input: string;
+  placeholder: string;
+  selectedValue: string;       // was `prefix`
+  actions: {                   // was `suffix`
+    container: string;
+    button: string;
+    refresh: string;
+    close: string;
+    expand: string;
+    loader: string;
+  };
+  adornment: {                 // new
+    start: string;
+    end: string;
+  };
+  disabled: string;
+  unfilterable: string;
+  error: string;
+  single: {
+    selectedValue: string;     // was `prefix`
+    inputContainer: string;
+    input: string;
+  };
+  multiple: {
+    selectedValue: string;     // was `prefix`
+    inputContainer: string;
+  };
+  open: string;
+  chip: { /* ... */ };
+}
+```
+
+> The `inputPrefix` prop was also removed from `SelectOption`.
 
 Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
 

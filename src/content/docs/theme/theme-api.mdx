@@ -13,7 +13,7 @@ export interface ReablocksTheme {
     arrow: ArrowTheme;
     badge: BadgeTheme;
     button: ButtonTheme;
-    block: BlockTheme;
+    field: FieldTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
@@ -27,10 +27,9 @@ export interface ReablocksTheme {
     list: ListTheme;
     menu: MenuTheme;
     sort: SortTheme;
-    stack: StackTheme;
     card: CardTheme;
     kbd: KbdTheme;
-    verticalSpacer: VerticalSpacerTheme;
+    navigation: NavigationTheme;
     notification: NotificationTheme;
     input: InputTheme;
     calendar: CalendarTheme;
@@ -42,6 +41,7 @@ export interface ReablocksTheme {
     radio: RadioTheme;
     range: RangeTheme;
     redact: RedactTheme;
+    skeleton: SkeletonTheme;
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
     tree: TreeTheme;
@@ -158,15 +158,19 @@ interface ButtonTheme {
   }
 }
 
-interface BlockTheme {
+interface FieldTheme {
   base: string;
   disableMargin: string;
   label: string;
+  hint: string;
+  error: string;
+  errorState: string;
   centerAlign: string;
   endAlign: string;
   horizontal: {
     base: string;
     label: string;
+    content: string;
   };
   vertical: {
     base: string;
@@ -361,8 +365,8 @@ interface SelectInputTheme {
   inputContainer: string;
   input: string;
   placeholder: string;
-  prefix: string;
-  suffix: {
+  selectedValue: string;
+  actions: {
     container: string;
     button: string;
     refresh: string;
@@ -370,16 +374,20 @@ interface SelectInputTheme {
     close: string;
     expand: string;
   };
+  adornment: {
+    start: string;
+    end: string;
+  };
   disabled: string;
   unfilterable: string;
   error: string;
   single: {
-    prefix: string;
+    selectedValue: string;
     inputContainer: string;
     input: string;
   };
   multiple: {
-    prefix: string;
+    selectedValue: string;
     inputContainer: string;
   };
   open: string;
@@ -446,30 +454,6 @@ interface SortTheme {
   };
 }
 
-interface StackTheme {
-  base: string;
-  dense: string;
-  inline: string;
-  direction: {
-    row: string;
-    column: string;
-    rowReverse: string;
-    columnReverse: string;
-  };
-  alignItems: {
-    start: string;
-    end: string;
-    center: string;
-    stretch: string;
-  };
-  justifyContent: {
-    start: string;
-    end: string;
-    center: string;
-    spaceBetween: string;
-  };
-}
-
 interface CardTheme {
   base: string;
   disablePadding: string;
@@ -481,18 +465,6 @@ interface CardTheme {
 interface KbdTheme {
   base: string;
   chip: string;
-}
-
-interface VerticalSpacerTheme {
-  base: string;
-  size: {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    xxl: string;
-  };
 }
 
 interface NotificationTheme {
@@ -618,31 +590,18 @@ interface TextareaTheme {
 }
 
 interface TypographyTheme {
-  base?: string;
-  text?: {
-    thin?: string;
-    bold?: string;
-    extraBold?: string;
-    italic?: string;
-  };
-  variant?: {
-    default?: string;
-    mono?: string;
-  };
-  colors?: {
-    primary: string;
-    secondary: string;
-    success: string;
-    warning: string;
-    error: string;
-    info: string;
-  };
-  sub: string;
-  smallHeading: string;
-  secondaryHeading: string;
-  primaryHeading: string;
-  pageTitle: string;
-  disableMargins?: string;
+  h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
+  h5: string;
+  h6: string;
+  p: string;
+  blockquote: string;
+  lead: string;
+  large: string;
+  small: string;
+  muted: string;
 }
 
 interface RadioTheme {
@@ -836,5 +795,31 @@ export interface CalloutTheme {
     };
   };
   text: string;
+}
+
+interface NavigationTheme {
+  base: string;
+  list: string;
+  item: {
+    base: string;
+    active: string;
+    disabled: string;
+  };
+  link: string;
+  icon: string;
+}
+
+interface SkeletonTheme {
+  base: string;
+  variants: {
+    text: string;
+    circular: string;
+    rectangular: string;
+  };
+  animation: {
+    pulse: string;
+    wave: string;
+    none: string;
+  };
 }
 ```

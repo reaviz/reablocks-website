@@ -2,12 +2,33 @@ import { PropsTable } from '@/components/ui/props-table';
 import { StoryRenderer } from '@/components/ui/story-renderer';
 
 # Confirm Dialog
-The `ConfirmationDialog` component is a dialog that prompts the user to confirm an action. 
-It is a wrapper around the `Dialog` component that provides a simple API for creating 
+The `ConfirmDialog` component is a dialog that prompts the user to confirm an action.
+It is a wrapper around the `Dialog` component that provides a simple API for creating
 confirmation dialogs.
 
 ## Examples
+
+### Default
 <StoryRenderer path="components/ConfirmDialog.story.tsx" name="Default" storybookKey="components-layers-confirm-dialog--default" />
+
+### Destructive
+For dangerous actions such as deleting a record, pass the `destructive` prop. This
+applies the error/destructive styling to the confirm button so users get a strong
+visual signal that the action can't be undone. Added in `10.0.0`.
+
+<StoryRenderer path="components/ConfirmDialog.story.tsx" name="Destructive" storybookKey="components-layers-confirm-dialog--destructive" />
+
+```tsx
+<ConfirmDialog
+  open={open}
+  destructive
+  title="Delete project"
+  description="This action cannot be undone."
+  confirmLabel="Delete"
+  onConfirm={() => deleteProject()}
+  onCancel={() => setOpen(false)}
+/>
+```
 
 ## API
 <PropsTable name="ConfirmDialog" />

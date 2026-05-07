@@ -1,0 +1,58 @@
+import { PropsTable } from '@/components/ui/props-table';
+import ThemeRender from '@/components/ui/theme-render';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Navigation
+The `Navigation` component renders a themed list of links for primary or
+secondary navigation. It was added in `10.0.0`.
+
+## Quick Start
+To start using the `Navigation` component, import it from `reablocks`.
+
+<Runner code={`import { Navigation } from 'reablocks';
+
+const items = [
+  { label: 'Dashboard', href: '/' },
+  { label: 'Analytics', href: '/analytics' },
+  { label: 'Settings', href: '/settings' }
+];
+
+export default function App() {
+  return <Navigation items={items} />;
+}`}
+/>
+
+## Examples
+
+### Basic Usage
+<StoryRenderer path="components/Navigation.story.tsx" name="Basic" storybookKey="components-elements-navigation--basic" />
+
+### Active State
+The component highlights the currently active item via the `active` prop or
+matched `href`:
+
+<StoryRenderer path="components/Navigation.story.tsx" name="Active" storybookKey="components-elements-navigation--active" />
+
+### With Icons
+<StoryRenderer path="components/Navigation.story.tsx" name="WithIcons" storybookKey="components-elements-navigation--with-icons" />
+
+## Theme Customization
+Navigation comes with a default theme that can be customized to match the rest
+of your design system:
+
+<ThemeRender name="navigation" />
+
+Learn more about how to customize in the [Theme documentation](/docs/theme/getting-started).
+
+## API
+<PropsTable name="Navigation" />
+
+## Design and Usability Tips
+
+- **Highlight Current Location:** Always indicate the active item so users
+  know where they are in the application.
+- **Keep Labels Short:** Aim for one or two words per item; long labels make
+  scanning slow.
+- **Pair with Icons Sparingly:** Icons reinforce meaning, but only when their
+  metaphor is universally understood.

@@ -7,7 +7,21 @@ import { StoryRenderer } from '@/components/ui/story-renderer';
 The tabs component is a simple way to organize content into different sections.
 
 ## Examples
+
+### Basic Usage
 <StoryRenderer path="components/Tabs.story.tsx" name="Simple" storybookKey="components-layout-tabs--simple" />
+
+### Tab Adornments
+Each `Tab` accepts `start` and `end` adornments for icons or counts. Added in `10.0.0`.
+
+```tsx
+<TabList>
+  <Tab start={<InboxIcon />}>Inbox</Tab>
+  <Tab end={<Badge>12</Badge>}>Notifications</Tab>
+</TabList>
+```
+
+<StoryRenderer path="components/Tabs.story.tsx" name="Adornments" storybookKey="components-layout-tabs--adornments" />
 
 ### Blocks
 This component is used in the following Blocks:

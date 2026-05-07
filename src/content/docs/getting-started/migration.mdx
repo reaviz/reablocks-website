@@ -1,5 +1,259 @@
 import { Steps, Tabs } from 'nextra/components'
 
+## Migrating from 9.x to 10.x
+
+`10.0.0` is a major release with breaking changes across **Typography**, **Layout**,
+**Button**, **Input**, **Select**, and **legacy themes**. The work is mechanical —
+most of the migration is a series of renames you can do with find-and-replace —
+but there are a few places where you'll want to update theme overrides too.
+
+<Steps>
+
+### Typography: `PageTitle` / `Text` / etc. → `H1` / `P` / `Muted`
+
+The old typography components were replaced with thin semantic HTML wrappers
+that accept Tailwind utilities via `className`. The `color`, `variant`,
+`fontStyle`, and `disableMargins` props are gone — apply the equivalent
+Tailwind classes instead.
+
+| Before | After |
+| --- | --- |
+| `PageTitle` | `H1` |
+| `PrimaryHeading` | `H2` |
+| `SecondaryHeading` | `H3` |
+| `SmallHeading` | `H4` |
+| `Sub` | `H5` |
+| `Text` | `P`, `Small`, or `Muted` |
+
+```tsx
+// Before
+import { PageTitle, PrimaryHeading, Text } from 'reablocks';
+
+<PageTitle>Welcome</PageTitle>
+<PrimaryHeading>Section</PrimaryHeading>
+<Text fontStyle="bold" color="primary">Bold primary text</Text>
+
+// After
+import { H1, H2, P } from 'reablocks';
+
+<H1>Welcome</H1>
+<H2>Section</H2>
+<P className="font-bold text-primary">Bold primary text</P>
+```
+
+The `typography` theme shape changed too — it's now keyed by the semantic
+element you're styling instead of by abstract style names:
+
+```ts
+// Before
+typography: {
+  base, text: { thin, bold, italic, ... },
+  variant: { default, mono },
+  colors: { primary, secondary, ... },
+  pageTitle, primaryHeading, secondaryHeading, smallHeading, sub
+}
+
+// After
+typography: { h1, h2, h3, h4, h5, h6, p, blockquote, lead, large, small, muted }
+```
+
+The new `H5`, `H6`, `BlockQuote`, `Lead`, `Large`, `Small`, and `Muted`
+components are also new in `10.0.0`. See [Typography](/docs/components/typography/typography).
+
+### Layout: `Block` → `Field`, and `Stack` / `VerticalSpacer` removed
+
+`Block` was renamed to `Field` and gained first-class support for hint and
+error states. `Stack` and `VerticalSpacer` were removed — use Tailwind
+utilities directly.
+
+```tsx
+// Before
+import { Block, Stack, VerticalSpacer } from 'reablocks';
+
+<Block label="Email"><Input /></Block>
+<Stack direction="row"><Button /><Button /></Stack>
+<VerticalSpacer space="md" />
+
+// After
+import { Field } from 'reablocks';
+
+<Field label="Email"><Input /></Field>
+<div className="flex flex-row items-center gap-2.5">
+  <Button />
+  <Button />
+</div>
+<div className="h-2.5" />
+```
+
+Field renames at a glance:
+
+| Before | After |
+| --- | --- |
+| `Block` | `Field` |
+| `BlockProps` | `FieldProps` |
+| `BlockTheme` | `FieldTheme` |
+| `blockTheme` | `fieldTheme` |
+| `components.block` | `components.field` |
+
+`Field` also adds new props you'll likely want to adopt:
+
+```tsx
+<Field
+  label="Email"
+  hint="We'll never share your email."
+  error={errors.email?.message ?? false}
+>
+  <Input />
+</Field>
+```
+
+The `error` prop accepts a `boolean` or `ReactNode` and replaces `hint` when
+present. New theme keys: `hint`, `error`, `errorState`, `horizontal.content`.
+
+### Button: `startAdornment` / `endAdornment` → `start` / `end`
+
+```tsx
+// Before
+<Button startAdornment={<Icon />} endAdornment={<Arrow />}>Click</Button>
+
+// After
+<Button start={<Icon />} end={<Arrow />}>Click</Button>
+```
+
+The prop types were also narrowed from `any` to `React.ReactNode`.
+
+### Input: deprecated adornment props removed
+
+`startAdornment` and `endAdornment` were already deprecated in 9.x and have
+been removed. Use `start` / `end`:
+
+```tsx
+// Before
+<Input startAdornment={<SearchIcon />} endAdornment={<span>USD</span>} />
+
+// After
+<Input start={<SearchIcon />} end={<span>USD</span>} />
+```
+
+### Select: theme restructured
+
+The `SelectInputTheme` was reorganized to use clearer names and to add
+adornment support that mirrors `Button` and `Input`.
+
+| Before | After |
+| --- | --- |
+| `SelectInputTheme.prefix` | `SelectInputTheme.selectedValue` |
+| `SelectInputTheme.suffix` | `SelectInputTheme.actions` (object) |
+| `SelectInputTheme.single.prefix` | `SelectInputTheme.single.selectedValue` |
+| `SelectInputTheme.multiple.prefix` | `SelectInputTheme.multiple.selectedValue` |
+
+`actions` is now an object with sub-keys: `container`, `button`, `refresh`,
+`close`, `expand`, `loader`. The new `adornment: { start, end }` keys back
+the `start` / `end` props on `Select` and `SelectInput`.
+
+```tsx
+// Before
+const selectTheme = {
+  selectInput: {
+    prefix: '...',
+    suffix: '...'
+  }
+};
+
+// After
+const selectTheme = {
+  selectInput: {
+    selectedValue: '...',
+    actions: {
+      container: '...',
+      button: '...',
+      refresh: '...',
+      close: '...',
+      expand: '...',
+      loader: '...'
+    },
+    adornment: {
+      start: '...',
+      end: '...'
+    }
+  }
+};
+```
+
+The `inputPrefix` prop was also removed from `SelectOption`.
+
+### Legacy themes: all removed
+
+Every `legacy*Theme` export and the `legacyThemeVars` object have been
+removed. If you were threading `legacyThemeVars` through `extendTheme`,
+switch to the Tailwind-based `theme` export:
+
+```tsx
+// Before
+import { ThemeProvider, extendTheme, legacyThemeVars } from 'reablocks';
+
+const theme = extendTheme(legacyThemeVars, customOverrides);
+
+<ThemeProvider theme={theme}>...</ThemeProvider>
+
+// After
+import { ThemeProvider, theme as defaultTheme, extendTheme } from 'reablocks';
+
+const theme = extendTheme(defaultTheme, customOverrides);
+
+<ThemeProvider theme={theme}>...</ThemeProvider>
+```
+
+Removed exports include (non-exhaustive): `legacyFieldTheme`,
+`legacyButtonTheme`, `legacyInputTheme`, `legacySelectTheme`,
+`legacyDialogTheme`, `legacyDrawerTheme`, `legacyTooltipTheme`,
+`legacyCalendarTheme`, `legacyCheckboxTheme`, `legacyRadioTheme`,
+`legacyToggleTheme`, `legacyCardTheme`, `legacyTabsTheme`, `legacyTreeTheme`,
+`legacyListTheme`, `legacyMenuTheme`, `legacyNotificationTheme`,
+`legacyPopoverTheme`, `legacyTypographyTheme`, `legacyDotsLoaderTheme`,
+`legacyBreadcrumbsTheme`.
+
+If you were previously using `legacyLoaderTheme` or `legacyBreadcrumbTheme`,
+note they were renamed to `legacyDotsLoaderTheme` and `legacyBreadcrumbsTheme`
+before being removed entirely.
+
+### Theme customization: rename `block` and remove `stack` / `verticalSpacer`
+
+```tsx
+// Before
+const custom = {
+  components: {
+    block: { ... },
+    stack: { ... },
+    verticalSpacer: { ... }
+  }
+};
+
+// After
+const custom = {
+  components: {
+    field: { ... }
+    // stack and verticalSpacer removed — use Tailwind classes directly
+  }
+};
+```
+
+</Steps>
+
+### What's new in 10.x
+
+While you're upgrading, here's what you can adopt:
+
+- **Navigation** — new component for primary/secondary nav lists ([docs](/docs/components/elements/navigation)).
+- **`ConfirmDialog` `destructive` prop** — applies error styling to the confirm button for dangerous actions.
+- **`Tab` `start` / `end` adornments** — render icons or counts on tabs.
+- **`Field` `hint` and `error` props** — and a `role="alert"` error region.
+- **`Select` / `SelectInput` `start` / `end` adornments** — match `Button` and `Input`.
+- **`cn()`** — public utility that combines `classnames` + `tailwind-merge` ([docs](/docs/utils/cn)).
+- **`H5`, `H6`, `BlockQuote`, `Lead`, `Large`, `Small`, `Muted`** — additional typography primitives.
+- **`Calendar` sub-components** — `CalendarDays`, `CalendarMonths`, `CalendarYears`, `CalendarTimes` are now exported, plus `aria-label`s on nav buttons.
+- **`DeepPartial`** — type now exported.
+
 ## Migrating from 8.x to 9.x
 In 9.x, we've upgraded to Tailwind CSS v4.x. This upgrade includes several breaking changes.
 

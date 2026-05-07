@@ -112,7 +112,14 @@ Theme customization can be used to define the color variations for different but
 ```
 
 #### Buttons with Icon
-Incorporating icons with text can enhance button functionality and user understanding:
+Incorporating icons with text can enhance button functionality and user understanding.
+Use the `start` and `end` props to render adornments on either side of the label
+(these were renamed from `startAdornment` / `endAdornment` in `10.0.0`):
+
+```tsx
+<Button start={<SearchIcon />}>Search</Button>
+<Button end={<ArrowRightIcon />}>Next</Button>
+```
 
 <StoryRenderer path="components/Button.story.tsx" name="WithIcon" storybookKey="components-elements-button--with-icon" />
 

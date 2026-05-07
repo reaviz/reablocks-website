@@ -2,7 +2,6 @@ import { CommandPalette } from 'reablocks';
 import { Dialog } from 'reablocks';
 import { Chip } from 'reablocks';
 import { Divider } from 'reablocks';
-import { Stack } from 'reablocks';
 import { CommandPaletteSection } from 'reablocks';
 import { CommandPaletteItem } from 'reablocks';
 
@@ -36,11 +35,11 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <Stack className="px-2">
+        <div className="flex items-center gap-2.5 px-2">
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
-        </Stack>
+        </div>
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection title="Recently Used" key="recent">

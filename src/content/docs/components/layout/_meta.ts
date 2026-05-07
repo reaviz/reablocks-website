@@ -1,5 +1,5 @@
 const meta = {
-  block: "",
+  field: "Field",
   breadcrumbs: "Breadcrumbs",
   callout: "Callout",
   card: "",
@@ -8,11 +8,9 @@ const meta = {
   "json-tree": "JSON Tree",
   list: "",
   motion: "",
-  stack: "",
   stepper: "Stepper",
   tabs: "",
   tree: "",
-  "vertical-spacer": "",
 };
 
 export default meta;
