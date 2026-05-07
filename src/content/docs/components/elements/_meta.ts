@@ -8,7 +8,7 @@ const meta = {
   'icon-button': 'Icon Button',
   'kbd': 'Kbd',
   'loader': 'Loader',
-  'skeleton': 'Skeleton',
+  'skeleton': 'Skeleton 🆕',
 }
 
 export default meta;
