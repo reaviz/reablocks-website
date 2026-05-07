@@ -1,3 +1,258 @@
 # File Uploads
-For file uploads, we recommend using [uppyjs](https://uppy.io/). Uppy is a sleek, modular file uploader
-that supports drag and drop, resumable uploads, and more. Examples coming soon!
+
+reablocks doesn't ship a dedicated uploader — file handling is a deep
+rabbit hole (resumable, chunked, multi-source) and most apps already have
+strong opinions about transports. Instead, this recipe shows two patterns
+that pair the platform's native `<input type="file">` API with reablocks
+components for the chrome:
+
+1. A simple **click-to-upload** button that posts to your endpoint.
+2. A **drag-and-drop** dropzone with previews and validation.
+
+If you outgrow these — say you need resumable, chunked, or multi-provider
+uploads — reach for [Uppy](https://uppy.io/) and keep the reablocks
+components for the surrounding UI.
+
+## Click-to-upload
+
+The smallest useful pattern: a hidden `<input>` triggered by a reablocks
+`Button`. The browser handles file selection; you handle the request.
+
+```tsx
+import { useRef, useState } from 'react';
+import { Button } from 'reablocks';
+
+export const UploadButton = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isUploading, setIsUploading] = useState(false);
+
+  const onFiles = async (files: FileList | null) => {
+    if (!files?.length) return;
+    setIsUploading(true);
+    try {
+      const body = new FormData();
+      Array.from(files).forEach(file => body.append('file', file));
+      await fetch('/api/upload', { method: 'POST', body });
+    } finally {
+      setIsUploading(false);
+      if (inputRef.current) inputRef.current.value = '';
+    }
+  };
+
+  return (
+    <>
+      <Button
+        onClick={() => inputRef.current?.click()}
+        disabled={isUploading}
+      >
+        {isUploading ? 'Uploading…' : 'Choose file'}
+      </Button>
+      <input
+        ref={inputRef}
+        type="file"
+        className="hidden"
+        accept="image/*"
+        onChange={e => onFiles(e.target.files)}
+      />
+    </>
+  );
+};
+```
+
+A few things worth knowing:
+
+- **Reset the input.** Setting `inputRef.current.value = ''` after upload
+  ensures the user can pick the same file again and have `onChange` fire.
+- **`accept` is advisory.** It filters the OS picker but doesn't enforce
+  anything — always validate the type/size on the client and the server.
+- **Multi-file.** Add `multiple` to the input and the same `FormData`
+  loop handles N files.
+
+## Drag-and-drop with previews
+
+A more complete dropzone: drop or click to pick, validate size/type, show
+a preview, and surface errors via reablocks' `Field`. The platform
+provides everything via the [drag and drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+— no library required.
+
+```tsx
+import { useRef, useState } from 'react';
+import { Button, Field, cn } from 'reablocks';
+
+const MAX_BYTES = 5 * 1024 * 1024; // 5 MB
+const ACCEPTED = ['image/png', 'image/jpeg', 'image/webp'];
+
+type Preview = { file: File; url: string };
+
+export const Dropzone = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [preview, setPreview] = useState<Preview | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const accept = (file: File) => {
+    if (!ACCEPTED.includes(file.type)) {
+      return 'Only PNG, JPEG, or WebP images are supported.';
+    }
+    if (file.size > MAX_BYTES) {
+      return 'File must be 5 MB or smaller.';
+    }
+    return null;
+  };
+
+  const handleFile = (file: File | undefined) => {
+    setError(null);
+    if (!file) return;
+    const err = accept(file);
+    if (err) {
+      setError(err);
+      return;
+    }
+    setPreview(prev => {
+      if (prev) URL.revokeObjectURL(prev.url);
+      return { file, url: URL.createObjectURL(file) };
+    });
+  };
+
+  return (
+    <Field label="Avatar" error={error ?? false}>
+      <div
+        onDragOver={e => {
+          e.preventDefault();
+          setIsDragging(true);
+        }}
+        onDragLeave={() => setIsDragging(false)}
+        onDrop={e => {
+          e.preventDefault();
+          setIsDragging(false);
+          handleFile(e.dataTransfer.files[0]);
+        }}
+        onClick={() => inputRef.current?.click()}
+        className={cn(
+          'border border-dashed rounded p-6 text-center cursor-pointer transition-colors',
+          isDragging
+            ? 'border-primary bg-primary/5'
+            : 'border-panel-accent hover:border-primary'
+        )}
+      >
+        {preview ? (
+          <img
+            src={preview.url}
+            alt={preview.file.name}
+            className="mx-auto max-h-40 rounded"
+          />
+        ) : (
+          <p className="text-text-secondary">
+            Drag &amp; drop, or click to choose. PNG / JPEG / WebP, up to 5&nbsp;MB.
+          </p>
+        )}
+        <input
+          ref={inputRef}
+          type="file"
+          className="hidden"
+          accept={ACCEPTED.join(',')}
+          onChange={e => handleFile(e.target.files?.[0])}
+        />
+      </div>
+
+      {preview && (
+        <div className="flex gap-2 mt-2">
+          <Button
+            variant="outline"
+            onClick={() => {
+              URL.revokeObjectURL(preview.url);
+              setPreview(null);
+            }}
+          >
+            Remove
+          </Button>
+          <Button onClick={() => upload(preview.file)}>Upload</Button>
+        </div>
+      )}
+    </Field>
+  );
+};
+
+async function upload(file: File) {
+  const body = new FormData();
+  body.append('file', file);
+  await fetch('/api/upload', { method: 'POST', body });
+}
+```
+
+Notes:
+
+- **Object URLs leak.** Always `URL.revokeObjectURL` when you replace or
+  clear a preview, otherwise the browser keeps the file resident.
+- **`Field` does the error UI for you.** Pass the validation message
+  straight to `error` — `Field` renders it with `role="alert"` so screen
+  readers announce it.
+- **`cn()` for the drag state.** The [`cn`](/docs/utils/cn) helper merges
+  the conditional border/background classes without conflict noise.
+
+## Tracking progress
+
+`fetch` doesn't expose upload progress, so for a real progress bar swap
+to `XMLHttpRequest` (or use Uppy, which abstracts it). The simplest
+percent-based hook:
+
+```tsx
+import { useState } from 'react';
+
+export const useUpload = () => {
+  const [progress, setProgress] = useState(0);
+
+  const upload = (file: File, url: string) =>
+    new Promise<void>((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.upload.onprogress = e => {
+        if (e.lengthComputable) {
+          setProgress(Math.round((e.loaded / e.total) * 100));
+        }
+      };
+      xhr.onload = () =>
+        xhr.status >= 200 && xhr.status < 300 ? resolve() : reject(xhr.status);
+      xhr.onerror = () => reject(xhr.status);
+      xhr.open('POST', url);
+      const body = new FormData();
+      body.append('file', file);
+      xhr.send(body);
+    });
+
+  return { progress, upload };
+};
+```
+
+Render it however you like — a thin filled bar inside a panel-colored
+track is usually enough:
+
+```tsx
+<div className="h-1 bg-panel-accent rounded">
+  <div
+    className="h-1 bg-primary rounded transition-[width]"
+    style={{ width: `${progress}%` }}
+  />
+</div>
+```
+
+## When to reach for Uppy
+
+Switch to [Uppy](https://uppy.io/) when you need any of:
+
+- Resumable uploads (tus / S3 multipart) for large files.
+- Pulling files from Google Drive, Dropbox, Box, Instagram, etc.
+- A built-in queue with retry, pause, and per-file progress.
+- Image cropping/resizing before upload.
+
+Uppy is headless under the hood, so you can keep using reablocks for the
+surrounding buttons, fields, and dialogs — wire Uppy's events
+(`upload-progress`, `complete`, `error`) into your local state and render
+with reablocks components.
+
+## More
+
+- [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+  — what the dropzone above is built on.
+- [Uppy](https://uppy.io/) — when native isn't enough.
+- [`Field`](/docs/components/layout/field) — the wrapper used above for
+  labels and inline errors.
