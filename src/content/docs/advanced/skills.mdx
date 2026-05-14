@@ -23,7 +23,17 @@ usage patterns.
 
 Choose one of the following methods to make skills available in your project.
 
-### Option 1: Project-level (recommended for teams)
+### Option 1: Quick install (recommended)
+
+The simplest way to install Reablocks skills is via `npx`:
+
+```bash
+npx skills add reaviz/skills
+```
+
+This fetches the latest skills and installs them into your project automatically.
+
+### Option 2: Project-level (for teams)
 
 Copy or symlink the Reablocks skills into your project's `.claude/skills/` folder:
 
@@ -37,7 +47,7 @@ ln -s /path/to/reaviz/skills/reablocks .claude/skills/reablocks
 
 Skills placed in `.claude/skills/` are committed to version control and shared with all team members.
 
-### Option 2: User-level (personal, all projects)
+### Option 3: User-level (personal, all projects)
 
 Copy or symlink skills into `~/.claude/skills/` to make them available across all your projects:
 
@@ -50,7 +60,7 @@ ln -s /path/to/reaviz/skills/reablocks ~/.claude/skills/reablocks
 
 User-level skills are not shared with other team members.
 
-### Option 3: `--add-dir` flag (per-session)
+### Option 4: `--add-dir` flag (per-session)
 
 Point Claude Code to the skills repository at launch. Skills inside `.claude/skills/` of added
 directories are discovered automatically:
