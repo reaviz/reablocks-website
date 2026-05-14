@@ -3,6 +3,7 @@ const meta = {
   "theme-api": "API",
   "theme-block": "Blocks",
   "theme-example": "Customization",
+  "theme-unify": "Unify Theme",
   "theme-icons": "Icons",
   "custom-animations": "Custom Animations",
 };
