@@ -403,14 +403,14 @@ export const SectionRule: FC<{
       className
     )}
   >
-    <span className="flex-1 h-px bg-[linear-gradient(90deg,transparent,var(--color-rb-hairline-2),transparent)]" />
+    <span className="flex-1 h-px bg-[linear-gradient(90deg,transparent,var(--color-rb-hairline-2))]" />
     <span className="inline-flex items-center gap-2.5 font-display text-[13px] font-medium text-rb-fg-2 leading-[1.55] tracking-[2.6px] uppercase whitespace-nowrap">
       <span>{title}</span>
       <span className="text-rb-fg-muted">·</span>
       <span>{num}</span>
       <span className="text-rb-fg-muted">/ {total}</span>
     </span>
-    <span className="flex-1 h-px bg-[linear-gradient(90deg,transparent,var(--color-rb-hairline-2),transparent)]" />
+    <span className="flex-1 h-px bg-[linear-gradient(90deg,var(--color-rb-hairline-2),transparent)]" />
   </div>
 );
 

@@ -29,7 +29,6 @@ export const LandingShell: FC<LandingShellProps> = ({ release }) => {
         <main>
           <Hero release={release} />
 
-          <SectionRule title="Stats" num="00" />
           <Stats />
 
           <SectionRule title="Build" num="01" />

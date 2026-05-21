@@ -102,14 +102,16 @@ const landingTheme = extendTheme(theme, {
 // 1. CommandPalette  — real `reablocks/CommandPalette` w/ hotkeys
 // ============================================================
 const CommandPaletteFooter: FC = () => (
-  <div className="flex items-center gap-4 px-3.5 py-2 border border-t-0 border-rb-hairline-2 rounded-b-md text-[11px] text-rb-fg-3">
+  <div className="flex items-center gap-4 px-3.5 py-2 border border-rb-hairline-2 rounded-b-md text-[11px] text-rb-fg-3">
     <span className="inline-flex items-center gap-1.5">
       <Kbd keycode="↑" />
       <Kbd keycode="↓" /> navigate
     </span>
+    <span className="self-stretch w-px bg-white/25" aria-hidden="true" />
     <span className="inline-flex items-center gap-1.5">
       <Kbd keycode="↵" /> select
     </span>
+    <span className="self-stretch w-px bg-white/25" aria-hidden="true" />
     <span className="inline-flex items-center gap-1.5">
       <Kbd keycode="esc" /> close
     </span>

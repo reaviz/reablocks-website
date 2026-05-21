@@ -83,7 +83,7 @@ const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
 };
 
 export const Stats: FC = () => (
-  <section id="stats" className="py-10 max-md:py-7">
+  <section id="stats" className="pb-20 max-md:pb-7">
     <div className="border-t border-b border-rb-hairline">
       <div className="w-full max-w-[1240px] mx-auto grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 [&>*+*]:border-l [&>*+*]:border-rb-hairline max-md:[&>*:nth-child(3)]:border-l-0 max-md:[&>*:nth-child(n+3)]:border-t max-md:[&>*:nth-child(n+3)]:border-rb-hairline max-sm:[&>*+*]:border-l-0 max-sm:[&>*+*]:border-t">
         {STATS.map((s) => (

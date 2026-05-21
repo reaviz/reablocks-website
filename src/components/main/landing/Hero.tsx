@@ -319,50 +319,6 @@ const ConstellationGraph: FC = () => {
   );
 };
 
-const PeekingChips: FC = () => (
-  <div className="absolute inset-0 pointer-events-none z-[5] max-[880px]:hidden" aria-hidden="true">
-    <div
-      className="absolute top-[14%] -right-14 flex flex-col gap-2 bg-[rgba(28,28,44,0.7)] [backdrop-filter:blur(14px)_saturate(150%)] border border-rb-hairline-2 rounded-[14px] px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_28px_70px_-28px_rgba(0,0,0,0.7)] rotate-[4deg] motion-safe:animate-rb-peek-a"
-    >
-      <div className="flex items-center gap-2 text-[12.5px]">
-        <span
-          className="w-2 h-2 rounded-full shrink-0"
-          style={{ background: '#61DAFB', boxShadow: '0 0 10px #61DAFB80' }}
-        />
-        <span className="font-medium text-rb-fg-1">React</span>
-        <span className="font-mono text-[11px] text-rb-fg-3">19</span>
-      </div>
-      <div className="flex items-center gap-2 text-[12.5px]">
-        <span
-          className="w-2 h-2 rounded-full shrink-0"
-          style={{ background: '#FF4D80', boxShadow: '0 0 10px #FF4D8080' }}
-        />
-        <span className="font-medium text-rb-fg-1">Motion</span>
-        <span className="font-mono text-[11px] text-rb-fg-3">12</span>
-      </div>
-    </div>
-    <div
-      className="absolute bottom-[18%] -right-11 flex items-center gap-2 bg-[rgba(28,28,44,0.7)] [backdrop-filter:blur(14px)_saturate(150%)] border border-rb-hairline-2 rounded-[14px] px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_28px_70px_-28px_rgba(0,0,0,0.7)] -rotate-3 motion-safe:animate-rb-peek-b"
-    >
-      <span className="inline-flex items-center justify-center w-[18px] h-[18px] rounded-full bg-rb-good shrink-0">
-        <svg
-          viewBox="0 0 24 24"
-          width="11"
-          height="11"
-          fill="none"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M4 12l5 5L20 6" />
-        </svg>
-      </span>
-      <span className="font-medium text-rb-fg-1 text-[12.5px]">Build passing</span>
-    </div>
-  </div>
-);
-
 interface HeroProps {
   release: ReablocksRelease;
 }
@@ -380,7 +336,6 @@ export const Hero: FC<HeroProps> = ({ release }) => (
     />
 
     <ConstellationGraph />
-    <PeekingChips />
 
     <div className="relative z-10 text-center w-full max-w-[1240px] mx-auto px-7">
       <a
@@ -440,6 +395,16 @@ export const Hero: FC<HeroProps> = ({ release }) => (
         </a>
       </div>
     </div>
+
+    <div
+      aria-hidden="true"
+      className="absolute top-0 bottom-0 left-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-r from-[#11111F] to-transparent"
+    />
+
+    <div
+      aria-hidden="true"
+      className="absolute top-0 bottom-0 right-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-l from-[#11111F] to-transparent"
+    />
 
     <div
       aria-hidden="true"
