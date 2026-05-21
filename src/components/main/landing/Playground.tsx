@@ -23,27 +23,186 @@ const EXAMPLES: Record<string, Example> = {
     label: 'Button variants',
     code: `import { Button } from 'reablocks';
 
+const ButtonsRow = ({ label, children }) => (
+  <div className="flex items-center gap-3">
+    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
+      {label}
+    </span>
+    <div className="flex gap-2 flex-wrap">{children}</div>
+  </div>
+);
+
 render(
-  <div className="light:bg-white p-24 flex gap-2">
-    <Button color="primary">Primary</Button>
-    <Button color="secondary">Secondary</Button>
-    <Button color="success">Success</Button>
-    <Button color="warning">Warning</Button>
-    <Button color="error">Error</Button>
+  <div className="flex flex-col gap-4 p-6">
+    <ButtonsRow label="Filled">
+      <Button size="medium" color="primary">Primary</Button>
+      <Button size="medium" color="secondary">Secondary</Button>
+      <Button size="medium" color="success">Success</Button>
+      <Button size="medium" color="warning">Warning</Button>
+      <Button size="medium" color="error">Error</Button>
+    </ButtonsRow>
+    <ButtonsRow label="Outline">
+      <Button size="medium" variant="outline" color="primary">Primary</Button>
+      <Button size="medium" variant="outline" color="secondary">Secondary</Button>
+      <Button size="medium" variant="outline" color="success">Success</Button>
+      <Button size="medium" variant="outline" color="warning">Warning</Button>
+      <Button size="medium" variant="outline" color="error">Error</Button>
+    </ButtonsRow>
+    <ButtonsRow label="Text">
+      <Button size="medium" variant="text" color="primary">Primary</Button>
+      <Button size="medium" variant="text" color="secondary">Secondary</Button>
+      <Button size="medium" variant="text" color="success">Success</Button>
+      <Button size="medium" variant="text" color="warning">Warning</Button>
+      <Button size="medium" variant="text" color="error">Error</Button>
+    </ButtonsRow>
   </div>
 );`
   },
-  form: {
-    label: 'Form',
-    code: `import { Card, Input, Select, Button } from 'reablocks';
+  inputs: {
+    label: 'Inputs',
+    code: `import { Input } from 'reablocks';
+import { useState } from 'react';
 
-render(
-  <Card className="p-5">
-    <Input label="Email" type="email" placeholder="you@company.com" />
-    <Select label="Role" options={['Developer','Designer','PM']} />
-    <Button color="primary" fullWidth>Continue</Button>
-  </Card>
-);`
+const Row = ({ label, children }) => (
+  <div className="flex items-center gap-3">
+    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
+      {label}
+    </span>
+    <div className="flex gap-2 flex-wrap items-center">{children}</div>
+  </div>
+);
+
+const Demo = () => {
+  const [value, setValue] = useState('reablocks');
+  return (
+    <div className="flex flex-col gap-4 p-6 w-full max-w-md">
+      <Row label="Default">
+        <Input placeholder="Type here..." />
+      </Row>
+      <Row label="Filled">
+        <Input value={value} onChange={(e) => setValue(e.target.value)} />
+      </Row>
+      <Row label="Email">
+        <Input type="email" placeholder="you@company.com" />
+      </Row>
+      <Row label="Password">
+        <Input type="password" placeholder="••••••••" />
+      </Row>
+      <Row label="Disabled">
+        <Input placeholder="Disabled" disabled />
+      </Row>
+    </div>
+  );
+};
+
+render(<Demo />);`
+  },
+  checkboxes: {
+    label: 'Checkboxes',
+    code: `import { Checkbox } from 'reablocks';
+import { useState } from 'react';
+
+const Row = ({ label, children }) => (
+  <div className="flex items-center gap-3">
+    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
+      {label}
+    </span>
+    <div className="flex gap-5 flex-wrap items-center">{children}</div>
+  </div>
+);
+
+const Demo = () => {
+  const [state, setState] = useState({
+    a: true,
+    b: false,
+    c: true,
+    d: false
+  });
+  const set = (k) => (v) => setState((s) => ({ ...s, [k]: v }));
+  return (
+    <div className="flex flex-col gap-4 p-6">
+      <Row label="Basic">
+        <Checkbox
+          checked={state.a}
+          label="Accessible"
+          containerClassName="w-auto"
+          onChange={set('a')}
+        />
+        <Checkbox
+          checked={state.b}
+          label="Tree-shakable"
+          containerClassName="w-auto"
+          onChange={set('b')}
+        />
+        <Checkbox
+          checked={state.c}
+          label="Themed"
+          containerClassName="w-auto"
+          onChange={set('c')}
+        />
+      </Row>
+      <Row label="Disabled">
+        <Checkbox
+          checked
+          label="Checked & disabled"
+          containerClassName="w-auto"
+          disabled
+        />
+        <Checkbox
+          label="Unchecked & disabled"
+          containerClassName="w-auto"
+          disabled
+        />
+      </Row>
+    </div>
+  );
+};
+
+render(<Demo />);`
+  },
+  radios: {
+    label: 'Radio buttons',
+    code: `import { Radio, RadioGroup } from 'reablocks';
+import { useState } from 'react';
+
+const Row = ({ label, children }) => (
+  <div className="flex items-center gap-3">
+    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
+      {label}
+    </span>
+    <div className="flex gap-5 flex-wrap items-center">{children}</div>
+  </div>
+);
+
+const Demo = () => {
+  const [framework, setFramework] = useState('react');
+  const [plan, setPlan] = useState('pro');
+  return (
+    <div className="flex flex-col gap-4 p-6">
+      <Row label="Framework">
+        <RadioGroup onChange={setFramework} selectedValue={framework}>
+          <div className="flex gap-5 flex-wrap">
+            <Radio value="react" label="React" />
+            <Radio value="vue" label="Vue" />
+            <Radio value="svelte" label="Svelte" />
+            <Radio value="solid" label="Solid" />
+          </div>
+        </RadioGroup>
+      </Row>
+      <Row label="Plan">
+        <RadioGroup onChange={setPlan} selectedValue={plan}>
+          <div className="flex gap-5 flex-wrap">
+            <Radio value="free" label="Free" />
+            <Radio value="pro" label="Pro" />
+            <Radio value="enterprise" label="Enterprise" />
+          </div>
+        </RadioGroup>
+      </Row>
+    </div>
+  );
+};
+
+render(<Demo />);`
   }
 };
 
@@ -168,7 +327,8 @@ export const Playground: FC = () => {
                 >
                   <div className="px-3.5 py-2 border-b border-rb-hairline flex items-center text-xs text-rb-fg-3 font-mono">
                     <span>preview · ThemeProvider</span>
-                    <span className="ml-auto inline-flex items-center gap-1.5 text-xs px-2.5 py-1 bg-white/[0.05] border border-rb-hairline text-rb-fg-2 rounded-full">
+                    <span className="ml-auto inline-flex items-center gap-1.5 text-xs px-2.5 py-1 bg-emerald-500/15 backdrop-blur-md border border-emerald-400/30 text-emerald-300 rounded-full">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
                       live
                     </span>
                   </div>

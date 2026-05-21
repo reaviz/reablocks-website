@@ -933,7 +933,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
 
         <div className="grid grid-cols-[260px_1fr] gap-[22px] max-[900px]:grid-cols-1">
           {/* Sidebar */}
-          <aside className="self-start sticky top-20 p-[14px] rb-ring rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_28px_-12px_rgba(0,0,0,0.6)]">
+          <aside className="self-start sticky top-20 max-[900px]:static p-[14px] rb-ring rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_28px_-12px_rgba(0,0,0,0.6)]">
             <div className="inline-flex p-[3px] bg-white/[0.04] border border-rb-hairline rounded-lg w-full">
               {TABS.map((t) => {
                 const selected = tab === t;
