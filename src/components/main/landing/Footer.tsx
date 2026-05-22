@@ -4,20 +4,42 @@ import { FC } from 'react';
 import LogoIcon from '../../../../public/logo.svg';
 import { CopyButton, Icon } from './atoms';
 
-const COLS: Array<{ title: string; items: string[] }> = [
+type FooterItem = string | { label: string; sub?: string; href?: string };
+
+const COLS: Array<{ title: string; items: FooterItem[] }> = [
   {
     title: 'Library',
-    items: ['Docs', 'Components', 'Blocks', 'Theming', 'Changelog']
+    items: [
+      { label: 'Docs', href: '/docs' },
+      { label: 'Blocks', href: '/blocks' },
+      { label: 'Theming', href: '/docs/theme/getting-started' },
+      { label: 'Support', href: '/support' }
+    ]
   },
   {
-    title: 'Resources',
-    items: ['Storybook', 'Templates', 'Migrations', 'Roadmap']
+    title: 'Ecosystem',
+    items: [
+      { label: 'Reaviz', sub: 'Charts', href: 'https://reaviz.dev' },
+      { label: 'Reagraph', sub: 'Graphs', href: 'https://reagraph.dev' },
+      { label: 'Reachat', sub: 'Chat / LLM', href: 'https://reachat.dev' },
+      {
+        label: 'Reakeys',
+        sub: 'Hotkeys',
+        href: 'https://github.com/reaviz/reakeys'
+      }
+    ]
   },
   {
-    title: 'Community',
-    items: ['GitHub', 'Discord', 'X / Twitter', 'Bluesky']
-  },
-  { title: 'Built by', items: ['Reaviz', 'Apache 2.0', 'Status', 'Press kit'] }
+    title: 'Built by',
+    items: [
+      { label: 'Reaviz', href: 'https://github.com/reaviz' },
+      {
+        label: 'Apache 2.0',
+        href: 'https://github.com/reaviz/reablocks/blob/master/LICENSE'
+      },
+      { label: 'ChangeLog', href: '/docs/changelog' }
+    ]
+  }
 ];
 
 export const Footer: FC = () => (
@@ -43,24 +65,40 @@ export const Footer: FC = () => (
             <CopyButton getText={() => 'npm i reablocks'} />
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-8 max-[540px]:grid-cols-2 max-[540px]:gap-6">
+        <div className="grid grid-cols-3 gap-8 max-[540px]:grid-cols-2 max-[540px]:gap-6">
           {COLS.map((c) => (
             <div key={c.title}>
               <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-rb-fg-3 mb-3">
                 {c.title}
               </div>
               <ul className="list-none p-0 m-0 grid gap-2">
-                {c.items.map((i) => (
-                  <li key={i}>
-                    <a
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
-                      className="text-rb-fg-2 text-[13.5px] no-underline hover:text-white transition-colors duration-150"
-                    >
-                      {i}
-                    </a>
-                  </li>
-                ))}
+                {c.items.map((i) => {
+                  const isObj = typeof i !== 'string';
+                  const label = isObj ? i.label : i;
+                  const sub = isObj ? i.sub : undefined;
+                  const href = isObj ? i.href : undefined;
+                  const isExternal = !!href && /^https?:\/\//.test(href);
+                  return (
+                    <li key={label}>
+                      <a
+                        href={href ?? '#'}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noreferrer' : undefined}
+                        onClick={
+                          href ? undefined : (e) => e.preventDefault()
+                        }
+                        className="group text-rb-fg-2 text-[13.5px] no-underline hover:text-white transition-colors duration-150 inline-flex items-baseline gap-1.5"
+                      >
+                        <span>{label}</span>
+                        {sub && (
+                          <span className="text-rb-fg-3 text-[12px] group-hover:text-rb-fg-2 transition-colors duration-150">
+                            {sub}
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -78,20 +116,6 @@ export const Footer: FC = () => (
             className="hover:text-white transition-colors duration-150"
           >
             <Icon.github />
-          </a>
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="hover:text-white transition-colors duration-150"
-          >
-            Privacy
-          </a>
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="hover:text-white transition-colors duration-150"
-          >
-            Terms
           </a>
         </span>
       </div>

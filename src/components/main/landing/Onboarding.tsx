@@ -13,6 +13,8 @@ interface Step {
   key: string;
   title: string;
   blurb: string;
+  docHref: string;
+  docLabel: string;
   code?: string;
   tabs?: StepTab[];
 }
@@ -22,6 +24,8 @@ const STEPS: Step[] = [
     key: 'install',
     title: 'Install',
     blurb: 'One package, zero peer-dependency dance.',
+    docHref: '/docs/getting-started/setup#1-install-reablocks',
+    docLabel: 'Setup guide',
     tabs: [
       { label: 'npm', code: 'npm install reablocks motion' },
       { label: 'pnpm', code: 'pnpm add reablocks motion' },
@@ -33,6 +37,8 @@ const STEPS: Step[] = [
     key: 'styles',
     title: 'Import styles',
     blurb: 'One line in your global CSS — Tailwind layers are already wired up.',
+    docHref: '/docs/getting-started/setup#3-import-tailwind-in-your-css',
+    docLabel: 'Tailwind setup',
     code: `@import "../node_modules/reablocks/dist/index.css";`
   },
   {
@@ -40,6 +46,8 @@ const STEPS: Step[] = [
     title: 'Theme',
     blurb:
       'Override any component with Tailwind classes — type-safe, fully composable.',
+    docHref: '/docs/theme/getting-started#extending-the-reablocks-theme',
+    docLabel: 'Theme guide',
     code: `import { PartialReablocksTheme, ButtonTheme } from 'reablocks';
 
 const buttonTheme: ButtonTheme = {
@@ -69,6 +77,9 @@ const customTheme: PartialReablocksTheme = {
     key: 'wrap',
     title: 'Wrap your app',
     blurb: 'One provider. Components inherit instantly.',
+    docHref:
+      '/docs/theme/getting-started#integrating-reablocks-theme-in-your-application',
+    docLabel: 'ThemeProvider docs',
     code: `import { ThemeProvider } from 'reablocks';
 import { customTheme } from './theme';
 
@@ -169,6 +180,47 @@ export const Onboarding: FC = () => {
           lede="No CSS bundler config. No theme provider gymnastics. Drop it in."
         />
 
+        <div
+          role="note"
+          className="mb-5 flex items-start gap-3 px-4 py-3 rounded-[12px] border border-[color-mix(in_oklab,var(--color-blue-500)_30%,transparent)] bg-[color-mix(in_oklab,var(--color-blue-500)_8%,transparent)] max-[640px]:flex-col max-[640px]:gap-2"
+        >
+          <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[color-mix(in_oklab,var(--color-blue-500)_22%,transparent)] text-blue-300 shrink-0">
+            <Icon.bolt />
+          </span>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm text-white m-0 leading-[1.5]">
+              <span className="font-semibold">Reablocks styles with Tailwind CSS.</span>{' '}
+              <span className="text-rb-fg-2">
+                Already on Tailwind v4? You&rsquo;re set — the steps below are
+                all you need. Starting from scratch? Install Tailwind first
+                and configure the Reablocks design tokens.
+              </span>
+            </p>
+            <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+              <a
+                href="/docs/getting-started/setup#2-installing-tailwind-css"
+                className="inline-flex items-center gap-1 font-mono text-[11.5px] text-blue-300 hover:text-blue-200 no-underline"
+              >
+                Install Tailwind <Icon.arrowUpRight />
+              </a>
+              <a
+                href="/docs/getting-started/setup#5-configure-reablocks-tokens-for-tailwind"
+                className="inline-flex items-center gap-1 font-mono text-[11.5px] text-blue-300 hover:text-blue-200 no-underline"
+              >
+                Configure tokens <Icon.arrowUpRight />
+              </a>
+              <a
+                href="https://tailwindcss.com/docs/installation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-mono text-[11.5px] text-rb-fg-3 hover:text-rb-fg-1 no-underline"
+              >
+                tailwindcss.com <Icon.arrowUpRight />
+              </a>
+            </div>
+          </div>
+        </div>
+
         <ol
           aria-label="Reablocks setup steps"
           className="rb-ring overflow-hidden rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_28px_-12px_rgba(0,0,0,0.6)] list-none m-0 p-0"
@@ -252,6 +304,15 @@ export const Onboarding: FC = () => {
                       >
                         {s.blurb}
                       </p>
+                      <a
+                        href={s.docHref}
+                        className={cn(
+                          'inline-flex items-center gap-1 mt-2 font-mono text-[11.5px] text-blue-300 hover:text-blue-200 no-underline transition-opacity duration-200',
+                          state === 'pending' && 'opacity-55'
+                        )}
+                      >
+                        {s.docLabel} <Icon.arrowUpRight />
+                      </a>
                     </div>
                     <div className="shrink-0 max-[640px]:self-end">
                       <Button
