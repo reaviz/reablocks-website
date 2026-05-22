@@ -12,7 +12,7 @@ const COMPAT = [
 export const AiSkills: FC = () => {
   const cmd = 'npx skills add reaviz/skills';
   return (
-    <section className="relative py-24 max-[720px]:py-16" id="ai">
+    <section className="relative py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="ai">
       {/* Cyan halo behind section */}
       <div
         aria-hidden="true"
@@ -22,7 +22,7 @@ export const AiSkills: FC = () => {
             'radial-gradient(ellipse 50% 50% at 50% 20%, rgba(128,226,248,0.10), transparent 70%)'
         }}
       />
-      <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7">
+      <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <div className="grid grid-cols-[1.05fr_1fr] gap-12 items-start max-[980px]:grid-cols-1 max-[980px]:gap-9">
           <div>
             <div className="[&_.rb-section-head]:mb-6">
@@ -149,7 +149,7 @@ export const AiSkills: FC = () => {
                   live
                 </span>
               </div>
-              <div className="p-4 px-4 text-[13px] leading-[1.6] text-rb-fg-2 flex flex-col gap-1 min-h-[360px]">
+              <div className="p-4 px-4 text-[13px] leading-[1.6] text-rb-fg-2 flex flex-col gap-1 min-h-[360px] max-[640px]:text-[12px] max-[640px]:p-3 max-[640px]:min-h-[320px] overflow-x-auto">
                 <div className="flex items-start gap-2.5">
                   <span className="w-[18px] shrink-0 inline-flex items-start text-cyan-300 mt-0.5">
                     $

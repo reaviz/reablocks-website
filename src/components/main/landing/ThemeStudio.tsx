@@ -913,10 +913,8 @@ export const myTheme: PartialReablocksTheme = extendTheme(
   const activeCode = codeTab === 'overrides' ? overridesCode : themeOverrideCode;
   const activeFile = codeTab === 'overrides' ? 'tokens.css' : 'theme.ts';
 
-  const tokenCount = TOKEN_ORDER.length + 2;
-
   return (
-    <section className="relative py-24 max-[720px]:py-16" id="theme-studio">
+    <section className="relative py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="theme-studio">
       <div
         aria-hidden="true"
         className="absolute left-1/2 -top-6 w-[1000px] h-[600px] -translate-x-1/2 pointer-events-none z-0"
@@ -925,7 +923,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
             'radial-gradient(ellipse 50% 50% at 50% 0%, rgba(16,94,255,0.18), transparent 70%)'
         }}
       />
-      <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7">
+      <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
           title="Reablocks themes are objects, not config files."
           lede="Edit one. See everything change. Then paste the diff into your app."
@@ -1006,10 +1004,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
               )}
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-dashed border-rb-hairline flex items-center justify-between">
-              <span className="font-mono text-[10.5px] text-rb-fg-3 tracking-[0.04em]">
-                {tokenCount} tokens
-              </span>
+            <div className="mt-3 pt-2.5 border-t border-dashed border-rb-hairline flex items-center justify-end">
               <button
                 type="button"
                 onClick={reset}
@@ -1022,7 +1017,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
 
           {/* Stage — react-live-runner preview wired to the host CSS vars */}
           <div
-            className="min-h-[480px] p-[22px] rb-ring-overlay rounded-[22px]"
+            className="min-h-[480px] p-[22px] rb-ring-overlay rounded-[22px] max-[640px]:p-3 max-[640px]:min-h-[420px] overflow-hidden max-[640px]:overflow-x-auto"
             style={stageStyle}
           >
             <ThemeProvider theme={customTheme}>

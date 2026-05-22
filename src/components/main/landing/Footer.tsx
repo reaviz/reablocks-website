@@ -43,8 +43,8 @@ const COLS: Array<{ title: string; items: FooterItem[] }> = [
 ];
 
 export const Footer: FC = () => (
-  <footer className="border-t border-rb-hairline pt-16 pb-7 mt-20 bg-gradient-to-b from-transparent to-black/30">
-    <div className="w-full max-w-[1240px] mx-auto px-7">
+  <footer className="border-t border-rb-hairline pt-16 pb-7 mt-20 bg-gradient-to-b from-transparent to-black/30 max-[640px]:pt-10 max-[640px]:mt-12">
+    <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <div className="grid grid-cols-[1.2fr_2fr] gap-12 mb-10 max-[820px]:grid-cols-1">
         <div>
           <a

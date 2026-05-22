@@ -173,8 +173,8 @@ export const Onboarding: FC = () => {
   }, []);
 
   return (
-    <section className="py-24 max-[720px]:py-16" id="onboarding">
-      <div className="w-full max-w-[1240px] mx-auto px-7">
+    <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="onboarding">
+      <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
           title="From install to render in four blocks."
           lede="No CSS bundler config. No theme provider gymnastics. Drop it in."
@@ -248,7 +248,7 @@ export const Onboarding: FC = () => {
                 key={s.key}
                 aria-current={isActive ? 'step' : undefined}
                 className={cn(
-                  'relative grid grid-cols-[56px_1fr] max-[640px]:grid-cols-[44px_1fr] transition-colors duration-200',
+                  'relative grid grid-cols-[56px_minmax(0,1fr)] max-[640px]:grid-cols-[40px_minmax(0,1fr)] transition-colors duration-200',
                   !isLast && 'border-b border-rb-hairline',
                   isActive &&
                     'bg-[color-mix(in_oklab,var(--color-blue-500)_5%,transparent)]'
@@ -278,7 +278,7 @@ export const Onboarding: FC = () => {
                 </div>
 
                 {/* Body */}
-                <div className="py-6 pr-6 max-[640px]:pr-4 max-[640px]:py-5">
+                <div className="py-6 pr-6 max-[640px]:pr-3 max-[640px]:py-5 min-w-0">
                   <div className="flex items-start gap-3 max-[640px]:flex-col max-[640px]:items-stretch max-[640px]:gap-2.5">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1.5 flex-wrap">
@@ -338,7 +338,7 @@ export const Onboarding: FC = () => {
                   </div>
                   <div
                     className={cn(
-                      'mt-3.5 rounded-[10px] border border-rb-hairline bg-[#0E0F1B] overflow-hidden transition-[opacity,filter] duration-200',
+                      'mt-3.5 rounded-[10px] border border-rb-hairline bg-[#0E0F1B] overflow-hidden transition-[opacity,filter] duration-200 min-w-0 max-w-full',
                       state === 'pending' && 'opacity-55 saturate-[0.6]',
                       state === 'done' && 'opacity-85'
                     )}
@@ -347,7 +347,7 @@ export const Onboarding: FC = () => {
                       <div
                         role="tablist"
                         aria-label={`${s.title} package manager`}
-                        className="flex items-center gap-0.5 px-2 border-b border-rb-hairline bg-black/[0.18]"
+                        className="flex items-center gap-0.5 px-2 border-b border-rb-hairline bg-black/[0.18] overflow-x-auto"
                       >
                         {s.tabs.map((tab, idx) => {
                           const tabActive = currentTab === idx;

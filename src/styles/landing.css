@@ -13,6 +13,7 @@
 .rb-landing {
   position: relative;
   width: 100%;
+  overflow-x: clip;
   background:
     radial-gradient(1200px 700px at 50% -10%,
       rgba(16,94,255,0.22) 0%,

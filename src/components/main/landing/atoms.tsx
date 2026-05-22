@@ -370,7 +370,7 @@ export const CodeBlock: FC<{ code: string; className?: string }> = ({
   return (
     <pre
       className={cn(
-        'm-0 px-5 py-[18px] font-mono text-[13px] leading-[1.65] text-rb-fg-1 overflow-auto whitespace-pre bg-transparent !rounded-t-none',
+        'm-0 px-5 py-[18px] font-mono text-[13px] leading-[1.65] text-rb-fg-1 overflow-auto whitespace-pre bg-transparent !rounded-t-none max-[640px]:px-3.5 max-[640px]:py-3.5 max-[640px]:text-[12px]',
         className
       )}
     >
@@ -438,7 +438,7 @@ export const SectionRule: FC<{
   <div
     aria-hidden="true"
     className={cn(
-      'flex items-center gap-3.5 w-full max-w-[1240px] mx-auto px-7 py-3.5',
+      'flex items-center gap-3.5 w-full max-w-[1240px] mx-auto px-7 py-3.5 max-[640px]:px-5 max-[640px]:gap-2.5',
       className
     )}
   >
@@ -476,18 +476,18 @@ export const SectionHead: FC<{
 }> = ({ eyebrow, title, lede, align, children }) => (
   <div
     className={cn(
-      'mb-12',
+      'mb-12 max-[640px]:mb-8',
       align === 'center' && 'text-center mx-auto'
     )}
   >
     {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
     {title ? (
-      <h2 className="font-display font-semibold text-[clamp(36px,4.6vw,60px)] leading-[1.05] tracking-[-0.025em] my-4 text-white">
+      <h2 className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3">
         {title}
       </h2>
     ) : null}
     {lede ? (
-      <p className="text-rb-fg-2 text-[17px] leading-[1.55] max-w-[64ch] m-0">
+      <p className="text-rb-fg-2 text-[17px] leading-[1.55] max-w-[64ch] m-0 max-[640px]:text-[15px]">
         {lede}
       </p>
     ) : null}

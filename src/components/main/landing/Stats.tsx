@@ -68,7 +68,7 @@ const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
       ref={ref}
       className="flex flex-col items-center text-center gap-2 px-7 py-10 max-md:py-7 max-md:px-5"
     >
-      <div className="font-display font-semibold text-[clamp(50px,5vw,80px)] leading-none tabular-nums text-white">
+      <div className="font-display font-semibold text-[clamp(42px,7vw,80px)] leading-none tabular-nums text-white">
         {value}
         <span className="text-cyan-300">{stat.suffix}</span>
       </div>

@@ -303,11 +303,11 @@ const CalendarCell: FC = () => {
     last7Days()
   );
   return (
-    <div className="flex-1 flex flex-col justify-center">
+    <div className="flex-1 flex flex-col justify-center min-w-0 overflow-x-auto">
       {/* Mirror the CommandPalette container: bordered top section
           holding the calendar, joined footer with the date readout. */}
-      <div className="mx-auto w-auto flex flex-col">
-        <div className="border border-rb-hairline-2 rounded-t-md border-b-0 p-3">
+      <div className="mx-auto w-auto flex flex-col max-[640px]:text-[12px]">
+        <div className="border border-rb-hairline-2 rounded-t-md border-b-0 p-3 max-[640px]:p-2">
           <Calendar
             isRange
             value={range}
@@ -488,12 +488,12 @@ const InputsCell: FC = () => {
   const [price, setPrice] = useState<[number, number]>([20, 70]);
 
   return (
-    <div className="flex-1 flex flex-col gap-4 justify-center">
+    <div className="flex-1 flex flex-col gap-4 justify-center min-w-0 overflow-hidden">
       <div>
         <div className="text-[11px] text-rb-fg-3 font-mono uppercase tracking-[0.08em] mb-2">
           Features
         </div>
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 max-[640px]:gap-x-3">
           {/* Checkbox's theme base sets `w-full`, which would stack each
               item onto its own row inside a flex container. Override
               with `w-auto` so they sit horizontally. */}
@@ -522,7 +522,7 @@ const InputsCell: FC = () => {
           Framework
         </div>
         <RadioGroup onChange={setFramework} selectedValue={framework}>
-          <div className="flex flex-wrap gap-x-5 gap-y-1.5">
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 max-[640px]:gap-x-3">
             <Radio value="react" label="React" />
             <Radio value="vue" label="Vue" />
             <Radio value="svelte" label="Svelte" />
@@ -555,19 +555,20 @@ const InputsCell: FC = () => {
 // Bento container
 // ============================================================
 const BODY_MIN: Record<'tall' | 'med' | 'sm', string> = {
-  tall: 'min-h-[420px]',
-  med: 'min-h-[260px]',
-  sm: 'min-h-[260px]'
+  tall: 'min-h-[420px] max-[640px]:min-h-[360px]',
+  med: 'min-h-[260px] max-[640px]:min-h-[220px]',
+  sm: 'min-h-[260px] max-[640px]:min-h-[220px]'
 };
 
 const Bento: FC<{
   title: string;
   docHref?: string;
   size?: 'tall' | 'med';
+  className?: string;
   children: ReactNode;
-}> = ({ title, docHref, size, children }) => (
-  <div className="rb-ring rb-ring--glow group relative flex flex-col overflow-hidden rounded-[22px] transition-[transform] duration-200 hover:-translate-y-0.5">
-    <div className={cn('p-[18px] overflow-hidden flex', BODY_MIN[size || 'sm'])}>
+}> = ({ title, docHref, size, className, children }) => (
+  <div className={cn('rb-ring rb-ring--glow group relative flex flex-col overflow-hidden rounded-[22px] transition-[transform] duration-200 hover:-translate-y-0.5', className)}>
+    <div className={cn('p-[18px] max-[640px]:p-3 overflow-hidden flex min-w-0', BODY_MIN[size || 'sm'])}>
       {children}
     </div>
     <div className="flex items-center justify-between px-3.5 pb-3 pt-2.5 border-t border-rb-hairline">
@@ -590,8 +591,8 @@ export const Showcase: FC = () => {
   const themeMemo = useMemo(() => landingTheme, []);
   return (
     <ThemeProvider theme={themeMemo}>
-      <section className="py-24 max-[720px]:py-16" id="showcase">
-        <div className="w-full max-w-[1240px] mx-auto px-7">
+      <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="showcase">
+        <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
           <SectionHead
             title="Every section on this page is a real component."
             lede="No screenshots. No iframes. Type, click, drag. The same primitives ship with the package."
@@ -633,6 +634,7 @@ export const Showcase: FC = () => {
                 title="Calendar"
                 size="tall"
                 docHref="/docs/components/form/calendar"
+                className="max-[640px]:hidden"
               >
                 <CalendarCell />
               </Bento>

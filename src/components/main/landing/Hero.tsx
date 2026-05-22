@@ -147,18 +147,19 @@ function useNearestNode(
 const ConstellationGraph: FC = () => {
   const hostRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery('(max-width: 960px)');
+  const isSmallMobile = useMediaQuery('(max-width: 640px)');
   const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
 
   const cursorHover = useNearestNode(hostRef, isMobile);
   const [cycleIdx, setCycleIdx] = useState(0);
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || isSmallMobile) return;
     const t = setInterval(
       () => setCycleIdx((i) => (i + 1) % MOBILE_CYCLE.length),
       3000
     );
     return () => clearInterval(t);
-  }, [isMobile]);
+  }, [isMobile, isSmallMobile]);
   const hovered = cursorHover || (isMobile ? MOBILE_CYCLE[cycleIdx] : null);
 
   const adj = useMemo(() => {
@@ -226,6 +227,8 @@ const ConstellationGraph: FC = () => {
       clearTimeout(timer);
     };
   }, [visibleEdges, nodeMap, reducedMotion]);
+
+  if (isSmallMobile) return null;
 
   return (
     <div
@@ -324,7 +327,7 @@ interface HeroProps {
 }
 
 export const Hero: FC<HeroProps> = ({ release }) => (
-  <section className="relative py-[88px] pb-[100px] overflow-hidden isolate">
+  <section className="relative py-[88px] pb-[100px] overflow-hidden isolate max-[640px]:py-14 max-[640px]:pb-16">
     {/* Soft halo behind headline */}
     <div
       aria-hidden="true"
@@ -337,12 +340,12 @@ export const Hero: FC<HeroProps> = ({ release }) => (
 
     <ConstellationGraph />
 
-    <div className="relative z-10 text-center w-full max-w-[1240px] mx-auto px-7">
+    <div className="relative z-10 text-center w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <a
         href="https://www.npmjs.com/package/reablocks"
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center gap-2.5 font-mono text-[12.5px] text-rb-fg-1 pl-2.5 pr-3.5 py-1.5 rounded-full mb-6 border border-rb-hairline-strong bg-[linear-gradient(135deg,rgba(59,123,255,0.14)_0%,rgba(122,165,255,0.06)_50%,rgba(0,197,240,0.10)_100%)] shadow-[0_0_0_1px_rgba(122,165,255,0.08),0_8px_30px_-12px_rgba(59,123,255,0.55),inset_0_1px_0_rgba(255,255,255,0.08)] [backdrop-filter:blur(10px)_saturate(150%)] transition-all hover:border-[rgba(122,165,255,0.5)] hover:shadow-[0_0_0_1px_rgba(122,165,255,0.16),0_10px_36px_-10px_rgba(59,123,255,0.75),inset_0_1px_0_rgba(255,255,255,0.12)]"
+        className="group inline-flex items-center gap-2.5 font-mono text-[12.5px] text-rb-fg-1 pl-2.5 pr-3.5 py-1.5 rounded-full mb-6 border border-rb-hairline-strong bg-[linear-gradient(135deg,rgba(59,123,255,0.14)_0%,rgba(122,165,255,0.06)_50%,rgba(0,197,240,0.10)_100%)] shadow-[0_0_0_1px_rgba(122,165,255,0.08),0_8px_30px_-12px_rgba(59,123,255,0.55),inset_0_1px_0_rgba(255,255,255,0.08)] [backdrop-filter:blur(10px)_saturate(150%)] transition-all hover:border-[rgba(122,165,255,0.5)] hover:shadow-[0_0_0_1px_rgba(122,165,255,0.16),0_10px_36px_-10px_rgba(59,123,255,0.75),inset_0_1px_0_rgba(255,255,255,0.12)] max-[640px]:text-[11px] max-[640px]:gap-2 max-[640px]:pl-2 max-[640px]:pr-3 max-[640px]:mb-5 max-[640px]:flex-wrap max-[640px]:justify-center"
       >
         <span className="relative flex shrink-0 w-2 h-2">
           <span className="absolute inset-0 rounded-full bg-rb-good opacity-70 motion-safe:animate-rb-ping" />
@@ -358,7 +361,7 @@ export const Hero: FC<HeroProps> = ({ release }) => (
         </span>
       </a>
 
-      <h1 className="font-display font-semibold text-[clamp(42px,6.8vw,88px)] leading-[1.02] tracking-[-0.03em] mx-auto max-w-[16ch] text-white">
+      <h1 className="font-display font-semibold text-[clamp(32px,5.4vw,88px)] leading-[1.1] tracking-[-0.03em] mx-auto max-w-[16ch] text-white break-words max-[640px]:max-w-none max-[640px]:text-[26px]">
         <span className="block">Real components.</span>
         <span className="block">
           Real{' '}
@@ -372,21 +375,23 @@ export const Hero: FC<HeroProps> = ({ release }) => (
         </span>
       </h1>
 
-      <p className="max-w-[60ch] mx-auto mt-5 text-rb-fg-2 text-[18px] leading-[1.5]">
+      <p className="max-w-[60ch] mx-auto mt-5 text-rb-fg-2 text-[18px] leading-[1.5] max-[640px]:text-[15.5px] max-[640px]:mt-4 max-[640px]:px-1">
         A premium React component library for ambitious enterprise apps. 70+
         components, 12 full-page blocks, theming as an object — not a config
         file.
       </p>
 
-      <div className="flex flex-wrap justify-center gap-2.5 mt-[34px]">
-        <Button variant="primary" size="lg">
-          Get started <Icon.arrowRight />
-        </Button>
+      <div className="flex flex-wrap justify-center gap-2.5 mt-[34px] max-[640px]:mt-7 max-[640px]:flex-col max-[640px]:items-stretch max-[640px]:gap-2">
+        <a href="/docs/getting-started/setup" className="max-[640px]:contents">
+          <Button variant="primary" size="lg" className="max-[640px]:w-full max-[640px]:justify-center">
+            Get started <Icon.arrowRight />
+          </Button>
+        </a>
         <a
           href="https://github.com/reaviz/reablocks"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 font-sans font-medium rounded-[10px] border border-rb-hairline-2 bg-white/[0.04] text-rb-fg-1 hover:bg-white/[0.08] hover:border-rb-hairline-strong px-5 py-3.5 text-[15px] transition-all duration-150 whitespace-nowrap"
+          className="inline-flex items-center justify-center gap-2 font-sans font-medium rounded-[10px] border border-rb-hairline-2 bg-white/[0.04] text-rb-fg-1 hover:bg-white/[0.08] hover:border-rb-hairline-strong px-5 py-3.5 text-[15px] transition-all duration-150 whitespace-nowrap max-[640px]:px-4 max-[640px]:py-3 max-[640px]:text-[14px]"
         >
           <Icon.github /> Star on GitHub
           <span className="inline-flex items-center gap-1 ml-1.5 px-2 py-0.5 bg-black/35 rounded-full text-xs text-rb-fg-2">
@@ -398,12 +403,12 @@ export const Hero: FC<HeroProps> = ({ release }) => (
 
     <div
       aria-hidden="true"
-      className="absolute top-0 bottom-0 left-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-r from-[#11111F] to-transparent"
+      className="absolute top-0 bottom-0 left-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-r from-[#11111F] to-transparent max-[640px]:hidden"
     />
 
     <div
       aria-hidden="true"
-      className="absolute top-0 bottom-0 right-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-l from-[#11111F] to-transparent"
+      className="absolute top-0 bottom-0 right-0 w-[120px] pointer-events-none z-[6] bg-gradient-to-l from-[#11111F] to-transparent max-[640px]:hidden"
     />
 
     <div

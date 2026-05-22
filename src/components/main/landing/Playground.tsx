@@ -255,8 +255,8 @@ export const Playground: FC = () => {
   }, [dragging]);
 
   return (
-    <section className="py-24 max-[720px]:py-16" id="playground">
-      <div className="w-full max-w-[1240px] mx-auto px-7">
+    <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="playground">
+      <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
           title="Edit live. See the result. Copy the snippet."
           lede="A real react-live-runner instance with starter examples. Same APIs you'd use in production."
@@ -264,13 +264,13 @@ export const Playground: FC = () => {
         <ThemeProvider theme={theme}>
           <LiveProvider key={active} code={example.code} scope={liveScope}>
             <div className="rb-ring rounded-[22px] overflow-hidden">
-              <div className="flex items-center gap-1 px-2.5 py-2 border-b border-rb-hairline bg-black/[0.18]">
+              <div className="flex items-center gap-1 px-2.5 py-2 border-b border-rb-hairline bg-black/[0.18] overflow-x-auto max-[640px]:gap-0.5 max-[640px]:px-2">
                 {tabs.map((t) => (
                   <button
                     key={t}
                     onClick={() => setActive(t)}
                     className={cn(
-                      'cursor-pointer font-sans text-[13px] px-3 py-1.5 rounded-md',
+                      'cursor-pointer font-sans text-[13px] px-3 py-1.5 rounded-md whitespace-nowrap shrink-0 max-[640px]:px-2 max-[640px]:text-[12px]',
                       active === t
                         ? 'bg-white/[0.05] text-white shadow-[inset_0_0_0_1px_var(--color-rb-hairline-2)]'
                         : 'bg-transparent text-rb-fg-3 hover:text-white'
@@ -279,7 +279,7 @@ export const Playground: FC = () => {
                     {EXAMPLES[t].label}
                   </button>
                 ))}
-                <div className="ml-auto flex gap-1.5">
+                <div className="ml-auto flex gap-1.5 shrink-0 pl-2">
                   <CopyButton getText={() => example.code} />
                 </div>
               </div>
