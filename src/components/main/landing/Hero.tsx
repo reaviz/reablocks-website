@@ -706,8 +706,8 @@ export const Hero: FC<HeroProps> = ({ release }) => {
               <span className="block">Real components.</span>
               <span className="block">
                 Real{' '}
-                <em
-                  className="font-normal italic"
+                <span
+                  className="font-semibold not-italic"
                   style={{
                     fontFamily: 'Lexend, Inter, sans-serif',
                     background:
@@ -718,7 +718,7 @@ export const Hero: FC<HeroProps> = ({ release }) => {
                   } as CSSProperties}
                 >
                   motion
-                </em>
+                </span>
                 .
               </span>
               <span className="block">Shipped.</span>

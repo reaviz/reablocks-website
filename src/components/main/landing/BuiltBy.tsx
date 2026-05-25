@@ -132,7 +132,7 @@ export const BuiltBy: FC = () => {
             )}
           />
           <span
-            className="font-semibold tracking-[-0.02em] text-[clamp(48px,9vw,88px)] max-[640px]:text-[clamp(36px,11vw,56px)] flex items-baseline gap-[0.08em]"
+            className="font-semibold tracking-[-0.02em] text-[clamp(48px,9vw,88px)] max-[640px]:text-[clamp(36px,11vw,56px)] flex items-baseline gap-[0.08em] leading-[1.2]"
             style={{
               fontFamily: '"Chakra Petch", Lexend, sans-serif',
               lineHeight: 1
@@ -144,7 +144,7 @@ export const BuiltBy: FC = () => {
                 fontFamily: '"Chakra Petch", Lexend, sans-serif',
                 fontStyle: 'italic',
                 fontWeight: 600,
-                lineHeight: 1,
+                lineHeight: 1.2,
                 backgroundImage:
                   'linear-gradient(120deg, #FFFFFF 0%, #80E2F8 35%, #4C86FF 65%, #FFFFFF 100%)'
               }}
@@ -290,7 +290,7 @@ export const BuiltBy: FC = () => {
 
         {/* Meta strip */}
         <div className="mt-12 inline-flex flex-wrap items-center justify-center gap-3 px-4 py-2 rounded-full bg-white/[0.02] border border-rb-hairline">
-          <span className="font-mono text-[11px] tracking-[0.06em] text-rb-fg-3 whitespace-nowrap">
+          <span className="font-mono text-[11px] leading-[1.7] tracking-[0.06em] text-rb-fg-3 whitespace-nowrap">
             good design. good code. good results.
           </span>
           <span className="w-px h-3 bg-rb-hairline-2 max-[480px]:hidden" />
@@ -298,7 +298,7 @@ export const BuiltBy: FC = () => {
             href="https://goodcode.us"
             target="_blank"
             rel="noreferrer"
-            className="font-mono text-[11px] tracking-[0.06em] text-cyan-300 no-underline hover:text-white transition-colors duration-150 whitespace-nowrap"
+            className="font-mono text-[11px] leading-[1.7] tracking-[0.06em] text-cyan-300 no-underline hover:text-white transition-colors duration-150 whitespace-nowrap"
           >
             goodcode.us
           </a>
