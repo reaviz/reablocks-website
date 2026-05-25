@@ -578,10 +578,18 @@ const BlockCard: FC<{ block: BlockEntry; category: CategoryGroup }> = ({
 );
 
 export const Blocks: FC = () => (
-  <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="blocks">
+  <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="blocks">
     <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <SectionHead
-        title="Twelve pre-built pages across three categories."
+        title={
+          <>
+            Twelve{' '}
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              pre-built pages
+            </span>{' '}
+            across three categories.
+          </>
+        }
         lede="Not screenshots. Each block is a Reablocks composition you fork — same imports, same theming, organized into the surfaces you ship most."
       />
       <div className="flex flex-col gap-14">

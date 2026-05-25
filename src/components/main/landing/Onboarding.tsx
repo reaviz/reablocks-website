@@ -1,7 +1,14 @@
 'use client';
 
 import { cn } from '@/utils/cn';
-import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+import {
+  FC,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { Button, CodeBlock, Icon, SectionHead } from './atoms';
 
 interface StepTab {
@@ -138,16 +145,46 @@ const getStepCode = (step: Step, tabIdx: number) => {
 };
 
 export const Onboarding: FC = () => {
-  const [done, setDone] = useState<Set<string>>(new Set());
   const [justCopied, setJustCopied] = useState<string | null>(null);
   const [tabIdx, setTabIdx] = useState<Record<string, number>>({});
+  const [states, setStates] = useState<StepState[]>(() =>
+    STEPS.map(() => 'pending')
+  );
+  const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
 
-  const activeIdx = useMemo(() => {
-    const idx = STEPS.findIndex((s) => !done.has(s.key));
-    return idx === -1 ? STEPS.length : idx;
-  }, [done]);
+  useEffect(() => {
+    const compute = () => {
+      const targetY = window.innerHeight * 0.45;
+      const next: StepState[] = STEPS.map((_, idx) => {
+        const el = stepRefs.current[idx];
+        if (!el) return 'pending';
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < targetY) return 'done';
+        if (rect.top < targetY) return 'active';
+        return 'pending';
+      });
+      setStates((prev) =>
+        prev.length === next.length && prev.every((s, i) => s === next[i])
+          ? prev
+          : next
+      );
+    };
 
-  const allDone = activeIdx === STEPS.length;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(compute);
+    };
+
+    compute();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const handleCopy = useCallback((step: Step, code: string) => {
     try {
@@ -155,11 +192,6 @@ export const Onboarding: FC = () => {
     } catch {
       /* noop */
     }
-    setDone((prev) => {
-      const next = new Set(prev);
-      next.add(step.key);
-      return next;
-    });
     setJustCopied(step.key);
     setTimeout(
       () => setJustCopied((k) => (k === step.key ? null : k)),
@@ -167,17 +199,20 @@ export const Onboarding: FC = () => {
     );
   }, []);
 
-  const reset = useCallback(() => {
-    setDone(new Set());
-    setJustCopied(null);
-  }, []);
-
   return (
-    <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="onboarding">
+    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="onboarding">
       <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
-          title="From install to render in four blocks."
-          lede="No CSS bundler config. No theme provider gymnastics. Drop it in."
+          title={
+            <>
+              From install to render in{' '}
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                four blocks
+              </span>
+              .
+            </>
+          }
+          lede="Built on Tailwind CSS v4. Install the package, wire up the styles, define your theme tokens, and wrap your app in ThemeProvider."
         />
 
         <div
@@ -226,17 +261,13 @@ export const Onboarding: FC = () => {
           className="rb-ring overflow-hidden rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_8px_28px_-12px_rgba(0,0,0,0.6)] list-none m-0 p-0"
         >
           {STEPS.map((s, i) => {
-            const isDone = done.has(s.key);
-            const isActive = !isDone && i === activeIdx;
+            const state = states[i] ?? 'pending';
+            const isDone = state === 'done';
+            const isActive = state === 'active';
             const flashed = justCopied === s.key;
             const isFirst = i === 0;
             const isLast = i === STEPS.length - 1;
-            const prevDone = i > 0 && done.has(STEPS[i - 1].key);
-            const state: StepState = isDone
-              ? 'done'
-              : isActive
-                ? 'active'
-                : 'pending';
+            const prevDone = i > 0 && states[i - 1] === 'done';
             const railOn =
               'bg-[color-mix(in_oklab,var(--color-rb-good)_55%,transparent)]';
             const railOff = 'bg-rb-hairline';
@@ -246,6 +277,9 @@ export const Onboarding: FC = () => {
             return (
               <li
                 key={s.key}
+                ref={(el) => {
+                  stepRefs.current[i] = el;
+                }}
                 aria-current={isActive ? 'step' : undefined}
                 className={cn(
                   'relative grid grid-cols-[56px_minmax(0,1fr)] max-[640px]:grid-cols-[40px_minmax(0,1fr)] transition-colors duration-200',
@@ -393,22 +427,6 @@ export const Onboarding: FC = () => {
           })}
         </ol>
 
-        {allDone && (
-          <div
-            aria-live="polite"
-            className="mt-4 flex items-center gap-3 px-5 py-4 rounded-[12px] border bg-[color-mix(in_oklab,var(--color-rb-good)_10%,transparent)] border-[color-mix(in_oklab,var(--color-rb-good)_30%,transparent)] max-[640px]:flex-wrap"
-          >
-            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[color-mix(in_oklab,var(--color-rb-good)_22%,transparent)] text-rb-good shrink-0">
-              <Icon.check />
-            </span>
-            <p className="text-sm font-medium text-white flex-1 m-0">
-              You&rsquo;re wired up. Now render something unforgettable.
-            </p>
-            <Button variant="ghost" size="sm" onClick={reset}>
-              Reset steps
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );

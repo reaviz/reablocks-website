@@ -12,7 +12,7 @@ const COMPAT = [
 export const AiSkills: FC = () => {
   const cmd = 'npx skills add reaviz/skills';
   return (
-    <section className="relative py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="ai">
+    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="ai">
       {/* Cyan halo behind section */}
       <div
         aria-hidden="true"

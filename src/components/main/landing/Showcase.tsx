@@ -591,10 +591,18 @@ export const Showcase: FC = () => {
   const themeMemo = useMemo(() => landingTheme, []);
   return (
     <ThemeProvider theme={themeMemo}>
-      <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="showcase">
+      <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="showcase">
         <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
           <SectionHead
-            title="Every section on this page is a real component."
+            title={
+              <>
+                Every section on this page is a{' '}
+                <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  real component
+                </span>
+                .
+              </>
+            }
             lede="No screenshots. No iframes. Type, click, drag. The same primitives ship with the package."
           />
           {/* Small intro row of compact "primitives" tiles. */}

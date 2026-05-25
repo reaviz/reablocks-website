@@ -432,9 +432,8 @@ export function useInView<T extends HTMLElement = HTMLElement>(
 export const SectionRule: FC<{
   title: string;
   num: string;
-  total?: string;
   className?: string;
-}> = ({ title, num, total = '06', className }) => (
+}> = ({ title, num, className }) => (
   <div
     aria-hidden="true"
     className={cn(
@@ -447,7 +446,6 @@ export const SectionRule: FC<{
       <span>{title}</span>
       <span className="text-rb-fg-muted">·</span>
       <span>{num}</span>
-      <span className="text-rb-fg-muted">/ {total}</span>
     </span>
     <span className="flex-1 h-px bg-[linear-gradient(90deg,var(--color-rb-hairline-2),transparent)]" />
   </div>

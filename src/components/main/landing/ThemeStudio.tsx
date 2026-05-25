@@ -914,7 +914,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
   const activeFile = codeTab === 'overrides' ? 'tokens.css' : 'theme.ts';
 
   return (
-    <section className="relative py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="theme-studio">
+    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="theme-studio">
       <div
         aria-hidden="true"
         className="absolute left-1/2 -top-6 w-[1000px] h-[600px] -translate-x-1/2 pointer-events-none z-0"
@@ -925,8 +925,16 @@ export const myTheme: PartialReablocksTheme = extendTheme(
       />
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
-          title="Reablocks themes are objects, not config files."
-          lede="Edit one. See everything change. Then paste the diff into your app."
+          title={
+            <>
+              Reablocks themes are{' '}
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                objects you extend
+              </span>
+              , not files you rewrite.
+            </>
+          }
+          lede="Tailwind tokens for color, type, and radius. Merge your overrides with extendTheme, distribute via ThemeProvider, or pass a per-component theme prop. Dark and light variants ship by default."
         />
 
         <div className="grid grid-cols-[260px_1fr] gap-[22px] max-[900px]:grid-cols-1">

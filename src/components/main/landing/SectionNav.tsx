@@ -12,7 +12,8 @@ const SECTION_NAV_ITEMS = [
   { id: 'theme-studio', label: 'Theming' },
   { id: 'onboarding', label: 'Install' },
   { id: 'ai', label: 'AI-native' },
-  { id: 'blocks', label: 'Blocks' }
+  { id: 'blocks', label: 'Blocks' },
+  { id: 'built-by', label: 'Good Code' }
 ];
 
 export const SectionNav: FC = () => {

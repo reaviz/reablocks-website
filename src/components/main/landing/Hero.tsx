@@ -311,13 +311,6 @@ const ConstellationGraph: FC = () => {
         })}
       </div>
 
-      <span className="absolute top-[18px] left-7 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.06em] text-rb-fg-3 lowercase z-[8] max-[540px]:hidden">
-        <span
-          className="w-1.5 h-1.5 rounded-full bg-cyan-300"
-          style={{ boxShadow: '0 0 10px rgba(128,226,248,0.6)' }}
-        />
-        a system, not a pile
-      </span>
     </div>
   );
 };

@@ -8,6 +8,15 @@ const withNextra = nextra({
 const nextConfig = withNextra({
   reactStrictMode: true,
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com'
+      }
+    ]
+  },
+
   // Rewrites required for PostHog ingestion endpoints
   async rewrites() {
     return [

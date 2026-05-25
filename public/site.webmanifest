@@ -1,6 +1,9 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Reablocks",
+    "short_name": "Reablocks",
+    "description": "Open-source React component library and block system for ambitious enterprise apps.",
+    "start_url": "/",
+    "scope": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +16,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "theme_color": "#0E0E1A",
+    "background_color": "#0E0E1A",
     "display": "standalone"
 }

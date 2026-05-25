@@ -7,6 +7,7 @@ import { ReablocksRelease } from '@/utils/reablocks-version';
 import { SectionRule } from './atoms';
 import { AiSkills } from './AiSkills';
 import { Blocks } from './Blocks';
+import { BuiltBy } from './BuiltBy';
 import { Footer } from './Footer';
 import { Hero } from './Hero';
 import { Onboarding } from './Onboarding';
@@ -31,7 +32,7 @@ export const LandingShell: FC<LandingShellProps> = ({ release }) => {
 
           <Stats />
 
-          <SectionRule title="Build" num="01" />
+          <SectionRule title="Built with Reablocks" num="01" />
           <Showcase />
 
           <SectionRule title="Playground" num="02" />
@@ -48,6 +49,9 @@ export const LandingShell: FC<LandingShellProps> = ({ release }) => {
 
           <SectionRule title="Blocks" num="06" />
           <Blocks />
+
+          <SectionRule title="Built by Good Code" num="07" />
+          <BuiltBy />
         </main>
         <Footer />
       </div>

@@ -255,10 +255,17 @@ export const Playground: FC = () => {
   }, [dragging]);
 
   return (
-    <section className="py-24 max-[720px]:py-16 max-[640px]:py-12" id="playground">
+    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="playground">
       <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
-          title="Edit live. See the result. Copy the snippet."
+          title={
+            <>
+              <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                Edit live
+              </span>
+              . See the result. Copy the snippet.
+            </>
+          }
           lede="A real react-live-runner instance with starter examples. Same APIs you'd use in production."
         />
         <ThemeProvider theme={theme}>
