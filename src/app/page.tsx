@@ -7,6 +7,8 @@ const TITLE = 'Reablocks — Real components. Real motion. Shipped.';
 const DESCRIPTION =
   'A premium open-source React component library for ambitious enterprise apps. 70+ components, 12 full-page blocks, AI-native skill packs, and theming as an object — not a config file.';
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,

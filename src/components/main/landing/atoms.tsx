@@ -384,6 +384,13 @@ export const CopyButton: FC<{
   label?: string;
 }> = ({ getText, label = 'Copy' }) => {
   const [done, setDone] = useState(false);
+  const timerRef = useRef<number | null>(null);
+  useEffect(
+    () => () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    },
+    []
+  );
   const onClick = () => {
     try {
       const txt = typeof getText === 'function' ? getText() : getText;
@@ -392,7 +399,11 @@ export const CopyButton: FC<{
       /* noop */
     }
     setDone(true);
-    setTimeout(() => setDone(false), 1400);
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    timerRef.current = window.setTimeout(() => {
+      setDone(false);
+      timerRef.current = null;
+    }, 1400);
   };
   return (
     <Button variant="ghost" size="sm" onClick={onClick}>

@@ -48,7 +48,7 @@ export const Footer: FC = () => (
       <div className="grid grid-cols-[1.2fr_2fr] gap-12 mb-10 max-[820px]:grid-cols-1">
         <div>
           <a
-            href="#"
+            href="/"
             aria-label="Reablocks home"
             className="inline-flex items-center text-white"
           >
@@ -106,7 +106,7 @@ export const Footer: FC = () => (
       </div>
       <hr className="h-px bg-rb-hairline border-0 m-0" />
       <div className="mt-6 flex items-center justify-between text-rb-fg-3 text-[12.5px] font-mono max-[540px]:flex-col max-[540px]:gap-3 max-[540px]:items-start">
-        <span>© 2026 Reaviz · Apache 2.0</span>
+        <span>© {new Date().getFullYear()} Reaviz · Apache 2.0</span>
         <span className="flex gap-4 items-center">
           <a
             href="https://github.com/reaviz/reablocks"

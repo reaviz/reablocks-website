@@ -21,6 +21,7 @@ export const SectionNav: FC = () => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const ratiosRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
@@ -29,15 +30,17 @@ export const SectionNav: FC = () => {
     } catch {
       /* ignore */
     }
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
+    if (!hydrated) return;
     try {
       localStorage.setItem(COLLAPSED_KEY, collapsed ? '1' : '0');
     } catch {
       /* ignore */
     }
-  }, [collapsed]);
+  }, [collapsed, hydrated]);
 
   useEffect(() => {
     const els = SECTION_NAV_ITEMS.map((it) => ({

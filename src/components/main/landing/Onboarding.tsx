@@ -151,6 +151,15 @@ export const Onboarding: FC = () => {
     STEPS.map(() => 'pending')
   );
   const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const copyTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current !== null) {
+        window.clearTimeout(copyTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const compute = () => {
@@ -193,10 +202,13 @@ export const Onboarding: FC = () => {
       /* noop */
     }
     setJustCopied(step.key);
-    setTimeout(
-      () => setJustCopied((k) => (k === step.key ? null : k)),
-      1500
-    );
+    if (copyTimerRef.current !== null) {
+      window.clearTimeout(copyTimerRef.current);
+    }
+    copyTimerRef.current = window.setTimeout(() => {
+      setJustCopied((k) => (k === step.key ? null : k));
+      copyTimerRef.current = null;
+    }, 1500);
   }, []);
 
   return (
