@@ -16,6 +16,7 @@ import { SectionNav } from './SectionNav';
 import { Showcase } from './Showcase';
 import { Stats } from './Stats';
 import { ThemeStudio } from './ThemeStudio';
+import { Unify } from './Unify';
 
 interface LandingShellProps {
   release: ReablocksRelease;
@@ -50,7 +51,10 @@ export const LandingShell: FC<LandingShellProps> = ({ release }) => {
           <SectionRule title="Blocks" num="06" />
           <Blocks />
 
-          <SectionRule title="Built by Good Code" num="07" />
+          <SectionRule title="Unify Design System" num="07" />
+          <Unify />
+
+          <SectionRule title="Built by Good Code" num="08" />
           <BuiltBy />
         </main>
         <Footer />
