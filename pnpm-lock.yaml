@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  reablocks-docs-theme: file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz
-
 importers:
 
   .:
@@ -37,16 +34,16 @@ importers:
         version: 4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3)
       posthog-js:
         specifier: ^1.256.2
-        version: 1.376.0
+        version: 1.376.1
       posthog-node:
         specifier: ^5.2.1
-        version: 5.35.2
+        version: 5.35.3
       reablocks:
         specifier: ^10.0.2
         version: 10.0.2(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       reablocks-docs-theme:
-        specifier: file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz
-        version: file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
+        specifier: ^2.3.1
+        version: 2.3.1(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-compiler-runtime@19.1.0-rc.3(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
       react:
         specifier: ^19.1.0
         version: 19.2.6
@@ -1506,11 +1503,11 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@posthog/core@1.29.9':
-    resolution: {integrity: sha512-DjvuIyBZ2Z/gBhtZlITlM2D8PlnMsHSQ1D78dbUYoVsgGguvanpJTobZObjLlFkybyvfZFYkpoJkFNI/2Pw4IQ==}
+  '@posthog/core@1.29.10':
+    resolution: {integrity: sha512-j4wa+E8z3dNM7tEb/tvUjEw7hHQQzHy4K/WRwwBwWdsOfOYRsLmnz15r4Men6ZQNIKyMUkK2RanWwptdGT4oIg==}
 
-  '@posthog/types@1.376.0':
-    resolution: {integrity: sha512-gbFfxCuZDs/D4QZMwdE+smD1jsuqgGpS6yKGHZZ19foxMy8RYHsU1E47iG1b88n/uN02fAabLibVwuxLtq8juw==}
+  '@posthog/types@1.376.1':
+    resolution: {integrity: sha512-aat3Fvb7sbBpA6DSaNp7Vy3IAL2j28wkg/AVgYSwxX9Fae0K2W42DWQpNpUS4HSFcJb7RpC5XJboKddpVDXfQw==}
 
   '@protobufjs/aspromise@1.1.2':
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -1696,8 +1693,8 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@swc/helpers@0.5.21':
-    resolution: {integrity: sha512-jI/VAmtdjB/RnI8GTnokyX7Ug8c+g+ffD6QRLa6XQewtnGyukKkKSk3wLTM3b5cjt1jNh9x0jfVlagdN2gDKQg==}
+  '@swc/helpers@0.5.22':
+    resolution: {integrity: sha512-/e2Ly3Docn9kYByap6TV4oquJ3wQuz3c+kC74riqtkwU9CwTMeuj6t2rW+bRr4pyOx/CYQM4wr0RgaKQwGEz0A==}
 
   '@tailwindcss/node@4.3.0':
     resolution: {integrity: sha512-aFb4gUhFOgdh9AXo4IzBEOzBkkAxm9VigwDJnMIYv3lcfXCJVesNfbEaBl4BNgVRyid92AmdviqwBUBRKSeY3g==}
@@ -2328,8 +2325,8 @@ packages:
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
-  brace-expansion@1.1.14:
-    resolution: {integrity: sha512-MWPGfDxnyzKU7rNOW9SP/c50vi3xrmrua/+6hfPbCS2ABNWfx24vPidzvC7krjU/RTo235sV776ymlsMtGKj8g==}
+  brace-expansion@1.1.15:
+    resolution: {integrity: sha512-EwOCDEex4quD37XhqM3omwtMoJjr//isUZz1JopUNWms+4Z2ViyM/k1YIRePpoVNnQhENnxtFjLaxNHrT7xIUg==}
 
   brace-expansion@2.1.1:
     resolution: {integrity: sha512-WR1cURNjuvBLMZBMbqM0UoE+WAfdUcEV1ccD8PVBVOI+Z3ND4+SZbN8RsfT2bMuG1qwz5RFvPukSZm5fF2D5eA==}
@@ -4594,11 +4591,11 @@ packages:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  posthog-js@1.376.0:
-    resolution: {integrity: sha512-YGfQ6gSmqmEh287PHjXRDJ9zML3Su1UIt1+xjRy7Yk6yW43Sc7sFK3CpCkLchCGhIA4x6VaqK+LaqB+7+MCo7A==}
+  posthog-js@1.376.1:
+    resolution: {integrity: sha512-JKVcC9ql2YzyfLLjqwxoxl5aDiUZkU2FG5ZToagMPFZrCIok+38GunWTIdXqkwN8fv59NDZsoJEvaY6OzetQ+A==}
 
-  posthog-node@5.35.2:
-    resolution: {integrity: sha512-YwzkogTUrsFeUnJJH17p3zoZBFaHIh6swYoLV4Ic5pmd8fIVTz8w7NsHR7eWmJlqYe/+Hqo1acGN1jclNUbz3A==}
+  posthog-node@5.35.3:
+    resolution: {integrity: sha512-qQ76Rbmfzd7TBEFZtULEkg5pebUegwYJUun6zmXkK+6N64V/g39r18O5suHlQrZH83wKcBfSgAbaI3Sf/ya1Ew==}
     engines: {node: ^20.20.0 || >=22.22.0}
     peerDependencies:
       rxjs: ^7.0.0
@@ -4730,14 +4727,17 @@ packages:
     resolution: {integrity: sha512-TuDE5KxZ0J461RVjrJZCJc+J+zCkTb1MbH9AQUq68sMhOMcy9jLcb3BrZKgp9q9Ncltdg4QVqWrH02W2EFFVYw==}
     engines: {node: '>= 0.10.0'}
 
-  reablocks-docs-theme@file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz:
-    resolution: {integrity: sha512-YThwxyL0ePLr9A9FjaNTySZa2ztfaO5kEXzk9yXWWAgQXCSSHzQKeznJdQfRCs9yDZh8K9osqrdiqKobLNZp7A==, tarball: file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz}
-    version: 2.3.0
+  reablocks-docs-theme@2.3.1:
+    resolution: {integrity: sha512-ZaQppOjKakbONMruAWM2muxG42LoQE17f75W2OePZU5wVFW3iftjUDfQEHSwhbsp04TrdzxLUUK5PAoTuEStmQ==}
     peerDependencies:
       next: '>=14'
       nextra: '>=4.6.0'
       react: '>=19.1.0'
+      react-compiler-runtime: ^19.1.0-rc.2
       react-dom: '>=19.1.0'
+    peerDependenciesMeta:
+      react-compiler-runtime:
+        optional: true
 
   reablocks@10.0.2:
     resolution: {integrity: sha512-3rxycJFtM58vFB0xOZIeWCgV4UOcrV0a7dNkjM7DCWEG+v/K+v229db/8QQk+xzylc7Mw3BK8ei+NwDHE9nblg==}
@@ -4758,11 +4758,6 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  react-compiler-runtime@0.0.0-experimental-22c6e49-20241219:
-    resolution: {integrity: sha512-bOAGaRL1ldfIIpbDsl+uV025Ta6RS6/cOjvvh8r2Vo7KtqB+RSvihVYRsWQz7ECKNPWdq5MClS845acwAwieDw==}
-    peerDependencies:
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-compiler-runtime@19.1.0-rc.3:
     resolution: {integrity: sha512-Cssogys2XZu6SqxRdX2xd8cQAf57BBvFbLEBlIa77161lninbKUn/EqbecCe7W3eqDQfg3rIoOwzExzgCh7h/g==}
@@ -6813,15 +6808,15 @@ snapshots:
 
   '@internationalized/date@3.12.1':
     dependencies:
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
 
   '@internationalized/number@3.6.6':
     dependencies:
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
 
   '@internationalized/string@3.2.8':
     dependencies:
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -7105,11 +7100,11 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@posthog/core@1.29.9':
+  '@posthog/core@1.29.10':
     dependencies:
-      '@posthog/types': 1.376.0
+      '@posthog/types': 1.376.1
 
-  '@posthog/types@1.376.0': {}
+  '@posthog/types@1.376.1': {}
 
   '@protobufjs/aspromise@1.1.2': {}
 
@@ -7135,7 +7130,7 @@ snapshots:
 
   '@react-aria/focus@3.22.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
       react: 19.2.6
       react-aria: 3.48.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react-dom: 19.2.6(react@19.2.6)
@@ -7143,7 +7138,7 @@ snapshots:
   '@react-aria/interactions@3.28.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@react-types/shared': 3.34.0(react@19.2.6)
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
       react: 19.2.6
       react-aria: 3.48.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react-dom: 19.2.6(react@19.2.6)
@@ -7329,7 +7324,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@swc/helpers@0.5.21':
+  '@swc/helpers@0.5.22':
     dependencies:
       tslib: 2.8.1
 
@@ -7950,7 +7945,7 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-  brace-expansion@1.1.14:
+  brace-expansion@1.1.15:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
@@ -10507,7 +10502,7 @@ snapshots:
 
   minimatch@3.1.5:
     dependencies:
-      brace-expansion: 1.1.14
+      brace-expansion: 1.1.15
 
   minimatch@9.0.3:
     dependencies:
@@ -10921,15 +10916,15 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  posthog-js@1.376.0:
+  posthog-js@1.376.1:
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/api-logs': 0.208.0
       '@opentelemetry/exporter-logs-otlp-http': 0.208.0(@opentelemetry/api@1.9.1)
       '@opentelemetry/resources': 2.7.1(@opentelemetry/api@1.9.1)
       '@opentelemetry/sdk-logs': 0.208.0(@opentelemetry/api@1.9.1)
-      '@posthog/core': 1.29.9
-      '@posthog/types': 1.376.0
+      '@posthog/core': 1.29.10
+      '@posthog/types': 1.376.1
       core-js: 3.49.0
       dompurify: 3.4.5
       fflate: 0.4.8
@@ -10937,9 +10932,9 @@ snapshots:
       query-selector-shadow-dom: 1.0.1
       web-vitals: 5.2.0
 
-  posthog-node@5.35.2:
+  posthog-node@5.35.3:
     dependencies:
-      '@posthog/core': 1.29.9
+      '@posthog/core': 1.29.10
 
   preact@10.29.2: {}
 
@@ -11004,7 +10999,7 @@ snapshots:
       kind-of: 6.0.3
       math-random: 1.0.4
 
-  reablocks-docs-theme@file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
+  reablocks-docs-theme@2.3.1(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-compiler-runtime@19.1.0-rc.3(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6)):
     dependencies:
       '@headlessui/react': 2.2.10(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       clsx: 2.1.1
@@ -11013,7 +11008,6 @@ snapshots:
       nextra: 4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3)
       reablocks: 9.4.1(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(prop-types@15.8.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
-      react-compiler-runtime: 0.0.0-experimental-22c6e49-20241219(react@19.2.6)
       react-dom: 19.2.6(react@19.2.6)
       react-syntax-highlighter: 15.6.6(react@19.2.6)
       scroll-into-view-if-needed: 3.1.0
@@ -11021,6 +11015,8 @@ snapshots:
       zod: 4.4.3
       zod-validation-error: 5.0.0(zod@4.4.3)
       zustand: 5.0.13(@types/react@19.2.15)(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
+    optionalDependencies:
+      react-compiler-runtime: 19.1.0-rc.3(react@19.2.6)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - '@types/react'
@@ -11092,17 +11088,13 @@ snapshots:
       '@internationalized/number': 3.6.6
       '@internationalized/string': 3.2.8
       '@react-types/shared': 3.34.0(react@19.2.6)
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
       aria-hidden: 1.2.6
       clsx: 2.1.1
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       react-stately: 3.46.0(react@19.2.6)
       use-sync-external-store: 1.6.0(react@19.2.6)
-
-  react-compiler-runtime@0.0.0-experimental-22c6e49-20241219(react@19.2.6):
-    dependencies:
-      react: 19.2.6
 
   react-compiler-runtime@19.1.0-rc.3(react@19.2.6):
     dependencies:
@@ -11164,7 +11156,7 @@ snapshots:
       '@internationalized/number': 3.6.6
       '@internationalized/string': 3.2.8
       '@react-types/shared': 3.34.0(react@19.2.6)
-      '@swc/helpers': 0.5.21
+      '@swc/helpers': 0.5.22
       react: 19.2.6
       use-sync-external-store: 1.6.0(react@19.2.6)
 
