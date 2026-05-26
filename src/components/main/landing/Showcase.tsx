@@ -51,7 +51,7 @@ const landingTheme = extendTheme(theme, {
       // Flatten the bottom corners + drop the bottom border so the
       // navigation footer below sits flush against the palette. Use a
       // transparent fill so the bento's own surface shows through.
-      base: 'w-full bg-transparent border border-rb-hairline-2 rounded-t-md rounded-b-none border-b-0',
+      base: 'w-full bg-transparent rounded-t-md rounded-b-none',
       inner: 'max-h-[80vh] overflow-y-auto bg-transparent border-0',
       // CommandPaletteInput defaults to bg-panel (a hard dark fill);
       // override to transparent + landing fg tokens so the search row
@@ -102,7 +102,7 @@ const landingTheme = extendTheme(theme, {
 // 1. CommandPalette  — real `reablocks/CommandPalette` w/ hotkeys
 // ============================================================
 const CommandPaletteFooter: FC = () => (
-  <div className="flex items-center gap-4 px-3.5 py-2 border border-rb-hairline-2 rounded-b-md text-[11px] text-rb-fg-3">
+  <div className="flex items-center gap-4 px-3.5 py-2 rounded-b-md text-[11px] text-rb-fg-3">
     <span className="inline-flex items-center gap-1.5">
       <Kbd keycode="↑" />
       <Kbd keycode="↓" /> navigate
