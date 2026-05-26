@@ -725,9 +725,8 @@ export const Hero: FC<HeroProps> = ({ release }) => {
             </h1>
 
             <p className="text-rb-fg-2 text-[16.5px] leading-[1.55] max-w-[44ch] mb-7 max-[960px]:mx-auto max-[640px]:text-[15px] max-[640px]:mb-5">
-              A premium React component library for ambitious enterprise apps.
-              70 components, 12 full-page blocks — from button to dashboard, no
-              glue code.
+              From button to full dashboard in an afternoon. A premium React
+              library with 70 components and 12 page-level blocks.
             </p>
 
             <div className="flex flex-wrap items-center gap-2.5 mb-5 max-[960px]:justify-center max-[640px]:mb-4">

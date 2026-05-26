@@ -36,7 +36,7 @@ export const AiSkills: FC = () => {
                     Reablocks.
                   </>
                 }
-                lede="Every component ships with a machine-readable Skill: prop schema, usage examples, theming recipes, and prebuilt blocks. Claude, Cursor, and Copilot pull them on demand — your prompts ship working pages, not pseudo-code."
+                lede="Every component ships with a machine-readable Skill: prop schema, usage examples, theming recipes, and prebuilt blocks. Claude, Cursor, and Copilot pull them on demand - your prompts ship working pages, not pseudo-code."
               />
             </div>
 

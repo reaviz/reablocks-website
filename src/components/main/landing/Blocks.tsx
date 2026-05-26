@@ -590,7 +590,7 @@ export const Blocks: FC = () => (
             across three categories.
           </>
         }
-        lede="Not screenshots. Each block is a Reablocks composition you fork — same imports, same theming, organized into the surfaces you ship most."
+        lede="Not screenshots. Each block is a Reablocks composition you fork - same imports, same theming, organized into the surfaces you ship most."
       />
       <div className="flex flex-col gap-14">
         {CATEGORIES.map((category) => (
