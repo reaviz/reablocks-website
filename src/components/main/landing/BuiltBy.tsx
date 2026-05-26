@@ -75,6 +75,7 @@ export const BuiltBy: FC = () => {
       ref={ref}
       id="built-by"
       data-in={inView}
+      aria-label="Built by Good Code"
       className={cn(
         'relative -top-6 isolate overflow-hidden py-24 max-[720px]:py-16 max-[640px]:py-12',
         'group/builtby'

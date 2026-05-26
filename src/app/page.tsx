@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   }
 };
 
-const JSON_LD = {
+const buildJsonLd = (version: string) => ({
   '@context': 'https://schema.org',
   '@graph': [
     {
@@ -57,27 +57,98 @@ const JSON_LD = {
       name: 'Reablocks',
       description: DESCRIPTION,
       publisher: { '@id': 'https://reablocks.dev/#organization' },
-      inLanguage: 'en-US'
+      inLanguage: 'en-US',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://reablocks.dev/docs?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
     },
     {
       '@type': 'SoftwareSourceCode',
+      '@id': 'https://reablocks.dev/#source',
       name: 'Reablocks',
       codeRepository: 'https://github.com/reaviz/reablocks',
       programmingLanguage: 'TypeScript',
       runtimePlatform: 'React',
       license: 'https://github.com/reaviz/reablocks/blob/master/LICENSE',
       author: { '@id': 'https://reablocks.dev/#organization' }
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://reablocks.dev/#application',
+      name: 'Reablocks',
+      applicationCategory: 'DeveloperApplication',
+      applicationSubCategory: 'React Component Library',
+      operatingSystem: 'Cross-platform (Web)',
+      softwareVersion: version,
+      url: 'https://reablocks.dev',
+      downloadUrl: 'https://www.npmjs.com/package/reablocks',
+      description: DESCRIPTION,
+      license: 'https://github.com/reaviz/reablocks/blob/master/LICENSE',
+      author: { '@id': 'https://reablocks.dev/#organization' },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD'
+      }
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is Reablocks?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Reablocks is a premium open-source React component library with 70+ accessible components, 12 full-page blocks, AI-native skill packs, and theming built on Tailwind CSS v4 and Motion.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I install Reablocks?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Install via npm install reablocks (or pnpm/yarn/bun equivalent), import the prebuilt stylesheet, and wrap your app in the ThemeProvider component.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Is Reablocks free to use?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes — Reablocks is open source under the Apache 2.0 license and free for personal and commercial projects.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Does Reablocks work with AI coding agents?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Reablocks ships machine-readable skill packs (with prop schemas, usage examples, and prebuilt blocks) consumed natively by Claude Code, Cursor, GitHub Copilot, and other AI agents.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'How is theming handled in Reablocks?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Themes are plain TypeScript objects you extend with extendTheme. Override design tokens for color, radius, density, or any per-component slot. Light and dark variants ship by default.'
+          }
+        }
+      ]
     }
   ]
-};
+});
 
 export default async function Home() {
   const release = await getReablocksRelease();
+  const jsonLd = buildJsonLd(release.version);
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <LandingShell release={release} />
     </>

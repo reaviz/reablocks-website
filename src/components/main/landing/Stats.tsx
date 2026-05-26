@@ -66,13 +66,21 @@ const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
   return (
     <div
       ref={ref}
+      role="group"
+      aria-label={`${stat.value}${stat.suffix} ${stat.label}`}
       className="flex flex-col items-center text-center gap-2 px-7 py-10 max-md:py-7 max-md:px-5"
     >
-      <div className="font-display font-semibold text-[clamp(42px,7vw,80px)] leading-none tabular-nums text-white">
+      <div
+        aria-hidden="true"
+        className="font-display font-semibold text-[clamp(42px,7vw,80px)] leading-none tabular-nums text-white"
+      >
         {value}
         <span className="text-cyan-300">{stat.suffix}</span>
       </div>
-      <div className="font-sans text-[13px] text-rb-fg-2 leading-tight">
+      <div
+        aria-hidden="true"
+        className="font-sans text-[13px] text-rb-fg-2 leading-tight"
+      >
         {stat.label}
       </div>
       <div className="font-sans text-[11px] text-rb-fg-3 leading-snug max-w-[34ch]">
@@ -83,7 +91,11 @@ const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
 };
 
 export const Stats: FC = () => (
-  <section id="stats" className="pb-20 max-md:pb-7">
+  <section
+    id="stats"
+    aria-label="Reablocks library statistics"
+    className="pb-20 max-md:pb-7"
+  >
     <div className="border-t border-b border-rb-hairline">
       <div className="w-full max-w-[1240px] mx-auto grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 [&>*+*]:border-l [&>*+*]:border-rb-hairline max-md:[&>*:nth-child(3)]:border-l-0 max-md:[&>*:nth-child(n+3)]:border-t max-md:[&>*:nth-child(n+3)]:border-rb-hairline max-sm:[&>*+*]:border-l-0 max-sm:[&>*+*]:border-t">
         {STATS.map((s) => (

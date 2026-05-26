@@ -453,22 +453,22 @@ const ButtonsCell: FC = () => (
       <Button size="medium" variant="text" color="error">Error</Button>
     </ButtonsRow>
     <ButtonsRow label="Icon">
-      <IconButton size="medium" variant="filled" color="primary" aria-label="Notifications">
+      <IconButton size="medium" variant="filled" color="primary" aria-label="View notifications">
         <Icon.bell />
       </IconButton>
-      <IconButton size="medium" variant="filled" color="success" aria-label="Bolt">
+      <IconButton size="medium" variant="filled" color="success" aria-label="Run action">
         <Icon.bolt />
       </IconButton>
-      <IconButton size="medium" variant="outline" color="primary" aria-label="Star">
+      <IconButton size="medium" variant="outline" color="primary" aria-label="Add to favorites">
         <Icon.star />
       </IconButton>
-      <IconButton size="medium" variant="outline" color="warning" aria-label="Settings">
+      <IconButton size="medium" variant="outline" color="warning" aria-label="Open settings">
         <Icon.settings />
       </IconButton>
-      <IconButton size="medium" variant="text" color="primary" aria-label="Copy">
+      <IconButton size="medium" variant="text" color="primary" aria-label="Copy to clipboard">
         <Icon.copy />
       </IconButton>
-      <IconButton size="medium" variant="text" color="error" aria-label="Close">
+      <IconButton size="medium" variant="text" color="error" aria-label="Close dialog">
         <Icon.x />
       </IconButton>
     </ButtonsRow>
@@ -591,7 +591,11 @@ export const Showcase: FC = () => {
   const themeMemo = useMemo(() => landingTheme, []);
   return (
     <ThemeProvider theme={themeMemo}>
-      <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="showcase">
+      <section
+        className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+        id="showcase"
+        aria-labelledby="showcase-heading"
+      >
         {/* Violet halo behind section */}
         <div
           aria-hidden="true"
@@ -603,6 +607,7 @@ export const Showcase: FC = () => {
         />
         <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
           <SectionHead
+            headingId="showcase-heading"
             title={
               <>
                 Every section on this page is a{' '}

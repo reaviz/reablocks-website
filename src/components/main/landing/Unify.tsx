@@ -46,6 +46,7 @@ export const Unify: FC = () => {
       ref={ref}
       id="unify"
       data-in={inView}
+      aria-labelledby="unify-heading"
       className="relative -top-6 isolate overflow-hidden py-24 max-[720px]:py-16 max-[640px]:py-12"
     >
       {/* Backdrop ------------------------------------------------- */}
@@ -77,6 +78,7 @@ export const Unify: FC = () => {
       {/* Content -------------------------------------------------- */}
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
+          headingId="unify-heading"
           title={
             <>
               The design system Reablocks{' '}

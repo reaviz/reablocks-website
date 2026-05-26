@@ -565,6 +565,40 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Visually hidden until focused — skip-to-content link */
+  .rb-skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    background: var(--color-blue-500);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 8px 24px -10px rgba(16, 94, 255, 0.7);
+    transform: translateY(-150%);
+    transition: transform 150ms ease-out;
+  }
+
+  .rb-skip-link:focus,
+  .rb-skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+}
+
+/* Global keyboard focus ring — applies to every focusable element on the
+   landing page that doesn't already define its own focus-visible state. */
+.rb-landing :focus-visible {
+  outline: 2px solid var(--color-blue-400);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .sbdocs {

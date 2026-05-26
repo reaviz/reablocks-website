@@ -12,7 +12,11 @@ const COMPAT = [
 export const AiSkills: FC = () => {
   const cmd = 'npx skills add reaviz/skills';
   return (
-    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="ai">
+    <section
+      className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+      id="ai"
+      aria-labelledby="ai-heading"
+    >
       {/* Cyan halo behind section */}
       <div
         aria-hidden="true"
@@ -27,6 +31,7 @@ export const AiSkills: FC = () => {
           <div>
             <div className="[&_.rb-section-head]:mb-6">
               <SectionHead
+                headingId="ai-heading"
                 title={
                   <>
                     Your agents{' '}
@@ -41,10 +46,7 @@ export const AiSkills: FC = () => {
             </div>
 
             <div className="relative max-w-[460px] w-full bg-white/[0.03] rb-ring-overlay rounded-xl [backdrop-filter:blur(8px)]">
-              <div
-                className="flex items-center gap-0.5 p-1 border-b border-rb-hairline bg-transparent relative z-[1]"
-                role="tablist"
-              >
+              <div className="flex items-center gap-0.5 p-1 border-b border-rb-hairline bg-transparent relative z-[1]">
                 <span className="font-mono text-xs px-3.5 py-1.5 rounded-md bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_var(--color-rb-hairline-2)]">
                   install skill pack
                 </span>

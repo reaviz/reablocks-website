@@ -482,7 +482,8 @@ export const SectionHead: FC<{
   lede?: ReactNode;
   align?: 'center';
   children?: ReactNode;
-}> = ({ eyebrow, title, lede, align, children }) => (
+  headingId?: string;
+}> = ({ eyebrow, title, lede, align, children, headingId }) => (
   <div
     className={cn(
       'mb-12 max-[640px]:mb-8',
@@ -491,7 +492,10 @@ export const SectionHead: FC<{
   >
     {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
     {title ? (
-      <h2 className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3">
+      <h2
+        id={headingId}
+        className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3"
+      >
         {title}
       </h2>
     ) : null}

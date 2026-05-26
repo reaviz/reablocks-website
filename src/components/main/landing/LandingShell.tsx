@@ -25,10 +25,13 @@ interface LandingShellProps {
 export const LandingShell: FC<LandingShellProps> = ({ release }) => {
   return (
     <ThemeProvider theme={theme}>
+      <a href="#main-content" className="rb-skip-link">
+        Skip to main content
+      </a>
       <Header />
       <SectionNav />
       <div className="rb-landing">
-        <main>
+        <main id="main-content" aria-label="Reablocks landing page">
           <Hero release={release} />
 
           <Stats />

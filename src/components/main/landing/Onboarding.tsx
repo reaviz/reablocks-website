@@ -212,7 +212,11 @@ export const Onboarding: FC = () => {
   }, []);
 
   return (
-    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="onboarding">
+    <section
+      className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+      id="onboarding"
+      aria-labelledby="onboarding-heading"
+    >
       {/* Amber halo behind section — warm welcome / install */}
       <div
         aria-hidden="true"
@@ -224,6 +228,7 @@ export const Onboarding: FC = () => {
       />
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
+          headingId="onboarding-heading"
           title={
             <>
               From install to render in{' '}

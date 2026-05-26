@@ -43,7 +43,10 @@ const COLS: Array<{ title: string; items: FooterItem[] }> = [
 ];
 
 export const Footer: FC = () => (
-  <footer className="border-t border-rb-hairline pt-16 pb-7 mt-20 bg-gradient-to-b from-transparent to-black/30 max-[640px]:pt-10 max-[640px]:mt-12">
+  <footer
+    aria-label="Site footer"
+    className="border-t border-rb-hairline pt-16 pb-7 mt-20 bg-gradient-to-b from-transparent to-black/30 max-[640px]:pt-10 max-[640px]:mt-12"
+  >
     <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <div className="grid grid-cols-[1.2fr_2fr] gap-12 mb-10 max-[820px]:grid-cols-1">
         <div>
@@ -78,24 +81,32 @@ export const Footer: FC = () => (
                   const sub = isObj ? i.sub : undefined;
                   const href = isObj ? i.href : undefined;
                   const isExternal = !!href && /^https?:\/\//.test(href);
+                  const inner = (
+                    <>
+                      <span>{label}</span>
+                      {sub && (
+                        <span className="text-rb-fg-3 text-[12px] group-hover:text-rb-fg-2 transition-colors duration-150">
+                          {sub}
+                        </span>
+                      )}
+                    </>
+                  );
                   return (
                     <li key={label}>
-                      <a
-                        href={href ?? '#'}
-                        target={isExternal ? '_blank' : undefined}
-                        rel={isExternal ? 'noreferrer' : undefined}
-                        onClick={
-                          href ? undefined : (e) => e.preventDefault()
-                        }
-                        className="group text-rb-fg-2 text-[13.5px] no-underline hover:text-white transition-colors duration-150 inline-flex items-baseline gap-1.5"
-                      >
-                        <span>{label}</span>
-                        {sub && (
-                          <span className="text-rb-fg-3 text-[12px] group-hover:text-rb-fg-2 transition-colors duration-150">
-                            {sub}
-                          </span>
-                        )}
-                      </a>
+                      {href ? (
+                        <a
+                          href={href}
+                          target={isExternal ? '_blank' : undefined}
+                          rel={isExternal ? 'noopener noreferrer' : undefined}
+                          className="group text-rb-fg-2 text-[13.5px] no-underline hover:text-white transition-colors duration-150 inline-flex items-baseline gap-1.5"
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <span className="group text-rb-fg-2 text-[13.5px] inline-flex items-baseline gap-1.5">
+                          {inner}
+                        </span>
+                      )}
                     </li>
                   );
                 })}
@@ -111,11 +122,11 @@ export const Footer: FC = () => (
           <a
             href="https://github.com/reaviz/reablocks"
             target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
+            rel="noopener noreferrer"
+            aria-label="Reablocks on GitHub"
             className="hover:text-white transition-colors duration-150"
           >
-            <Icon.github />
+            <Icon.github aria-hidden="true" />
           </a>
         </span>
       </div>

@@ -255,7 +255,11 @@ export const Playground: FC = () => {
   }, [dragging]);
 
   return (
-    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="playground">
+    <section
+      className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+      id="playground"
+      aria-labelledby="playground-heading"
+    >
       {/* Emerald halo behind section — echoes the "live" badge */}
       <div
         aria-hidden="true"
@@ -267,6 +271,7 @@ export const Playground: FC = () => {
       />
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
+          headingId="playground-heading"
           title={
             <>
               <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
@@ -280,10 +285,17 @@ export const Playground: FC = () => {
         <ThemeProvider theme={theme}>
           <LiveProvider key={active} code={example.code} scope={liveScope}>
             <div className="rb-ring rounded-[22px] overflow-hidden">
-              <div className="flex items-center gap-1 px-2.5 py-2 border-b border-rb-hairline bg-black/[0.18] overflow-x-auto max-[640px]:gap-0.5 max-[640px]:px-2">
+              <div
+                role="tablist"
+                aria-label="Playground examples"
+                className="flex items-center gap-1 px-2.5 py-2 border-b border-rb-hairline bg-black/[0.18] overflow-x-auto max-[640px]:gap-0.5 max-[640px]:px-2"
+              >
                 {tabs.map((t) => (
                   <button
                     key={t}
+                    type="button"
+                    role="tab"
+                    aria-selected={active === t}
                     onClick={() => setActive(t)}
                     className={cn(
                       'cursor-pointer font-sans text-[13px] px-3 py-1.5 rounded-md whitespace-nowrap shrink-0 max-[640px]:px-2 max-[640px]:text-[12px]',
@@ -319,13 +331,31 @@ export const Playground: FC = () => {
                 </div>
                 <div
                   role="separator"
+                  aria-label="Resize editor and preview panels"
                   aria-orientation="vertical"
                   aria-valuenow={Math.round(editorPct)}
                   aria-valuemin={MIN_PANEL_PCT}
                   aria-valuemax={MAX_PANEL_PCT}
+                  tabIndex={0}
                   onPointerDown={onDragStart}
+                  onKeyDown={(e) => {
+                    if (e.key === 'ArrowLeft') {
+                      e.preventDefault();
+                      setEditorPct((p) => Math.max(MIN_PANEL_PCT, p - 2));
+                    } else if (e.key === 'ArrowRight') {
+                      e.preventDefault();
+                      setEditorPct((p) => Math.min(MAX_PANEL_PCT, p + 2));
+                    } else if (e.key === 'Home') {
+                      e.preventDefault();
+                      setEditorPct(MIN_PANEL_PCT);
+                    } else if (e.key === 'End') {
+                      e.preventDefault();
+                      setEditorPct(MAX_PANEL_PCT);
+                    }
+                  }}
                   className={cn(
                     'group relative w-px shrink-0 bg-rb-hairline cursor-col-resize hover:bg-rb-hairline-2 transition-colors max-[880px]:hidden',
+                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-400',
                     dragging && 'bg-blue-400'
                   )}
                 >

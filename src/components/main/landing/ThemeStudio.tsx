@@ -914,7 +914,11 @@ export const myTheme: PartialReablocksTheme = extendTheme(
   const activeFile = codeTab === 'overrides' ? 'tokens.css' : 'theme.ts';
 
   return (
-    <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="theme-studio">
+    <section
+      className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+      id="theme-studio"
+      aria-labelledby="theme-studio-heading"
+    >
       <div
         aria-hidden="true"
         className="absolute left-1/2 -top-6 w-[1000px] h-[600px] -translate-x-1/2 pointer-events-none z-0"
@@ -925,6 +929,7 @@ export const myTheme: PartialReablocksTheme = extendTheme(
       />
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
         <SectionHead
+          headingId="theme-studio-heading"
           title={
             <>
               Reablocks themes are{' '}

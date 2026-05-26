@@ -6,7 +6,7 @@ import {
   ReablocksRelease,
   formatStarCount
 } from '@/utils/reablocks-version';
-import { Button, Icon } from './atoms';
+import { buttonClass, Icon } from './atoms';
 
 const ISO_SCALE = 36;
 const ISO_OFFSET_X = 80;
@@ -677,6 +677,8 @@ export const Hero: FC<HeroProps> = ({ release }) => {
 
   return (
     <section
+      id="hero"
+      aria-labelledby="hero-heading"
       className="relative overflow-hidden isolate"
       style={{
         background:
@@ -702,7 +704,10 @@ export const Hero: FC<HeroProps> = ({ release }) => {
               Engineered as one
             </span>
 
-            <h1 className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3">
+            <h1
+              id="hero-heading"
+              className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3"
+            >
               <span className="block">Real components.</span>
               <span className="block">
                 Real{' '}
@@ -730,14 +735,12 @@ export const Hero: FC<HeroProps> = ({ release }) => {
             </p>
 
             <div className="flex flex-wrap items-center gap-2.5 mb-5 max-[960px]:justify-center max-[640px]:mb-4">
-              <a href="/docs/getting-started/setup">
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="px-[18px] py-[13px] rounded-[10px]"
-                >
-                  Get started <Icon.arrowRight />
-                </Button>
+              <a
+                href="/docs/getting-started/setup"
+                aria-label="Get started with Reablocks setup guide"
+                className={`${buttonClass('primary', 'md')} px-[18px] py-[13px] rounded-[10px] no-underline`}
+              >
+                Get started <Icon.arrowRight />
               </a>
               <a
                 href="https://github.com/reaviz/reablocks"

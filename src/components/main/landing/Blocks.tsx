@@ -558,9 +558,13 @@ const BlockCard: FC<{ block: BlockEntry; category: CategoryGroup }> = ({
 }) => (
   <a
     href={block.href}
+    aria-label={`${block.title} block — ${category.label}`}
     className="rb-ring rb-ring--glow group no-underline text-inherit rounded-2xl overflow-hidden flex flex-col transition-[transform] duration-200 hover:-translate-y-0.5"
   >
-    <div className="aspect-[4/3] relative flex p-[18px] overflow-hidden bg-gradient-to-br from-rb-surface-1 to-rb-surface-2">
+    <div
+      aria-hidden="true"
+      className="aspect-[4/3] relative flex p-[18px] overflow-hidden bg-gradient-to-br from-rb-surface-1 to-rb-surface-2"
+    >
       <MiniPreview kind={block.kind} />
     </div>
     <div className="flex items-center justify-between px-3.5 py-3 border-t border-rb-hairline">
@@ -578,7 +582,11 @@ const BlockCard: FC<{ block: BlockEntry; category: CategoryGroup }> = ({
 );
 
 export const Blocks: FC = () => (
-  <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="blocks">
+  <section
+    className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden"
+    id="blocks"
+    aria-labelledby="blocks-heading"
+  >
     {/* Fuchsia halo behind section — variety of pre-built blocks */}
     <div
       aria-hidden="true"
@@ -590,6 +598,7 @@ export const Blocks: FC = () => (
     />
     <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <SectionHead
+        headingId="blocks-heading"
         title={
           <>
             Twelve{' '}
