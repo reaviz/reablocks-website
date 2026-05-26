@@ -4,8 +4,21 @@ import { notFound } from 'next/navigation';
 
 export const generateStaticParams = generateStaticParamsFor('mdxPath');
 
+// First-segment namespaces that must never be resolved as MDX (PostHog `/api/*`,
+// Next internals, etc.). Hitting `importPage()` for these produces a webpack
+// `Cannot find module './undefined'` error whose `stack` is undefined, which
+// crashes the RSC client in dev mode.
+const RESERVED_FIRST_SEGMENTS = new Set([
+  'api',
+  '_next',
+  'ingest',
+  'static'
+]);
+
 function isValidMdxPath(mdxPath: string[]): boolean {
   if (!mdxPath || mdxPath.length === 0) return false;
+
+  if (RESERVED_FIRST_SEGMENTS.has(mdxPath[0])) return false;
 
   // Reject paths that start with dots (hidden files, .well-known, etc.)
   if (mdxPath.some(segment => segment.startsWith('.'))) return false;
@@ -55,7 +68,7 @@ export async function generateMetadata(props: any) {
 }
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-const Wrapper = useMDXComponents().wrapper;
+const Wrapper = useMDXComponents().wrapper!;
 
 export default async function Page(props: any) {
   const params = await props.params;
@@ -66,10 +79,10 @@ export default async function Page(props: any) {
 
   try {
     const result = await importPage(params.mdxPath);
-    const { default: MDXContent, toc, metadata } = result;
+    const { default: MDXContent, toc, metadata, sourceCode } = result;
 
     return (
-      <Wrapper toc={toc} metadata={metadata}>
+      <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
         <MDXContent {...props} params={params} />
       </Wrapper>
     );

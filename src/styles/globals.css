@@ -1,8 +1,28 @@
 @import "tailwindcss";
+@import "./landing.css";
 
 @source './**/*.{ts,tsx}';
 @source '../../node_modules/reablocks';
 
+
+/* Spectrum gradient border tokens (used by .rb-ring / .rb-ring-overlay) */
+:root {
+  --rb-grad-border: linear-gradient(
+    135deg,
+    rgba(0, 197, 240, 0.45) 0%,
+    rgba(16, 94, 255, 0.25) 35%,
+    rgba(167, 139, 250, 0.30) 65%,
+    rgba(0, 197, 240, 0.45) 100%
+  );
+  --rb-grad-border-hover: linear-gradient(
+    135deg,
+    rgba(0, 197, 240, 0.0) 0%,
+    rgba(0, 197, 240, 0.65) 30%,
+    rgba(16, 94, 255, 0.65) 70%,
+    rgba(0, 197, 240, 0.0) 100%
+  );
+  --rb-grad-border-glow: rgba(0, 197, 240, 0.35);
+}
 
 /* Color palette */
 :root,
@@ -393,6 +413,71 @@
   --color-charade: #242433;
   --color-waterloo: #77778c;
   --color-anakiwa: #93b6ff;
+
+  /* Reablocks landing tokens */
+  --color-rb-bg-0: #0B0B14;
+  --color-rb-bg-1: #11111F;
+  --color-rb-bg-2: #121212;
+  --color-rb-surface-1: #161623;
+  --color-rb-surface-2: #1C1C2C;
+  --color-rb-surface-3: #232337;
+  --color-rb-fg-1: #F5F6FB;
+  --color-rb-fg-2: #B6BACB;
+  --color-rb-fg-3: #7E839A;
+  --color-rb-fg-muted: #565B73;
+  --color-rb-hairline: rgba(255,255,255,0.07);
+  --color-rb-hairline-2: rgba(255,255,255,0.12);
+  --color-rb-hairline-strong: rgba(122,165,255,0.32);
+  --color-rb-good: #4ADE80;
+  --color-rb-warn: #F59E0B;
+  --color-rb-bad: #F87171;
+  --color-rb-cat-elements: #3B7BFF;
+  --color-rb-cat-form: #00C5F0;
+  --color-rb-cat-layers: #A78BFA;
+  --color-rb-cat-layout: #34D399;
+  --color-rb-cat-data: #FBBF24;
+  --color-rb-cat-motion: #FB7185;
+
+  /* Reablocks display font */
+  --font-display: Lexend, Inter, sans-serif;
+
+  /* Reablocks landing animations */
+  --animate-rb-drift: rb-drift 30s ease-in-out infinite;
+  --animate-rb-float: rb-float 9s ease-in-out infinite alternate;
+  --animate-rb-peek-a: rb-peek-a 12s ease-in-out infinite alternate;
+  --animate-rb-peek-b: rb-peek-b 14s ease-in-out infinite alternate;
+  --animate-rb-caret: rb-caret 1.1s steps(1, end) infinite;
+  --animate-rb-notif-in: rb-notif-in 280ms cubic-bezier(.2,.7,.2,1);
+  --animate-rb-rise: rb-rise 700ms ease-out forwards;
+  --animate-rb-ping: rb-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes rb-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(12px, -8px); }
+  50%      { transform: translate(0, 0); }
+  75%      { transform: translate(-12px, 8px); }
+}
+@keyframes rb-float {
+  from { translate: 0 -2px; }
+  to   { translate: 0  3px; }
+}
+@keyframes rb-peek-a {
+  from { transform: rotate(4deg)  translateY(-4px); }
+  to   { transform: rotate(4deg)  translateY( 8px); }
+}
+@keyframes rb-peek-b {
+  from { transform: rotate(-3deg) translateY( 6px); }
+  to   { transform: rotate(-3deg) translateY(-6px); }
+}
+@keyframes rb-caret { 50% { opacity: 0; } }
+@keyframes rb-notif-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rb-rise { to { opacity: 1; transform: none; } }
+@keyframes rb-ping {
+  75%, 100% { transform: scale(2.2); opacity: 0; }
 }
 
 body {
@@ -480,6 +565,32 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Visually hidden until focused — skip-to-content link */
+  .rb-skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    background: var(--color-blue-500);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 8px 24px -10px rgba(16, 94, 255, 0.7);
+    transform: translateY(-150%);
+    transition: transform 150ms ease-out;
+  }
+
+  .rb-skip-link:focus,
+  .rb-skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
 }
 
 .sbdocs {
@@ -556,3 +667,18 @@ input {
 svg {
   overflow: visible;
 }
+
+/* TSDocProps: tag required props with a trailing "*".
+   Nextra adds `after:content-["?"]` to optional name <code>s; the absence of
+   that class means the prop is required. */
+.tsdoc-props tbody td:first-child code:not([class*="after:content"])::after {
+  content: "*";
+  margin-left: 0.15em;
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 0.85em;
+  vertical-align: super;
+  line-height: 0;
+  user-select: none;
+}
+

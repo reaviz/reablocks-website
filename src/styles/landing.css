@@ -1,0 +1,195 @@
+/* ============================================================
+   Reablocks landing — minimal custom CSS.
+   Most styling lives in Tailwind utilities on the components.
+   This file keeps only what Tailwind can't express cleanly:
+     1. The layered page background (radial gradients + dot grid)
+     2. SVG constellation (vector-effect, edge states)
+     3. Syntax-highlight tokens (consumed via dangerouslySetInnerHTML)
+     4. Install-block gradient border (mask-composite trick)
+     5. Sparkle motif and section divider
+   ============================================================ */
+
+/* 1. Landing wrapper — layered backgrounds ------------------- */
+.rb-landing {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+  background:
+    radial-gradient(1200px 700px at 50% -10%,
+      rgba(16,94,255,0.22) 0%,
+      rgba(16,94,255,0.06) 35%,
+      transparent 70%) center top / 100% auto no-repeat fixed,
+    radial-gradient(900px 600px at 85% 38%,
+      rgba(0,197,240,0.08) 0%,
+      transparent 65%) center / 100% 100% no-repeat fixed,
+    radial-gradient(900px 600px at 12% 75%,
+      rgba(108,76,255,0.08) 0%,
+      transparent 65%) center / 100% 100% no-repeat fixed,
+    radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1.4px) 0 0 / 28px 28px,
+    linear-gradient(180deg, #11111F 0%, #0E0E1A 50%, #0C0C16 100%) center / 100% 100% no-repeat fixed;
+  font-family: var(--font-sans);
+  color: var(--color-rb-fg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.rb-landing ::selection { background: rgba(16,94,255,0.45); color: white; }
+
+/* 2. SVG constellation -------------------------------------- */
+.rb-graph-svg {
+  /* Stretched non-uniformly to fill hero (preserveAspectRatio="none"). */
+}
+.rb-graph-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px 5px 9px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-rb-hairline-2);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-rb-fg-2);
+  white-space: nowrap;
+  transition:
+    color 240ms ease, border-color 240ms ease, background 240ms ease,
+    opacity 280ms ease, transform 280ms cubic-bezier(.2,.7,.2,1),
+    box-shadow 280ms ease;
+  animation: rb-float 9s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rb-graph-node { animation: none; }
+}
+.rb-graph-node:hover,
+.rb-graph-node.is-hot {
+  color: white;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--cat);
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 6px 22px -6px var(--cat), 0 0 0 1px var(--cat) inset;
+}
+.rb-graph-node.is-near {
+  color: var(--color-rb-fg-1);
+  border-color: color-mix(in oklab, var(--cat) 60%, var(--color-rb-hairline-2));
+  background: rgba(255, 255, 255, 0.05);
+}
+.rb-graph-node.is-near > span:first-child {
+  transform: scale(1.2);
+}
+.rb-graph-node.is-dim { opacity: 0.2; }
+
+.rb-graph-edge {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.10);
+  stroke-width: 0.3px;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  transition: stroke 240ms ease, stroke-width 240ms ease, opacity 240ms ease;
+}
+.rb-graph-edge.is-active {
+  stroke-width: 0.3px;
+  opacity: 0.45;
+  filter: drop-shadow(0 0 2px currentColor);
+}
+.rb-graph-edge.is-dim { opacity: 0.06; }
+.rb-graph-pulse { opacity: 0.95; }
+
+/* 3. Syntax-highlight tokens (highlight() raw HTML output) -- */
+.hl-key { color: #93C5FD; }
+.hl-s   { color: #80E2F8; }
+.hl-n   { color: #A78BFA; }
+.hl-b   { color: #F472B6; }
+.hl-p   { color: var(--color-rb-fg-3); }
+.hl-c   { color: var(--color-rb-fg-muted); font-style: italic; }
+.hl-k   { color: #C792EA; }
+.hl-t   { color: #80E2F8; }
+
+/* 4. Spectrum gradient ring -------------------------------- */
+/* Technique 1 — double background-clip. Works on cards with a flat fill
+   (works inside overflow:hidden, unlike the ::after overlay). */
+.rb-ring {
+  --rb-ring-fill: var(--color-rb-surface-1);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--rb-ring-fill), var(--rb-ring-fill)) padding-box,
+    var(--rb-grad-border) border-box;
+  transition: background 260ms ease, box-shadow 220ms ease;
+}
+.rb-ring:hover {
+  background:
+    linear-gradient(var(--rb-ring-fill), var(--rb-ring-fill)) padding-box,
+    var(--rb-grad-border-hover) border-box;
+}
+/* Optional cyan glow — apply to "clickable" cards only */
+.rb-ring--glow:hover {
+  box-shadow: 0 20px 50px -28px var(--rb-grad-border-glow);
+}
+
+/* Technique 2 — ::after overlay with mask-composite. Use when the card
+   already has a gradient/image fill we don't want to override. Don't use
+   on elements with overflow:hidden (the pseudo at inset:-1px gets clipped). */
+.rb-ring-overlay {
+  position: relative;
+  border: 1px solid transparent;
+}
+.rb-ring-overlay::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: var(--rb-grad-border);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  transition: background 260ms ease;
+  z-index: 1;
+}
+.rb-ring-overlay:hover::after { background: var(--rb-grad-border-hover); }
+/* Keep interactive children above the border layer */
+.rb-ring-overlay > * { position: relative; z-index: 2; }
+
+/* 5. Sparkle motif + divider -------------------------------- */
+.rb-sparkle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, var(--color-cyan-300), var(--color-blue-400));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z'/></svg>") center/contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z'/></svg>") center/contain no-repeat;
+}
+.rb-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.rb-divider::before,
+.rb-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--color-rb-hairline-2),
+    transparent);
+}
+.rb-divider .rb-sparkle { color: var(--color-cyan-300); }
+
+/* Subtle reveal helper (opt-in) ----------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rb-rise { opacity: 0; transform: translateY(12px); animation: rb-rise 700ms ease-out forwards; }
+}

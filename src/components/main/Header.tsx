@@ -23,6 +23,7 @@ export const Header: FC = () => {
 
   return (
     <header
+      aria-label="Site header"
       className={cn(
         `border-opacity-15 fixed top-0 z-50 flex w-full justify-center border-b border-gray-400/30 bg-[#11111F] transition-[backdrop-filter] md:bg-transparent`,
         isScrolled && 'md:backdrop-blur-md'
