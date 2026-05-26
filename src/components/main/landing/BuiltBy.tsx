@@ -155,18 +155,8 @@ export const BuiltBy: FC = () => {
           />
         </div>
 
-        {/* Tagline */}
-        <p
-          className="mt-10 text-rb-fg-2 text-[clamp(20px,2.4vw,28px)] leading-[1.3] tracking-[0.01em] italic"
-          style={{
-            fontFamily: 'Lexend, sans-serif',
-            fontWeight: 500
-          }}
-        >
-        </p>
-
         {/* Lede */}
-        <p className="mt-5 max-w-[62ch] text-rb-fg-2 text-[16.5px] leading-[1.6] max-[640px]:text-[15px]">
+        <p className="mt-10 max-w-[62ch] text-rb-fg-2 text-[16.5px] leading-[1.6] max-[640px]:text-[15px]">
           Reablocks is built and maintained by{' '}
           <a
             href="https://goodcode.us?utm_source=reablocks"

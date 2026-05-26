@@ -1,3 +1,5 @@
+import pkg from '../../package.json';
+
 export interface ReablocksRelease {
   version: string;
   publishedAt: string;
@@ -5,7 +7,7 @@ export interface ReablocksRelease {
 }
 
 const FALLBACK: ReablocksRelease = {
-  version: '10.0.1',
+  version: pkg.dependencies.reablocks.replace(/^[\^~]/, ''),
   publishedAt: '2026-05-13T11:36:00.742Z',
   stars: 186
 };
