@@ -80,6 +80,14 @@ export const BuiltBy: FC = () => {
               'radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 80%)'
           }}
         />
+        {/* Warm spotlight halo behind the signature */}
+        <div
+          className="absolute left-1/2 -top-6 w-[1100px] h-[600px] -translate-x-1/2 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 50% 50% at 50% 20%, rgba(255,225,180,0.10), transparent 70%)'
+          }}
+        />
         {/* Horizon glow */}
         <div
           className="absolute left-1/2 bottom-0 w-[1400px] h-[360px] -translate-x-1/2 translate-y-[40%] motion-safe:animate-rb-float"

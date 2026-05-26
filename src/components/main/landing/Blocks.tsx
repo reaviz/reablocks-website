@@ -578,8 +578,17 @@ const BlockCard: FC<{ block: BlockEntry; category: CategoryGroup }> = ({
 );
 
 export const Blocks: FC = () => (
-  <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="blocks">
-    <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
+  <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="blocks">
+    {/* Fuchsia halo behind section — variety of pre-built blocks */}
+    <div
+      aria-hidden="true"
+      className="absolute left-1/2 -top-6 w-[1100px] h-[600px] -translate-x-1/2 pointer-events-none z-0"
+      style={{
+        background:
+          'radial-gradient(ellipse 50% 50% at 50% 20%, rgba(232,121,249,0.12), transparent 70%)'
+      }}
+    />
+    <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
       <SectionHead
         title={
           <>

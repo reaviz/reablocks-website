@@ -591,8 +591,17 @@ export const Showcase: FC = () => {
   const themeMemo = useMemo(() => landingTheme, []);
   return (
     <ThemeProvider theme={themeMemo}>
-      <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12" id="showcase">
-        <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
+      <section className="relative -top-6 py-24 max-[720px]:py-16 max-[640px]:py-12 overflow-hidden" id="showcase">
+        {/* Violet halo behind section */}
+        <div
+          aria-hidden="true"
+          className="absolute left-1/2 -top-6 w-[1100px] h-[600px] -translate-x-1/2 pointer-events-none z-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 50% 50% at 50% 20%, rgba(139,92,246,0.14), transparent 70%)'
+          }}
+        />
+        <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
           <SectionHead
             title={
               <>
