@@ -43,10 +43,10 @@ const STEPS: Step[] = [
   {
     key: 'styles',
     title: 'Import styles',
-    blurb: 'Import the prebuilt stylesheet in your global CSS — no Tailwind setup required. Want to customize tokens? Follow the Tailwind setup below.',
+    blurb: 'Import the prebuilt stylesheet in your app entry (e.g. main.tsx) — no Tailwind setup required. Want to customize tokens? Follow the Tailwind setup below.',
     docHref: '/docs/getting-started/setup#3-import-tailwind-in-your-css',
     docLabel: 'Tailwind setup',
-    code: `@import "../node_modules/reablocks/dist/index.css";`
+    code: `import "reablocks/index.css";`
   },
   {
     key: 'theme',
