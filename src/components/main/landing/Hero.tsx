@@ -1,6 +1,7 @@
 'use client';
 
 import { CSSProperties, FC, useEffect, useMemo, useRef, useState } from 'react';
+import { motion } from 'motion/react';
 import { DateFormat } from 'reablocks';
 import {
   ReablocksRelease,
@@ -700,54 +701,120 @@ export const Hero: FC<HeroProps> = ({ release }) => {
         <div className="grid grid-cols-[1fr_1fr] gap-0 min-h-[400px] max-[960px]:grid-cols-1 max-[960px]:min-h-0">
           {/* Copy column */}
           <div className="px-4 py-6 pr-10 max-[960px]:pr-4 max-[960px]:text-center max-[640px]:px-0 max-[640px]:py-4">
-            <span className="inline-flex items-center gap-2 font-mono uppercase text-[11.5px] tracking-[0.18em] text-rb-cyan-300 mb-7 max-[640px]:mb-5 max-[640px]:text-[10.5px] before:content-[''] before:w-7 before:h-px before:bg-[#00C5F0] before:opacity-70" style={{ color: '#00C5F0' } as CSSProperties}>
+            <motion.span
+              className="inline-flex items-center gap-2 font-mono uppercase text-[11.5px] tracking-[0.18em] text-rb-cyan-300 mb-7 max-[640px]:mb-5 max-[640px]:text-[10.5px] before:content-[''] before:w-7 before:h-px before:bg-[#00C5F0] before:opacity-70"
+              style={{ color: '#00C5F0' } as CSSProperties}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
               Engineered as one
-            </span>
+            </motion.span>
 
-            <h1
+            <motion.h1
               id="hero-heading"
               className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.12, delayChildren: 0.15 }
+                }
+              }}
             >
-              <span className="block">Real components.</span>
-              <span className="block">
-                Real{' '}
-                <span
-                  className="font-semibold not-italic"
-                  style={{
-                    fontFamily: 'Lexend, Inter, sans-serif',
-                    background:
-                      'linear-gradient(135deg, #80E2F8 0%, #3B7BFF 60%, #80B5FF 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  } as CSSProperties}
-                >
-                  motion
-                </span>
-                .
-              </span>
-              <span className="block">Shipped.</span>
-            </h1>
+              {(['Stop coding from scratch.', null, 'Launch sooner.'] as const).map(
+                (text, i) => (
+                  <motion.span
+                    key={i}
+                    className="block"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
+                      }
+                    }}
+                  >
+                    {text ?? (
+                      <>
+                        Build{' '}
+                        <span
+                          className="font-semibold not-italic"
+                          style={{
+                            fontFamily: 'Lexend, Inter, sans-serif',
+                            background:
+                              'linear-gradient(135deg, #80E2F8 0%, #3B7BFF 60%, #80B5FF 100%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text'
+                          } as CSSProperties}
+                        >
+                          faster
+                        </span>
+                        .
+                      </>
+                    )}
+                  </motion.span>
+                )
+              )}
+            </motion.h1>
 
-            <p className="text-rb-fg-2 text-[16.5px] leading-[1.55] max-w-[44ch] mb-7 max-[960px]:mx-auto max-[640px]:text-[15px] max-[640px]:mb-5">
+            <motion.p
+              className="text-rb-fg-2 text-[16.5px] leading-[1.55] max-w-[44ch] mb-7 max-[960px]:mx-auto max-[640px]:text-[15px] max-[640px]:mb-5"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.65,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.55
+              }}
+            >
               From button to full dashboard in an afternoon. A premium React
               library with 70 components and 12 page-level blocks.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap items-center gap-2.5 mb-5 max-[960px]:justify-center max-[640px]:mb-4">
-              <a
+            <motion.div
+              className="flex flex-wrap items-center gap-2.5 mb-5 max-[960px]:justify-center max-[640px]:mb-4"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.1, delayChildren: 0.75 }
+                }
+              }}
+            >
+              <motion.a
                 href="/docs/getting-started/setup"
                 aria-label="Get started with Reablocks setup guide"
                 className={`${buttonClass('primary', 'md')} px-[18px] py-[13px] rounded-[10px] no-underline`}
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+                  }
+                }}
               >
                 Get started <Icon.arrowRight />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://github.com/reaviz/reablocks"
                 target="_blank"
                 rel="noreferrer"
                 className="group/star inline-flex items-stretch font-sans font-medium text-[14px] rounded-[10px] border border-rb-hairline-2 bg-white/[0.04] text-rb-fg-1 hover:bg-white/[0.08] hover:border-rb-hairline-strong shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_8px_24px_-12px_rgba(251,191,36,0.45)] transition-all duration-200"
                 aria-label={`Star reablocks on GitHub (${release.stars.toLocaleString()} stars)`}
+                variants={{
+                  hidden: { opacity: 0, y: 12 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+                  }
+                }}
               >
                 <span className="inline-flex items-center gap-2 pl-[16px] pr-[12px] py-[13px]">
                   <Icon.github />
@@ -771,11 +838,20 @@ export const Hero: FC<HeroProps> = ({ release }) => {
                     {formatStarCount(release.stars)}
                   </span>
                 </span>
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
             {/* Release pill */}
-            <div className="inline-flex items-center gap-2.5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-rb-fg-2 px-3 py-1.5 rounded-full border border-[rgba(122,165,255,0.28)]">
+            <motion.div
+              className="inline-flex items-center gap-2.5 font-mono text-[11.5px] uppercase tracking-[0.14em] text-rb-fg-2 px-3 py-1.5 rounded-full border border-[rgba(122,165,255,0.28)]"
+              initial={{ opacity: 0, y: 10, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+                delay: 1.0
+              }}
+            >
               <span className="relative flex shrink-0 w-2 h-2">
                 <span className="absolute inset-0 rounded-full bg-rb-good opacity-70 motion-safe:animate-rb-ping" />
                 <span className="relative inline-flex w-2 h-2 rounded-full bg-rb-good shadow-[0_0_8px_rgba(74,222,128,0.7)]" />
@@ -786,13 +862,22 @@ export const Hero: FC<HeroProps> = ({ release }) => {
               <span className="text-rb-fg-3 normal-case tracking-normal">
                 · released <DateFormat date={release.publishedAt} fromNow />
               </span>
-            </div>
+            </motion.div>
           </div>
 
           {/* Iso stage */}
-          <div className="relative min-h-[540px] max-[960px]:min-h-[420px] max-[640px]:min-h-[360px] border-l border-[rgba(255,255,255,0.10)] max-[960px]:border-l-0 max-[960px]:border-t max-[960px]:border-[rgba(255,255,255,0.10)] max-[960px]:mt-4 max-[960px]:pt-4 max-[640px]:mt-3 max-[640px]:pt-3">
+          <motion.div
+            className="relative min-h-[540px] max-[960px]:min-h-[420px] max-[640px]:min-h-[360px] border-l border-[rgba(255,255,255,0.10)] max-[960px]:border-l-0 max-[960px]:border-t max-[960px]:border-[rgba(255,255,255,0.10)] max-[960px]:mt-4 max-[960px]:pt-4 max-[640px]:mt-3 max-[640px]:pt-3"
+            initial={{ opacity: 0, scale: 0.94, y: 18 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              ease: [0.22, 1, 0.36, 1],
+              delay: 0.35
+            }}
+          >
             <IsoStage hov={hov} setHov={handleHov} />
-          </div>
+          </motion.div>
         </div>
 
       </div>

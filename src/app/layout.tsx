@@ -149,6 +149,7 @@ export default async function RootLayout({
           footer={footer}
           lastUpdated={<LastUpdated />}
           search={<Search />}
+          nextThemes={{ defaultTheme: 'dark' }}
         >
           {children}
         </Layout>

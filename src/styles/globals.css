@@ -668,3 +668,17 @@ svg {
   overflow: visible;
 }
 
+/* TSDocProps: tag required props with a trailing "*".
+   Nextra adds `after:content-["?"]` to optional name <code>s; the absence of
+   that class means the prop is required. */
+.tsdoc-props tbody td:first-child code:not([class*="after:content"])::after {
+  content: "*";
+  margin-left: 0.15em;
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 0.85em;
+  vertical-align: super;
+  line-height: 0;
+  user-select: none;
+}
+

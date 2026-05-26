@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 import { useInView } from './atoms';
 
 interface Stat {
@@ -60,15 +61,22 @@ function useCountUp(target: number, { start, duration = 1500 }: { start: boolean
   return value;
 }
 
-const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
+const LedgerCell: FC<{ stat: Stat; index: number }> = ({ stat, index }) => {
   const [ref, seen] = useInView<HTMLDivElement>({ threshold: 0.3 });
   const value = useCountUp(stat.value, { start: seen });
   return (
-    <div
+    <motion.div
       ref={ref}
       role="group"
       aria-label={`${stat.value}${stat.suffix} ${stat.label}`}
       className="flex flex-col items-center text-center gap-2 px-7 py-10 max-md:py-7 max-md:px-5"
+      initial={{ opacity: 0, y: 24 }}
+      animate={seen ? { opacity: 1, y: 0 } : undefined}
+      transition={{
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+        delay: index * 0.1
+      }}
     >
       <div
         aria-hidden="true"
@@ -86,7 +94,7 @@ const LedgerCell: FC<{ stat: Stat }> = ({ stat }) => {
       <div className="font-sans text-[11px] text-rb-fg-3 leading-snug max-w-[34ch]">
         {stat.subtitle}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -98,8 +106,8 @@ export const Stats: FC = () => (
   >
     <div className="border-t border-b border-rb-hairline">
       <div className="w-full max-w-[1240px] mx-auto grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 [&>*+*]:border-l [&>*+*]:border-rb-hairline max-md:[&>*:nth-child(3)]:border-l-0 max-md:[&>*:nth-child(n+3)]:border-t max-md:[&>*:nth-child(n+3)]:border-rb-hairline max-sm:[&>*+*]:border-l-0 max-sm:[&>*+*]:border-t">
-        {STATS.map((s) => (
-          <LedgerCell key={s.key} stat={s} />
+        {STATS.map((s, i) => (
+          <LedgerCell key={s.key} stat={s} index={i} />
         ))}
       </div>
     </div>

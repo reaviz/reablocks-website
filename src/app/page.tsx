@@ -3,7 +3,7 @@ import React from 'react';
 import { LandingShell } from '@/components/main/landing/LandingShell';
 import { getReablocksRelease } from '@/utils/reablocks-version';
 
-const TITLE = 'Reablocks — Real components. Real motion. Shipped.';
+const TITLE = 'Reablocks — Stop coding from scratch. Build faster. Launch sooner.';
 const DESCRIPTION =
   'A premium open-source React component library for ambitious enterprise apps. 70+ components, 12 full-page blocks, AI-native skill packs, and theming as an object — not a config file.';
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: '/preview.png',
         width: 1200,
         height: 630,
-        alt: 'Reablocks — Real components. Real motion. Shipped.'
+        alt: 'Reablocks — Stop coding from scratch. Build faster. Launch sooner.'
       }
     ]
   },
