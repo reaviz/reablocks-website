@@ -10,13 +10,18 @@ const FALLBACK: ReablocksRelease = {
   stars: 186
 };
 
+// The full document at https://registry.npmjs.org/reablocks is ~3MB and
+// exceeds Next.js's 2MB fetch-cache limit. The cache rejection produced an
+// error with `stack: undefined` that crashed the dev RSC client. `cache:
+// 'no-store'` bypasses Next's data cache entirely; the page is statically
+// generated so this still only runs at build time in production.
 async function fetchNpmRelease(): Promise<{
   version: string;
   publishedAt: string;
 } | null> {
   try {
     const res = await fetch('https://registry.npmjs.org/reablocks', {
-      next: { revalidate: 3600 }
+      cache: 'no-store'
     });
     if (!res.ok) return null;
     const data = (await res.json()) as {

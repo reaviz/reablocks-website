@@ -1,5 +1,6 @@
-import { Footer, LandingFooter, Layout, Navbar } from 'reablocks-docs-theme';
-import { Head } from 'nextra/components';
+import { Footer, LandingFooter, LastUpdated, Layout, Navbar } from 'reablocks-docs-theme';
+import { Head, Search } from 'nextra/components';
+import { GitHubIcon } from 'nextra/icons';
 import { getPageMap } from 'nextra/page-map';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
@@ -119,6 +120,7 @@ const navbar = (
       </div>
     }
     projectLink="https://github.com/reaviz/reablocks"
+    projectIcon={<GitHubIcon height="24" />}
   />
 );
 export default async function RootLayout({
@@ -145,6 +147,8 @@ export default async function RootLayout({
           editLink="Edit this page on GitHub"
           sidebar={{ defaultMenuCollapseLevel: 2, autoCollapse: false }}
           footer={footer}
+          lastUpdated={<LastUpdated />}
+          search={<Search />}
         >
           {children}
         </Layout>

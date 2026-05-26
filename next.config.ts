@@ -17,6 +17,8 @@ const nextConfig = withNextra({
     ]
   },
 
+  serverExternalPackages: ['ts-morph', 'typescript'],
+
   // Rewrites required for PostHog ingestion endpoints
   async rewrites() {
     return [

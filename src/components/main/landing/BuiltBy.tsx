@@ -194,7 +194,7 @@ export const BuiltBy: FC = () => {
         <p className="mt-5 max-w-[62ch] text-rb-fg-2 text-[16.5px] leading-[1.6] max-[640px]:text-[15px]">
           Reablocks is built and maintained by{' '}
           <a
-            href="https://goodcode.us"
+            href="https://goodcode.us?utm_source=reablocks"
             target="_blank"
             rel="noreferrer"
             className="text-white no-underline border-b border-cyan-300/40 hover:border-cyan-300 transition-colors duration-150"
@@ -260,7 +260,7 @@ export const BuiltBy: FC = () => {
         {/* CTAs */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="https://goodcode.us"
+            href="https://goodcode.us?utm_source=reablocks"
             target="_blank"
             rel="noreferrer"
             className={cn(
@@ -274,7 +274,7 @@ export const BuiltBy: FC = () => {
             <Icon.arrowUpRight />
           </a>
           <a
-            href="https://goodcode.us/contact"
+            href="https://goodcode.us/contact?utm_source=reablocks"
             target="_blank"
             rel="noreferrer"
             className={cn(
@@ -295,7 +295,7 @@ export const BuiltBy: FC = () => {
           </span>
           <span className="w-px h-3 bg-rb-hairline-2 max-[480px]:hidden" />
           <a
-            href="https://goodcode.us"
+            href="https://goodcode.us?utm_source=reablocks"
             target="_blank"
             rel="noreferrer"
             className="font-mono text-[11px] leading-[1.7] tracking-[0.06em] text-cyan-300 no-underline hover:text-white transition-colors duration-150 whitespace-nowrap"

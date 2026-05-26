@@ -29,11 +29,11 @@
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
     "motion": "^12.5.0",
-    "next": "^15.3.3",
-    "nextra": "^4.2.17",
+    "next": "^15.5.18",
+    "nextra": "^4.6.1",
     "posthog-js": "^1.256.2",
     "posthog-node": "^5.2.1",
-    "reablocks": "^10.0.1",
+    "reablocks": "^10.0.2",
     "reablocks-docs-theme": "^2.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -48,8 +48,8 @@
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
     "cpx": "^1.5.0",
     "eslint": "^8",
@@ -59,6 +59,12 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
+    "ts-morph": "27.0.2",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "reablocks-docs-theme": "file:../reablocks-docs-theme/reablocks-docs-theme-2.3.0.tgz"
+    }
   }
 }
