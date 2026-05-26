@@ -133,17 +133,13 @@ export const BuiltBy: FC = () => {
       {/* Content -------------------------------------------------- */}
       <div className="relative z-[1] w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5 flex flex-col items-center text-center">
         {/* Eyebrow */}
-        <div className="flex flex-wrap items-center justify-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-rb-hairline-2 [backdrop-filter:blur(8px)]">
+        <div className="self-end flex flex-wrap items-center justify-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-rb-hairline-2 [backdrop-filter:blur(8px)]">
           <span className="relative inline-flex items-center justify-center w-1.5 h-1.5">
             <span className="absolute inset-0 rounded-full bg-rb-good shadow-[0_0_10px_rgba(74,222,128,0.7)]" />
             <span className="absolute inset-0 rounded-full bg-rb-good motion-safe:animate-rb-ping" />
           </span>
           <span className="font-mono text-[11px] tracking-[0.14em] uppercase text-rb-fg-2 leading-none whitespace-nowrap">
             {'// built by'}
-          </span>
-          <span className="w-px h-3 bg-rb-hairline-2 max-[480px]:hidden" />
-          <span className="font-mono text-[11px] tracking-[0.08em] uppercase text-rb-fg-3 leading-none whitespace-nowrap max-[480px]:hidden">
-            est. 2020 · austin mcdaniel
           </span>
         </div>
 

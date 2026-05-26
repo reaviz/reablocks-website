@@ -28,17 +28,6 @@ const COLS: Array<{ title: string; items: FooterItem[] }> = [
         href: 'https://github.com/reaviz/reakeys'
       }
     ]
-  },
-  {
-    title: 'Built by',
-    items: [
-      { label: 'Reaviz', href: 'https://github.com/reaviz' },
-      {
-        label: 'Apache 2.0',
-        href: 'https://github.com/reaviz/reablocks/blob/master/LICENSE'
-      },
-      { label: 'ChangeLog', href: '/docs/changelog' }
-    ]
   }
 ];
 
@@ -48,8 +37,8 @@ export const Footer: FC = () => (
     className="border-t border-rb-hairline pt-16 pb-7 mt-20 bg-gradient-to-b from-transparent to-black/30 max-[640px]:pt-10 max-[640px]:mt-12"
   >
     <div className="w-full max-w-[1240px] mx-auto px-7 max-[640px]:px-5">
-      <div className="grid grid-cols-[1.2fr_2fr] gap-12 mb-10 max-[820px]:grid-cols-1">
-        <div>
+      <div className="flex justify-between gap-12 mb-10 max-[820px]:flex-col">
+        <div className="flex flex-col justify-between gap-6">
           <a
             href="/"
             aria-label="Reablocks home"
@@ -57,7 +46,7 @@ export const Footer: FC = () => (
           >
             <LogoIcon className="h-fit w-[168px] text-white" />
           </a>
-          <p className="text-rb-fg-3 text-sm max-w-[38ch] mt-3 mb-[18px]">
+          <p className="text-rb-fg-3 text-sm max-w-[38ch]">
             A premium React component library and block system for ambitious
             enterprise apps.
           </p>
@@ -68,7 +57,7 @@ export const Footer: FC = () => (
             <CopyButton getText={() => 'npm i reablocks'} />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-8 max-[540px]:grid-cols-2 max-[540px]:gap-6">
+        <div className="grid grid-cols-2 gap-8 max-[540px]:gap-6">
           {COLS.map((c) => (
             <div key={c.title}>
               <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-rb-fg-3 mb-3">
