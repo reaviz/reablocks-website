@@ -34,16 +34,16 @@ const STEPS: Step[] = [
     docHref: '/docs/getting-started/setup#1-install-reablocks',
     docLabel: 'Setup guide',
     tabs: [
-      { label: 'npm', code: 'npm install reablocks motion' },
-      { label: 'pnpm', code: 'pnpm add reablocks motion' },
-      { label: 'yarn', code: 'yarn add reablocks motion' },
-      { label: 'bun', code: 'bun add reablocks motion' }
+      { label: 'npm', code: 'npm install reablocks' },
+      { label: 'pnpm', code: 'pnpm add reablocks' },
+      { label: 'yarn', code: 'yarn add reablocks' },
+      { label: 'bun', code: 'bun add reablocks' }
     ]
   },
   {
     key: 'styles',
     title: 'Import styles',
-    blurb: 'One line in your global CSS — Tailwind layers are already wired up.',
+    blurb: 'Import the prebuilt stylesheet in your global CSS — no Tailwind setup required. Want to customize tokens? Follow the Tailwind setup below.',
     docHref: '/docs/getting-started/setup#3-import-tailwind-in-your-css',
     docLabel: 'Tailwind setup',
     code: `@import "../node_modules/reablocks/dist/index.css";`
@@ -52,7 +52,7 @@ const STEPS: Step[] = [
     key: 'theme',
     title: 'Theme',
     blurb:
-      'Override any component with Tailwind classes — type-safe, fully composable.',
+      'Override any component with Tailwind classes - type-safe, fully composable.',
     docHref: '/docs/theme/getting-started#extending-the-reablocks-theme',
     docLabel: 'Theme guide',
     code: `import { PartialReablocksTheme, ButtonTheme } from 'reablocks';
