@@ -1,12 +1,25 @@
-import { Steps } from 'nextra/components'
-import { Callout } from 'nextra/components'
+import { Steps, Tabs, Callout } from 'nextra/components'
+import { InstallTerminal } from '../../../components/ui/install-terminal'
 
 # Setup
 This section will guide you through the initial steps required to integrate Tailwind CSS into your project. Tailwind CSS is a utility-first CSS framework that can be customized to fit the design needs of your project. Follow these instructions to ensure a smooth setup.
 &nbsp;
 
-## Install Steps
+## Install
 
+<Tabs items={['CLI', 'Manual']}>
+<Tabs.Tab>
+The fastest way to set up reablocks in an existing React project is the official CLI. From the root of your project:
+
+```sh copy
+npx reablocks-cli@latest init
+```
+
+<InstallTerminal />
+
+Every edit is previewed and gated behind a `Y/n` confirm — nothing is written without your approval. Each step is also idempotent, so re-running on a partially configured project only touches what's missing.
+</Tabs.Tab>
+<Tabs.Tab>
 <Callout type="info" emoji="ℹ️">
   If you already have Tailwind installed, you can skip 2nd and 3rd steps.
 </Callout>
@@ -479,7 +492,8 @@ const preview: Preview = {
 You can learn more about the Storybook setup [here](/docs/getting-started/storybook).
 
 </Steps>
-
+</Tabs.Tab>
+</Tabs>
 
 ## Example Repository
 You can use the following [repository](https://github.com/goodcodeus/starter) to get started with Reablocks.

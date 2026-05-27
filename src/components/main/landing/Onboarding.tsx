@@ -9,7 +9,8 @@ import {
   useRef,
   useState
 } from 'react';
-import { Button, CodeBlock, Icon, SectionHead } from './atoms';
+import { Button, CodeBlock, CopyButton, Icon, SectionHead } from './atoms';
+import { InstallTerminal } from '@/components/ui/install-terminal';
 
 interface StepTab {
   label: string;
@@ -50,35 +51,15 @@ const STEPS: Step[] = [
   },
   {
     key: 'theme',
-    title: 'Theme',
+    title: 'Pick a default theme',
     blurb:
-      'Override any component with Tailwind classes - type-safe, fully composable.',
-    docHref: '/docs/theme/getting-started#extending-the-reablocks-theme',
-    docLabel: 'Theme guide',
-    code: `import { PartialReablocksTheme, ButtonTheme } from 'reablocks';
-
-const buttonTheme: ButtonTheme = {
-  base: 'bg-lime-600 text-gray-300',
-  sizes: {
-    small: 'p-2',
-    medium: 'p-3',
-    large: 'p-4'
-  },
-  colors: {
-    default: {
-      filled: 'bg-lime-600 hover:bg-lime-700',
-      outline: 'border-lime-600',
-      text: 'text-gray-300'
-    }
-  }
-};
-
-const customTheme: PartialReablocksTheme = {
-  components: {
-    button: buttonTheme,
-    // other components themes
-  }
-};`
+      'Set the default theme by adding theme-dark or theme-light className to your root html tag. Flip between them to toggle the whole UI.',
+    docHref: '/docs/theme/getting-started#switching-themes',
+    docLabel: 'Switching themes',
+    code: `<html className="theme-dark">
+  {/* or className="theme-light" */}
+  ...
+</html>`
   },
   {
     key: 'wrap',
@@ -99,6 +80,87 @@ export default function RootLayout({ children }) {
 }`
   }
 ];
+
+const CLI_CMD = 'npx reablocks-cli@latest init';
+
+const CLI_BULLETS: { text: ReactNode }[] = [
+  {
+    text: (
+      <>
+        Auto-detects framework —{' '}
+        <em className="not-italic text-rb-fg-2">
+          React Router, Vite, Next.js, Remix
+        </em>
+      </>
+    )
+  },
+  {
+    text: (
+      <>
+        Installs <em className="not-italic text-rb-fg-2">reablocks</em> +{' '}
+        <em className="not-italic text-rb-fg-2">tailwindcss</em> with v4 tokens
+        preconfigured
+      </>
+    )
+  },
+  {
+    text: (
+      <>
+        Wraps{' '}
+        <em className="not-italic text-blue-300 font-medium">
+          &lt;ThemeProvider /&gt;
+        </em>{' '}
+        for you — every edit is preview-then-confirm
+      </>
+    )
+  },
+  { text: 'Idempotent — safe to re-run on a half-configured project' }
+];
+
+const CliPanel: FC = () => (
+  <div className="grid grid-cols-[1.05fr_1fr] gap-12 items-start max-[980px]:grid-cols-1 max-[980px]:gap-9">
+    <div>
+      <div className="relative max-w-[460px] w-full bg-white/[0.03] rb-ring-overlay rounded-xl [backdrop-filter:blur(8px)]">
+        <div className="flex items-center gap-0.5 p-1 border-b border-rb-hairline bg-transparent relative z-[1]">
+          <span className="font-mono text-xs px-3.5 py-1.5 rounded-md bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_var(--color-rb-hairline-2)]">
+            run once, set everything up
+          </span>
+        </div>
+        <div className="flex items-center gap-2.5 px-3 py-2.5 pl-3.5 relative z-[1]">
+          <span className="font-mono text-[13.5px] text-cyan-400 select-none">
+            $
+          </span>
+          <code className="font-mono text-[13.5px] inline-flex items-baseline whitespace-nowrap">
+            <span className="text-white font-medium">npx</span>
+            <span className="text-rb-fg-3">
+              &nbsp;reablocks-cli@latest&nbsp;
+            </span>
+            <span className="text-cyan-300">init</span>
+          </code>
+          <span className="ml-auto">
+            <CopyButton getText={() => CLI_CMD} />
+          </span>
+        </div>
+      </div>
+
+      <ul className="list-none p-0 mt-6 grid gap-2.5">
+        {CLI_BULLETS.map((item, i) => (
+          <li
+            key={i}
+            className="flex gap-2.5 items-start text-rb-fg-2 text-sm leading-[1.5]"
+          >
+            <span className="w-[18px] h-[18px] rounded-full bg-[rgba(74,222,128,0.18)] text-rb-good inline-flex items-center justify-center shrink-0 mt-px">
+              <Icon.check />
+            </span>
+            <span>{item.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <InstallTerminal />
+  </div>
+);
 
 type StepState = 'pending' | 'active' | 'done';
 
@@ -145,6 +207,7 @@ const getStepCode = (step: Step, tabIdx: number) => {
 };
 
 export const Onboarding: FC = () => {
+  const [installMode, setInstallMode] = useState<'cli' | 'manual'>('cli');
   const [justCopied, setJustCopied] = useState<string | null>(null);
   const [tabIdx, setTabIdx] = useState<Record<string, number>>({});
   const [states, setStates] = useState<StepState[]>(() =>
@@ -241,6 +304,42 @@ export const Onboarding: FC = () => {
           lede="Built on Tailwind CSS v4. Install the package, wire up the styles, define your theme tokens, and wrap your app in ThemeProvider."
         />
 
+        <div
+          role="tablist"
+          aria-label="Choose installation method"
+          className="mb-6 inline-flex items-center gap-1 p-1 rounded-full border border-rb-hairline-2 bg-rb-surface-1"
+        >
+          {(
+            [
+              { key: 'cli', label: 'CLI' },
+              { key: 'manual', label: 'Manual' }
+            ] as const
+          ).map(({ key, label }) => {
+            const active = installMode === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => setInstallMode(key)}
+                className={cn(
+                  'cursor-pointer px-4 py-1.5 rounded-full font-mono text-[12.5px] transition-colors',
+                  active
+                    ? 'bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_var(--color-rb-hairline-2)]'
+                    : 'text-rb-fg-3 hover:text-rb-fg-1'
+                )}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
+        {installMode === 'cli' ? (
+          <CliPanel />
+        ) : (
+          <>
         <div
           role="note"
           className="mb-5 flex items-start gap-3 px-4 py-3 rounded-[12px] border border-[color-mix(in_oklab,var(--color-blue-500)_30%,transparent)] bg-[color-mix(in_oklab,var(--color-blue-500)_8%,transparent)] max-[640px]:flex-col max-[640px]:gap-2"
@@ -452,6 +551,8 @@ export const Onboarding: FC = () => {
             );
           })}
         </ol>
+          </>
+        )}
 
       </div>
     </section>
