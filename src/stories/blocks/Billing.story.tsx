@@ -537,7 +537,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary whitespace-nowrap px-6 py-4 text-base">
               Yearly Cost
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
