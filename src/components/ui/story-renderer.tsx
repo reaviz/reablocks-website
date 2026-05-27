@@ -22,14 +22,14 @@ export const StoryRenderer: FC<StoryRendererProps> = ({
         .then(storyModule => ({
           default: () => (
             <ThemeProvider theme={theme}>
-              <BaseStoryRenderer
-                wrapperClassName="block w-fit mx-auto"
-                storyModule={storyModule}
-                storyName={name}
-                storyPath={path}
-                storybookUrl="https://storybook.reablocks.dev"
-                storybookKey={storybookKey}
-              />
+                <BaseStoryRenderer
+                  wrapperClassName="block w-fit mx-auto"
+                  storyModule={storyModule}
+                  storyName={name}
+                  storyPath={path}
+                  storybookUrl="https://storybook.reablocks.dev"
+                  storybookKey={storybookKey}
+                />
             </ThemeProvider>
           )
         }))
