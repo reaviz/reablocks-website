@@ -39,8 +39,8 @@ importers:
         specifier: ^5.2.1
         version: 5.35.3
       reablocks:
-        specifier: ^10.0.2
-        version: 10.0.2(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^10.0.3
+        version: 10.0.3(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       reablocks-docs-theme:
         specifier: ^2.3.1
         version: 2.3.1(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-compiler-runtime@19.1.0-rc.3(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
@@ -4901,8 +4901,8 @@ packages:
       react-compiler-runtime:
         optional: true
 
-  reablocks@10.0.2:
-    resolution: {integrity: sha512-3rxycJFtM58vFB0xOZIeWCgV4UOcrV0a7dNkjM7DCWEG+v/K+v229db/8QQk+xzylc7Mw3BK8ei+NwDHE9nblg==}
+  reablocks@10.0.3:
+    resolution: {integrity: sha512-fb6eSP9kZd0oljCvK1ae/afUJ3fsRjkjfXTZ7Zckp7z8QMHUPLZbqJGcYh1V8ysxMWrxz/UTtkIUObygMND/uA==}
     engines: {node: '>=22', npm: '>=10.8.2'}
     peerDependencies:
       react: '>=18'
@@ -11414,7 +11414,7 @@ snapshots:
       - prop-types
       - use-sync-external-store
 
-  reablocks@10.0.2(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  reablocks@10.0.3(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       '@floating-ui/react': 0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@reaviz/react-use-fuzzy': 1.0.3(fuse.js@6.6.2)(react@19.2.6)
