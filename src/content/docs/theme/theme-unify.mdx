@@ -1,12 +1,25 @@
 # Unify Theme
 
-The **Unify Theme** is a complete, production-ready theme pack for reablocks built on a
-**three-level design-token system** that goes deeper than the default theme: it exposes
-tokens **at every level and for every component** — not just `primary` / `secondary` /
-`accent`, but per-component detail tokens like `--buttons-details-height-core-icon-lg`,
-`--inputs-details-corner-radius-primary`, and `--tabs-details-stroke-width-underline-lg`.
+The **Unify Theme** is a complete, production-ready **reablocks theme** that consumes
+design tokens from the **[Unify Design System (UDS)](https://unifydesignsystem.com/)** —
+the Figma library that authors the tokens. Two distinct things, often confused:
 
-This means you can re-skin Unify at any granularity:
+- **Unify Design System (UDS)** — the design system itself. Lives in Figma at
+  [unifydesignsystem.com](https://unifydesignsystem.com/). Owns the variables (colors,
+  spacing, sizing, radii, per-component detail tokens). **This is the source of truth.**
+- **Unify Theme (this page)** — a reablocks theme implementation (CSS layers + a
+  TypeScript `ReablocksTheme` module) that consumes UDS tokens verbatim and wires them
+  into reablocks components. The CSS files (`root.css`, `dark.css`, `light.css`,
+  `tw.css`) are generated *from* UDS via the Reablocks Figma Plugin — they are not
+  hand-written for reablocks.
+
+Together they form a **three-level design-token system** that goes deeper than the
+default reablocks theme: tokens are exposed **at every level and for every component** —
+not just `primary` / `secondary` / `accent`, but per-component detail tokens like
+`--buttons-details-height-core-icon-lg`, `--inputs-details-corner-radius-primary`, and
+`--tabs-details-stroke-width-underline-lg`.
+
+This means you can re-skin at any granularity by editing UDS variables:
 
 - Change the brand color → every component updates.
 - Change the semantic `--background-brand-base` → every brand surface updates.
@@ -14,28 +27,35 @@ This means you can re-skin Unify at any granularity:
 
 If you are new to theming reablocks in general (`ThemeProvider`, dark/light toggling,
 `extendTheme`), start with [Getting Started](/docs/theme/getting-started) — this page
-focuses exclusively on what Unify ships and how to install it.
+focuses exclusively on what the Unify Theme ships and how to install it.
 
-> **Use this theme if you're on the Unify design system in Figma.** Unify's value comes
-> from end-to-end sync: tokens are authored in the Unify Figma library, exported via the
-> [Reablocks Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin),
-> and consumed verbatim by this theme — so every design change reaches production with
-> zero translation. If your team isn't on the Unify Figma file, you're better off
+> **Use this theme if you're on the [Unify Design System](https://unifydesignsystem.com/) in Figma.**
+> The value of pairing UDS with the Unify Theme is end-to-end sync: UDS owns the tokens
+> in Figma, the [Reablocks Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
+> exports them as CSS, and the Unify Theme consumes them verbatim — so every UDS change
+> reaches production with zero translation. If your team isn't on UDS, you're better off
 > starting from the default reablocks theme and customizing it — see
 > [Getting Started](/docs/theme/getting-started) and
 > [Customization](/docs/theme/theme-example).
 
 ## Three-level token architecture
 
-Unify is structured as three layers that cascade. A change in Figma travels down through
-all three and reaches every reablocks component without any code change:
+UDS authors tokens in Figma; the Unify Theme exposes them in three cascading CSS layers
+so a change in Figma travels down through all three and reaches every reablocks
+component without any code change:
 
 ```text
             ┌─────────────────────────────────────────────────────┐
-            │                  FIGMA  VARIABLES                   │
-            │                (single source of truth)             │
+            │           UNIFY DESIGN SYSTEM  (Figma)              │
+            │       unifydesignsystem.com — source of truth       │
             └──────────────────────┬──────────────────────────────┘
-                                   │  export via Figma plugin
+                                   │  export via Reablocks Figma Plugin
+                                   ▼
+            ┌─────────────────────────────────────────────────────┐
+            │           UNIFY THEME  (reablocks)                  │
+            │  CSS token layers + ReablocksTheme TypeScript       │
+            └──────────────────────┬──────────────────────────────┘
+                                   │
                                    ▼
    ┌──────────────────────────────────────────────────────────────────────┐
    │ LEVEL 1 · PRIMITIVES                                       root.css  │
@@ -71,25 +91,66 @@ all three and reaches every reablocks component without any code change:
             └─────────────────────────────────────────────────────┘
 ```
 
-The **per-component detail tier** in Level 1 is what makes Unify uniquely customizable —
-you can tune individual component dimensions (button heights, input padding, tab
-underline thickness, etc.) without writing Tailwind overrides, because each component
-theme already references those variables through arbitrary-value classes like
+Levels 1–3 are the **Unify Theme** for reablocks. The top tier is **UDS** in Figma — it
+defines what tokens exist; the Unify Theme just surfaces them to reablocks.
+
+The **per-component detail tier** in Level 1 is what makes this pairing uniquely
+customizable — you can tune individual component dimensions (button heights, input
+padding, tab underline thickness, etc.) without writing Tailwind overrides, because each
+component theme already references those variables through arbitrary-value classes like
 `h-(--buttons-details-height-core-icon-lg)`.
 
-## Exporting tokens from Figma
+## Exporting UDS tokens for the Unify Theme
 
 The official [**Reablocks Figma Plugin**](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
-is a plugin utility to supercharge your dev work for reablocks. Its **CSS Token
-Generator** reads Figma style variables and emits Reablocks-compatible tokens, so
-designers and engineers stay in sync without hand-copying tokens.
+is the bridge between UDS (Figma) and the Unify Theme (reablocks). Its one-click
+**Export Styles** action reads UDS variables from your Figma file and produces a
+complete, ready-to-use CSS bundle as a zip — the Level 1–3 layers consumed by the Unify
+Theme. Designers and engineers stay in sync without hand-copying tokens.
 
 ### Running the plugin
 
-1. Open your Figma design file.
-2. Run **Plugins → Reablocks Figma Plugin → Select Mode Variant (Light/Dark) → Generate**.
-3. Drop the generated tokens into your styles directory (`root.css`, `dark.css`,
-   `light.css`, `tw.css`).
+1. Open your Figma design file in the Figma desktop app.
+2. Run **Plugins → Reablocks Figma Plugin** (or `CMD + P` / `Ctrl + P` → search "Reablocks").
+3. *(Optional)* If your file has multiple **Style** modes (e.g. compact vs. comfortable
+   typography), pick one from the **Style** dropdown. The plugin only shows this
+   dropdown when more than one Style mode exists.
+4. Pick the **Default theme** (`Dark` or `Light`). This decides which mode is emitted at
+   `:root` without a wrapping selector — the other mode is wrapped in `.theme-*` /
+   `[data-theme='*']` selectors so it can be toggled at runtime.
+5. Click **Export Styles**. The browser downloads `<figma-file-name>-styles.zip`.
+6. Unzip into your styles directory (e.g. `src/assets/styles/`). The archive already
+   contains the full file set in the correct shape — no manual file picking or
+   renaming required.
+
+#### What's in the zip
+
+| File | Purpose |
+| --- | --- |
+| `index.css` | Entry point — imports the other files in the correct order. Import this from your app. |
+| `common.css` | Base body styles, font smoothing, tooltip variables. |
+| `root.css` | **Level 1** — concrete color hexes and dimension pixel values (incl. per-component detail tokens). |
+| `light.css` | **Level 2** — semantic light-mode aliases. Un-wrapped at `:root` if Light is the default theme; otherwise wrapped in `.theme-light` / `[data-theme='light']`. |
+| `dark.css` | **Level 2** — semantic dark-mode aliases. Same default/wrapped behavior as `light.css`. |
+| `<mode>.css` | One file per extra Figma mode beyond Light/Dark (always wrapped in `.theme-<mode>` selectors). |
+| `tw.css` | **Level 3** — Tailwind v4 `@theme inline` config exposing every token as a utility class. |
+
+#### Switching themes at runtime
+
+The default theme (the one you picked in step 4) is already applied at `:root`. Toggle
+the *other* theme by setting a class or `data-theme` attribute on a wrapping element:
+
+```html
+<html class="theme-dark">  <!-- or class="theme-light" -->
+<html data-theme="dark">    <!-- equivalent -->
+```
+
+#### Inspecting individual sections (legacy flow)
+
+If you only need to pull a single section into an existing stylesheet, open the
+**Inspect variables** disclosure below the export button. Pick a Mode, click
+**Generate**, then **Copy** under any of the four sections (Root / Mode / Component /
+Other). The export-zip flow above is the recommended path for everything else.
 
 ### Download the pre-built TypeScript theme
 
@@ -126,8 +187,12 @@ Unify is built for **Tailwind CSS v4+** and **reablocks v10+** with React 18+.
 
 ## File layout
 
-The theme is split into two parts: **CSS token files** (generated by the Figma plugin)
-and a **TypeScript component-theme module** (the downloadable `themeUnify.ts`).
+The Unify Theme is split into two parts:
+
+- **CSS token files** — the UDS tokens, generated by the Reablocks Figma Plugin. These
+  are not authored by hand; they are an export of UDS.
+- **TypeScript component-theme module** — the downloadable `themeUnify.ts`. This is the
+  reablocks-specific glue that maps UDS tokens onto reablocks's `ReablocksTheme` slots.
 
 ### Recommended: single-file TypeScript theme
 
@@ -171,6 +236,12 @@ files are imported once, in order, before your app renders.
 
 ## Step 1 — Install the CSS token layers
 
+> 💡 You normally **don't write these files by hand** — the Reablocks Figma Plugin's
+> **Export Styles** button produces the complete set (`index.css`, `common.css`,
+> `root.css`, `light.css`, `dark.css`, `tw.css`) as a zip. The snippets below are
+> reference, useful if you want to know what each file contains or need to inspect an
+> exported bundle.
+
 ### `index.css` — entry point
 
 ```css
@@ -213,8 +284,9 @@ body,
 
 ### `root.css` — Layer 1: primitives + per-component detail
 
-The **raw palette plus per-component detail tokens**. This is the file you regenerate
-from Figma on every design-system bump:
+The **raw palette plus per-component detail tokens** — the concrete UDS values. This is
+the file you regenerate from UDS on every design-system bump — re-run the plugin against
+your UDS Figma file and replace the zip contents in your styles directory:
 
 - **Color scales** — every hue has a 50-1000 scale plus an alpha (`-a-`) variant.
 - **Spacing** — `--spacing-padding-{4xs..8xl}` and `--spacing-space-between-{3xs..4xl}`.
@@ -371,10 +443,11 @@ export default {
 
 ## Step 2 — Add the component-theme module
 
-The TypeScript half maps reablocks's `ReablocksTheme` slots onto Tailwind utilities that
-reference the CSS tokens you just installed. Each component theme references both
-Tailwind utilities (semantic colors) **and** the per-component detail variables
-(dimensions, radii, gaps), so component dimensions are tunable from CSS alone.
+This is the **reablocks-side glue**. The TypeScript half maps reablocks's
+`ReablocksTheme` slots onto Tailwind utilities that reference the UDS tokens you just
+installed in Step 1. Each component theme references both Tailwind utilities (semantic
+colors) **and** the per-component detail variables (dimensions, radii, gaps), so
+component dimensions are tunable from CSS — that is, from UDS — alone.
 
 For example, `ButtonTheme.ts` references the detail tier directly:
 
@@ -448,8 +521,9 @@ For the rest — provider mechanics, runtime theme switching, server-side render
 ## Unify-specific customization
 
 For generic single-component overrides via `extendTheme`, see
-[Customization](/docs/theme/theme-example). The patterns below are unique to Unify
-because they leverage its token tiers.
+[Customization](/docs/theme/theme-example). The patterns below are unique to the
+Unify Theme because they leverage UDS's token tiers — most "customization" is really
+**editing UDS tokens**, not editing reablocks component code.
 
 ### Re-brand by replacing the primitive scale
 
@@ -547,16 +621,18 @@ put bespoke tokens in `overrides.css`, import it last:
 
 ## Recommended cadence
 
-- **Designers** keep Figma variables as the single source of truth.
-- **Engineers** re-run the plugin on design-system bumps and commit the regenerated
-  CSS — component themes reference Tailwind utilities, so there is almost never any
+- **Designers** keep UDS variables in Figma as the single source of truth.
+- **Engineers** re-run the Reablocks Figma Plugin on UDS bumps (one click →
+  **Export Styles** → unzip into the styles directory) and commit the regenerated CSS —
+  component themes reference Tailwind utilities, so there is almost never any
   TypeScript to update.
 - **Don't hand-edit** the generated files; put bespoke tokens in a separate
   `overrides.css` imported after `root.css`.
 
 ## Reference
 
-- Token export: [Reablocks Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
+- Unify Design System (Figma source of truth): [unifydesignsystem.com](https://unifydesignsystem.com/)
+- UDS → CSS export: [Reablocks Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
 - General theming (ThemeProvider, dark/light, basic customization):
   [Getting Started](/docs/theme/getting-started)
 - Single-component overrides via `extendTheme`:
