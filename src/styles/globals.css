@@ -682,3 +682,12 @@ svg {
   user-select: none;
 }
 
+/* StoryRenderer (reablocks-docs-theme): contain wide story content within the
+   bordered preview container instead of overflowing the page. The inner
+   wrapper uses width: fit-content, so when its content is wider than the
+   container we get a horizontal scroll inside the container. */
+.story-container.story-preview > div {
+  max-width: 100%;
+  overflow-x: auto;
+}
+

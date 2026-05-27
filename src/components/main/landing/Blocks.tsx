@@ -13,7 +13,7 @@ type Kind =
   // Foundation
   | 'empty'
   | 'notfound'
-  | 'chat'
+  | 'form'
   | 'timeline'
   // Administration
   | 'billing'
@@ -255,7 +255,7 @@ const MiniPreview: FC<{ kind: Kind }> = ({ kind }) => {
       </MpFrame>
     );
 
-  if (kind === 'chat')
+  if (kind === 'form')
     return (
       <MpFrame className="items-center justify-center px-3">
         <MpWindow className="w-full max-w-[190px] p-3">
@@ -497,7 +497,7 @@ const CATEGORIES: CategoryGroup[] = [
         title: 'Not Found',
         href: '/blocks/foundation/not-found'
       },
-      { kind: 'chat', title: 'Chat', href: '/blocks/foundation/contact' },
+      { kind: 'form', title: 'Form', href: '/blocks/foundation/contact' },
       {
         kind: 'timeline',
         title: 'Timeline',

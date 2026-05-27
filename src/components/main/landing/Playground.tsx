@@ -21,76 +21,64 @@ interface Example {
 const EXAMPLES: Record<string, Example> = {
   buttons: {
     label: 'Button variants',
-    code: `import { Button } from 'reablocks';
-
-const ButtonsRow = ({ label, children }) => (
-  <div className="flex items-center gap-3">
-    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
-      {label}
-    </span>
-    <div className="flex gap-2 flex-wrap">{children}</div>
-  </div>
-);
+    code: `import { Button, Field } from 'reablocks';
 
 render(
   <div className="flex flex-col gap-4 p-6">
-    <ButtonsRow label="Filled">
-      <Button size="medium" color="primary">Primary</Button>
-      <Button size="medium" color="secondary">Secondary</Button>
-      <Button size="medium" color="success">Success</Button>
-      <Button size="medium" color="warning">Warning</Button>
-      <Button size="medium" color="error">Error</Button>
-    </ButtonsRow>
-    <ButtonsRow label="Outline">
-      <Button size="medium" variant="outline" color="primary">Primary</Button>
-      <Button size="medium" variant="outline" color="secondary">Secondary</Button>
-      <Button size="medium" variant="outline" color="success">Success</Button>
-      <Button size="medium" variant="outline" color="warning">Warning</Button>
-      <Button size="medium" variant="outline" color="error">Error</Button>
-    </ButtonsRow>
-    <ButtonsRow label="Text">
-      <Button size="medium" variant="text" color="primary">Primary</Button>
-      <Button size="medium" variant="text" color="secondary">Secondary</Button>
-      <Button size="medium" variant="text" color="success">Success</Button>
-      <Button size="medium" variant="text" color="warning">Warning</Button>
-      <Button size="medium" variant="text" color="error">Error</Button>
-    </ButtonsRow>
+    <Field label="Filled" direction="horizontal" labelClassName="w-24 shrink-0">
+      <div className="flex gap-2 flex-wrap">
+        <Button size="medium" color="primary">Primary</Button>
+        <Button size="medium" color="secondary">Secondary</Button>
+        <Button size="medium" color="success">Success</Button>
+        <Button size="medium" color="warning">Warning</Button>
+        <Button size="medium" color="error">Error</Button>
+      </div>
+    </Field>
+    <Field label="Outline" direction="horizontal" labelClassName="w-24 shrink-0">
+      <div className="flex gap-2 flex-wrap">
+        <Button size="medium" variant="outline" color="primary">Primary</Button>
+        <Button size="medium" variant="outline" color="secondary">Secondary</Button>
+        <Button size="medium" variant="outline" color="success">Success</Button>
+        <Button size="medium" variant="outline" color="warning">Warning</Button>
+        <Button size="medium" variant="outline" color="error">Error</Button>
+      </div>
+    </Field>
+    <Field label="Text" direction="horizontal" labelClassName="w-24 shrink-0">
+      <div className="flex gap-2 flex-wrap">
+        <Button size="medium" variant="text" color="primary">Primary</Button>
+        <Button size="medium" variant="text" color="secondary">Secondary</Button>
+        <Button size="medium" variant="text" color="success">Success</Button>
+        <Button size="medium" variant="text" color="warning">Warning</Button>
+        <Button size="medium" variant="text" color="error">Error</Button>
+      </div>
+    </Field>
   </div>
 );`
   },
   inputs: {
     label: 'Inputs',
-    code: `import { Input } from 'reablocks';
+    code: `import { Input, Field } from 'reablocks';
 import { useState } from 'react';
-
-const Row = ({ label, children }) => (
-  <div className="flex items-center gap-3">
-    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
-      {label}
-    </span>
-    <div className="flex gap-2 flex-wrap items-center">{children}</div>
-  </div>
-);
 
 const Demo = () => {
   const [value, setValue] = useState('reablocks');
   return (
     <div className="flex flex-col gap-4 p-6 w-full max-w-md">
-      <Row label="Default">
+      <Field label="Default" direction="horizontal" labelClassName="w-24 shrink-0">
         <Input placeholder="Type here..." />
-      </Row>
-      <Row label="Filled">
+      </Field>
+      <Field label="Filled" direction="horizontal" labelClassName="w-24 shrink-0">
         <Input value={value} onChange={(e) => setValue(e.target.value)} />
-      </Row>
-      <Row label="Email">
+      </Field>
+      <Field label="Email" direction="horizontal" labelClassName="w-24 shrink-0">
         <Input type="email" placeholder="you@company.com" />
-      </Row>
-      <Row label="Password">
+      </Field>
+      <Field label="Password" direction="horizontal" labelClassName="w-24 shrink-0">
         <Input type="password" placeholder="••••••••" />
-      </Row>
-      <Row label="Disabled">
+      </Field>
+      <Field label="Disabled" direction="horizontal" labelClassName="w-24 shrink-0">
         <Input placeholder="Disabled" disabled />
-      </Row>
+      </Field>
     </div>
   );
 };
@@ -99,17 +87,8 @@ render(<Demo />);`
   },
   checkboxes: {
     label: 'Checkboxes',
-    code: `import { Checkbox } from 'reablocks';
+    code: `import { Checkbox, Field } from 'reablocks';
 import { useState } from 'react';
-
-const Row = ({ label, children }) => (
-  <div className="flex items-center gap-3">
-    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
-      {label}
-    </span>
-    <div className="flex gap-5 flex-wrap items-center">{children}</div>
-  </div>
-);
 
 const Demo = () => {
   const [state, setState] = useState({
@@ -121,39 +100,43 @@ const Demo = () => {
   const set = (k) => (v) => setState((s) => ({ ...s, [k]: v }));
   return (
     <div className="flex flex-col gap-4 p-6">
-      <Row label="Basic">
-        <Checkbox
-          checked={state.a}
-          label="Accessible"
-          containerClassName="w-auto"
-          onChange={set('a')}
-        />
-        <Checkbox
-          checked={state.b}
-          label="Tree-shakable"
-          containerClassName="w-auto"
-          onChange={set('b')}
-        />
-        <Checkbox
-          checked={state.c}
-          label="Themed"
-          containerClassName="w-auto"
-          onChange={set('c')}
-        />
-      </Row>
-      <Row label="Disabled">
-        <Checkbox
-          checked
-          label="Checked & disabled"
-          containerClassName="w-auto"
-          disabled
-        />
-        <Checkbox
-          label="Unchecked & disabled"
-          containerClassName="w-auto"
-          disabled
-        />
-      </Row>
+      <Field label="Basic" direction="horizontal" labelClassName="w-24 shrink-0">
+        <div className="flex gap-5 flex-wrap items-center">
+          <Checkbox
+            checked={state.a}
+            label="Accessible"
+            containerClassName="w-auto"
+            onChange={set('a')}
+          />
+          <Checkbox
+            checked={state.b}
+            label="Tree-shakable"
+            containerClassName="w-auto"
+            onChange={set('b')}
+          />
+          <Checkbox
+            checked={state.c}
+            label="Themed"
+            containerClassName="w-auto"
+            onChange={set('c')}
+          />
+        </div>
+      </Field>
+      <Field label="Disabled" direction="horizontal" labelClassName="w-24 shrink-0">
+        <div className="flex gap-5 flex-wrap items-center">
+          <Checkbox
+            checked
+            label="Checked & disabled"
+            containerClassName="w-auto"
+            disabled
+          />
+          <Checkbox
+            label="Unchecked & disabled"
+            containerClassName="w-auto"
+            disabled
+          />
+        </div>
+      </Field>
     </div>
   );
 };
@@ -162,24 +145,15 @@ render(<Demo />);`
   },
   radios: {
     label: 'Radio buttons',
-    code: `import { Radio, RadioGroup } from 'reablocks';
+    code: `import { Radio, RadioGroup, Field } from 'reablocks';
 import { useState } from 'react';
-
-const Row = ({ label, children }) => (
-  <div className="flex items-center gap-3">
-    <span className="w-16 text-xs uppercase tracking-wider text-rb-fg-3 font-mono">
-      {label}
-    </span>
-    <div className="flex gap-5 flex-wrap items-center">{children}</div>
-  </div>
-);
 
 const Demo = () => {
   const [framework, setFramework] = useState('react');
   const [plan, setPlan] = useState('pro');
   return (
     <div className="flex flex-col gap-4 p-6">
-      <Row label="Framework">
+      <Field label="Framework" direction="horizontal" labelClassName="w-24 shrink-0">
         <RadioGroup onChange={setFramework} selectedValue={framework}>
           <div className="flex gap-5 flex-wrap">
             <Radio value="react" label="React" />
@@ -188,8 +162,8 @@ const Demo = () => {
             <Radio value="solid" label="Solid" />
           </div>
         </RadioGroup>
-      </Row>
-      <Row label="Plan">
+      </Field>
+      <Field label="Plan" direction="horizontal" labelClassName="w-24 shrink-0">
         <RadioGroup onChange={setPlan} selectedValue={plan}>
           <div className="flex gap-5 flex-wrap">
             <Radio value="free" label="Free" />
@@ -197,7 +171,7 @@ const Demo = () => {
             <Radio value="enterprise" label="Enterprise" />
           </div>
         </RadioGroup>
-      </Row>
+      </Field>
     </div>
   );
 };
