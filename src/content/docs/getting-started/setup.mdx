@@ -32,7 +32,7 @@ npm install reablocks --save
 ```
 
 <Callout type="info" emoji="ℹ️">
-  If you want to use `Reablocks` **prebuilt** theme, without customizing it, please import `reablocks` styles in your app entry file (e.g. `main.tsx`, `index.tsx`) and skip the 6th step.
+  If you want to use `Reablocks` **prebuilt** theme, without customizing it, please import `reablocks` styles in your app entry file (e.g. `main.tsx`, `index.tsx`) and skip the 7th step.
 
   ```ts copy
   import "reablocks/index.css";
@@ -449,7 +449,19 @@ Configure default colors tokens (primary, secondary, success, etc) in your main 
   }
 ```
 
-### 6. Initialize Theme Provider
+### 6. Pick a default theme
+Set the default theme by adding `theme-dark` or `theme-light` className to your root html tag. Flip between them to toggle the whole UI.
+
+```tsx copy
+<html className="theme-dark">
+  {/* or className="theme-light" */}
+  ...
+</html>
+```
+
+See [Switching themes](/docs/theme/getting-started#switching-themes) for more details.
+
+### 7. Initialize Theme Provider
 Wrap your application with the `ThemeProvider` component from `reablocks`. 
 
 ```tsx copy
@@ -466,7 +478,7 @@ export const App = () => (
 
 You can learn more about the `ThemeProvider` [here](/docs/theme/getting-started).
 
-### 7. Setup Storybook
+### 8. Setup Storybook
 Optionally: If you are using Storybook, you can setup the reablocks in Storybook by adding the 
 following code to `.storybook/preview.js`:
 
