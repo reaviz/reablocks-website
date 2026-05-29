@@ -701,16 +701,6 @@ export const Hero: FC<HeroProps> = ({ release }) => {
         <div className="grid grid-cols-[1fr_1fr] gap-0 min-h-[400px] max-[960px]:grid-cols-1 max-[960px]:min-h-0">
           {/* Copy column */}
           <div className="px-4 py-6 pr-10 max-[960px]:pr-4 max-[960px]:text-center max-[640px]:px-0 max-[640px]:py-4">
-            <motion.span
-              className="inline-flex items-center gap-2 font-mono uppercase text-[11.5px] tracking-[0.18em] text-rb-cyan-300 mb-7 max-[640px]:mb-5 max-[640px]:text-[10.5px] before:content-[''] before:w-7 before:h-px before:bg-[#00C5F0] before:opacity-70"
-              style={{ color: '#00C5F0' } as CSSProperties}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Engineered as one
-            </motion.span>
-
             <motion.h1
               id="hero-heading"
               className="font-display font-semibold text-[clamp(28px,5vw,60px)] leading-[1.1] tracking-[-0.025em] my-4 text-white max-[640px]:my-3"
