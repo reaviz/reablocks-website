@@ -242,6 +242,37 @@ export const Icon = {
       <path d="M14 2v6h6M9 13h6M9 17h4" />
     </svg>
   ),
+  terminal: (p: IconProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...p}
+    >
+      <path d="M4 17l6-6-6-6M12 19h8" />
+    </svg>
+  ),
+  sparkle: (p: IconProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...p}
+    >
+      <path d="M12 3l1.9 5.7a2 2 0 0 0 1.4 1.4L21 12l-5.7 1.9a2 2 0 0 0-1.4 1.4L12 21l-1.9-5.7a2 2 0 0 0-1.4-1.4L3 12l5.7-1.9a2 2 0 0 0 1.4-1.4L12 3z" />
+      <path d="M19 2v4M21 4h-4" />
+    </svg>
+  ),
   shield: (p: IconProps) => (
     <svg
       viewBox="0 0 24 24"

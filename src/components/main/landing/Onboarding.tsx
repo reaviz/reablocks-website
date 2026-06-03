@@ -11,6 +11,7 @@ import {
 } from 'react';
 import { Button, CodeBlock, CopyButton, Icon, SectionHead } from './atoms';
 import { InstallTerminal } from '@/components/ui/install-terminal';
+import { InstallPromptBuilder } from '@/components/ui/install-prompt';
 
 interface StepTab {
   label: string;
@@ -82,6 +83,33 @@ export default function RootLayout({ children }) {
 ];
 
 const CLI_CMD = 'npx reablocks-cli@latest init';
+
+const INSTALL_MODES = [
+  {
+    key: 'cli',
+    label: 'CLI',
+    icon: Icon.terminal,
+    activePill:
+      'bg-[color-mix(in_oklab,var(--color-cyan-400)_12%,transparent)] text-white shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-cyan-400)_35%,transparent)]',
+    activeIcon: 'text-cyan-300'
+  },
+  {
+    key: 'ai',
+    label: 'AI Prompt',
+    icon: Icon.sparkle,
+    activePill:
+      'bg-[color-mix(in_oklab,var(--color-amber-400)_12%,transparent)] text-white shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-amber-400)_35%,transparent)]',
+    activeIcon: 'text-amber-300'
+  },
+  {
+    key: 'manual',
+    label: 'Manual',
+    icon: Icon.doc,
+    activePill:
+      'bg-[color-mix(in_oklab,var(--color-blue-500)_14%,transparent)] text-white shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-blue-500)_40%,transparent)]',
+    activeIcon: 'text-blue-300'
+  }
+] as const;
 
 const CLI_BULLETS: { text: ReactNode }[] = [
   {
@@ -162,6 +190,24 @@ const CliPanel: FC = () => (
   </div>
 );
 
+const AiPanel: FC = () => (
+  <div className="max-w-[860px]">
+    <p className="text-sm text-rb-fg-2 leading-[1.55] m-0 max-w-[640px]">
+      Pick your framework and copy a self-contained prompt — it installs the
+      official{' '}
+      <a
+        href="/docs/getting-started/skills"
+        className="text-blue-300 hover:text-blue-200 no-underline"
+      >
+        reablocks AI skills
+      </a>{' '}
+      first, then walks Claude Code, Cursor, or any AI coding agent through the
+      same setup the CLI performs.
+    </p>
+    <InstallPromptBuilder />
+  </div>
+);
+
 type StepState = 'pending' | 'active' | 'done';
 
 const Marker: FC<{ state: StepState; num: number }> = ({ state, num }) => (
@@ -207,7 +253,9 @@ const getStepCode = (step: Step, tabIdx: number) => {
 };
 
 export const Onboarding: FC = () => {
-  const [installMode, setInstallMode] = useState<'cli' | 'manual'>('cli');
+  const [installMode, setInstallMode] = useState<'cli' | 'ai' | 'manual'>(
+    'cli'
+  );
   const [justCopied, setJustCopied] = useState<string | null>(null);
   const [tabIdx, setTabIdx] = useState<Record<string, number>>({});
   const [states, setStates] = useState<StepState[]>(() =>
@@ -309,12 +357,7 @@ export const Onboarding: FC = () => {
           aria-label="Choose installation method"
           className="mb-6 inline-flex items-center gap-1 p-1 rounded-full border border-rb-hairline-2 bg-rb-surface-1"
         >
-          {(
-            [
-              { key: 'cli', label: 'CLI' },
-              { key: 'manual', label: 'Manual' }
-            ] as const
-          ).map(({ key, label }) => {
+          {INSTALL_MODES.map(({ key, label, icon: TabIcon, activePill, activeIcon }) => {
             const active = installMode === key;
             return (
               <button
@@ -324,21 +367,29 @@ export const Onboarding: FC = () => {
                 aria-selected={active}
                 onClick={() => setInstallMode(key)}
                 className={cn(
-                  'cursor-pointer px-4 py-1.5 rounded-full font-mono text-[12.5px] transition-colors',
+                  'cursor-pointer inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full font-mono text-[12.5px] transition-all duration-200',
                   active
-                    ? 'bg-white/[0.06] text-white shadow-[inset_0_0_0_1px_var(--color-rb-hairline-2)]'
-                    : 'text-rb-fg-3 hover:text-rb-fg-1'
+                    ? activePill
+                    : 'text-rb-fg-3 hover:text-rb-fg-1 hover:bg-white/[0.03]'
                 )}
               >
+                <TabIcon
+                  width={13}
+                  height={13}
+                  className={cn(
+                    'shrink-0 transition-colors duration-200',
+                    active ? activeIcon : 'opacity-70'
+                  )}
+                />
                 {label}
               </button>
             );
           })}
         </div>
 
-        {installMode === 'cli' ? (
-          <CliPanel />
-        ) : (
+        {installMode === 'cli' && <CliPanel />}
+        {installMode === 'ai' && <AiPanel />}
+        {installMode === 'manual' && (
           <>
         <div
           role="note"
