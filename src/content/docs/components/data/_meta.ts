@@ -6,6 +6,7 @@ const meta = {
   "date-format": "Date Format",
   duration: "Duration",
   ellipsis: "Ellipsis",
+  "highlighted-text": "Highlighted Text 🆕",
   "infinity-list": "Infinity List",
   pager: "Pager",
   pluralize: "Pluralize",

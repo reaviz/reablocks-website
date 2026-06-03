@@ -1,0 +1,49 @@
+import { TSDocProps } from '@/components/ui/tsdoc-props';
+import { Runner } from '@/components/ui/runner';
+import { StoryRenderer } from '@/components/ui/story-renderer';
+
+# Highlighted Text
+The "Highlighted Text" component renders text with every case-insensitive occurrence of a search keyword wrapped in a `<mark>` element.
+It's ideal for emphasizing matches in search results, filterable lists, and autocomplete menus.
+Non-text children are rendered unchanged, and the component is memoized so unchanged items skip re-rendering when used in lists.
+
+## Quick Start
+To start using the `HighlightedText` component, import it from the `reablocks` library, pass the text as children and provide the `search` prop.
+
+<Runner code={`import { HighlightedText } from 'reablocks';
+
+export default function App() {
+  return <HighlightedText search="block">reablocks</HighlightedText>;
+}`}
+/>
+
+## Examples
+### Basic Usage
+Pass the text to highlight as children and the keyword to match via the `search` prop:
+<StoryRenderer path="components/HighlightedText.story.tsx" name="Basic" storybookKey="components-data-highlightedtext--basic" />
+
+### Multiple Matches
+Every occurrence of the keyword is highlighted, not just the first one:
+<StoryRenderer path="components/HighlightedText.story.tsx" name="MultipleMatches" storybookKey="components-data-highlightedtext--multiple-matches" />
+
+### Case Insensitive
+Matching ignores letter case, so users find results regardless of how they type the query:
+<StoryRenderer path="components/HighlightedText.story.tsx" name="CaseInsensitive" storybookKey="components-data-highlightedtext--case-insensitive" />
+
+### Special Characters
+Search keywords are treated literally, so characters like parentheses or brackets are matched as-is:
+<StoryRenderer path="components/HighlightedText.story.tsx" name="SpecialCharacters" storybookKey="components-data-highlightedtext--special-characters" />
+
+### Non-text Children
+Only string or number children are highlighted; other nodes render unchanged:
+<StoryRenderer path="components/HighlightedText.story.tsx" name="NonTextChildren" storybookKey="components-data-highlightedtext--non-text-children" />
+
+## API
+The `HighlightedText` component is configured through the following properties:
+<TSDocProps name="HighlightedText" />
+
+## Design and Usability Tips
+
+- **Visible Contrast:** Ensure the highlight color provides enough contrast against both the text and the background, in light and dark themes alike, so matches stand out without hurting readability.
+- **Instant Feedback:** Update highlights as the user types in a search or filter input to give immediate feedback on what is being matched.
+- **List Performance:** The component is memoized, making it safe to use across long lists — only items whose text or search term changed will re-render.
