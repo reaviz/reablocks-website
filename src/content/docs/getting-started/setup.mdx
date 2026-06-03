@@ -1,5 +1,6 @@
 import { Steps, Tabs, Callout } from 'nextra/components'
 import { InstallTerminal } from '../../../components/ui/install-terminal'
+import { InstallPromptBuilder } from '../../../components/ui/install-prompt'
 
 # Setup
 This section will guide you through the initial steps required to integrate Tailwind CSS into your project. Tailwind CSS is a utility-first CSS framework that can be customized to fit the design needs of your project. Follow these instructions to ensure a smooth setup.
@@ -7,7 +8,7 @@ This section will guide you through the initial steps required to integrate Tail
 
 ## Install
 
-<Tabs items={['CLI', 'Manual']}>
+<Tabs items={['CLI', 'AI Prompt', 'Manual']}>
 <Tabs.Tab>
 The fastest way to set up reablocks in an existing React project is the official CLI. From the root of your project:
 
@@ -18,6 +19,13 @@ npx reablocks-cli@latest init
 <InstallTerminal />
 
 Every edit is previewed and gated behind a `Y/n` confirm — nothing is written without your approval. Each step is also idempotent, so re-running on a partially configured project only touches what's missing.
+</Tabs.Tab>
+<Tabs.Tab>
+Prefer to let an AI coding agent do the setup? Pick your framework and copy the prompt — it's a self-contained brief that first installs the official [reablocks AI skills](/docs/getting-started/skills) (`npx skills add reaviz/skills`) so your agent has canonical, up-to-date knowledge, then walks Claude Code, Cursor, or any agent through the same steps the CLI performs (dependencies, Tailwind v4 wiring, theme tokens, and the `ThemeProvider`).
+
+<InstallPromptBuilder />
+
+The prompt is framework-specific and includes guardrails (always use Tailwind v4, never swap in another UI library) plus a verification checklist. You can also fetch it directly as Markdown at `/install-prompt/<framework>`. On the [Unify Design System](/docs/theme/theme-unify)? That page has its own AI install prompt for the Unify Theme.
 </Tabs.Tab>
 <Tabs.Tab>
 <Callout type="info" emoji="ℹ️">
@@ -506,9 +514,6 @@ You can learn more about the Storybook setup [here](/docs/getting-started/storyb
 </Steps>
 </Tabs.Tab>
 </Tabs>
-
-## Example Repository
-You can use the following [repository](https://github.com/goodcodeus/starter) to get started with Reablocks.
 
 ## Developing Locally
 

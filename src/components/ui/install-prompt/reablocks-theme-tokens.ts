@@ -1,30 +1,13 @@
-@import "tailwindcss";
-@import "./landing.css";
+// Reablocks Tailwind v4 theme tokens.
+//
+// SYNC POINT: this block is vendored verbatim from
+// reablocks-cli/src/utils/reablocks-theme-tokens.ts so the AI-install prompt
+// hands the agent exactly the CSS the CLI would write. If reablocks' theme
+// tokens change, update this file and the CLI together.
+//
+// Idempotency marker: --reablocks-theme.
 
-@source './**/*.{ts,tsx}';
-@source '../../node_modules/reablocks';
-
-
-/* Spectrum gradient border tokens (used by .rb-ring / .rb-ring-overlay) */
-:root {
-  --rb-grad-border: linear-gradient(
-    135deg,
-    rgba(0, 197, 240, 0.45) 0%,
-    rgba(16, 94, 255, 0.25) 35%,
-    rgba(167, 139, 250, 0.30) 65%,
-    rgba(0, 197, 240, 0.45) 100%
-  );
-  --rb-grad-border-hover: linear-gradient(
-    135deg,
-    rgba(0, 197, 240, 0.0) 0%,
-    rgba(0, 197, 240, 0.65) 30%,
-    rgba(16, 94, 255, 0.65) 70%,
-    rgba(0, 197, 240, 0.0) 100%
-  );
-  --rb-grad-border-glow: rgba(0, 197, 240, 0.35);
-}
-
-/* Color palette */
+export const REABLOCKS_THEME_TOKENS = `/* Color palette */
 :root,
 :host {
   --reablocks-theme: dark;
@@ -74,8 +57,8 @@
   --surface-accent: var(--color-blue-500);
 
   /* Text colors */
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-mist-gray);
+  --text-primary: var(--color-athens-gray);
+  --text-secondary: var(--color-waterloo);
 
   /* Custom Backgrounds */
   --bottom-border-glow: radial-gradient(
@@ -100,8 +83,8 @@
     rgba(23, 23, 255, 0.1) 100%
   );
 
-  .light,
-  &.light,
+  .theme-light,
+  &.theme-light,
   [data-theme='light'],
   &[data-theme='light'] {
     --reablocks-theme: light;
@@ -157,31 +140,12 @@
 }
 
 /* Custom variants */
-@custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
-@custom-variant light (&:where(.light, .light *, [data-theme=light], [data-theme=light] *));
+@custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *));
 @custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
 
-/* Define theme tokens */
+/* Semantic color tokens - use inline because they reference var() */
 @theme inline {
-  --breakpoint-2xl: 1440px;
-
-  /* Fonts */
-  --font-sans: Inter, sans-serif;
-  --font-mono: Fira Code, monospace;
-
-  --shadow-code: 0px_4px_16px_0px_rgba(0,0,0,0.25);
-
-  /* Font sizes */
-  --text-xs: 0.625rem; /* 10px */
-  --text-xs--line-height: 1rem;
-  --text-sm: 0.75rem; /* 12px */
-  --text-sm--line-height: 1rem;
-  --text-base: 0.875rem; /* 14px */
-  --text-base--line-height: 1.25rem;
-  --text-lg: 1rem; /* 16px */
-  --text-lg--line-height: 1.5rem;
-  --text-7.5xl: 5.625rem;
-
   /* Primary colors */
   --color-primary: var(--primary);
   --color-primary-active: var(--primary-active);
@@ -229,6 +193,47 @@
   /* Text colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+}
+
+/* Static theme tokens - emits CSS custom properties for runtime access */
+@theme static {
+  /* Fonts */
+  --font-sans: Inter, sans-serif;
+  --font-mono: Fira Code, monospace;
+
+  /* Font sizes */
+  --text-xs: 0.625rem; /* 10px */
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.75rem; /* 12px */
+  --text-sm--line-height: 1rem;
+  --text-base: 0.875rem; /* 14px */
+  --text-base--line-height: 1.25rem;
+  --text-lg: 1rem; /* 16px */
+  --text-lg--line-height: 1.5rem;
+
+  /* Spacing */
+  --spacing: 0.25rem;
+
+  /* Border radius */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+
+  /* Shadows */
+  --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
   /* Base colors */
   --color-white: #ffffff;
@@ -406,288 +411,10 @@
   /* Named colors */
   --color-black-pearl: #02020f;
   --color-athens-gray: #f7f7fa;
-  --color-athens-dark-navy-overlay: #0909194D;
-  --color-mist-gray: #ADAFBD;
   --color-mystic: #e6e6f0;
   --color-vulcan: #11111f;
   --color-charade: #242433;
   --color-waterloo: #77778c;
   --color-anakiwa: #93b6ff;
-
-  /* Reablocks landing tokens */
-  --color-rb-bg-0: #0B0B14;
-  --color-rb-bg-1: #11111F;
-  --color-rb-bg-2: #121212;
-  --color-rb-surface-1: #161623;
-  --color-rb-surface-2: #1C1C2C;
-  --color-rb-surface-3: #232337;
-  --color-rb-fg-1: #F5F6FB;
-  --color-rb-fg-2: #B6BACB;
-  --color-rb-fg-3: #7E839A;
-  --color-rb-fg-muted: #565B73;
-  --color-rb-hairline: rgba(255,255,255,0.07);
-  --color-rb-hairline-2: rgba(255,255,255,0.12);
-  --color-rb-hairline-strong: rgba(122,165,255,0.32);
-  --color-rb-good: #4ADE80;
-  --color-rb-warn: #F59E0B;
-  --color-rb-bad: #F87171;
-  --color-rb-cat-elements: #3B7BFF;
-  --color-rb-cat-form: #00C5F0;
-  --color-rb-cat-layers: #A78BFA;
-  --color-rb-cat-layout: #34D399;
-  --color-rb-cat-data: #FBBF24;
-  --color-rb-cat-motion: #FB7185;
-
-  /* Reablocks display font */
-  --font-display: Lexend, Inter, sans-serif;
-
-  /* Reablocks landing animations */
-  --animate-rb-drift: rb-drift 30s ease-in-out infinite;
-  --animate-rb-float: rb-float 9s ease-in-out infinite alternate;
-  --animate-rb-peek-a: rb-peek-a 12s ease-in-out infinite alternate;
-  --animate-rb-peek-b: rb-peek-b 14s ease-in-out infinite alternate;
-  --animate-rb-caret: rb-caret 1.1s steps(1, end) infinite;
-  --animate-rb-notif-in: rb-notif-in 280ms cubic-bezier(.2,.7,.2,1);
-  --animate-rb-rise: rb-rise 700ms ease-out forwards;
-  --animate-rb-ping: rb-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
-
-@keyframes rb-drift {
-  0%, 100% { transform: translate(0, 0); }
-  25%      { transform: translate(12px, -8px); }
-  50%      { transform: translate(0, 0); }
-  75%      { transform: translate(-12px, 8px); }
-}
-@keyframes rb-float {
-  from { translate: 0 -2px; }
-  to   { translate: 0  3px; }
-}
-@keyframes rb-peek-a {
-  from { transform: rotate(4deg)  translateY(-4px); }
-  to   { transform: rotate(4deg)  translateY( 8px); }
-}
-@keyframes rb-peek-b {
-  from { transform: rotate(-3deg) translateY( 6px); }
-  to   { transform: rotate(-3deg) translateY(-6px); }
-}
-@keyframes rb-caret { 50% { opacity: 0; } }
-@keyframes rb-notif-in {
-  from { opacity: 0; transform: translateY(8px) scale(0.98); }
-  to   { opacity: 1; transform: none; }
-}
-@keyframes rb-rise { to { opacity: 1; transform: none; } }
-@keyframes rb-ping {
-  75%, 100% { transform: scale(2.2); opacity: 0; }
-}
-
-body {
-  line-height: inherit;
-}
-
-/* Backdrop background for layouts component */
-.backdrop-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--backdrop-url);
-}
-
-
-html.light {
-  --background: #ffffff;
-  --tooltip-background: #f7f7fa;
-  --tooltip-color: #3d3d4d;
-  --foreground: #000000;
-  --foreground-rgb: 0, 0, 0;
-}
-
-html.dark {
-  --background: #11101f;
-  --tooltip-background: #00050be6;
-  --tooltip-color: #fff;
-  --foreground: #ffffff;
-  --foreground-rgb: 255, 255, 255;
-}
-
-body {
-  color: rgb(var(--foreground-rgb)) !important;
-  background-color: var(--background) !important;
-  --tooltip-spacing: 5px;
-  --tooltip-border-radius: 5px;
-}
-
-.nextra-sidebar {
-  font-family: var(--font-sans), 'sans-serif';
-}
-
-.nextra-nav-container > nav {
-  background-color: var(--background) !important;
-}
-
-.nextra-nav-container {
-  border-bottom: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-nav-container-blur {
-  display: none;
-}
-
-.docblock-code-toggle {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.docblock-code-toggle ~ button {
-  background: black !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-
-.nextra-toc > div > div {
-  background: none !important;
-  box-shadow: none !important;
-  border-top: solid 1px hsla(203, 50%, 30%, 0.15) !important;
-}
-
-.nextra-sidebar-container > .nx-sticky {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Visually hidden until focused — skip-to-content link */
-  .rb-skip-link {
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 100;
-    padding: 0.5rem 0.875rem;
-    border-radius: 8px;
-    background: var(--color-blue-500);
-    color: #ffffff;
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    text-decoration: none;
-    box-shadow: 0 8px 24px -10px rgba(16, 94, 255, 0.7);
-    transform: translateY(-150%);
-    transition: transform 150ms ease-out;
-  }
-
-  .rb-skip-link:focus,
-  .rb-skip-link:focus-visible {
-    transform: translateY(0);
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
-  }
-}
-
-.sbdocs {
-  background: transparent !important;
-  padding: 0 !important;
-  gap: 0 !important;
-}
-
-.nextra-content p,
-.nextra-content li,
-.nextra-toc p {
-  color: rgb(var(--foreground-rgb)) !important;
-}
-
-.sbdocs-content {
-  max-width: 100% !important;
-}
-
-.sbdocs-content > div > .nx-flex {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.nextra-toc ul,
-.nextra-menu-desktop,
-.nextra-menu-desktop ul {
-  padding-left: auto !important;
-  list-style: none !important;
-}
-
-.nextra-cards > a {
-  @apply hover:bg-gray-100 dark:hover:bg-gray-700/20;
-}
-
-.nextra-code, .rb-code {
-  color: #029cfd !important;
-}
-
-.rb-code-block {
-  margin-top: 1px;
-  background: transparent;
-}
-
-.rb-code-block code {
-  display: block !important;
-}
-
-.sbdocs-preview {
-  border-color: hsl(
-    var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1
-  ) !important;
-}
-
-pre.highlighter code {
-  display: block;
-}
-
-pre {
-  background-color: hsl(var(--nextra-primary-hue)var(--nextra-primary-saturation)77%/.1);
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.prismjs > div {
-  /** Handle storybook code samples running off the page */
-  white-space: pre-wrap !important;
-}
-
-input {
-  --tw-ring-opacity: 0 !important;
-  --tw-ring-offset-shadow: none !important;
-}
-
-svg {
-  overflow: visible;
-}
-
-/* TSDocProps: tag required props with a trailing "*".
-   Nextra adds `after:content-["?"]` to optional name <code>s; the absence of
-   that class means the prop is required. */
-.tsdoc-props tbody td:first-child code:not([class*="after:content"])::after {
-  content: "*";
-  margin-left: 0.15em;
-  color: #ef4444;
-  font-weight: 700;
-  font-size: 0.85em;
-  vertical-align: super;
-  line-height: 0;
-  user-select: none;
-}
-
-/* StoryRenderer (reablocks-docs-theme): contain wide story content within the
-   bordered preview container instead of overflowing the page. The inner
-   wrapper uses width: fit-content, so when its content is wider than the
-   container we get a horizontal scroll inside the container. */
-.story-container.story-preview > div {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
+`;

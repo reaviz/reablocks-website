@@ -1,3 +1,5 @@
+import { InstallPromptBuilder } from '../../../components/ui/install-prompt'
+
 # Unify Theme
 
 The **Unify Theme** is a complete, production-ready **reablocks theme** that consumes
@@ -175,6 +177,17 @@ so it expects them to be present in your stylesheet.
 > Prefer per-component files for easier diffing and overrides? `themeUnify.ts` also
 > exports each component theme individually (`buttonTheme`, `inputTheme`, …), so you
 > can split it back into the [File layout](#file-layout) below by hand or use it as-is.
+
+## Install with AI
+
+Prefer to let an AI coding agent set this up? Pick your framework and copy the prompt —
+a self-contained brief that first installs the official
+[reablocks AI skills](/docs/getting-started/skills) (`npx skills add reaviz/skills`),
+then walks Claude Code, Cursor, or any agent through the full Unify setup on this page:
+Tailwind v4 wiring, the `themeUnify.ts` module, the UDS CSS token layers, and the
+`ThemeProvider`. Also available as raw Markdown at `/install-prompt/<framework>?theme=unify`.
+
+<InstallPromptBuilder variant="unify" />
 
 ## Prerequisites
 
@@ -518,6 +531,10 @@ import './assets/styles/index.css'; // pulls in all CSS layers
 For the rest — provider mechanics, runtime theme switching, server-side rendering — see
 [Getting Started](/docs/theme/getting-started).
 
+## Example Repository
+
+You can use the [Unify](https://github.com/goodcodeus/app-starter/tree/main-react-query) starter repository to get started with Reablocks and the Unify Theme — it ships with the CSS token layers, the `themeUnify.ts` component-theme module, and the `ThemeProvider` wiring already in place.
+
 ## Unify-specific customization
 
 For generic single-component overrides via `extendTheme`, see
@@ -631,6 +648,7 @@ put bespoke tokens in `overrides.css`, import it last:
 
 ## Reference
 
+- Unify starter repository: [goodcodeus/app-starter](https://github.com/goodcodeus/app-starter/tree/main-react-query)
 - Unify Design System (Figma source of truth): [unifydesignsystem.com](https://unifydesignsystem.com/)
 - UDS → CSS export: [Reablocks Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
 - General theming (ThemeProvider, dark/light, basic customization):
