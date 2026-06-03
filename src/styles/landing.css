@@ -34,6 +34,25 @@
 }
 .rb-landing ::selection { background: rgba(16,94,255,0.45); color: white; }
 
+/* Token guard — reablocks-docs-theme@2.3.3+ redefines these same --color-rb-*
+   names in an un-layered :root block (its .tsdoc-props tokens, including
+   --color-rb-surface-1: transparent), which beats our @layer theme emission
+   and broke the .rb-ring gradient border. Re-assert the canonical values
+   (keep in sync with @theme in globals.css) on the landing wrapper, where
+   they are read at runtime via var(). */
+.rb-landing {
+  --color-rb-bg-1: #11111F;
+  --color-rb-surface-1: #161623;
+  --color-rb-surface-2: #1C1C2C;
+  --color-rb-fg-1: #F5F6FB;
+  --color-rb-fg-2: #B6BACB;
+  --color-rb-fg-3: #7E839A;
+  --color-rb-fg-muted: #565B73;
+  --color-rb-hairline: rgba(255,255,255,0.07);
+  --color-rb-bad: #F87171;
+  --color-rb-cat-elements: #3B7BFF;
+}
+
 /* 2. SVG constellation -------------------------------------- */
 .rb-graph-svg {
   /* Stretched non-uniformly to fill hero (preserveAspectRatio="none"). */
