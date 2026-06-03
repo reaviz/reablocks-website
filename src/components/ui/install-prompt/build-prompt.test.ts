@@ -171,3 +171,65 @@ describe('buildInstallPrompt — skills bootstrap', () => {
     expect(always.toLowerCase()).toContain('skills');
   });
 });
+
+describe('buildInstallPrompt — Unify theme variant', () => {
+  for (const recipe of frameworkList) {
+    describe(recipe.id, () => {
+      const prompt = buildInstallPrompt(recipe, 'unify');
+
+      it('downloads themeUnify.ts and copies the CSS layers from the starter', () => {
+        expect(prompt).toContain('https://reablocks.dev/assets/themeUnify.ts');
+        expect(prompt).toContain('goodcodeus/app-starter');
+        expect(prompt).toContain('main-react-query');
+        expect(prompt).toContain('src/assets/styles'); // starter source path
+        expect(prompt).toContain('tw.css');
+        expect(prompt).toContain('index.css');
+      });
+
+      it('mentions the Figma plugin export as the UDS alternative', () => {
+        expect(prompt).toContain('Reablocks Figma Plugin');
+        expect(prompt).toContain('Export Styles');
+      });
+
+      it('wires ThemeProvider with the themeUnify module, not the default theme', () => {
+        expect(prompt).toContain('<ThemeProvider theme={theme}>');
+        expect(prompt).toMatch(/from '(\.\.?\/)+themeUnify'/);
+        // ThemeProvider still comes from the reablocks package itself
+        expect(prompt).toContain("import { ThemeProvider } from 'reablocks';");
+      });
+
+      it('never pastes the default token block or references unpublished unify exports', () => {
+        expect(prompt).not.toContain('@theme static'); // default-token-block marker
+        expect(prompt).not.toContain('--color-black-pearl'); // default palette
+        expect(prompt).not.toContain('reablocks/unify.css'); // not shipped on npm
+        expect(prompt).not.toContain('themeUnify } from'); // no package import
+      });
+
+      it('keeps the skills bootstrap and per-framework Tailwind integration', () => {
+        expect(prompt).toContain('npx skills add reaviz/skills');
+        if (recipe.viteBased) {
+          expect(prompt).toContain('@tailwindcss/vite');
+          expect(prompt).not.toContain("'@tailwindcss/postcss': {}");
+        } else {
+          expect(prompt).toContain("'@tailwindcss/postcss': {}");
+        }
+      });
+
+      it('imports the styles entry and keeps tw.css last', () => {
+        expect(prompt).toContain('./assets/styles/index.css');
+        expect(prompt.toLowerCase()).toContain('last');
+      });
+
+      it('sets the theme class on the html host', () => {
+        expect(prompt).toContain(recipe.htmlHost);
+        expect(prompt).toContain(`${recipe.htmlAttr}="theme-dark"`);
+      });
+    });
+  }
+
+  it('defaults to the default theme variant — existing prompts unchanged', () => {
+    const prompt = buildInstallPrompt(recipes.next);
+    expect(prompt).toContain('@theme static');
+    expect(prompt).not.toContain('themeUnify');
+  });
+});

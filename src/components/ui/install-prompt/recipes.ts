@@ -5,6 +5,18 @@
 
 export type FrameworkId = 'next' | 'vite' | 'react-router';
 
+/** Per-framework specifics for the Unify Theme variant. The Unify assets are
+ * files in the user's repo (Figma-generated CSS layers + a downloaded
+ * `themeUnify.ts`) — they are NOT shipped inside the reablocks npm package. */
+export interface UnifyRecipe {
+  /** Directory the CSS token layers are copied into. */
+  stylesDir: string;
+  /** Where to save the downloaded themeUnify.ts module. */
+  themeUnifyPath: string;
+  /** ThemeProvider wiring incl. the styles-entry import for this framework. */
+  providerSnippet: string;
+}
+
 export interface FrameworkRecipe {
   /** Stable id, used in the markdown route (`/install-prompt/<id>`). */
   id: FrameworkId;
@@ -35,6 +47,8 @@ export interface FrameworkRecipe {
   /** For Vite-based frameworks: the `vite.config.ts` showing the Tailwind v4
    * plugin added alongside the framework's own plugin. */
   viteConfigSnippet?: string;
+  /** Unify Theme variant specifics. */
+  unify: UnifyRecipe;
 }
 
 const NEXT: FrameworkRecipe = {
@@ -72,7 +86,38 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </body>
     </html>
   );
+}`,
+  unify: {
+    stylesDir: 'src/assets/styles',
+    themeUnifyPath: 'src/themeUnify.ts',
+    providerSnippet: `// src/app/providers.tsx  — new client component
+'use client';
+
+import { ThemeProvider } from 'reablocks';
+import { theme } from '../themeUnify';
+import type { ReactNode } from 'react';
+
+export function Providers({ children }: { children: ReactNode }) {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+}
+
+// src/app/layout.tsx  — edit your existing layout:
+//   1. import the Providers component and the Unify styles entry
+//   2. add the theme class to <html>
+//   3. wrap {children} with <Providers>
+import { Providers } from './providers';
+import '../assets/styles/index.css';
+
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" className="theme-dark">
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
 }`
+  }
 };
 
 const VITE: FrameworkRecipe = {
@@ -104,7 +149,23 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()]
-});`
+});`,
+  unify: {
+    stylesDir: 'src/assets/styles',
+    themeUnifyPath: 'src/themeUnify.ts',
+    providerSnippet: `// src/main.tsx
+import { ThemeProvider } from 'reablocks';
+import { theme } from './themeUnify';
+import './assets/styles/index.css';
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
+);`
+  }
 };
 
 const REACT_ROUTER: FrameworkRecipe = {
@@ -143,7 +204,30 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [reactRouter(), tailwindcss()]
-});`
+});`,
+  unify: {
+    stylesDir: 'app/assets/styles',
+    themeUnifyPath: 'app/themeUnify.ts',
+    providerSnippet: `// app/root.tsx
+import { ThemeProvider } from 'reablocks';
+import { theme } from './themeUnify';
+import './assets/styles/index.css';
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className="theme-dark">
+      <head>
+        {/* ...existing head... */}
+      </head>
+      <body>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}`
+  }
 };
 
 export const recipes: Record<FrameworkId, FrameworkRecipe> = {

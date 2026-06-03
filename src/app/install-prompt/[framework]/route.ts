@@ -4,9 +4,11 @@ import { getRecipe } from '@/components/ui/install-prompt/recipes';
 export const runtime = 'edge';
 
 // Serves the framework-specific install prompt as raw Markdown so AI agents
-// (and the "View as Markdown" button) can fetch it by URL: /install-prompt/next
+// (and the "View as Markdown" button) can fetch it by URL:
+//   /install-prompt/next               → default theme
+//   /install-prompt/next?theme=unify   → Unify Theme variant
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ framework: string }> }
 ) {
   const { framework } = await params;
@@ -19,7 +21,12 @@ export async function GET(
     });
   }
 
-  return new Response(buildInstallPrompt(recipe), {
+  const variant =
+    new URL(request.url).searchParams.get('theme') === 'unify'
+      ? 'unify'
+      : 'default';
+
+  return new Response(buildInstallPrompt(recipe, variant), {
     headers: {
       'content-type': 'text/markdown; charset=utf-8',
       'cache-control': 'public, max-age=3600'
