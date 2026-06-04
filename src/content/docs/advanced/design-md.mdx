@@ -1,0 +1,59 @@
+# DESIGN.md
+
+[DESIGN.md](https://github.com/reaviz/reablocks/blob/master/DESIGN.md) is a
+machine-readable description of the Reablocks design system, following Google
+Stitch's [open DESIGN.md format](https://github.com/google-labs-code/design.md).
+Think of it as the design counterpart to `AGENTS.md`: where AI Skills teach an
+agent the component *APIs*, DESIGN.md teaches it how Reablocks UIs should
+*look* — so generated screens stay on-brand instead of drifting to invented
+colors, fonts, and radii.
+
+The file combines two layers:
+
+| Layer | Contents |
+|-------|----------|
+| **YAML tokens** | Full color palette, semantic colors (dark default + `*-light` variants for light mode), typography scale, radius, spacing, and per-component entries (buttons, inputs, chips, dialogs, …) |
+| **Markdown prose** | The reasoning behind the tokens — color roles, the compact 14px Inter scale, hairline-borders-over-shadows elevation, do's and don'ts |
+
+Tokens are the normative values; the prose tells agents how to apply them.
+
+## Usage with coding agents
+
+Copy [`DESIGN.md`](https://github.com/reaviz/reablocks/blob/master/DESIGN.md)
+into your project root, then reference it from your agent's context file.
+
+For Claude Code, add to `CLAUDE.md`:
+
+```markdown
+@DESIGN.md
+Always follow the design tokens in DESIGN.md when generating or editing UI.
+Use only colors, fonts, spacing, and radii defined there — never invent values.
+```
+
+For other agents (Cursor, Copilot, Gemini CLI), add the same instruction to
+`.cursor/rules/`, `.github/copilot-instructions.md`, or `AGENTS.md`.
+
+Then prompt as usual:
+
+```
+> Using the design system in DESIGN.md, build a settings card with a
+  text input, a toggle row, and primary/secondary action buttons.
+```
+
+## Light and dark mode
+
+Dark is the Reablocks default and is normative in the token block. Light-mode
+values ship as `<token>-light` variants (e.g. `panel-light`,
+`text-primary-light`) — when rendering light mode, resolve any semantic token
+`X` through `X-light`. Tokens without a `-light` counterpart are
+mode-invariant on purpose: most notably `on-primary`, the button label color,
+which stays near-white in **both** modes.
+
+## Usage with Google Stitch
+
+DESIGN.md can also be uploaded into a [Stitch](https://stitch.withgoogle.com)
+project (via the [Stitch MCP server](https://stitch.withgoogle.com/docs/mcp/setup/)
+and [stitch-skills](https://github.com/google-labs-code/stitch-skills)) so
+screens generated in Stitch inherit the Reablocks design system. See the
+[Stitch DESIGN.md docs](https://stitch.withgoogle.com/docs/design-md/overview/)
+for the full workflow.
