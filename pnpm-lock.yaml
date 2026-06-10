@@ -39,8 +39,8 @@ importers:
         specifier: ^5.2.1
         version: 5.35.3
       reablocks:
-        specifier: ^10.2.0
-        version: 10.2.0(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^10.3.0
+        version: 10.3.0(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       reablocks-docs-theme:
         specifier: 2.3.3
         version: 2.3.3(@emotion/is-prop-valid@0.8.8)(@types/react@19.2.15)(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(nextra@4.6.1(next@15.5.18(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(prop-types@15.8.1)(react-compiler-runtime@19.1.0-rc.3(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(use-sync-external-store@1.6.0(react@19.2.6))
@@ -2888,6 +2888,9 @@ packages:
   date-fns@4.3.0:
     resolution: {integrity: sha512-OYcL+3N/jyWbYdFGqoMAhytDgxP9pbYPUUiRCOgn4Fewaadk9l/Wam4Avciiyp2BgkpfQyBV9B+ehnVJych+eQ==}
 
+  date-fns@4.4.0:
+    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
+
   dayjs@1.11.21:
     resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
 
@@ -4898,9 +4901,9 @@ packages:
       react-compiler-runtime:
         optional: true
 
-  reablocks@10.2.0:
-    resolution: {integrity: sha512-OnRaB5Eua3XdQtnZLwYKGkoS3F9YfLodslC8f61Gv8zT106o1zzbg7YafR6bdwZRmh2adAu64B8jYJ16bQBKhQ==}
-    engines: {node: '>=22', npm: '>=10.8.2'}
+  reablocks@10.3.0:
+    resolution: {integrity: sha512-Y1FF/5ye9LAEeJ61hycs4AHenfwUXbYdxM+qLWotRjYSBZNRaUrhoWTvd6oZHJjAAV1NDaHRqcQjYjCc2Fmlbw==}
+    engines: {node: '>=22.13.0', npm: '>=10.8.2'}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -8799,6 +8802,8 @@ snapshots:
 
   date-fns@4.3.0: {}
 
+  date-fns@4.4.0: {}
+
   dayjs@1.11.21: {}
 
   debug@2.6.9:
@@ -11412,7 +11417,7 @@ snapshots:
       - prop-types
       - use-sync-external-store
 
-  reablocks@10.2.0(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  reablocks@10.3.0(@emotion/is-prop-valid@0.8.8)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       '@floating-ui/react': 0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       body-scroll-lock-upgrade: 1.1.0
@@ -11420,7 +11425,7 @@ snapshots:
       classnames: 2.5.1
       create-global-state-hook: 0.0.2
       ctrl-keys: 1.0.6
-      date-fns: 4.3.0
+      date-fns: 4.4.0
       ellipsize: 0.7.0
       focus-trap-react: 12.0.2(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       human-format: 1.2.1
